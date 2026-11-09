@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-11-09T22:59:20+00:00",
+  "updatedAt": "2026-11-09T23:12:57+00:00",
   "sourceIndex": {
     "Bibliotecas de Matosinhos": {
       "url": "https://www.bibliotecasearquivosmatosinhos.pt/",
       "ok": true,
-      "checkedAt": "2026-11-09T22:58:40+00:00",
+      "checkedAt": "2026-11-09T23:12:10+00:00",
       "lastLinks": [
         "https://www.bibliotecasearquivosmatosinhos.pt/evento-44/bebeteca-magica-o-meu-primeiro-paninho",
         "https://www.bibliotecasearquivosmatosinhos.pt/evento-44/bebeteca-magica-yoga-de-encantar-48",
@@ -32,13 +32,13 @@
           "error": "robots.txt unavailable: HTTP 400"
         }
       ],
-      "lastSuccessfulAt": "2026-11-09T22:58:40+00:00",
+      "lastSuccessfulAt": "2026-11-09T23:12:10+00:00",
       "contentStatus": "links-found"
     },
     "Bibliotecas do Porto": {
       "url": "https://www.bibliotecasdoporto.pt/programa/",
       "ok": true,
-      "checkedAt": "2026-11-09T22:58:44+00:00",
+      "checkedAt": "2026-11-09T23:12:15+00:00",
       "lastLinks": [
         "https://www.bibliotecasdoporto.pt/evento/papi-opus-8-espetaculo/",
         "https://www.bibliotecasdoporto.pt/programa/evento/papi-opus-11-espetaculo/",
@@ -64,137 +64,137 @@
           "error": "HTTPError: 404 Client Error: Not Found for url: https://www.bibliotecasdoporto.pt/programa/evento/papi-opus-8-espetaculo/"
         }
       ],
-      "lastSuccessfulAt": "2026-11-09T22:58:44+00:00",
+      "lastSuccessfulAt": "2026-11-09T23:12:15+00:00",
       "contentStatus": "links-found"
     },
     "Biblioteca da Maia": {
       "url": "https://www.cm-maia.pt/",
       "ok": true,
-      "checkedAt": "2026-11-09T22:58:46+00:00",
+      "checkedAt": "2026-11-09T23:12:17+00:00",
       "lastLinks": [],
       "relevantLinks": 0,
       "detailErrors": [],
-      "lastSuccessfulAt": "2026-11-09T22:58:46+00:00",
+      "lastSuccessfulAt": "2026-11-09T23:12:17+00:00",
       "contentStatus": "no-relevant-links"
     },
     "Bibliotecas de Gaia": {
       "url": "https://www.cm-gaia.pt/",
       "ok": true,
-      "checkedAt": "2026-11-09T22:58:53+00:00",
+      "checkedAt": "2026-11-09T23:12:24+00:00",
       "lastLinks": [],
       "relevantLinks": 0,
       "detailErrors": [],
-      "lastSuccessfulAt": "2026-11-09T22:58:53+00:00",
+      "lastSuccessfulAt": "2026-11-09T23:12:24+00:00",
       "contentStatus": "no-relevant-links"
     },
     "Oficina Josefina": {
       "url": "https://www.oficinajosefina.com/beb%C3%A9s",
       "ok": true,
-      "checkedAt": "2026-11-09T22:58:54+00:00",
+      "checkedAt": "2026-11-09T23:12:26+00:00",
       "lastLinks": [
         "https://www.oficinajosefina.com/beb%C3%A9s"
       ],
       "relevantLinks": 1,
       "detailErrors": [],
-      "lastSuccessfulAt": "2026-11-09T22:58:54+00:00",
+      "lastSuccessfulAt": "2026-11-09T23:12:26+00:00",
       "contentStatus": "links-found"
     },
     "PlayLab Porto": {
       "url": "https://playlabporto.beehiiv.com/",
       "ok": true,
-      "checkedAt": "2026-11-09T22:58:56+00:00",
+      "checkedAt": "2026-11-09T23:12:29+00:00",
       "lastLinks": [
         "https://playlabporto.beehiiv.com/p/setembro-no-playlab-e-o-nosso-segundo-aniversario"
       ],
       "relevantLinks": 1,
       "detailErrors": [],
-      "lastSuccessfulAt": "2026-11-09T22:58:56+00:00",
+      "lastSuccessfulAt": "2026-11-09T23:12:29+00:00",
       "contentStatus": "links-found"
     },
     "Guli Family Club": {
       "url": "https://www.guli.pt/actividades/",
       "ok": true,
-      "checkedAt": "2026-11-09T22:59:01+00:00",
+      "checkedAt": "2026-11-09T23:12:34+00:00",
       "lastLinks": [],
       "relevantLinks": 0,
       "detailErrors": [],
-      "lastSuccessfulAt": "2026-11-09T22:59:01+00:00",
+      "lastSuccessfulAt": "2026-11-09T23:12:34+00:00",
       "contentStatus": "no-relevant-links"
     },
     "Casa da Música": {
       "url": "https://casadamusica.com/agenda/",
       "ok": true,
-      "checkedAt": "2026-11-09T22:59:03+00:00",
+      "checkedAt": "2026-11-09T23:12:37+00:00",
       "lastLinks": [
         "https://casadamusica.com/event/som-de-ca-e-de-la/"
       ],
       "relevantLinks": 1,
       "detailErrors": [],
-      "lastSuccessfulAt": "2026-11-09T22:59:03+00:00",
+      "lastSuccessfulAt": "2026-11-09T23:12:37+00:00",
       "contentStatus": "links-found"
     },
     "Casa da Arquitetura": {
       "url": "https://casadaarquitetura.pt/",
       "ok": true,
-      "checkedAt": "2026-11-09T22:59:05+00:00",
+      "checkedAt": "2026-11-09T23:12:40+00:00",
       "lastLinks": [
         "https://casadaarquitetura.pt/pt/servico-educativo/oficinas/oficinas-para-familias-ultimo-domingo-de-cada-mes-2030-04-20/"
       ],
       "relevantLinks": 1,
       "detailErrors": [],
-      "lastSuccessfulAt": "2026-11-09T22:59:05+00:00",
+      "lastSuccessfulAt": "2026-11-09T23:12:40+00:00",
       "contentStatus": "links-found"
     },
     "Allegrow Kids": {
       "url": "https://allegrowkids.pt/en",
       "ok": true,
-      "checkedAt": "2026-11-09T22:59:07+00:00",
+      "checkedAt": "2026-11-09T23:12:41+00:00",
       "lastLinks": [],
       "relevantLinks": 0,
       "detailErrors": [],
-      "lastSuccessfulAt": "2026-11-09T22:59:07+00:00",
+      "lastSuccessfulAt": "2026-11-09T23:12:41+00:00",
       "contentStatus": "no-relevant-links"
     },
     "Pequenos Planos": {
       "url": "https://pequenosplanos.pt/eventos",
       "ok": true,
-      "checkedAt": "2026-11-09T22:59:13+00:00",
+      "checkedAt": "2026-11-09T23:12:49+00:00",
       "lastLinks": [
-        "https://pequenosplanos.pt/event/clube-da-saude-nini-e-simao-2026-11-10",
-        "https://pequenosplanos.pt/event/contamos-contigo-circo-de-historias-2026-11-14",
-        "https://pequenosplanos.pt/event/era-uma-vez-o-sao-martinho-outra-vez-2026-11-14",
-        "https://pequenosplanos.pt/event/historia-joao-pateta",
         "https://pequenosplanos.pt/event/historias-fiadas-maia-0711",
         "https://pequenosplanos.pt/event/hora-do-conto-2026-11-15",
         "https://pequenosplanos.pt/event/hora-do-conto-paredes-2026-11-21",
-        "https://pequenosplanos.pt/event/livro-das-historias-magicas-gondomar-2026-11-28",
         "https://pequenosplanos.pt/event/musica-com-bebes-papas-paredes-2026-11-28",
         "https://pequenosplanos.pt/event/musica-para-bebes-fnac-gaia-2026-11-15",
-        "https://pequenosplanos.pt/event/o-nabo-gigante-contos-e-recontos-2026-11-14",
-        "https://pequenosplanos.pt/event/world-rock-bebe-gaia-15-nov"
+        "https://pequenosplanos.pt/event/world-rock-bebe-gaia-15-nov",
+        "https://pequenosplanos.pt/event/world-rock-bebe-gaia-22-nov",
+        "https://pequenosplanos.pt/event/world-rock-bebe-gaia-29-nov",
+        "https://pequenosplanos.pt/event/a-invencao-da-natureza-casa-da-musica-2026-11-15",
+        "https://pequenosplanos.pt/event/cinema-infantil-tom-jerry-alameda-2026-11-15",
+        "https://pequenosplanos.pt/event/coro-infantil-casa-da-musica-2026-12-20",
+        "https://pequenosplanos.pt/event/cozinha-pedagogica-claudia-monte-2026-11-14"
       ],
       "relevantLinks": 12,
       "detailErrors": [],
-      "lastSuccessfulAt": "2026-11-09T22:59:13+00:00",
+      "lastSuccessfulAt": "2026-11-09T23:12:49+00:00",
       "contentStatus": "links-found"
     },
     "Viral Agenda": {
       "url": "https://www.viralagenda.com/pt/porto",
       "ok": true,
-      "checkedAt": "2026-11-09T22:59:16+00:00",
+      "checkedAt": "2026-11-09T23:12:53+00:00",
       "lastLinks": [
         "https://www.viralagenda.com/pt/events/1878424/historias-sem-fronteiras",
         "https://www.viralagenda.com/pt/events/1879251/vozes-em-roda-oficina-de-canto-improvisado-em-roda"
       ],
       "relevantLinks": 2,
       "detailErrors": [],
-      "lastSuccessfulAt": "2026-11-09T22:59:16+00:00",
+      "lastSuccessfulAt": "2026-11-09T23:12:53+00:00",
       "contentStatus": "links-found"
     },
     "Pumpkin": {
       "url": "https://pumpkin.pt/agenda/",
       "ok": true,
-      "checkedAt": "2026-11-09T22:59:19+00:00",
+      "checkedAt": "2026-11-09T23:12:56+00:00",
       "lastLinks": [
         "https://pumpkin.pt/bebes/",
         "https://pumpkin.pt/bebes/agenda-bebes/",
@@ -211,18 +211,83 @@
       ],
       "relevantLinks": 12,
       "detailErrors": [],
-      "lastSuccessfulAt": "2026-11-09T22:59:19+00:00",
+      "lastSuccessfulAt": "2026-11-09T23:12:56+00:00",
       "contentStatus": "links-found"
     }
   },
   "discoveries": [
+    {
+      "id": "c75a6265dd23362",
+      "title": "Música DOM 22 NOV World Rock Bebé — Rock Me Baby | 22 novembro Auditório Municipal de Gaia · Vila Nova de Gaia 0–5 anos Atividade paga",
+      "url": "https://pequenosplanos.pt/event/world-rock-bebe-gaia-22-nov",
+      "source": "Pequenos Planos",
+      "firstSeen": "2026-11-09T23:12:46+00:00",
+      "lastSeen": "2026-11-09T23:12:46+00:00",
+      "status": "Por confirmar",
+      "priority": 2,
+      "minMonths": 0,
+      "maxMonths": 60,
+      "ageEvidence": "announcement-title"
+    },
+    {
+      "id": "147124badd3781e",
+      "title": "Música DOM 29 NOV World Rock Bebé — Rock Me Baby | 29 novembro Auditório Municipal de Gaia · Vila Nova de Gaia 0–5 anos Atividade paga",
+      "url": "https://pequenosplanos.pt/event/world-rock-bebe-gaia-29-nov",
+      "source": "Pequenos Planos",
+      "firstSeen": "2026-11-09T23:12:46+00:00",
+      "lastSeen": "2026-11-09T23:12:46+00:00",
+      "status": "Por confirmar",
+      "priority": 2,
+      "minMonths": 0,
+      "maxMonths": 60,
+      "ageEvidence": "announcement-title"
+    },
+    {
+      "id": "e62d0fdcfb7dfb8",
+      "title": "Música DOM 15 NOV A Invenção da Natureza Casa da Música · Porto 0–6 anos 0,5 € por criança",
+      "url": "https://pequenosplanos.pt/event/a-invencao-da-natureza-casa-da-musica-2026-11-15",
+      "source": "Pequenos Planos",
+      "firstSeen": "2026-11-09T23:12:46+00:00",
+      "lastSeen": "2026-11-09T23:12:46+00:00",
+      "status": "Por confirmar",
+      "priority": 2,
+      "minMonths": 0,
+      "maxMonths": 72,
+      "ageEvidence": "announcement-title"
+    },
+    {
+      "id": "c03717a9cd7d9ba",
+      "title": "Música DOM 20 DEZ Coro Infantil Casa da Música — Café com Nata Casa da Música — Sala 2 · Porto 0–10 anos 14 € por criança",
+      "url": "https://pequenosplanos.pt/event/coro-infantil-casa-da-musica-2026-12-20",
+      "source": "Pequenos Planos",
+      "firstSeen": "2026-11-09T23:12:46+00:00",
+      "lastSeen": "2026-11-09T23:12:46+00:00",
+      "status": "Por confirmar",
+      "priority": 2,
+      "minMonths": 0,
+      "maxMonths": 120,
+      "ageEvidence": "announcement-title"
+    },
+    {
+      "id": "5ba27f3fb2f7424",
+      "title": "Bebeteca Mágica — O Meu Primeiro Paninho",
+      "url": "https://www.bibliotecasearquivosmatosinhos.pt/evento-44/bebeteca-magica-o-meu-primeiro-paninho",
+      "source": "Bibliotecas de Matosinhos",
+      "firstSeen": "2026-11-09T23:12:03+00:00",
+      "lastSeen": "2026-11-09T23:12:03+00:00",
+      "status": "Por confirmar",
+      "priority": 1,
+      "minMonths": 6,
+      "maxMonths": 36,
+      "ageEvidence": "official-adapter"
+    },
     {
       "id": "6f14fa4158c0bb5",
       "title": "Hora do Conto Grátis SÁB 21 NOV Hora do Conto: Onde as histórias ganham asas Biblioteca Municipal de Paredes · Paredes 2–6 anos Entrada gratuita",
       "url": "https://pequenosplanos.pt/event/hora-do-conto-paredes-2026-11-21",
       "source": "Pequenos Planos",
       "firstSeen": "2026-11-09T22:51:32+00:00",
-      "lastSeen": "2026-11-09T22:59:10+00:00",
+      "lastSeen": "2026-11-09T23:12:46+00:00",
       "status": "Por confirmar",
       "priority": 2,
       "minMonths": 24,
@@ -235,7 +300,7 @@
       "url": "https://pequenosplanos.pt/event/musica-com-bebes-papas-paredes-2026-11-28",
       "source": "Pequenos Planos",
       "firstSeen": "2026-11-09T22:51:32+00:00",
-      "lastSeen": "2026-11-09T22:59:10+00:00",
+      "lastSeen": "2026-11-09T23:12:46+00:00",
       "status": "Por confirmar",
       "priority": 2,
       "minMonths": 0,
@@ -248,7 +313,7 @@
       "url": "https://pequenosplanos.pt/event/musica-para-bebes-fnac-gaia-2026-11-15",
       "source": "Pequenos Planos",
       "firstSeen": "2026-11-09T22:51:32+00:00",
-      "lastSeen": "2026-11-09T22:59:10+00:00",
+      "lastSeen": "2026-11-09T23:12:46+00:00",
       "status": "Por confirmar",
       "priority": 2,
       "minMonths": 0,
@@ -261,7 +326,7 @@
       "url": "https://pequenosplanos.pt/event/world-rock-bebe-gaia-15-nov",
       "source": "Pequenos Planos",
       "firstSeen": "2026-11-09T22:51:32+00:00",
-      "lastSeen": "2026-11-09T22:59:10+00:00",
+      "lastSeen": "2026-11-09T23:12:46+00:00",
       "status": "Por confirmar",
       "priority": 2,
       "minMonths": 0,
