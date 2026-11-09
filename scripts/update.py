@@ -349,9 +349,10 @@ def scan(sources,previous,history,now):
     results={};new_msgs=[];auto_add=[]
     for src in sources:
         name,url=src['name'],src['url'];print('Checking',name,url,flush=True)
+        metadata={key:src[key] for key in ('instagramUrl','monitoringNote','agePolicyUrl') if key in src}
         html,err=fetch(url)
         if err:
-            results[name]={'url':url,'ok':False,'error':err,'checkedAt':stamp(),'lastLinks':old_index.get(name,{}).get('lastLinks',[]),'lastSuccessfulAt':old_index.get(name,{}).get('lastSuccessfulAt')}
+            results[name]={**metadata,'url':url,'ok':False,'error':err,'checkedAt':stamp(),'lastLinks':old_index.get(name,{}).get('lastLinks',[]),'lastSuccessfulAt':old_index.get(name,{}).get('lastSuccessfulAt')}
             continue
         links,soup=links_from(html,url)
         clean_soup=BeautifulSoup(html,'html.parser')
@@ -432,7 +433,7 @@ def scan(sources,previous,history,now):
                     new_msgs.append(f"Novo link de formulário encontrado — {t} ({name})\n{next(iter(new_forms))}\nAbertura de vagas por confirmar")
                 if prevsignal and set(dates)-set(prevsignal.get('openingDates',[])):
                     new_msgs.append(f"Data de inscrições anunciada — {t}\n{', '.join(dates)}\n{u}")
-        results[name]={'url':url,'ok':True,'checkedAt':stamp(),'lastLinks':found,'relevantLinks':len(found),'detailErrors':detail_errors,'lastSuccessfulAt':stamp(),'contentStatus':'links-found' if found else 'no-relevant-links'}
+        results[name]={**metadata,'url':url,'ok':True,'checkedAt':stamp(),'lastLinks':found,'relevantLinks':len(found),'detailErrors':detail_errors,'lastSuccessfulAt':stamp(),'contentStatus':'links-found' if found else 'no-relevant-links'}
         time.sleep(.35)
     # If crawl fails: don't remove existing data or overwrite observed leads.
     qualified=[item for discovery in old_disc.values() if (item:=qualify_discovery(discovery)) is not None]

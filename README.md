@@ -109,3 +109,7 @@ Continuam por fazer: adaptadores específicos para Oficina Josefina e ALLEGROW, 
 ## Critério de idade: menores de 3 anos
 
 A idade mínima tem de ser **inferior a 36 meses**. “A partir dos 3 anos”, “3+”, “3–10 anos” e “36–48 meses” são excluídos, incluindo dos novos anúncios. Intervalos como “6–36 meses” e “2–6 anos” incluem crianças menores de 3 anos e podem ser apresentados. Anúncios sem faixa etária explícita ficam fora do painel até haver evidência no título, no evento estruturado ou no adaptador oficial. A etiqueta “por validar” refere-se aos restantes detalhes; não permite ignorar a faixa etária. As mesmas regras são aplicadas novamente aos dados antigos em cada recolha.
+
+## Knock-Knock Family Club
+
+Incluído nas fontes prioritárias através do [calendário oficial](https://www.knock-knock.pt/calendario), com ligação para o perfil de Instagram indicado pelo identificador no site oficial. A leitura de Instagram não é automática e pode ser bloqueada. O espaço admite 0–5 anos segundo as regras oficiais, mas isso não confirma a idade de cada workshop. Não se criam sessões sem data, hora e evidência etária específica. Na verificação de 9 de novembro de 2026, o calendário público não tinha ocorrências nas seis semanas seguintes.

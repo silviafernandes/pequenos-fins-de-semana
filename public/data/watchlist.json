@@ -1,15 +1,89 @@
 [
-  {"name":"Bibliotecas de Matosinhos","url":"https://www.bibliotecasearquivosmatosinhos.pt/","type":"page","priority":1},
-  {"name":"Bibliotecas do Porto","url":"https://www.bibliotecasdoporto.pt/programa/","type":"page","priority":1},
-  {"name":"Biblioteca da Maia","url":"https://www.cm-maia.pt/","type":"page","priority":1},
-  {"name":"Bibliotecas de Gaia","url":"https://www.cm-gaia.pt/","type":"page","priority":2},
-  {"name":"Oficina Josefina","url":"https://www.oficinajosefina.com/beb%C3%A9s","type":"page","priority":1},
-  {"name":"PlayLab Porto","url":"https://playlabporto.beehiiv.com/","type":"page","priority":1},
-  {"name":"Guli Family Club","url":"https://www.guli.pt/actividades/","type":"page","priority":2},
-  {"name":"Casa da Música","url":"https://casadamusica.com/agenda/","type":"page","priority":1},
-  {"name":"Casa da Arquitetura","url":"https://casadaarquitetura.pt/","type":"page","priority":2},
-  {"name":"Allegrow Kids","url":"https://allegrowkids.pt/en","type":"page","priority":2},
-  {"name":"Pequenos Planos","url":"https://pequenosplanos.pt/eventos","type":"page","priority":2},
-  {"name":"Viral Agenda","url":"https://www.viralagenda.com/pt/porto","type":"page","priority":3},
-  {"name":"Pumpkin","url":"https://pumpkin.pt/agenda/","type":"page","priority":3}
+  {
+    "name": "Bibliotecas de Matosinhos",
+    "url": "https://www.bibliotecasearquivosmatosinhos.pt/",
+    "type": "page",
+    "priority": 1
+  },
+  {
+    "name": "Bibliotecas do Porto",
+    "url": "https://www.bibliotecasdoporto.pt/programa/",
+    "type": "page",
+    "priority": 1
+  },
+  {
+    "name": "Biblioteca da Maia",
+    "url": "https://www.cm-maia.pt/",
+    "type": "page",
+    "priority": 1
+  },
+  {
+    "name": "Bibliotecas de Gaia",
+    "url": "https://www.cm-gaia.pt/",
+    "type": "page",
+    "priority": 2
+  },
+  {
+    "name": "Oficina Josefina",
+    "url": "https://www.oficinajosefina.com/beb%C3%A9s",
+    "type": "page",
+    "priority": 1
+  },
+  {
+    "name": "PlayLab Porto",
+    "url": "https://playlabporto.beehiiv.com/",
+    "type": "page",
+    "priority": 1
+  },
+  {
+    "name": "Guli Family Club",
+    "url": "https://www.guli.pt/actividades/",
+    "type": "page",
+    "priority": 2
+  },
+  {
+    "name": "Casa da Música",
+    "url": "https://casadamusica.com/agenda/",
+    "type": "page",
+    "priority": 1
+  },
+  {
+    "name": "Casa da Arquitetura",
+    "url": "https://casadaarquitetura.pt/",
+    "type": "page",
+    "priority": 2
+  },
+  {
+    "name": "Allegrow Kids",
+    "url": "https://allegrowkids.pt/en",
+    "type": "page",
+    "priority": 2
+  },
+  {
+    "name": "Pequenos Planos",
+    "url": "https://pequenosplanos.pt/eventos",
+    "type": "page",
+    "priority": 2
+  },
+  {
+    "name": "Viral Agenda",
+    "url": "https://www.viralagenda.com/pt/porto",
+    "type": "page",
+    "priority": 3
+  },
+  {
+    "name": "Pumpkin",
+    "url": "https://pumpkin.pt/agenda/",
+    "type": "page",
+    "priority": 3
+  },
+  {
+    "name": "Knock-Knock Family Club",
+    "url": "https://www.knock-knock.pt/calendario",
+    "type": "page",
+    "priority": 1,
+    "instagramUrl": "https://www.instagram.com/knockknockfamilyclub/",
+    "monitoringNote": "Calendário oficial integrado. Instagram requer consulta manual; datas e idades de cada sessão têm de ser confirmadas.",
+    "agePolicyUrl": "https://www.knock-knock.pt/regrasinfos"
+  }
 ]
