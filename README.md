@@ -1,6 +1,6 @@
 # Pequenos fins de semana ✳
 
-Uma agenda pessoal para descobrir **atividades de bebés e crianças até aos 3 anos** nas proximidades dos **CTT dos 4 Caminhos, Senhora da Hora**. Dá prioridade às atividades **às 10:00**, que terminem antes da sesta das **12:00**, e às **inscrições da Biblioteca Municipal Florbela Espanca**.
+Uma agenda pessoal para descobrir **atividades de bebés e crianças com menos de 3 anos** nas proximidades dos **CTT dos 4 Caminhos, Senhora da Hora**. Dá prioridade às atividades **às 10:00**, que terminem antes da sesta das **12:00**, e às **inscrições da Biblioteca Municipal Florbela Espanca**.
 
 O projeto contém um dashboard React (Vite), uma recolha conservadora de anúncios públicos em Python, histórico de alterações e uma automação **GitHub Actions → GitHub Pages**. O site fica numa **URL permanente** e os dados são republicados quando a tarefa agendada termina.
 
@@ -105,3 +105,7 @@ npm run test:browser
 O teste de browser utiliza dados fictícios identificados no próprio teste, uma data fixa e um servidor local; não faz reservas nem envia notificações. A fixture de Matosinhos é um excerto do HTML público, com URL e data de recolha no ficheiro.
 
 Continuam por fazer: adaptadores específicos para Oficina Josefina e ALLEGROW, geocodificação e exclusão rigorosa fora dos 15 km, e validação da entrega de Telegram com credenciais configuradas.
+
+## Critério de idade: menores de 3 anos
+
+A idade mínima tem de ser **inferior a 36 meses**. “A partir dos 3 anos”, “3+”, “3–10 anos” e “36–48 meses” são excluídos, incluindo dos novos anúncios. Intervalos como “6–36 meses” e “2–6 anos” incluem crianças menores de 3 anos e podem ser apresentados. Anúncios sem faixa etária explícita ficam fora do painel até haver evidência no título, no evento estruturado ou no adaptador oficial. A etiqueta “por validar” refere-se aos restantes detalhes; não permite ignorar a faixa etária. As mesmas regras são aplicadas novamente aos dados antigos em cada recolha.

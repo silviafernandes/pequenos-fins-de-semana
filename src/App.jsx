@@ -5,6 +5,7 @@ import {
   ExternalLink, Filter, Heart, Info, MapPin, Menu, RefreshCw, Search,
   Sparkles, Ticket, X, CircleAlert, CalendarPlus, ImageOff, Star, Sun, Compass
 } from 'lucide-react'
+import { underThree } from './age.js'
 import initial from './initialData.json'
 import initialHistory from './initialHistory.json'
 import initialDiscoveries from './initialDiscoveries.json'
@@ -96,9 +97,9 @@ function SourcePanel({history,discoveries}){
  </section>
 }
 function Discoveries({data}) {
- const leads=(data.discoveries||[]).filter(d=>d.title&&d.url).slice(0,8)
+ const leads=(data.discoveries||[]).filter(d=>d.title&&d.url&&underThree(d)).slice(0,8)
  if (!leads.length) return null
- return <section className="new-discoveries" id="novidades"><div className="section-heading small"><div><div className="eyebrow">PUBLICADOS RECENTEMENTE NAS FONTES</div><h2>Novos anúncios<span>.</span></h2><p>Encontrados automaticamente — ainda não são atividades nem inscrições confirmadas.</p></div></div><div className="discoveries-list">{leads.map(item=><article className="discovery" key={item.id}><div className="tiny-title">{item.source} · POR VALIDAR</div><h3>{item.title}</h3><p>Confirmar data, idade, local e abertura de inscrições no site de origem.</p><a href={item.url} target="_blank" rel="noopener noreferrer">Ver anúncio <ArrowUpRight size={14}/></a><div className="discovery-status">Detetado: {new Date(item.firstSeen).toLocaleDateString('pt-PT',{timeZone:'Europe/Lisbon'})}</div></article>)}</div></section>
+ return <section className="new-discoveries" id="novidades"><div className="section-heading small"><div><div className="eyebrow">PUBLICADOS RECENTEMENTE NAS FONTES</div><h2>Novos anúncios<span>.</span></h2><p>Anúncios com faixa etária que inclui menores de 3 anos — restantes detalhes por validar.</p></div></div><div className="discoveries-list">{leads.map(item=><article className="discovery" key={item.id}><div className="tiny-title">{item.source} · POR VALIDAR</div><h3>{item.title}</h3><p>Confirmar data, idade, local e abertura de inscrições no site de origem.</p><a href={item.url} target="_blank" rel="noopener noreferrer">Ver anúncio <ArrowUpRight size={14}/></a><div className="discovery-status">Detetado: {new Date(item.firstSeen).toLocaleDateString('pt-PT',{timeZone:'Europe/Lisbon'})}</div></article>)}</div></section>
 }
 function Footer({lastSuccessfulScan}){return <footer><div className="footer-left"><span className="logo-mark">✳</span><div><strong>Pequenos fins de semana</strong><small>Planos pequenos. Manhãs grandes.</small></div></div><div className="footer-right">Dados públicos e fontes oficiais, sempre que possível.<br/>Vagas e horários devem ser confirmados na origem. <span>© 2026</span></div></footer>}
 function App(){
@@ -109,7 +110,7 @@ function App(){
  useEffect(()=>{let active=true;const load=()=>Promise.all([fetch(DATA_URL,{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('data');return r.json()}),fetch(HISTORY_URL,{cache:'no-store'}).then(r=>r.ok?r.json():initialHistory),fetch(DISCOVERIES_URL,{cache:'no-store'}).then(r=>r.ok?r.json():initialDiscoveries)]).then(([d,h,v])=>{if(active){setData(d);setHistory(h);setDiscoveries(v);setFetchError(false)}}).catch(()=>{if(active)setFetchError(true)});load();const timer=setInterval(load,10*60*1000);return()=>{active=false;clearInterval(timer)}},[])
  const weekends=useMemo(nextSixWeekends,[])
  const today=nowPT(), end=datePlusDays(weekends[5],1)
- const allEvents=useMemo(()=>data.events.filter(e=>e.date>=today&&e.date<=end&&(!Number.isFinite(e.minMonths)||e.minMonths<=36)&&(!Number.isFinite(e.maxMonths)||e.maxMonths>=0)),[data.events,today,end])
+ const allEvents=useMemo(()=>data.events.filter(e=>e.date>=today&&e.date<=end&&underThree(e)),[data.events,today,end])
  const displayed=useMemo(()=>allEvents.filter(e=>{
   const text=[e.title,e.venue,e.area,e.description,e.kind].join(' ').toLocaleLowerCase('pt-PT')
   if(search&&!text.includes(search.toLocaleLowerCase('pt-PT')))return false
@@ -128,7 +129,7 @@ function App(){
  const toggleFav=id=>setFavorites(old=>{const value=old.includes(id)?old.filter(x=>x!==id):[...old,id];localStorage.setItem('pfds-favorites',JSON.stringify(value));return value})
  const titlePeriod=`${monthDay(weekends[0])} – ${monthDay(datePlusDays(weekends[5],1))}`
  return <div className="site-shell"><header><div className="wide nav"><a className="brand" href="#inicio" aria-label="Página inicial"><span className="logo-mark">✳</span><span>pequenos <strong>fins de semana</strong></span></a><nav><a href="#atividades">Atividades</a><a href="#fontes">Inscrições</a></nav><div className="nav-right"><span className="pulse"/><span>GUIA ATUALIZÁVEL</span></div></div></header>
- <main id="inicio"><section className="hero"><div className="wide hero-inner"><div className="hero-text"><div className="eyebrow"><span className="eyebrow-dot"/> 0–3 ANOS · MATOSINHOS & ARREDORES</div><h1>Planos pequenos.<br/><em>Manhãs grandes.</em></h1><div className="hero-meta"><span><MapPin size={15}/> Perto dos CTT 4 Caminhos · distâncias por verificar</span><span><Sun size={16}/> Preferência: 10:00</span></div></div><div className="hero-art" aria-hidden="true"><div className="art-orbit"><div className="circle-a"></div><div className="circle-b"></div><div className="circle-c"></div><div className="handdrawn">✳</div><div className="mini-dash dash1">✦</div><div className="mini-dash dash2">✳</div></div><span className="art-label">FEITO PARA<br/>PEQUENOS CURIOSOS</span></div></div></section>
+ <main id="inicio"><section className="hero"><div className="wide hero-inner"><div className="hero-text"><div className="eyebrow"><span className="eyebrow-dot"/> MENORES DE 3 ANOS · MATOSINHOS & ARREDORES</div><h1>Planos pequenos.<br/><em>Manhãs grandes.</em></h1><div className="hero-meta"><span><MapPin size={15}/> Perto dos CTT 4 Caminhos · distâncias por verificar</span><span><Sun size={16}/> Preferência: 10:00</span></div></div><div className="hero-art" aria-hidden="true"><div className="art-orbit"><div className="circle-a"></div><div className="circle-b"></div><div className="circle-c"></div><div className="handdrawn">✳</div><div className="mini-dash dash1">✦</div><div className="mini-dash dash2">✳</div></div><span className="art-label">FEITO PARA<br/>PEQUENOS CURIOSOS</span></div></div></section>
  <div className="wide content"><div className="update-row"><span className="updated-indicator"><RefreshCw size={14}/> Dados: {data.updatedAt? new Date(data.updatedAt).toLocaleString('pt-PT',{dateStyle:'short',timeStyle:'short',timeZone:'Europe/Lisbon'}):'sem data'}</span><span className="range-indicator">Próximas 6 semanas <strong>{titlePeriod}</strong></span></div>
  {fetchError&&<div className="fallback-warning"><CircleAlert size={17}/> Sem ligação à atualização. A mostrar dados incluídos na aplicação; confirma sempre os links.</div>}
  {data.lastSuccessfulScan===null&&<div className="fallback-warning"><Info size={17}/> Versão inicial: a pesquisa automática começa quando o projeto estiver publicado e o GitHub Actions estiver ativado.</div>}

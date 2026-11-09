@@ -126,7 +126,7 @@ def links_from(html, base):
     return list(seen.items()),soup
 
 def possible_link(url,title):
-    if FORM_HOST.search(url): return False
+    if FORM_HOST.search(url) or excludes_under_three(title): return False
     if any(k in url.lower() for k in ('wp-admin','login','privacy','politica-de','newsletter','contactos','/tag/','/category/')):return False
     return bool((STRONG.search(title) and (LINK_PATH.search(url) or len(title)>18)) or (KEYWORDS.search(title) and LINK_PATH.search(url) and len(title)>12))
 
@@ -148,17 +148,66 @@ def extract_json_ld(soup):
 
 def age_band(text):
     """Parse explicit age *ranges*; intentionally reject vague 'for families'."""
-    t=strip_text(text).lower().replace('–','-').replace('—','-')
+    t=unicodedata.normalize('NFKC',strip_text(text)).lower().replace('–','-').replace('—','-')
     def match(p, factors):
         m=re.search(p,t)
         if not m:return None
         lo,hi=int(m.group(1))*factors[0],int(m.group(2))*factors[1]
         return (lo,hi) if 0<=lo<=hi<=144 else None
-    return (match(r'(\d{1,2})\s*(?:meses|m[eê]s|months)\s*(?:aos|a|at[eé]|to|-)\s*(\d{1,2})\s*(?:meses|m[eê]s|months)',(1,1))
+    ranged = (match(r'(\d{1,2})\s*(?:meses|m[eê]s|months)\s*(?:aos|a|at[eé]|to|-)\s*(\d{1,2})\s*(?:meses|m[eê]s|months)',(1,1))
         or match(r'(\d{1,2})\s*(?:meses|m[eê]s)\s*(?:aos|a|at[eé]|-)\s*(\d{1,2})\s*(?:anos|years)',(1,12))
         or match(r'(\d{1,2})\s*(?:anos|years)\s*(?:aos|a|at[eé]|to|-)\s*(\d{1,2})\s*(?:anos|years)',(12,12))
         or match(r'\b(\d{1,2})\s*(?:aos|a|at[eé]|-)\s*(\d{1,2})\s*(?:anos|years)\b',(12,12))
         or match(r'\b(\d{1,2})\s*(?:aos|a|at[eé]|-)\s*(\d{1,2})\s*(?:meses|months)\b',(1,1)))
+
+    if ranged: return ranged
+    lower = minimum_age(t)
+    return (lower,144) if lower is not None and lower <= 144 else None
+
+
+def minimum_age(text):
+    text=unicodedata.normalize('NFKC',strip_text(text)).lower()
+    unit=r'(meses|mês|mes|anos?|years?|months?|a\b)'
+    patterns=[
+        rf'(?:a partir d[eo](?:s)?|desde (?:os )?|maiores de|mais de|idade m[ií]nima(?: de)?|m[ií]nimo(?: de)?)\s*(\d{{1,2}})\s*{unit}',
+        rf'\+\s*(\d{{1,2}})\s*{unit}',
+        rf'\b(\d{{1,2}})\s*\+\s*{unit}',
+        rf'\b(\d{{1,2}})\s*{unit}\s*\+',
+        r'\bm/(\d{1,2})\b',
+        r'\b(\d{1,2})\s*\+(?!\s*(?:meses|mês|anos?|years?|months?|a\b))'
+    ]
+    ages=[]
+    for pattern in patterns:
+        for match in re.finditer(pattern,text):
+            value=int(match[1]); unit_text=match[2] if len(match.groups())>1 else 'anos'
+            ages.append(value if unit_text.startswith(('mês','mes','month')) else value*12)
+    return max(ages) if ages else None
+
+
+def excludes_under_three(text):
+    lower=minimum_age(text)
+    if lower is not None and lower >= 36: return True
+    band=age_band(text)
+    return band is not None and band[0] >= 36
+
+
+def qualify_discovery(item):
+    """Only publish announcements with explicit evidence of admission below 36 months."""
+    if excludes_under_three(item.get('title','')): return None
+    # A dated announcement already in the past is not a new plan.
+    dated=re.search(r'\b(?:seg|ter|qua|qui|sex|s[áa]b|dom)\s+(\d{1,2})\s+(jan|fev|mar|abr|mai|jun|jul|ago|set|out|nov|dez)\b',item.get('title',''),re.I)
+    if dated:
+        month=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'].index(dated[2].lower())+1
+        try: day=datetime(now_pt().year,month,int(dated[1]),tzinfo=PT).date()
+        except ValueError: return None
+        if day < now_pt().date(): return None
+    band=age_band(item.get('title',''))
+    if band is None and item.get('ageEvidence') in ('official-adapter','structured-event'):
+        lo,hi=item.get('minMonths'),item.get('maxMonths')
+        if isinstance(lo,(int,float)) and isinstance(hi,(int,float)): band=(lo,hi)
+    if band is None or not 0 <= band[0] < 36 or band[1] < band[0]: return None
+    return dict(item,minMonths=band[0],maxMonths=band[1],ageEvidence=item.get('ageEvidence') or 'announcement-title')
+
 
 def age_from_event(item):
     parts=[]
@@ -180,7 +229,7 @@ def make_event(item,source_url,source_name,now):
     if st.tzinfo:st=st.astimezone(PT)
     if st.weekday()<5 or not (now.date()<=st.date()<= (now+timedelta(days=45)).date()):return None
     age=age_from_event(item)
-    if not age or age[0]>36:return None
+    if not age or age[0]>=36 or excludes_under_three(' '.join(str(item.get(k,'')) for k in ('name','description','typicalAgeRange'))):return None
     loc=item.get('location',{})
     if isinstance(loc,list):loc=loc[0] if loc else {}
     if isinstance(loc,str):where=loc;venue=loc
@@ -295,7 +344,7 @@ def notify_telegram(lines):
 def scan(sources,previous,history,now):
     old_index=previous.get('sourceIndex',{})
     old_disc={d['id']:d for d in previous.get('discoveries',[])}
-    old_curated=load(DATA/'events.json',{});events=old_curated.get('events',[])
+    old_curated=load(DATA/'events.json',{});events=[e for e in old_curated.get('events',[]) if isinstance(e.get('minMonths'),(int,float)) and 0 <= e['minMonths'] < 36 and not excludes_under_three(e.get('ageText','')+' '+e.get('title',''))]
     existing={(e.get('sourceUrl'),e.get('date')) for e in events}
     results={};new_msgs=[];auto_add=[]
     for src in sources:
@@ -322,10 +371,10 @@ def scan(sources,previous,history,now):
         for u,t in relevant:
             eid=hashlib.sha256(u.encode()).hexdigest()[:15]
             old=old_disc.get(eid)
-            item={'id':eid,'title':t,'url':u,'source':name,'firstSeen':old.get('firstSeen') if old else stamp(),'lastSeen':stamp(),'status':'Por confirmar','priority':src.get('priority',3)}
+            item={**(old or {}),'id':eid,'title':t,'url':u,'source':name,'firstSeen':old.get('firstSeen') if old else stamp(),'lastSeen':stamp(),'status':'Por confirmar','priority':src.get('priority',3)}
             old_disc[eid]=item
             found.append(u)
-            if not first_scan and u not in prev and src.get('priority',3)<3:
+            if qualify_discovery(item) and not first_scan and u not in prev and src.get('priority',3)<3:
                 new_msgs.append(f"Novo anúncio potencial — {name}\n{t}\n{u}")
         ld=extract_json_ld(soup)
         for item in ld:
@@ -361,10 +410,16 @@ def scan(sources,previous,history,now):
             adapted = library_event(page,u,name,now) if urlparse(u).hostname == 'www.bibliotecasearquivosmatosinhos.pt' else None
             if adapted and (adapted['sourceUrl'],adapted['date']) not in existing:
                 auto_add.append(adapted);existing.add((adapted['sourceUrl'],adapted['date']))
+            age_event=adapted
             for x in extract_json_ld(s):
                 event=make_event(x,u,name,now)
+                if event and canonical(event['sourceUrl']) == canonical(u): age_event=event
                 if event and (event['sourceUrl'],event['date']) not in existing:
                     auto_add.append(event);existing.add((event['sourceUrl'],event['date']))
+            discovery_id=hashlib.sha256(u.encode()).hexdigest()[:15]
+            if age_event and discovery_id in old_disc:
+                old_disc[discovery_id].update(minMonths=age_event['minMonths'],maxMonths=age_event['maxMonths'],ageEvidence='official-adapter' if adapted else 'structured-event')
+            if not qualify_discovery(old_disc.get(discovery_id,{})): continue
             apply_registration(events+auto_add,history,u,t,name,forms,dates,stamp(),evidence_url)
             sig_id=hashlib.sha256(u.encode()).hexdigest()[:15]
             signals=history.setdefault('signals',{})
@@ -380,7 +435,8 @@ def scan(sources,previous,history,now):
         results[name]={'url':url,'ok':True,'checkedAt':stamp(),'lastLinks':found,'relevantLinks':len(found),'detailErrors':detail_errors,'lastSuccessfulAt':stamp(),'contentStatus':'links-found' if found else 'no-relevant-links'}
         time.sleep(.35)
     # If crawl fails: don't remove existing data or overwrite observed leads.
-    new_items=sorted(old_disc.values(),key=lambda d:d['firstSeen'],reverse=True)[:LIMIT_DISCOVERIES]
+    qualified=[item for discovery in old_disc.values() if (item:=qualify_discovery(discovery)) is not None]
+    new_items=sorted(qualified,key=lambda d:d['firstSeen'],reverse=True)[:LIMIT_DISCOVERIES]
     old_curated['events']=sorted(events+auto_add,key=lambda e:(e['date'],e.get('start') or '99:99'))
     if any(x['ok'] for x in results.values()):old_curated['lastSuccessfulScan']=stamp()
     old_curated['updatedAt']=stamp()
