@@ -1,0 +1,17 @@
+{
+  "observations": [
+    {
+      "id": "opening-paninho",
+      "eventId": "paninho-21",
+      "organiser": "Biblioteca Municipal Florbela Espanca",
+      "kind": "opening-announced",
+      "openingAt": "2026-11-13T10:00:00+00:00",
+      "eventAt": "2026-11-21T10:00:00+00:00",
+      "firstObserved": "2026-11-09",
+      "source": "User confirmed text displayed in the official registration form",
+      "sourceUrl": "https://forms.gle/htFeB3xMT6nSwXwDA",
+      "certainty": "confirmed-by-user"
+    }
+  ],
+  "alertKeys": []
+}
