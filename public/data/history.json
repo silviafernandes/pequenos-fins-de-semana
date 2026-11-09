@@ -54,7 +54,7 @@
         "https://docs.google.com/forms/d/e/1FAIpQLScd4N4mxUFYqP6l6kMYB6LvdyTCm4_Q5LGWyfWp5ekNYFtKSw/viewform?usp=sharing&ouid=114553891877352050867"
       ],
       "openingDates": [],
-      "lastChecked": "2026-11-09T22:53:25+00:00"
+      "lastChecked": "2026-11-09T22:58:56+00:00"
     },
     "0a3d4a32dde80cd": {
       "page": "https://www.viralagenda.com/pt/events/1878424/historias-sem-fronteiras",
@@ -64,7 +64,7 @@
         "https://forms.gle/jAEaYuLeBZLFsuDy6"
       ],
       "openingDates": [],
-      "lastChecked": "2026-11-09T22:53:49+00:00"
+      "lastChecked": "2026-11-09T22:59:16+00:00"
     },
     "ae4c0e104e17262": {
       "page": "https://pumpkin.pt/familia/agenda-familia/pecas-de-teatro-infantil/",
@@ -84,7 +84,7 @@
         "https://forms.gle/htFeB3xMT6nSwXwDA"
       ],
       "openingDates": [],
-      "lastChecked": "2026-11-09T22:52:49+00:00"
+      "lastChecked": "2026-11-09T22:58:34+00:00"
     },
     "44a43d31422cf6e": {
       "page": "https://www.bibliotecasearquivosmatosinhos.pt/evento-44/bebeteca-magica-yoga-de-encantar-48",
@@ -94,7 +94,7 @@
         "https://forms.gle/oPxnKEqQXquMoXrm8"
       ],
       "openingDates": [],
-      "lastChecked": "2026-11-09T22:52:50+00:00"
+      "lastChecked": "2026-11-09T22:58:35+00:00"
     },
     "646d93616daafc0": {
       "page": "https://www.bibliotecasearquivosmatosinhos.pt/evento-44/bebeteca-magica-yoga-de-encantar-esgotado",
@@ -154,7 +154,7 @@
         "https://forms.gle/vAcd9ZVzropnmTUh7"
       ],
       "openingDates": [],
-      "lastChecked": "2026-11-09T22:52:56+00:00"
+      "lastChecked": "2026-11-09T22:58:39+00:00"
     },
     "e9165201fcd298e": {
       "page": "https://www.viralagenda.com/pt/events/1879251/vozes-em-roda-oficina-de-canto-improvisado-em-roda",
@@ -164,13 +164,13 @@
         "https://forms.gle/TMoMrE3hea7xEfmi7"
       ],
       "openingDates": [],
-      "lastChecked": "2026-11-09T22:53:50+00:00"
+      "lastChecked": "2026-11-09T22:59:16+00:00"
     }
   },
-  "lastRun": "2026-11-09T22:53:54+00:00",
+  "lastRun": "2026-11-09T22:59:20+00:00",
   "scanStats": {
-    "sourcesOk": 12,
-    "sourcesFailed": 1,
+    "sourcesOk": 13,
+    "sourcesFailed": 0,
     "autoEvents": 0
   }
 }
