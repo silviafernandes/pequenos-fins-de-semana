@@ -92,6 +92,9 @@ class MonitoringTests(unittest.TestCase):
         item={'name':'Música para bebés 0-6 meses','startDate':'2026-11-15T10:00', 'location':'Porto'}
         event=update.make_event(item,URL,'Exemplo',NOW)
         self.assertEqual(event['maxMonths'],6)
+        for invalid_end in ('2026-11-15', '2026-11-15T09:00', '2026-11-16T11:00'):
+            item['endDate']=invalid_end
+            self.assertIsNone(update.make_event(item,URL,'Exemplo',NOW)['end'])
         item['startDate']='2026-11-15'
         self.assertIsNone(update.make_event(item,URL,'Exemplo',NOW))
 

@@ -194,6 +194,8 @@ def make_event(item,source_url,source_name,now):
     if not title or not KEYWORDS.search(title+' '+item.get('description','')):return None
     end=parse_dt(item.get('endDate'))
     if end and end.tzinfo:end=end.astimezone(PT)
+    if end and (not re.search(r'T\d{2}:\d{2}',item.get('endDate','')) or end.date()!=st.date() or end.replace(tzinfo=None)<=st.replace(tzinfo=None)):
+        end=None
     link=canonical(item.get('url')) or source_url
     offer=item.get('offers') or {}
     if isinstance(offer,list):offer=offer[0] if offer else {}
