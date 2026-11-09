@@ -13,5 +13,164 @@
       "certainty": "confirmed-by-user"
     }
   ],
-  "alertKeys": []
+  "alertKeys": [],
+  "signals": {
+    "5a3f8d0df818283": {
+      "page": "https://www.bibliotecasearquivosmatosinhos.pt/bibliotecas/atividades",
+      "title": "6593 Atividades",
+      "source": "Bibliotecas de Matosinhos",
+      "formUrls": [
+        "https://constantinonery.bol.pt/"
+      ],
+      "openingDates": [],
+      "lastChecked": "2026-11-09T22:50:46+00:00"
+    },
+    "f170d43d4f91b74": {
+      "page": "https://www.bibliotecasearquivosmatosinhos.pt/bibliotecas/atividades/hora-do-conto",
+      "title": "6502 Hora do Conto",
+      "source": "Bibliotecas de Matosinhos",
+      "formUrls": [
+        "https://constantinonery.bol.pt/"
+      ],
+      "openingDates": [],
+      "lastChecked": "2026-11-09T22:50:49+00:00"
+    },
+    "9f457c5c02075b0": {
+      "page": "https://www.bibliotecasearquivosmatosinhos.pt/bibliotecas/atividades/outras-atividades",
+      "title": "3288 Outras Atividades",
+      "source": "Bibliotecas de Matosinhos",
+      "formUrls": [
+        "https://constantinonery.bol.pt/"
+      ],
+      "openingDates": [],
+      "lastChecked": "2026-11-09T22:50:51+00:00"
+    },
+    "e6bb85ce6178f79": {
+      "page": "https://playlabporto.beehiiv.com/p/setembro-no-playlab-e-o-nosso-segundo-aniversario",
+      "title": "Sep 3, 2026 • 2 min read Setembro no PlayLab: novas experiências e uma celebração muito especial! Um mês de histórias, música, exploração sensorial, BabyLab e o 2.o anivers",
+      "source": "PlayLab Porto",
+      "formUrls": [
+        "https://docs.google.com/forms/d/e/1FAIpQLScHrplU58IToXwLbTCSXEV-uy3rvOqNFIBAErlHwTLRx-GJhA/viewform?usp=dialog",
+        "https://docs.google.com/forms/d/e/1FAIpQLScd4N4mxUFYqP6l6kMYB6LvdyTCm4_Q5LGWyfWp5ekNYFtKSw/viewform?usp=sharing&ouid=114553891877352050867"
+      ],
+      "openingDates": [],
+      "lastChecked": "2026-11-09T22:53:25+00:00"
+    },
+    "0a3d4a32dde80cd": {
+      "page": "https://www.viralagenda.com/pt/events/1878424/historias-sem-fronteiras",
+      "title": "Histórias sem fronteiras",
+      "source": "Viral Agenda",
+      "formUrls": [
+        "https://forms.gle/jAEaYuLeBZLFsuDy6"
+      ],
+      "openingDates": [],
+      "lastChecked": "2026-11-09T22:53:49+00:00"
+    },
+    "ae4c0e104e17262": {
+      "page": "https://pumpkin.pt/familia/agenda-familia/pecas-de-teatro-infantil/",
+      "title": "Teatro Infantil",
+      "source": "Pumpkin",
+      "formUrls": [
+        "https://malaposta.bol.pt/"
+      ],
+      "openingDates": [],
+      "lastChecked": "2026-11-09T21:42:45+00:00"
+    },
+    "5ba27f3fb2f7424": {
+      "page": "https://www.bibliotecasearquivosmatosinhos.pt/evento-44/bebeteca-magica-o-meu-primeiro-paninho",
+      "title": "Bebeteca Mágica — O Meu Primeiro Paninho",
+      "source": "Bibliotecas de Matosinhos",
+      "formUrls": [
+        "https://forms.gle/htFeB3xMT6nSwXwDA"
+      ],
+      "openingDates": [],
+      "lastChecked": "2026-11-09T22:52:49+00:00"
+    },
+    "44a43d31422cf6e": {
+      "page": "https://www.bibliotecasearquivosmatosinhos.pt/evento-44/bebeteca-magica-yoga-de-encantar-48",
+      "title": "Bebeteca Mágica - Yoga de Encantar",
+      "source": "Bibliotecas de Matosinhos",
+      "formUrls": [
+        "https://forms.gle/oPxnKEqQXquMoXrm8"
+      ],
+      "openingDates": [],
+      "lastChecked": "2026-11-09T22:52:50+00:00"
+    },
+    "646d93616daafc0": {
+      "page": "https://www.bibliotecasearquivosmatosinhos.pt/evento-44/bebeteca-magica-yoga-de-encantar-esgotado",
+      "title": "Bebeteca Mágica | Yoga de Encantar - ESGOTADO",
+      "source": "Bibliotecas de Matosinhos",
+      "formUrls": [
+        "https://constantinonery.bol.pt/"
+      ],
+      "openingDates": [],
+      "lastChecked": "2026-11-09T22:50:34+00:00"
+    },
+    "791e7b91d21d08f": {
+      "page": "https://www.bibliotecasearquivosmatosinhos.pt/noticia-28/festival-meli-terminou-da-melhor-forma-com-historias-sentidos-e-encontros-entre-linguas",
+      "title": "Festival MELI terminou da melhor forma: com histórias, sentidos e encontros entre línguas",
+      "source": "Bibliotecas de Matosinhos",
+      "formUrls": [
+        "https://constantinonery.bol.pt/"
+      ],
+      "openingDates": [],
+      "lastChecked": "2026-11-09T22:50:37+00:00"
+    },
+    "e08a6e9c09b6100": {
+      "page": "https://www.bibliotecasearquivosmatosinhos.pt/noticia-28/formacao-os-atuais-desafios-das-leituras-e-das-literacias-o-digital-e-o-sensorial",
+      "title": "Formação | Os atuais desafios das leituras e das literacias: o digital e o sensorial",
+      "source": "Bibliotecas de Matosinhos",
+      "formUrls": [
+        "https://constantinonery.bol.pt/"
+      ],
+      "openingDates": [],
+      "lastChecked": "2026-11-09T22:50:39+00:00"
+    },
+    "9f6d91b1576c41f": {
+      "page": "https://www.bibliotecasearquivosmatosinhos.pt/noticia-28/historias-criatividade-e-muitas-descobertas-marcaram-o-dia-da-crianca-no-festival-meli",
+      "title": "Histórias, criatividade e muitas descobertas marcaram o Dia da Criança no Festival MELI",
+      "source": "Bibliotecas de Matosinhos",
+      "formUrls": [
+        "https://constantinonery.bol.pt/"
+      ],
+      "openingDates": [],
+      "lastChecked": "2026-11-09T22:50:41+00:00"
+    },
+    "4eb5405dc132876": {
+      "page": "https://www.bibliotecasearquivosmatosinhos.pt/noticia-28/uma-manha-cheia-de-magia-movimento-e-historias-na-biblioteca",
+      "title": "Uma manhã cheia de magia, movimento e histórias na Biblioteca! 📖 ✨",
+      "source": "Bibliotecas de Matosinhos",
+      "formUrls": [
+        "https://constantinonery.bol.pt/"
+      ],
+      "openingDates": [],
+      "lastChecked": "2026-11-09T22:50:44+00:00"
+    },
+    "dd161005a81c89e": {
+      "page": "https://www.bibliotecasearquivosmatosinhos.pt/evento-44/oficina-de-pintura-82",
+      "title": "Oficina de Pintura",
+      "source": "Bibliotecas de Matosinhos",
+      "formUrls": [
+        "https://forms.gle/vAcd9ZVzropnmTUh7"
+      ],
+      "openingDates": [],
+      "lastChecked": "2026-11-09T22:52:56+00:00"
+    },
+    "e9165201fcd298e": {
+      "page": "https://www.viralagenda.com/pt/events/1879251/vozes-em-roda-oficina-de-canto-improvisado-em-roda",
+      "title": "Vozes em Roda - Oficina de canto improvisado em roda",
+      "source": "Viral Agenda",
+      "formUrls": [
+        "https://forms.gle/TMoMrE3hea7xEfmi7"
+      ],
+      "openingDates": [],
+      "lastChecked": "2026-11-09T22:53:50+00:00"
+    }
+  },
+  "lastRun": "2026-11-09T22:53:54+00:00",
+  "scanStats": {
+    "sourcesOk": 12,
+    "sourcesFailed": 1,
+    "autoEvents": 0
+  }
 }

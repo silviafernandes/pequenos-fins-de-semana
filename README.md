@@ -28,7 +28,7 @@ Uma pré-visualização HTML **estática** do relatório anterior está incluíd
 
 A agenda do browser consulta os JSON publicados de 10 em 10 minutos enquanto estiver aberta. O GitHub Actions **não executa garantidamente à hora exata**: pode atrasar-se, e não garante apanhar vagas que desaparecem em minutos. Mantém o lembrete pessoal para o dia **13 de novembro, às 10:00**, relativo ao evento *O Meu Primeiro Paninho*.
 
-**Como funciona:** `scripts/update.py` lê a lista de fontes, visita páginas públicas e extrai links potencialmente relevantes. Só publica automaticamente uma atividade como *evento* se encontrar dados estruturados com **dia de fim de semana, horário, local e faixa etária**. Mesmo nesses casos, o estado da reserva permanece **por verificar**. Os novos anúncios sem detalhes suficientes aparecem numa secção separada intitulada **Novos anúncios**. O histórico guarda datas de abertura e links de formulário observados. Não faz login, ignora conteúdos privados e não contorna CAPTCHA.
+**Como funciona:** `scripts/update.py` lê a lista de fontes, visita páginas públicas e extrai links potencialmente relevantes. Só publica automaticamente uma atividade como *evento* se encontrar dados estruturados ou um adaptador oficial que valide **dia de fim de semana, horário, local e faixa etária**. Mesmo nesses casos, o estado da reserva permanece **por verificar**. Os novos anúncios sem detalhes suficientes aparecem numa secção separada intitulada **Novos anúncios**. O histórico guarda datas de abertura e links de formulário observados. Não faz login, ignora conteúdos privados e não contorna CAPTCHA.
 
 ## Receber alertas por Telegram (opcional)
 
@@ -72,7 +72,7 @@ npm run build
 ## Limitações e próximos passos
 
 - **Não é uma plataforma de reservas.** O botão abre o formulário ou o website original. Só o organizador sabe se restam lugares.
-- O motor inicial deteta mais facilmente páginas públicas com HTML e `schema.org/Event`; muitos sites não publicam esse formato. Adicionar extratores específicos para as fontes mais importantes é a evolução prioritária.
+- O motor deteta páginas públicas com `schema.org/Event` e inclui um adaptador para a Florbela Espanca; muitos outros sites precisam de um adaptador próprio. Adicionar extratores específicos para as fontes mais importantes é a evolução prioritária.
 - Algumas fontes só mostram o conteúdo com JavaScript ou bloqueiam pedidos automáticos; elas surgirão com erro no histórico da recolha. Precisam de um adaptador autorizado (API/RSS) ou verificação humana.
 - Distância máxima de 15 km é um critério editorial no MVP: **a geolocalização rigorosa e o tempo de viagem ainda não estão implementados**. Não assumir que todo o concelho de Gaia ou Maia cabe no raio.
 - Favoritos são locais ao browser e não sincronizam entre dispositivos.
@@ -82,3 +82,26 @@ npm run build
 ## Segurança e privacidade
 
 O site não recolhe nome, idade exata, email ou outros dados pessoais. Não armazena os dados dos formulários de inscrição. Evita publicar um verdadeiro endereço residencial; o ponto de referência dos CTT é suficiente.
+
+## Melhorias de monitorização (novembro de 2026)
+
+- O adaptador de Matosinhos lê data, hora e idade na página oficial de cada evento da Florbela Espanca. Ignora a meia-noite usada como marcador no calendário do site e não inventa a hora de fim.
+- As páginas de eventos já conhecidos voltam a ser consultadas, mesmo quando deixam de aparecer na página inicial. Os formulários são extraídos do conteúdo do evento, incluindo URLs publicadas como texto.
+- Uma única data explícita de abertura, com hora, pode atualizar a ficha e o histórico quando a página corresponde exatamente a uma única sessão. Nunca transforma a sessão em “inscrições abertas”. Várias sessões ou datas na mesma página exigem validação humana.
+- A recolha verifica `robots.txt`, respeita exclusões e regista erros das páginas e formulários. Se o acesso ao formulário não for permitido, mantém a evidência anterior e assinala a limitação; não contorna o bloqueio.
+- O painel mostra o último acesso bem-sucedido e falhas por fonte. Uma página acessível sem anúncios extraídos não prova que não existam atividades.
+- O filtro “Inscrições a abrir esta semana” considera aberturas futuras até domingo, em Lisboa, e mostra também sessões cuja hora de fim ainda é desconhecida. Os filtros de idade abrangem 0–36 meses. Um local desconhecido deixa de ser apresentado automaticamente como interior.
+- Cada publicação em `main` executa a recolha antes de publicar, além dos agendamentos existentes. Publicações de código não enviam Telegram; execuções manuais/agendadas mantêm os alertas opcionais configurados. Pull requests executam testes e compilação sem publicar.
+
+Validação adicional do frontend:
+
+```bash
+npm ci
+npx playwright install chromium
+npm run build
+npm run test:browser
+```
+
+O teste de browser utiliza dados fictícios identificados no próprio teste, uma data fixa e um servidor local; não faz reservas nem envia notificações. A fixture de Matosinhos é um excerto do HTML público, com URL e data de recolha no ficheiro.
+
+Continuam por fazer: adaptadores específicos para Oficina Josefina e ALLEGROW, geocodificação e exclusão rigorosa fora dos 15 km, e validação da entrega de Telegram com credenciais configuradas.
