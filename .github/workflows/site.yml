@@ -3,6 +3,8 @@ name: Atualizar e publicar a agenda
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
   schedule:
     # GitHub Actions suporta timezone. A execução pode sofrer atrasos.
@@ -20,11 +22,12 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
   refresh-and-deploy:
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -43,13 +46,11 @@ jobs:
       - name: Testar extratores
         run: python -m unittest discover -s tests -v
       - name: Procurar novos anúncios
-        if: github.event_name != 'push'
         env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_BOT_TOKEN: ${{ github.event_name != 'push' && secrets.TELEGRAM_BOT_TOKEN || '' }}
+          TELEGRAM_CHAT_ID: ${{ github.event_name != 'push' && secrets.TELEGRAM_CHAT_ID || '' }}
         run: python scripts/update.py
       - name: Guardar as novidades no repositório
-        if: github.event_name != 'push'
         run: |
           git config user.name "pequenos-fds-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -65,7 +66,7 @@ jobs:
         with:
           node-version: '22'
       - name: Instalar frontend
-        run: npm install --no-audit --no-fund
+        run: npm ci --no-audit --no-fund
       - name: Compilar aplicação
         run: npm run build
       - name: Configurar GitHub Pages
@@ -77,3 +78,23 @@ jobs:
       - name: Publicar site
         id: deployment
         uses: actions/deploy-pages@v4
+
+  validate-pr:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install -r requirements.txt
+      - run: python -m unittest discover -s tests -v
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci --no-audit --no-fund
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:browser
