@@ -1,17 +1,17 @@
 {
-  "updatedAt": "2026-11-09T23:18:45+00:00",
+  "updatedAt": "2026-11-10T11:41:48+00:00",
   "sourceIndex": {
     "Bibliotecas de Matosinhos": {
       "url": "https://www.bibliotecasearquivosmatosinhos.pt/",
       "ok": true,
-      "checkedAt": "2026-11-09T23:18:10+00:00",
+      "checkedAt": "2026-11-10T11:41:03+00:00",
       "lastLinks": [
         "https://www.bibliotecasearquivosmatosinhos.pt/evento-44/bebeteca-magica-o-meu-primeiro-paninho",
         "https://www.bibliotecasearquivosmatosinhos.pt/evento-44/bebeteca-magica-yoga-de-encantar-48",
         "https://www.bibliotecasearquivosmatosinhos.pt/evento-44/bebeteca-magica-yoga-de-encantar-esgotado",
         "https://www.bibliotecasearquivosmatosinhos.pt/noticia-28/festival-meli-terminou-da-melhor-forma-com-historias-sentidos-e-encontros-entre-linguas",
-        "https://www.bibliotecasearquivosmatosinhos.pt/noticia-28/formacao-os-atuais-desafios-das-leituras-e-das-literacias-o-digital-e-o-sensorial",
         "https://www.bibliotecasearquivosmatosinhos.pt/noticia-28/historias-criatividade-e-muitas-descobertas-marcaram-o-dia-da-crianca-no-festival-meli",
+        "https://www.bibliotecasearquivosmatosinhos.pt/noticia-28/leitura-sensorial-estrela",
         "https://www.bibliotecasearquivosmatosinhos.pt/noticia-28/uma-manha-cheia-de-magia-movimento-e-historias-na-biblioteca",
         "https://www.bibliotecasearquivosmatosinhos.pt/evento-44/oficina-de-pintura-82",
         "https://www.bibliotecasearquivosmatosinhos.pt/bibliotecas/atividades/hora-do-conto",
@@ -32,131 +32,133 @@
           "error": "robots.txt unavailable: HTTP 400"
         }
       ],
-      "lastSuccessfulAt": "2026-11-09T23:18:10+00:00",
+      "lastSuccessfulAt": "2026-11-10T11:41:03+00:00",
       "contentStatus": "links-found"
     },
     "Bibliotecas do Porto": {
       "url": "https://www.bibliotecasdoporto.pt/programa/",
       "ok": true,
-      "checkedAt": "2026-11-09T23:18:14+00:00",
+      "checkedAt": "2026-11-10T11:41:10+00:00",
       "lastLinks": [
         "https://www.bibliotecasdoporto.pt/evento/papi-opus-8-espetaculo/",
+        "https://www.bibliotecasdoporto.pt/programa/evento/clube-de-leitura-senior-a-historia-do-natal-em-cronicas-portuenses-de-ramalho-ortigao/",
+        "https://www.bibliotecasdoporto.pt/programa/evento/eca-agora-espetaculo/",
+        "https://www.bibliotecasdoporto.pt/programa/evento/feira-do-livro-bebes-a-linha-solta/",
+        "https://www.bibliotecasdoporto.pt/programa/evento/feira-do-livro-bebes-dentro-da-caixa/",
+        "https://www.bibliotecasdoporto.pt/programa/evento/feira-do-livro-hora-do-conto-mala-surpresa-de-livros-e-historias/",
+        "https://www.bibliotecasdoporto.pt/programa/evento/feira-do-livro-hora-do-conto-um-comboio-de-historias/",
+        "https://www.bibliotecasdoporto.pt/programa/evento/historias-e-oficinas-de-natal-era-uma-vez-o-natal/",
+        "https://www.bibliotecasdoporto.pt/programa/evento/ovo-bebe-espetaculo/",
         "https://www.bibliotecasdoporto.pt/programa/evento/papi-opus-11-espetaculo/",
         "https://www.bibliotecasdoporto.pt/programa/evento/papi-opus-8-espetaculo/",
-        "https://www.bibliotecasdoporto.pt/programa/evento/cadaveres-muito-esquisitos-oficina-criativa/",
-        "https://www.bibliotecasdoporto.pt/programa/evento/clube-de-leitura-contos-cruzados-a-lingua-dos-mortos-em-os-girassois-cegos-de-alberto-mendez/",
-        "https://www.bibliotecasdoporto.pt/programa/evento/clube-de-leitura-contos-cruzados-cronica-de-natal-em-livro-de-cronicas-e-o-natalzinho-em-segundo-livro-de-cronicas-de-antonio-lobo-antunes/",
-        "https://www.bibliotecasdoporto.pt/programa/evento/clube-de-leitura-contos-cruzados-o-hospede-em-o-exilio-e-o-reino-de-albert-camus/",
-        "https://www.bibliotecasdoporto.pt/programa/evento/clube-de-leitura-contos-em-dialogo-a-mulher-de-atlantida-em-o-bom-mal-de-samanta-schweblin/",
-        "https://www.bibliotecasdoporto.pt/programa/evento/clube-de-leitura-contos-em-dialogo-menina-a-caminho-de-raduan-nassar/",
-        "https://www.bibliotecasdoporto.pt/programa/evento/contos-e-recontos-eu-nao-fui-de-christian-voltz/",
-        "https://www.bibliotecasdoporto.pt/programa/evento/contos-e-recontos-o-nabo-gigante-de-antonio-mota/",
-        "https://www.bibliotecasdoporto.pt/programa/evento/contos-no-jardim-do-marques-1793196750388/"
+        "https://www.bibliotecasdoporto.pt/programa/evento/rebulico-de-historias-especial-natal-hora-do-conto/"
       ],
       "relevantLinks": 12,
       "detailErrors": [
         {
-          "url": "https://www.bibliotecasdoporto.pt/programa/evento/papi-opus-11-espetaculo/",
-          "error": "HTTPError: 404 Client Error: Not Found for url: https://www.bibliotecasdoporto.pt/programa/evento/papi-opus-11-espetaculo/"
+          "url": "https://www.bibliotecasdoporto.pt/programa/evento/clube-de-leitura-senior-a-historia-do-natal-em-cronicas-portuenses-de-ramalho-ortigao/",
+          "error": "HTTPError: 404 Client Error: Not Found for url: https://www.bibliotecasdoporto.pt/programa/evento/clube-de-leitura-senior-a-historia-do-natal"
         },
         {
-          "url": "https://www.bibliotecasdoporto.pt/programa/evento/papi-opus-8-espetaculo/",
-          "error": "HTTPError: 404 Client Error: Not Found for url: https://www.bibliotecasdoporto.pt/programa/evento/papi-opus-8-espetaculo/"
+          "url": "https://www.bibliotecasdoporto.pt/programa/evento/eca-agora-espetaculo/",
+          "error": "HTTPError: 404 Client Error: Not Found for url: https://www.bibliotecasdoporto.pt/programa/evento/eca-agora-espetaculo/"
         }
       ],
-      "lastSuccessfulAt": "2026-11-09T23:18:14+00:00",
+      "lastSuccessfulAt": "2026-11-10T11:41:10+00:00",
       "contentStatus": "links-found"
     },
     "Biblioteca da Maia": {
       "url": "https://www.cm-maia.pt/",
       "ok": true,
-      "checkedAt": "2026-11-09T23:18:16+00:00",
+      "checkedAt": "2026-11-10T11:41:12+00:00",
       "lastLinks": [],
       "relevantLinks": 0,
       "detailErrors": [],
-      "lastSuccessfulAt": "2026-11-09T23:18:16+00:00",
+      "lastSuccessfulAt": "2026-11-10T11:41:12+00:00",
       "contentStatus": "no-relevant-links"
     },
     "Bibliotecas de Gaia": {
       "url": "https://www.cm-gaia.pt/",
-      "ok": false,
-      "error": "robots.txt unavailable: HTTP 403",
-      "checkedAt": "2026-11-09T23:18:17+00:00",
+      "ok": true,
+      "checkedAt": "2026-11-10T11:41:21+00:00",
       "lastLinks": [],
-      "lastSuccessfulAt": "2026-11-09T23:12:24+00:00"
+      "relevantLinks": 0,
+      "detailErrors": [],
+      "lastSuccessfulAt": "2026-11-10T11:41:21+00:00",
+      "contentStatus": "no-relevant-links"
     },
     "Oficina Josefina": {
       "url": "https://www.oficinajosefina.com/beb%C3%A9s",
       "ok": true,
-      "checkedAt": "2026-11-09T23:18:18+00:00",
+      "checkedAt": "2026-11-10T11:41:22+00:00",
       "lastLinks": [
         "https://www.oficinajosefina.com/beb%C3%A9s"
       ],
       "relevantLinks": 1,
       "detailErrors": [],
-      "lastSuccessfulAt": "2026-11-09T23:18:18+00:00",
+      "lastSuccessfulAt": "2026-11-10T11:41:22+00:00",
       "contentStatus": "links-found"
     },
     "PlayLab Porto": {
       "url": "https://playlabporto.beehiiv.com/",
       "ok": true,
-      "checkedAt": "2026-11-09T23:18:20+00:00",
+      "checkedAt": "2026-11-10T11:41:25+00:00",
       "lastLinks": [
         "https://playlabporto.beehiiv.com/p/setembro-no-playlab-e-o-nosso-segundo-aniversario"
       ],
       "relevantLinks": 1,
       "detailErrors": [],
-      "lastSuccessfulAt": "2026-11-09T23:18:20+00:00",
+      "lastSuccessfulAt": "2026-11-10T11:41:25+00:00",
       "contentStatus": "links-found"
     },
     "Guli Family Club": {
       "url": "https://www.guli.pt/actividades/",
       "ok": true,
-      "checkedAt": "2026-11-09T23:18:25+00:00",
+      "checkedAt": "2026-11-10T11:41:28+00:00",
       "lastLinks": [],
       "relevantLinks": 0,
       "detailErrors": [],
-      "lastSuccessfulAt": "2026-11-09T23:18:25+00:00",
+      "lastSuccessfulAt": "2026-11-10T11:41:28+00:00",
       "contentStatus": "no-relevant-links"
     },
     "Casa da Música": {
       "url": "https://casadamusica.com/agenda/",
       "ok": true,
-      "checkedAt": "2026-11-09T23:18:27+00:00",
+      "checkedAt": "2026-11-10T11:41:30+00:00",
       "lastLinks": [
         "https://casadamusica.com/event/som-de-ca-e-de-la/"
       ],
       "relevantLinks": 1,
       "detailErrors": [],
-      "lastSuccessfulAt": "2026-11-09T23:18:27+00:00",
+      "lastSuccessfulAt": "2026-11-10T11:41:30+00:00",
       "contentStatus": "links-found"
     },
     "Casa da Arquitetura": {
       "url": "https://casadaarquitetura.pt/",
       "ok": true,
-      "checkedAt": "2026-11-09T23:18:30+00:00",
+      "checkedAt": "2026-11-10T11:41:32+00:00",
       "lastLinks": [
         "https://casadaarquitetura.pt/pt/servico-educativo/oficinas/oficinas-para-familias-ultimo-domingo-de-cada-mes-2030-04-20/"
       ],
       "relevantLinks": 1,
       "detailErrors": [],
-      "lastSuccessfulAt": "2026-11-09T23:18:30+00:00",
+      "lastSuccessfulAt": "2026-11-10T11:41:32+00:00",
       "contentStatus": "links-found"
     },
     "Allegrow Kids": {
       "url": "https://allegrowkids.pt/en",
       "ok": true,
-      "checkedAt": "2026-11-09T23:18:31+00:00",
+      "checkedAt": "2026-11-10T11:41:33+00:00",
       "lastLinks": [],
       "relevantLinks": 0,
       "detailErrors": [],
-      "lastSuccessfulAt": "2026-11-09T23:18:31+00:00",
+      "lastSuccessfulAt": "2026-11-10T11:41:33+00:00",
       "contentStatus": "no-relevant-links"
     },
     "Pequenos Planos": {
       "url": "https://pequenosplanos.pt/eventos",
       "ok": true,
-      "checkedAt": "2026-11-09T23:18:37+00:00",
+      "checkedAt": "2026-11-10T11:41:39+00:00",
       "lastLinks": [
         "https://pequenosplanos.pt/event/historias-fiadas-maia-0711",
         "https://pequenosplanos.pt/event/hora-do-conto-2026-11-15",
@@ -173,26 +175,27 @@
       ],
       "relevantLinks": 12,
       "detailErrors": [],
-      "lastSuccessfulAt": "2026-11-09T23:18:37+00:00",
+      "lastSuccessfulAt": "2026-11-10T11:41:39+00:00",
       "contentStatus": "links-found"
     },
     "Viral Agenda": {
       "url": "https://www.viralagenda.com/pt/porto",
       "ok": true,
-      "checkedAt": "2026-11-09T23:18:40+00:00",
+      "checkedAt": "2026-11-10T11:41:43+00:00",
       "lastLinks": [
         "https://www.viralagenda.com/pt/events/1878424/historias-sem-fronteiras",
+        "https://www.viralagenda.com/pt/events/1880333/stories-across-borders-especial-sessao-sensorial",
         "https://www.viralagenda.com/pt/events/1879251/vozes-em-roda-oficina-de-canto-improvisado-em-roda"
       ],
-      "relevantLinks": 2,
+      "relevantLinks": 3,
       "detailErrors": [],
-      "lastSuccessfulAt": "2026-11-09T23:18:40+00:00",
+      "lastSuccessfulAt": "2026-11-10T11:41:43+00:00",
       "contentStatus": "links-found"
     },
     "Pumpkin": {
       "url": "https://pumpkin.pt/agenda/",
       "ok": true,
-      "checkedAt": "2026-11-09T23:18:43+00:00",
+      "checkedAt": "2026-11-10T11:41:46+00:00",
       "lastLinks": [
         "https://pumpkin.pt/bebes/",
         "https://pumpkin.pt/bebes/agenda-bebes/",
@@ -209,7 +212,7 @@
       ],
       "relevantLinks": 12,
       "detailErrors": [],
-      "lastSuccessfulAt": "2026-11-09T23:18:43+00:00",
+      "lastSuccessfulAt": "2026-11-10T11:41:46+00:00",
       "contentStatus": "links-found"
     },
     "Knock-Knock Family Club": {
@@ -218,27 +221,715 @@
       "agePolicyUrl": "https://www.knock-knock.pt/regrasinfos",
       "url": "https://www.knock-knock.pt/calendario",
       "ok": true,
-      "checkedAt": "2026-11-09T23:18:45+00:00",
+      "checkedAt": "2026-11-10T11:41:47+00:00",
       "lastLinks": [],
       "relevantLinks": 0,
       "detailErrors": [],
-      "lastSuccessfulAt": "2026-11-09T23:18:45+00:00",
+      "lastSuccessfulAt": "2026-11-10T11:41:47+00:00",
       "contentStatus": "no-relevant-links"
     }
   },
   "discoveries": [
+    {
+      "title": "Som de Lá e de Cá",
+      "date": "2026-11-22",
+      "start": "10:00",
+      "end": null,
+      "minMonths": 3,
+      "maxMonths": 72,
+      "venue": "Casa da Música · Sala Ensaio 2",
+      "sessionEvidence": {
+        "date": "2026-11-22",
+        "start": "10:00",
+        "end": null,
+        "minMonths": 3,
+        "maxMonths": 72,
+        "venue": "Casa da Música · Sala Ensaio 2",
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
+        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "kind": "official-programme"
+      },
+      "id": "session-acb8da6090c84eb",
+      "url": "https://casadamusica.com/event/som-de-ca-e-de-la/",
+      "source": "Casa da Música",
+      "firstSeen": "2026-11-10T11:41:30+00:00",
+      "lastSeen": "2026-11-10T11:41:30+00:00",
+      "ageEvidence": "official-adapter",
+      "priority": 1,
+      "validationStatus": "verified",
+      "distanceKm": 3.6685,
+      "distanceWithinRadius": true,
+      "geo": {
+        "latitude": 41.1589025,
+        "longitude": -8.6307748,
+        "coordinateSourceUrl": "https://www.openstreetmap.org/way/603359226",
+        "originId": "ctt-4-caminhos",
+        "method": "straight-line"
+      }
+    },
+    {
+      "title": "Som de Lá e de Cá",
+      "date": "2026-11-22",
+      "start": "11:30",
+      "end": null,
+      "minMonths": 3,
+      "maxMonths": 72,
+      "venue": "Casa da Música · Sala Ensaio 2",
+      "sessionEvidence": {
+        "date": "2026-11-22",
+        "start": "11:30",
+        "end": null,
+        "minMonths": 3,
+        "maxMonths": 72,
+        "venue": "Casa da Música · Sala Ensaio 2",
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
+        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "kind": "official-programme"
+      },
+      "id": "session-33116706a77236f",
+      "url": "https://casadamusica.com/event/som-de-ca-e-de-la/",
+      "source": "Casa da Música",
+      "firstSeen": "2026-11-10T11:41:30+00:00",
+      "lastSeen": "2026-11-10T11:41:30+00:00",
+      "ageEvidence": "official-adapter",
+      "priority": 1,
+      "validationStatus": "verified",
+      "distanceKm": 3.6685,
+      "distanceWithinRadius": true,
+      "geo": {
+        "latitude": 41.1589025,
+        "longitude": -8.6307748,
+        "coordinateSourceUrl": "https://www.openstreetmap.org/way/603359226",
+        "originId": "ctt-4-caminhos",
+        "method": "straight-line"
+      }
+    },
+    {
+      "title": "Som de Lá e de Cá",
+      "date": "2026-11-29",
+      "start": "10:00",
+      "end": null,
+      "minMonths": 3,
+      "maxMonths": 72,
+      "venue": "Casa da Música · Sala Ensaio 2",
+      "sessionEvidence": {
+        "date": "2026-11-29",
+        "start": "10:00",
+        "end": null,
+        "minMonths": 3,
+        "maxMonths": 72,
+        "venue": "Casa da Música · Sala Ensaio 2",
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
+        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "kind": "official-programme"
+      },
+      "id": "session-1c82996ff96eea4",
+      "url": "https://casadamusica.com/event/som-de-ca-e-de-la/",
+      "source": "Casa da Música",
+      "firstSeen": "2026-11-10T11:41:30+00:00",
+      "lastSeen": "2026-11-10T11:41:30+00:00",
+      "ageEvidence": "official-adapter",
+      "priority": 1,
+      "validationStatus": "verified",
+      "distanceKm": 3.6685,
+      "distanceWithinRadius": true,
+      "geo": {
+        "latitude": 41.1589025,
+        "longitude": -8.6307748,
+        "coordinateSourceUrl": "https://www.openstreetmap.org/way/603359226",
+        "originId": "ctt-4-caminhos",
+        "method": "straight-line"
+      }
+    },
+    {
+      "title": "Som de Lá e de Cá",
+      "date": "2026-11-29",
+      "start": "11:30",
+      "end": null,
+      "minMonths": 3,
+      "maxMonths": 72,
+      "venue": "Casa da Música · Sala Ensaio 2",
+      "sessionEvidence": {
+        "date": "2026-11-29",
+        "start": "11:30",
+        "end": null,
+        "minMonths": 3,
+        "maxMonths": 72,
+        "venue": "Casa da Música · Sala Ensaio 2",
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
+        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "kind": "official-programme"
+      },
+      "id": "session-ec6ce950a101131",
+      "url": "https://casadamusica.com/event/som-de-ca-e-de-la/",
+      "source": "Casa da Música",
+      "firstSeen": "2026-11-10T11:41:30+00:00",
+      "lastSeen": "2026-11-10T11:41:30+00:00",
+      "ageEvidence": "official-adapter",
+      "priority": 1,
+      "validationStatus": "verified",
+      "distanceKm": 3.6685,
+      "distanceWithinRadius": true,
+      "geo": {
+        "latitude": 41.1589025,
+        "longitude": -8.6307748,
+        "coordinateSourceUrl": "https://www.openstreetmap.org/way/603359226",
+        "originId": "ctt-4-caminhos",
+        "method": "straight-line"
+      }
+    },
+    {
+      "title": "Som de Lá e de Cá",
+      "date": "2026-12-13",
+      "start": "10:00",
+      "end": null,
+      "minMonths": 3,
+      "maxMonths": 72,
+      "venue": "Casa da Música · Sala Ensaio 2",
+      "sessionEvidence": {
+        "date": "2026-12-13",
+        "start": "10:00",
+        "end": null,
+        "minMonths": 3,
+        "maxMonths": 72,
+        "venue": "Casa da Música · Sala Ensaio 2",
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
+        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "kind": "official-programme"
+      },
+      "id": "session-43fc08af47d03ce",
+      "url": "https://casadamusica.com/event/som-de-ca-e-de-la/",
+      "source": "Casa da Música",
+      "firstSeen": "2026-11-10T11:41:30+00:00",
+      "lastSeen": "2026-11-10T11:41:30+00:00",
+      "ageEvidence": "official-adapter",
+      "priority": 1,
+      "validationStatus": "verified",
+      "distanceKm": 3.6685,
+      "distanceWithinRadius": true,
+      "geo": {
+        "latitude": 41.1589025,
+        "longitude": -8.6307748,
+        "coordinateSourceUrl": "https://www.openstreetmap.org/way/603359226",
+        "originId": "ctt-4-caminhos",
+        "method": "straight-line"
+      }
+    },
+    {
+      "title": "Som de Lá e de Cá",
+      "date": "2026-12-13",
+      "start": "11:30",
+      "end": null,
+      "minMonths": 3,
+      "maxMonths": 72,
+      "venue": "Casa da Música · Sala Ensaio 2",
+      "sessionEvidence": {
+        "date": "2026-12-13",
+        "start": "11:30",
+        "end": null,
+        "minMonths": 3,
+        "maxMonths": 72,
+        "venue": "Casa da Música · Sala Ensaio 2",
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
+        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "kind": "official-programme"
+      },
+      "id": "session-6e9b61de020aae6",
+      "url": "https://casadamusica.com/event/som-de-ca-e-de-la/",
+      "source": "Casa da Música",
+      "firstSeen": "2026-11-10T11:41:30+00:00",
+      "lastSeen": "2026-11-10T11:41:30+00:00",
+      "ageEvidence": "official-adapter",
+      "priority": 1,
+      "validationStatus": "verified",
+      "distanceKm": 3.6685,
+      "distanceWithinRadius": true,
+      "geo": {
+        "latitude": 41.1589025,
+        "longitude": -8.6307748,
+        "coordinateSourceUrl": "https://www.openstreetmap.org/way/603359226",
+        "originId": "ctt-4-caminhos",
+        "method": "straight-line"
+      }
+    },
+    {
+      "title": "Som de Lá e de Cá",
+      "date": "2026-12-20",
+      "start": "10:00",
+      "end": null,
+      "minMonths": 3,
+      "maxMonths": 72,
+      "venue": "Casa da Música · Sala Ensaio 2",
+      "sessionEvidence": {
+        "date": "2026-12-20",
+        "start": "10:00",
+        "end": null,
+        "minMonths": 3,
+        "maxMonths": 72,
+        "venue": "Casa da Música · Sala Ensaio 2",
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
+        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "kind": "official-programme"
+      },
+      "id": "session-df89fe98b8b0dea",
+      "url": "https://casadamusica.com/event/som-de-ca-e-de-la/",
+      "source": "Casa da Música",
+      "firstSeen": "2026-11-10T11:41:30+00:00",
+      "lastSeen": "2026-11-10T11:41:30+00:00",
+      "ageEvidence": "official-adapter",
+      "priority": 1,
+      "validationStatus": "verified",
+      "distanceKm": 3.6685,
+      "distanceWithinRadius": true,
+      "geo": {
+        "latitude": 41.1589025,
+        "longitude": -8.6307748,
+        "coordinateSourceUrl": "https://www.openstreetmap.org/way/603359226",
+        "originId": "ctt-4-caminhos",
+        "method": "straight-line"
+      }
+    },
+    {
+      "title": "Som de Lá e de Cá",
+      "date": "2026-12-20",
+      "start": "11:30",
+      "end": null,
+      "minMonths": 3,
+      "maxMonths": 72,
+      "venue": "Casa da Música · Sala Ensaio 2",
+      "sessionEvidence": {
+        "date": "2026-12-20",
+        "start": "11:30",
+        "end": null,
+        "minMonths": 3,
+        "maxMonths": 72,
+        "venue": "Casa da Música · Sala Ensaio 2",
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
+        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "kind": "official-programme"
+      },
+      "id": "session-0f199c1e5fb9de9",
+      "url": "https://casadamusica.com/event/som-de-ca-e-de-la/",
+      "source": "Casa da Música",
+      "firstSeen": "2026-11-10T11:41:30+00:00",
+      "lastSeen": "2026-11-10T11:41:30+00:00",
+      "ageEvidence": "official-adapter",
+      "priority": 1,
+      "validationStatus": "verified",
+      "distanceKm": 3.6685,
+      "distanceWithinRadius": true,
+      "geo": {
+        "latitude": 41.1589025,
+        "longitude": -8.6307748,
+        "coordinateSourceUrl": "https://www.openstreetmap.org/way/603359226",
+        "originId": "ctt-4-caminhos",
+        "method": "straight-line"
+      }
+    },
+    {
+      "title": "Experimentar Cerâmicas",
+      "date": "2026-11-15",
+      "start": "10:00",
+      "end": "11:00",
+      "minMonths": 12,
+      "maxMonths": 36,
+      "venue": "Oficina Josefina",
+      "sessionEvidence": {
+        "date": "2026-11-15",
+        "start": "10:00",
+        "end": "11:00",
+        "minMonths": 12,
+        "maxMonths": 36,
+        "venue": "Oficina Josefina",
+        "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
+        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "kind": "official-programme"
+      },
+      "id": "session-04e6bad7e7a6719",
+      "url": "https://www.oficinajosefina.com/beb%C3%A9s",
+      "source": "Oficina Josefina",
+      "firstSeen": "2026-11-10T11:41:22+00:00",
+      "lastSeen": "2026-11-10T11:41:22+00:00",
+      "ageEvidence": "official-adapter",
+      "priority": 1,
+      "validationStatus": "verified",
+      "distanceKm": 6.3544,
+      "distanceWithinRadius": true,
+      "geo": {
+        "latitude": 41.1487172,
+        "longitude": -8.596391,
+        "coordinateSourceUrl": "https://www.waze.com/live-map/directions/portugal/porto-district/porto/oficina-josefina?to=place.ChIJgVGHgD5lJA0ReDudBeOFbhU",
+        "originId": "ctt-4-caminhos",
+        "method": "straight-line"
+      }
+    },
+    {
+      "title": "Experimentar Cerâmicas",
+      "date": "2026-11-29",
+      "start": "10:00",
+      "end": "11:00",
+      "minMonths": 12,
+      "maxMonths": 36,
+      "venue": "Oficina Josefina",
+      "sessionEvidence": {
+        "date": "2026-11-29",
+        "start": "10:00",
+        "end": "11:00",
+        "minMonths": 12,
+        "maxMonths": 36,
+        "venue": "Oficina Josefina",
+        "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
+        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "kind": "official-programme"
+      },
+      "id": "session-2c53c3b69017669",
+      "url": "https://www.oficinajosefina.com/beb%C3%A9s",
+      "source": "Oficina Josefina",
+      "firstSeen": "2026-11-10T11:41:22+00:00",
+      "lastSeen": "2026-11-10T11:41:22+00:00",
+      "ageEvidence": "official-adapter",
+      "priority": 1,
+      "validationStatus": "verified",
+      "distanceKm": 6.3544,
+      "distanceWithinRadius": true,
+      "geo": {
+        "latitude": 41.1487172,
+        "longitude": -8.596391,
+        "coordinateSourceUrl": "https://www.waze.com/live-map/directions/portugal/porto-district/porto/oficina-josefina?to=place.ChIJgVGHgD5lJA0ReDudBeOFbhU",
+        "originId": "ctt-4-caminhos",
+        "method": "straight-line"
+      }
+    },
+    {
+      "title": "Experimentar Cerâmicas",
+      "date": "2026-12-13",
+      "start": "10:00",
+      "end": "11:00",
+      "minMonths": 12,
+      "maxMonths": 36,
+      "venue": "Oficina Josefina",
+      "sessionEvidence": {
+        "date": "2026-12-13",
+        "start": "10:00",
+        "end": "11:00",
+        "minMonths": 12,
+        "maxMonths": 36,
+        "venue": "Oficina Josefina",
+        "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
+        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "kind": "official-programme"
+      },
+      "id": "session-5d9acea04cf5604",
+      "url": "https://www.oficinajosefina.com/beb%C3%A9s",
+      "source": "Oficina Josefina",
+      "firstSeen": "2026-11-10T11:41:22+00:00",
+      "lastSeen": "2026-11-10T11:41:22+00:00",
+      "ageEvidence": "official-adapter",
+      "priority": 1,
+      "validationStatus": "verified",
+      "distanceKm": 6.3544,
+      "distanceWithinRadius": true,
+      "geo": {
+        "latitude": 41.1487172,
+        "longitude": -8.596391,
+        "coordinateSourceUrl": "https://www.waze.com/live-map/directions/portugal/porto-district/porto/oficina-josefina?to=place.ChIJgVGHgD5lJA0ReDudBeOFbhU",
+        "originId": "ctt-4-caminhos",
+        "method": "straight-line"
+      }
+    },
+    {
+      "title": "Experimentar Pinturas",
+      "date": "2026-11-22",
+      "start": "10:00",
+      "end": "11:00",
+      "minMonths": 9,
+      "maxMonths": 36,
+      "venue": "Oficina Josefina",
+      "sessionEvidence": {
+        "date": "2026-11-22",
+        "start": "10:00",
+        "end": "11:00",
+        "minMonths": 9,
+        "maxMonths": 36,
+        "venue": "Oficina Josefina",
+        "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
+        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "kind": "official-programme"
+      },
+      "id": "session-556e23161ded8e7",
+      "url": "https://www.oficinajosefina.com/beb%C3%A9s",
+      "source": "Oficina Josefina",
+      "firstSeen": "2026-11-10T11:41:22+00:00",
+      "lastSeen": "2026-11-10T11:41:22+00:00",
+      "ageEvidence": "official-adapter",
+      "priority": 1,
+      "validationStatus": "verified",
+      "distanceKm": 6.3544,
+      "distanceWithinRadius": true,
+      "geo": {
+        "latitude": 41.1487172,
+        "longitude": -8.596391,
+        "coordinateSourceUrl": "https://www.waze.com/live-map/directions/portugal/porto-district/porto/oficina-josefina?to=place.ChIJgVGHgD5lJA0ReDudBeOFbhU",
+        "originId": "ctt-4-caminhos",
+        "method": "straight-line"
+      }
+    },
+    {
+      "title": "Experimentar Luzes",
+      "date": "2026-12-06",
+      "start": "10:00",
+      "end": "11:00",
+      "minMonths": 12,
+      "maxMonths": 36,
+      "venue": "Oficina Josefina",
+      "sessionEvidence": {
+        "date": "2026-12-06",
+        "start": "10:00",
+        "end": "11:00",
+        "minMonths": 12,
+        "maxMonths": 36,
+        "venue": "Oficina Josefina",
+        "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
+        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "kind": "official-programme"
+      },
+      "id": "session-560f62ecf26eada",
+      "url": "https://www.oficinajosefina.com/beb%C3%A9s",
+      "source": "Oficina Josefina",
+      "firstSeen": "2026-11-10T11:41:22+00:00",
+      "lastSeen": "2026-11-10T11:41:22+00:00",
+      "ageEvidence": "official-adapter",
+      "priority": 1,
+      "validationStatus": "verified",
+      "distanceKm": 6.3544,
+      "distanceWithinRadius": true,
+      "geo": {
+        "latitude": 41.1487172,
+        "longitude": -8.596391,
+        "coordinateSourceUrl": "https://www.waze.com/live-map/directions/portugal/porto-district/porto/oficina-josefina?to=place.ChIJgVGHgD5lJA0ReDudBeOFbhU",
+        "originId": "ctt-4-caminhos",
+        "method": "straight-line"
+      }
+    },
+    {
+      "title": "Experimentar Luzes",
+      "date": "2026-12-20",
+      "start": "10:00",
+      "end": "11:00",
+      "minMonths": 12,
+      "maxMonths": 36,
+      "venue": "Oficina Josefina",
+      "sessionEvidence": {
+        "date": "2026-12-20",
+        "start": "10:00",
+        "end": "11:00",
+        "minMonths": 12,
+        "maxMonths": 36,
+        "venue": "Oficina Josefina",
+        "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
+        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "kind": "official-programme"
+      },
+      "id": "session-6e77bc7cb54ed90",
+      "url": "https://www.oficinajosefina.com/beb%C3%A9s",
+      "source": "Oficina Josefina",
+      "firstSeen": "2026-11-10T11:41:22+00:00",
+      "lastSeen": "2026-11-10T11:41:22+00:00",
+      "ageEvidence": "official-adapter",
+      "priority": 1,
+      "validationStatus": "verified",
+      "distanceKm": 6.3544,
+      "distanceWithinRadius": true,
+      "geo": {
+        "latitude": 41.1487172,
+        "longitude": -8.596391,
+        "coordinateSourceUrl": "https://www.waze.com/live-map/directions/portugal/porto-district/porto/oficina-josefina?to=place.ChIJgVGHgD5lJA0ReDudBeOFbhU",
+        "originId": "ctt-4-caminhos",
+        "method": "straight-line"
+      }
+    },
+    {
+      "title": "PAPI OPUS 8",
+      "date": "2026-12-19",
+      "start": "10:30",
+      "end": "11:15",
+      "minMonths": 18,
+      "maxMonths": 36,
+      "venue": "Biblioteca Municipal Almeida Garrett",
+      "sessionEvidence": {
+        "date": "2026-12-19",
+        "start": "10:30",
+        "end": "11:15",
+        "minMonths": 18,
+        "maxMonths": 36,
+        "venue": "Biblioteca Municipal Almeida Garrett",
+        "sourceUrl": "https://www.bibliotecasdoporto.pt/evento/papi-opus-8-espetaculo/",
+        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "kind": "official-programme",
+        "contextSourceUrl": "https://www.bibliotecasdoporto.pt/evento/nano-mini-micro-festival-para-a-infancia-do-porto/"
+      },
+      "id": "session-c2f113aac4639d0",
+      "url": "https://www.bibliotecasdoporto.pt/evento/papi-opus-8-espetaculo/",
+      "source": "Bibliotecas do Porto",
+      "firstSeen": "2026-11-10T11:41:08+00:00",
+      "lastSeen": "2026-11-10T11:41:08+00:00",
+      "ageEvidence": "official-adapter",
+      "priority": 1,
+      "validationStatus": "verified",
+      "distanceKm": 4.8717,
+      "distanceWithinRadius": true,
+      "geo": {
+        "latitude": 41.1482546,
+        "longitude": -8.6269177,
+        "coordinateSourceUrl": "https://www.openstreetmap.org/way/244393721",
+        "originId": "ctt-4-caminhos",
+        "method": "straight-line"
+      }
+    },
+    {
+      "title": "PAPI OPUS 8",
+      "date": "2026-12-19",
+      "start": "11:30",
+      "end": "12:15",
+      "minMonths": 18,
+      "maxMonths": 36,
+      "venue": "Biblioteca Municipal Almeida Garrett",
+      "sessionEvidence": {
+        "date": "2026-12-19",
+        "start": "11:30",
+        "end": "12:15",
+        "minMonths": 18,
+        "maxMonths": 36,
+        "venue": "Biblioteca Municipal Almeida Garrett",
+        "sourceUrl": "https://www.bibliotecasdoporto.pt/evento/papi-opus-8-espetaculo/",
+        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "kind": "official-programme",
+        "contextSourceUrl": "https://www.bibliotecasdoporto.pt/evento/nano-mini-micro-festival-para-a-infancia-do-porto/"
+      },
+      "id": "session-92f5bcbe01e5feb",
+      "url": "https://www.bibliotecasdoporto.pt/evento/papi-opus-8-espetaculo/",
+      "source": "Bibliotecas do Porto",
+      "firstSeen": "2026-11-10T11:41:08+00:00",
+      "lastSeen": "2026-11-10T11:41:08+00:00",
+      "ageEvidence": "official-adapter",
+      "priority": 1,
+      "validationStatus": "verified",
+      "distanceKm": 4.8717,
+      "distanceWithinRadius": true,
+      "geo": {
+        "latitude": 41.1482546,
+        "longitude": -8.6269177,
+        "coordinateSourceUrl": "https://www.openstreetmap.org/way/244393721",
+        "originId": "ctt-4-caminhos",
+        "method": "straight-line"
+      }
+    },
+    {
+      "title": "Bebeteca Mágica | O Meu Primeiro Paninho",
+      "date": "2026-11-21",
+      "start": "10:00",
+      "end": null,
+      "minMonths": 6,
+      "maxMonths": 36,
+      "venue": "Biblioteca Municipal Florbela Espanca",
+      "sessionEvidence": {
+        "date": "2026-11-21",
+        "start": "10:00",
+        "end": null,
+        "minMonths": 6,
+        "maxMonths": 36,
+        "venue": "Biblioteca Municipal Florbela Espanca",
+        "sourceUrl": "https://www.bibliotecasearquivosmatosinhos.pt/evento-44/bebeteca-magica-o-meu-primeiro-paninho",
+        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "kind": "official-adapter"
+      },
+      "id": "session-05bcae6a28d8519",
+      "url": "https://www.bibliotecasearquivosmatosinhos.pt/evento-44/bebeteca-magica-o-meu-primeiro-paninho",
+      "source": "Bibliotecas de Matosinhos",
+      "firstSeen": "2026-11-10T11:40:55+00:00",
+      "lastSeen": "2026-11-10T11:40:55+00:00",
+      "ageEvidence": "official-adapter",
+      "priority": 1,
+      "validationStatus": "verified",
+      "distanceKm": 2.606,
+      "distanceWithinRadius": true,
+      "geo": {
+        "latitude": 41.1834858,
+        "longitude": -8.6821961,
+        "coordinateSourceUrl": "https://www.openstreetmap.org/way/168970786",
+        "originId": "ctt-4-caminhos",
+        "method": "straight-line"
+      }
+    }
+  ],
+  "pendingDiscoveries": [
+    {
+      "id": "e8dc2f7dbd56beb",
+      "title": "Som de Lá e de Cá",
+      "url": "https://casadamusica.com/event/som-de-ca-e-de-la/",
+      "source": "Casa da Música",
+      "firstSeen": "2026-11-10T11:41:29+00:00",
+      "lastSeen": "2026-11-10T11:41:29+00:00",
+      "status": "Por confirmar",
+      "priority": 1,
+      "minMonths": 3,
+      "maxMonths": 72,
+      "ageEvidence": "official-adapter",
+      "validationStatus": "pending",
+      "validationReasons": [
+        "Sessão e local por verificar na fonte original"
+      ]
+    },
+    {
+      "id": "68d2d20190379fc",
+      "title": "Experimentar Luzes",
+      "url": "https://www.oficinajosefina.com/beb%C3%A9s",
+      "source": "Oficina Josefina",
+      "firstSeen": "2026-11-10T11:41:22+00:00",
+      "lastSeen": "2026-11-10T11:41:22+00:00",
+      "status": "Por confirmar",
+      "priority": 1,
+      "minMonths": 12,
+      "maxMonths": 36,
+      "ageEvidence": "official-adapter",
+      "validationStatus": "pending",
+      "validationReasons": [
+        "Sessão e local por verificar na fonte original"
+      ]
+    },
+    {
+      "id": "1bafe09d89412f9",
+      "title": "PaPI Opus 8",
+      "url": "https://www.bibliotecasdoporto.pt/evento/papi-opus-8-espetaculo/",
+      "source": "Bibliotecas do Porto",
+      "firstSeen": "2026-11-10T11:41:07+00:00",
+      "lastSeen": "2026-11-10T11:41:07+00:00",
+      "status": "Por confirmar",
+      "priority": 1,
+      "minMonths": 18,
+      "maxMonths": 36,
+      "ageEvidence": "official-adapter",
+      "validationStatus": "pending",
+      "validationReasons": [
+        "Sessão e local por verificar na fonte original"
+      ]
+    },
     {
       "id": "c75a6265dd23362",
       "title": "Música DOM 22 NOV World Rock Bebé — Rock Me Baby | 22 novembro Auditório Municipal de Gaia · Vila Nova de Gaia 0–5 anos Atividade paga",
       "url": "https://pequenosplanos.pt/event/world-rock-bebe-gaia-22-nov",
       "source": "Pequenos Planos",
       "firstSeen": "2026-11-09T23:12:46+00:00",
-      "lastSeen": "2026-11-09T23:18:34+00:00",
+      "lastSeen": "2026-11-10T11:41:37+00:00",
       "status": "Por confirmar",
       "priority": 2,
       "minMonths": 0,
       "maxMonths": 60,
-      "ageEvidence": "announcement-title"
+      "ageEvidence": "announcement-title",
+      "validationStatus": "pending",
+      "validationReasons": [
+        "Sessão e local por verificar na fonte original"
+      ]
     },
     {
       "id": "147124badd3781e",
@@ -246,12 +937,16 @@
       "url": "https://pequenosplanos.pt/event/world-rock-bebe-gaia-29-nov",
       "source": "Pequenos Planos",
       "firstSeen": "2026-11-09T23:12:46+00:00",
-      "lastSeen": "2026-11-09T23:18:34+00:00",
+      "lastSeen": "2026-11-10T11:41:37+00:00",
       "status": "Por confirmar",
       "priority": 2,
       "minMonths": 0,
       "maxMonths": 60,
-      "ageEvidence": "announcement-title"
+      "ageEvidence": "announcement-title",
+      "validationStatus": "pending",
+      "validationReasons": [
+        "Sessão e local por verificar na fonte original"
+      ]
     },
     {
       "id": "e62d0fdcfb7dfb8",
@@ -259,12 +954,18 @@
       "url": "https://pequenosplanos.pt/event/a-invencao-da-natureza-casa-da-musica-2026-11-15",
       "source": "Pequenos Planos",
       "firstSeen": "2026-11-09T23:12:46+00:00",
-      "lastSeen": "2026-11-09T23:18:34+00:00",
+      "lastSeen": "2026-11-10T11:41:37+00:00",
       "status": "Por confirmar",
       "priority": 2,
       "minMonths": 0,
       "maxMonths": 72,
-      "ageEvidence": "announcement-title"
+      "ageEvidence": "announcement-title",
+      "validationStatus": "pending",
+      "validationReasons": [
+        "Sessão e local por verificar na fonte original"
+      ],
+      "distanceKm": 3.6685,
+      "distanceWithinRadius": true
     },
     {
       "id": "c03717a9cd7d9ba",
@@ -272,12 +973,18 @@
       "url": "https://pequenosplanos.pt/event/coro-infantil-casa-da-musica-2026-12-20",
       "source": "Pequenos Planos",
       "firstSeen": "2026-11-09T23:12:46+00:00",
-      "lastSeen": "2026-11-09T23:18:34+00:00",
+      "lastSeen": "2026-11-10T11:41:37+00:00",
       "status": "Por confirmar",
       "priority": 2,
       "minMonths": 0,
       "maxMonths": 120,
-      "ageEvidence": "announcement-title"
+      "ageEvidence": "announcement-title",
+      "validationStatus": "pending",
+      "validationReasons": [
+        "Sessão e local por verificar na fonte original"
+      ],
+      "distanceKm": 3.6685,
+      "distanceWithinRadius": true
     },
     {
       "id": "5ba27f3fb2f7424",
@@ -285,12 +992,16 @@
       "url": "https://www.bibliotecasearquivosmatosinhos.pt/evento-44/bebeteca-magica-o-meu-primeiro-paninho",
       "source": "Bibliotecas de Matosinhos",
       "firstSeen": "2026-11-09T23:12:03+00:00",
-      "lastSeen": "2026-11-09T23:18:02+00:00",
+      "lastSeen": "2026-11-10T11:40:54+00:00",
       "status": "Por confirmar",
       "priority": 1,
       "minMonths": 6,
       "maxMonths": 36,
-      "ageEvidence": "official-adapter"
+      "ageEvidence": "official-adapter",
+      "validationStatus": "pending",
+      "validationReasons": [
+        "Sessão e local por verificar na fonte original"
+      ]
     },
     {
       "id": "6f14fa4158c0bb5",
@@ -298,12 +1009,18 @@
       "url": "https://pequenosplanos.pt/event/hora-do-conto-paredes-2026-11-21",
       "source": "Pequenos Planos",
       "firstSeen": "2026-11-09T22:51:32+00:00",
-      "lastSeen": "2026-11-09T23:18:34+00:00",
+      "lastSeen": "2026-11-10T11:41:37+00:00",
       "status": "Por confirmar",
       "priority": 2,
       "minMonths": 24,
       "maxMonths": 72,
-      "ageEvidence": "announcement-title"
+      "ageEvidence": "announcement-title",
+      "validationStatus": "pending",
+      "validationReasons": [
+        "Fora do raio de 15 km"
+      ],
+      "distanceKm": 26.6362,
+      "distanceWithinRadius": false
     },
     {
       "id": "014a34104a95877",
@@ -311,12 +1028,18 @@
       "url": "https://pequenosplanos.pt/event/musica-com-bebes-papas-paredes-2026-11-28",
       "source": "Pequenos Planos",
       "firstSeen": "2026-11-09T22:51:32+00:00",
-      "lastSeen": "2026-11-09T23:18:34+00:00",
+      "lastSeen": "2026-11-10T11:41:37+00:00",
       "status": "Por confirmar",
       "priority": 2,
       "minMonths": 0,
       "maxMonths": 36,
-      "ageEvidence": "announcement-title"
+      "ageEvidence": "announcement-title",
+      "validationStatus": "pending",
+      "validationReasons": [
+        "Fora do raio de 15 km"
+      ],
+      "distanceKm": 26.6362,
+      "distanceWithinRadius": false
     },
     {
       "id": "ad8c20723b6c05d",
@@ -324,12 +1047,16 @@
       "url": "https://pequenosplanos.pt/event/musica-para-bebes-fnac-gaia-2026-11-15",
       "source": "Pequenos Planos",
       "firstSeen": "2026-11-09T22:51:32+00:00",
-      "lastSeen": "2026-11-09T23:18:34+00:00",
+      "lastSeen": "2026-11-10T11:41:37+00:00",
       "status": "Por confirmar",
       "priority": 2,
       "minMonths": 0,
       "maxMonths": 36,
-      "ageEvidence": "announcement-title"
+      "ageEvidence": "announcement-title",
+      "validationStatus": "pending",
+      "validationReasons": [
+        "Sessão e local por verificar na fonte original"
+      ]
     },
     {
       "id": "9f0d1c3609541eb",
@@ -337,12 +1064,16 @@
       "url": "https://pequenosplanos.pt/event/world-rock-bebe-gaia-15-nov",
       "source": "Pequenos Planos",
       "firstSeen": "2026-11-09T22:51:32+00:00",
-      "lastSeen": "2026-11-09T23:18:34+00:00",
+      "lastSeen": "2026-11-10T11:41:37+00:00",
       "status": "Por confirmar",
       "priority": 2,
       "minMonths": 0,
       "maxMonths": 60,
-      "ageEvidence": "announcement-title"
+      "ageEvidence": "announcement-title",
+      "validationStatus": "pending",
+      "validationReasons": [
+        "Sessão e local por verificar na fonte original"
+      ]
     }
   ]
 }
