@@ -23,6 +23,8 @@ from zoneinfo import ZoneInfo
 
 import requests
 from bs4 import BeautifulSoup
+from eligibility import mark_session, classify, assess, normalized
+from adapters import organiser_sessions
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'public' / 'data'
@@ -107,7 +109,9 @@ def fetch(url):
         typ=res.headers.get('Content-Type','')
         if typ and not any(t in typ for t in ('text/html','application/xhtml','application/ld+json')):
             raise ValueError('Unexpected content type')
-        return res.text, None
+        try: text=res.content.decode('utf-8')
+        except UnicodeDecodeError: text=res.text
+        return text, None
     except (requests.RequestException,ValueError) as e:
         return None, f'{type(e).__name__}: {str(e)[:130]}'
 
@@ -224,6 +228,8 @@ def parse_dt(value):
 
 def make_event(item,source_url,source_name,now):
     # Future *weekend* in next six weeks; require explicit child age, local venue.
+    if any(status in str(item.get('eventStatus','')).lower() for status in ('cancelled','canceled','postponed')):return None
+    if re.search(r'\b(?:cancelad[oa]|adiad[oa])\b',str(item.get('name','')),re.I):return None
     st=parse_dt(item.get('startDate'))
     if not st or not re.search(r"T\d{2}:\d{2}", item.get("startDate", "")):return None
     if st.tzinfo:st=st.astimezone(PT)
@@ -255,8 +261,9 @@ def make_event(item,source_url,source_name,now):
     pic=item.get('image');pic=pic[0] if isinstance(pic,list) and pic else pic
     if isinstance(pic,dict):pic=pic.get('url')
     category='Bibliotecas' if 'biblioteca' in where.lower() else ('Sensorial' if re.search(r'sensorial|pintura|cerâmica|barro',title,re.I) else 'Música' if re.search(r'música|concerto|som',title,re.I) else 'Outras')
-    slug=hashlib.sha256(f'{link}|{st.date()}|{st.hour}:{st.minute}'.encode()).hexdigest()[:13]
-    return {'id':'auto-'+slug,'title':title[:140],'date':st.date().isoformat(),'start':st.strftime('%H:%M'),'end':end.strftime('%H:%M') if end else None,'minMonths':age[0],'maxMonths':age[1],'ageText':f'{age[0]}–{age[1]} meses','price':price,'venue':venue[:130],'area':re.search(LOCAL,where).group(0).title(),'category':category,'kind':'Evento publicado','description':strip_text(BeautifulSoup(item.get('description',''),'html.parser').get_text(' ',strip=True))[:260] or 'Atividade para crianças pequenas.','bookingUrl':booking,'sourceUrl':link,'sourceName':source_name,'imageUrl':canonical(pic),'status':'unverified','openingAt':None,'capacity':None,'indoor':None,'confidence':'structured-official' if 'Oficina' in source_name else 'structured-listing','evidence':'Dados estruturados do evento; vagas não confirmadas.','evidenceDate':now.date().isoformat(),'discoveredAt':stamp(),'sourceType':'auto-jsonld','priority':48}
+    slug=hashlib.sha256(f'{link}|{st.date()}|{st.hour}:{st.minute}|{normalized(title)}|{normalized(venue)}'.encode()).hexdigest()[:13]
+    event = {'id':'auto-'+slug,'title':title[:140],'date':st.date().isoformat(),'start':st.strftime('%H:%M'),'end':end.strftime('%H:%M') if end else None,'minMonths':age[0],'maxMonths':age[1],'ageText':f'{age[0]}–{age[1]} meses','price':price,'venue':venue[:130],'area':re.search(LOCAL,where).group(0).title(),'category':category,'kind':'Evento publicado','description':strip_text(BeautifulSoup(item.get('description',''),'html.parser').get_text(' ',strip=True))[:260] or 'Atividade para crianças pequenas.','bookingUrl':booking,'sourceUrl':link,'sourceName':source_name,'imageUrl':canonical(pic),'status':'unverified','openingAt':None,'capacity':None,'indoor':None,'confidence':'structured-official' if 'Oficina' in source_name else 'structured-listing','evidence':'Dados estruturados do evento; vagas não confirmadas.','evidenceDate':now.date().isoformat(),'discoveredAt':stamp(),'sourceType':'auto-jsonld','priority':48}
+    return mark_session(event,source_url,now,'structured-event')
 
 def opening_dates(html,year):
     text=unicodedata.normalize('NFKC', strip_text(BeautifulSoup(html,'html.parser').get_text(' ',strip=True)))
@@ -306,7 +313,7 @@ def library_event(html, url, name, now):
         event['bookingUrl'] = forms[0] if len(forms) == 1 else None
         price = detail.select_one('.price')
         if price and 'gratuita' in price.get_text().lower(): event['price'] = 'Gratuito'
-    return event
+    return mark_session(event,url,now,'official-adapter') if event else None
 
 
 def apply_registration(events, history, page, title, source, forms, dates, checked, evidence_url=None):
@@ -343,14 +350,46 @@ def notify_telegram(lines):
 
 def scan(sources,previous,history,now):
     old_index=previous.get('sourceIndex',{})
-    old_disc={d['id']:d for d in previous.get('discoveries',[])}
-    old_curated=load(DATA/'events.json',{});events=[e for e in old_curated.get('events',[]) if isinstance(e.get('minMonths'),(int,float)) and 0 <= e['minMonths'] < 36 and not excludes_under_three(e.get('ageText','')+' '+e.get('title',''))]
-    existing={(e.get('sourceUrl'),e.get('date')) for e in events}
+    old_disc={d['id']:d for d in previous.get('pendingDiscoveries',[])+previous.get('discoveries',[])}
+    old_curated=load(DATA/'events.json',{});events=[e for e in old_curated.get('events',[])+old_curated.get('pendingEvents',[])+old_curated.get('excludedEvents',[]) if isinstance(e.get('minMonths'),(int,float)) and 0 <= e['minMonths'] < 36 and not excludes_under_three(e.get('ageText','')+' '+e.get('title',''))]
+    registry=load(ROOT/'public/data/venues.json',{})
     results={};new_msgs=[];auto_add=[]
+    page_cache={}
+    def get_page(url):
+        if url not in page_cache: page_cache[url]=fetch(url)
+        return page_cache[url]
+    def adapted_sessions(page,url):
+        context=None
+        if urlparse(url).hostname=='www.bibliotecasdoporto.pt' and '/evento/' in urlparse(url).path:
+            context,_=get_page('https://www.bibliotecasdoporto.pt/evento/nano-mini-micro-festival-para-a-infancia-do-porto/')
+        return organiser_sessions(page,url,now,make_event,context)
+    def session_key(event):
+        return (canonical(event.get('sourceUrl')),event.get('date'),event.get('start'),normalized(event.get('title')),normalized(event.get('venue')))
+    def refresh_page_evidence(url,parsed):
+        current={session_key(e) for e in parsed}
+        for event in events+auto_add:
+            evidence=event.get('sessionEvidence',{})
+            if canonical(evidence.get('sourceUrl'))==canonical(url) and session_key(event) not in current:
+                event.pop('sessionEvidence',None)
+    def upsert(event):
+        if not event:return
+        match=next((e for e in events+auto_add if canonical(e.get('sourceUrl'))==canonical(event['sourceUrl']) and e.get('date')==event['date'] and e.get('start')==event['start'] and normalized(e.get('title'))==normalized(event['title']) and normalized(e.get('venue'))==normalized(event['venue'])),None)
+        if match:
+            saved={k:match[k] for k in ('id','openingAt','registrationEvidenceUrl','registrationCheckedAt') if match.get(k) is not None}
+            if match.get('status')=='scheduled' and match.get('openingAt'):saved['status']='scheduled'
+            match.update(event);match.update(saved)
+        else:auto_add.append(event)
+        # A programme page can contain several different activities and times.
+        # Keep a lead per parsed session rather than attach its first session to every link.
+        lead_id='session-'+hashlib.sha256(f"{event['sourceUrl']}|{event['date']}|{event['start']}|{event['title']}".encode()).hexdigest()[:15]
+        old=old_disc.get(lead_id,{})
+        lead={key:event.get(key) for key in ('title','date','start','end','minMonths','maxMonths','venue','sessionEvidence')}
+        lead.update(id=lead_id,url=event['sourceUrl'],source=event['sourceName'],firstSeen=old.get('firstSeen') or stamp(),lastSeen=stamp(),ageEvidence='official-adapter',priority=1)
+        old_disc[lead_id]=lead
     for src in sources:
         name,url=src['name'],src['url'];print('Checking',name,url,flush=True)
         metadata={key:src[key] for key in ('instagramUrl','monitoringNote','agePolicyUrl') if key in src}
-        html,err=fetch(url)
+        html,err=get_page(url)
         if err:
             results[name]={**metadata,'url':url,'ok':False,'error':err,'checkedAt':stamp(),'lastLinks':old_index.get(name,{}).get('lastLinks',[]),'lastSuccessfulAt':old_index.get(name,{}).get('lastSuccessfulAt')}
             continue
@@ -375,19 +414,14 @@ def scan(sources,previous,history,now):
             item={**(old or {}),'id':eid,'title':t,'url':u,'source':name,'firstSeen':old.get('firstSeen') if old else stamp(),'lastSeen':stamp(),'status':'Por confirmar','priority':src.get('priority',3)}
             old_disc[eid]=item
             found.append(u)
-            if qualify_discovery(item) and not first_scan and u not in prev and src.get('priority',3)<3:
-                new_msgs.append(f"Novo anúncio potencial — {name}\n{t}\n{u}")
-        ld=extract_json_ld(soup)
-        for item in ld:
-            event=make_event(item,url,name,now)
-            if event and (event['sourceUrl'],event['date']) not in existing:
-                auto_add.append(event)
-                existing.add((event['sourceUrl'],event['date']))
+        root_events=adapted_sessions(html,url)+[e for item in extract_json_ld(soup) if (e:=make_event(item,url,name,now))]
+        refresh_page_evidence(url,root_events)
+        for event in root_events:upsert(event)
         # Inspect a few event links for embedded form links and dates. No login/CAPTCHA.
         detail_errors=[]
         detail_limit = MAX_LINKS if urlparse(url).hostname == 'www.bibliotecasearquivosmatosinhos.pt' else MAX_DETAILS
         for u,t in relevant[:detail_limit]:
-            page,err2=fetch(u)
+            page,err2=get_page(u)
             if not page:
                 detail_errors.append({'url':u,'error':err2});continue
             a,s=links_from(page,u)
@@ -398,7 +432,7 @@ def scan(sources,previous,history,now):
             form_errors=[]
             evidence_url=u
             if urlparse(u).hostname == 'www.bibliotecasearquivosmatosinhos.pt' and len(forms) == 1 and not dates:
-                form_html,form_error=fetch(forms[0])
+                form_html,form_error=get_page(forms[0])
                 if form_error: form_errors.append({'url':forms[0],'error':form_error})
                 elif form_html:
                     form_soup=BeautifulSoup(form_html,'html.parser')
@@ -409,18 +443,17 @@ def scan(sources,previous,history,now):
                         if dates: evidence_url=forms[0]
             detail_errors.extend(form_errors)
             adapted = library_event(page,u,name,now) if urlparse(u).hostname == 'www.bibliotecasearquivosmatosinhos.pt' else None
-            if adapted and (adapted['sourceUrl'],adapted['date']) not in existing:
-                auto_add.append(adapted);existing.add((adapted['sourceUrl'],adapted['date']))
-            age_event=adapted
-            for x in extract_json_ld(s):
-                event=make_event(x,u,name,now)
-                if event and canonical(event['sourceUrl']) == canonical(u): age_event=event
-                if event and (event['sourceUrl'],event['date']) not in existing:
-                    auto_add.append(event);existing.add((event['sourceUrl'],event['date']))
+            parsed=[adapted] if adapted else []
+            parsed+=adapted_sessions(page,u)
+            parsed+=[event for x in extract_json_ld(s) if (event:=make_event(x,u,name,now))]
+            refresh_page_evidence(u,parsed)
+            for event in parsed:upsert(event)
+            age_event=next((e for e in parsed if canonical(e['sourceUrl'])==canonical(u)),None)
             discovery_id=hashlib.sha256(u.encode()).hexdigest()[:15]
             if age_event and discovery_id in old_disc:
-                old_disc[discovery_id].update(minMonths=age_event['minMonths'],maxMonths=age_event['maxMonths'],ageEvidence='official-adapter' if adapted else 'structured-event')
+                old_disc[discovery_id].update(minMonths=age_event['minMonths'],maxMonths=age_event['maxMonths'],ageEvidence='official-adapter' if adapted or age_event['sessionEvidence']['kind']=='official-programme' else 'structured-event')
             if not qualify_discovery(old_disc.get(discovery_id,{})): continue
+            if not any(assess(dict(e),registry,now)['validationStatus']=='verified' for e in events+auto_add if canonical(e.get('sourceUrl'))==canonical(u)): continue
             apply_registration(events+auto_add,history,u,t,name,forms,dates,stamp(),evidence_url)
             sig_id=hashlib.sha256(u.encode()).hexdigest()[:15]
             signals=history.setdefault('signals',{})
@@ -435,15 +468,46 @@ def scan(sources,previous,history,now):
                     new_msgs.append(f"Data de inscrições anunciada — {t}\n{', '.join(dates)}\n{u}")
         results[name]={**metadata,'url':url,'ok':True,'checkedAt':stamp(),'lastLinks':found,'relevantLinks':len(found),'detailErrors':detail_errors,'lastSuccessfulAt':stamp(),'contentStatus':'links-found' if found else 'no-relevant-links'}
         time.sleep(.35)
-    # If crawl fails: don't remove existing data or overwrite observed leads.
-    qualified=[item for discovery in old_disc.values() if (item:=qualify_discovery(discovery)) is not None]
-    new_items=sorted(qualified,key=lambda d:d['firstSeen'],reverse=True)[:LIMIT_DISCOVERIES]
-    old_curated['events']=sorted(events+auto_add,key=lambda e:(e['date'],e.get('start') or '99:99'))
+    # Retain evidence for diagnosis, but never publish unchecked seeds or city-level locations.
+    groups=classify(events+auto_add,registry,now)
+    old_curated.update(groups)
+    for group in groups.values():group.sort(key=lambda e:(e['date'],e.get('start') or '99:99'))
+    new_items=[];pending_items=[]
+    for discovery in old_disc.values():
+        item=qualify_discovery(discovery)
+        if not item:continue
+        matching=[e for e in groups['events'] if canonical(e['sourceUrl'])==canonical(item['url']) and all(e.get(key)==item.get(key) for key in ('date','start','venue')) and normalized(e['title'])==normalized(item['title'])]
+        if matching:
+            # Carry a concrete session's checked fields; an organiser's general age policy is insufficient.
+            session=matching[0]
+            item.update({key:session[key] for key in ('date','start','end','minMonths','maxMonths','venue','sessionEvidence','validationStatus','distanceKm','distanceWithinRadius','geo')})
+            new_items.append(item)
+        else:
+            item['validationStatus']='pending'
+            item['validationReasons']=['Sessão e local por verificar na fonte original']
+            # An explicit named venue can rule a lead out; it cannot confirm the session.
+            names=[v['name'] for v in registry.get('venues',{}).values() if any(normalized(alias) in normalized(item['title']) for alias in v['aliases'])]
+            if len(names)==1:
+                from eligibility import set_distance
+                located={'venue':names[0]};set_distance(located,registry)
+                item.update({k:located[k] for k in ('distanceKm','distanceWithinRadius') if k in located})
+                if item.get('distanceWithinRadius') is False:item['validationReasons']=['Fora do raio de 15 km']
+            pending_items.append(item)
+    new_items=sorted(new_items,key=lambda d:d['firstSeen'],reverse=True)[:LIMIT_DISCOVERIES]
+    pending_items=sorted(pending_items,key=lambda d:d['firstSeen'],reverse=True)[:LIMIT_DISCOVERIES]
+    previous_published={d['id'] for d in previous.get('discoveries',[])}
+    if old_index:
+        for item in new_items:
+            if item['id'] not in previous_published:
+                new_msgs.append(f"Novo anúncio potencial — {item['source']}\n{item['title']}\n{item['url']}")
+    old_curated['eligibilitySummary']={'published':len(groups['events']),'pending':len(groups['pendingEvents']),'outsideRadius':len(groups['excludedEvents'])}
+    old_curated['radiusKm']=registry.get('radiusKm',15)
+    old_curated['distanceMethod']='straight-line'
     if any(x['ok'] for x in results.values()):old_curated['lastSuccessfulScan']=stamp()
     old_curated['updatedAt']=stamp()
     history['lastRun']=stamp()
     history['scanStats']={'sourcesOk':sum(x['ok'] for x in results.values()),'sourcesFailed':sum(not x['ok'] for x in results.values()),'autoEvents':len(auto_add)}
-    new_updates={'updatedAt':stamp(),'sourceIndex':results,'discoveries':new_items}
+    new_updates={'updatedAt':stamp(),'sourceIndex':results,'discoveries':new_items,'pendingDiscoveries':pending_items}
     return new_updates,old_curated,history,new_msgs,auto_add
 
 def main():

@@ -1,0 +1,115 @@
+{
+  "origin": {
+    "name": "CTT 4 Caminhos",
+    "latitude": 41.1879249,
+    "longitude": -8.651619,
+    "coordinateSourceUrl": "https://www.waze.com/live-map/directions/pt/porto/sra.-da-hora/loja-ctt?to=place.ChIJ52miozRlJA0RNoAwQ0nSUms",
+    "verifiedAt": "2026-11-10",
+    "precision": "venue",
+    "aliases": [],
+    "officialHosts": [],
+    "address": "Rua Quatro Caminhos 134, Senhora da Hora",
+    "id": "ctt-4-caminhos",
+    "addressSourceUrl": "https://www.ctt.pt/application/themes/pdfs/lojas_aceitantes_expresso_para_hoje_entrecidades.pdf"
+  },
+  "radiusKm": 15,
+  "distanceMethod": "haversine-straight-line",
+  "venues": {
+    "josefina": {
+      "name": "Oficina Josefina",
+      "latitude": 41.1487172,
+      "longitude": -8.596391,
+      "coordinateSourceUrl": "https://www.waze.com/live-map/directions/portugal/porto-district/porto/oficina-josefina?to=place.ChIJgVGHgD5lJA0ReDudBeOFbhU",
+      "verifiedAt": "2026-11-10",
+      "precision": "venue",
+      "aliases": [
+        "Oficina Josefina"
+      ],
+      "officialHosts": [
+        "oficinajosefina.com"
+      ],
+      "address": "Avenida de Camilo 224, Porto"
+    },
+    "florbela": {
+      "name": "Biblioteca Municipal Florbela Espanca",
+      "latitude": 41.1834858,
+      "longitude": -8.6821961,
+      "coordinateSourceUrl": "https://www.openstreetmap.org/way/168970786",
+      "verifiedAt": "2026-11-10",
+      "precision": "venue",
+      "aliases": [
+        "Biblioteca Municipal Florbela Espanca"
+      ],
+      "officialHosts": [
+        "bibliotecasearquivosmatosinhos.pt"
+      ],
+      "address": "Biblioteca Municipal Florbela Espanca, Rua de Alfredo Cunha, Basílio Teles, Matosinhos, Porto, 4454-510, Portugal"
+    },
+    "casa-musica": {
+      "name": "Casa da Música",
+      "latitude": 41.1589025,
+      "longitude": -8.6307748,
+      "coordinateSourceUrl": "https://www.openstreetmap.org/way/603359226",
+      "verifiedAt": "2026-11-10",
+      "precision": "venue",
+      "aliases": [
+        "Casa da Música",
+        "Casa da Música · Sala Ensaio 2",
+        "Casa da Música — Sala 2",
+        "Casa da Música · Sala Suggia"
+      ],
+      "officialHosts": [
+        "casadamusica.com"
+      ],
+      "address": "Casa da Música, 604-610, Avenida da Boavista, Cedofeita, Cedofeita, Santo Ildefonso, Sé, Miragaia, São Nicolau e Vitória, Porto, 4149-071, Portugal"
+    },
+    "almeida-garrett": {
+      "name": "Biblioteca Almeida Garrett",
+      "latitude": 41.1482546,
+      "longitude": -8.6269177,
+      "coordinateSourceUrl": "https://www.openstreetmap.org/way/244393721",
+      "verifiedAt": "2026-11-10",
+      "precision": "venue",
+      "aliases": [
+        "Biblioteca Municipal Almeida Garrett",
+        "Biblioteca Almeida Garrett",
+        "Auditório da Biblioteca Municipal Almeida Garrett"
+      ],
+      "officialHosts": [
+        "bibliotecasdoporto.pt"
+      ],
+      "address": "Biblioteca Almeida Garrett, 328, Rua de Entre Quintas, Vilar, Massarelos, Lordelo do Ouro e Massarelos, Porto, 4050-329, Portugal"
+    },
+    "biblioteca-paredes": {
+      "name": "Biblioteca Municipal de Paredes",
+      "latitude": 41.2079083,
+      "longitude": -8.3343702,
+      "coordinateSourceUrl": "https://www.openstreetmap.org/way/105885065",
+      "verifiedAt": "2026-11-10",
+      "precision": "venue",
+      "aliases": [
+        "Biblioteca Municipal de Paredes",
+        "Biblioteca Municipal Paredes"
+      ],
+      "officialHosts": [
+        "cm-paredes.pt"
+      ],
+      "address": "Biblioteca Municipal de Paredes, Rua Doutor José Correia Pacheco, Madalena, Paredes, Porto, 4580-135, Portugal"
+    },
+    "casa-arquitetura": {
+      "name": "Casa da Arquitetura",
+      "latitude": 41.1779446,
+      "longitude": -8.6868417,
+      "coordinateSourceUrl": "https://www.openstreetmap.org/way/954597129",
+      "verifiedAt": "2026-11-10",
+      "precision": "venue",
+      "aliases": [
+        "Casa da Arquitetura"
+      ],
+      "officialHosts": [
+        "casadaarquitetura.pt"
+      ],
+      "address": "Casa da Arquitetura, 456, Avenida Menéres, Matosinhos Sul, Matosinhos, Porto, 4450-189, Portugal"
+    }
+  }
+}

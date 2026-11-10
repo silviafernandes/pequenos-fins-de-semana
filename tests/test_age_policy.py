@@ -43,6 +43,7 @@ class UnderThreeTests(unittest.TestCase):
             data=Path(directory);(data/'events.json').write_text(json.dumps({'events':[]}))
             with patch.object(update,'DATA',data):
                 result,_,_,_,_=update.scan([],previous,{},datetime(2026,11,9,tzinfo=ZoneInfo('Europe/Lisbon')))
-        self.assertEqual([d['id'] for d in result['discoveries']],['good'])
-        self.assertEqual(result['discoveries'][0]['minMonths'],0)
-        self.assertEqual(result['discoveries'][0]['maxMonths'],36)
+        self.assertEqual(result['discoveries'],[])
+        self.assertEqual([d['id'] for d in result['pendingDiscoveries']],['good'])
+        self.assertEqual(result['pendingDiscoveries'][0]['minMonths'],0)
+        self.assertEqual(result['pendingDiscoveries'][0]['maxMonths'],36)
