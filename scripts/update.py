@@ -25,6 +25,7 @@ import requests
 from bs4 import BeautifulSoup
 from eligibility import mark_session, classify, assess, normalized
 from adapters import organiser_sessions
+from allegrow import collect as collect_allegrow
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'public' / 'data'
@@ -92,7 +93,7 @@ def allowed_url(url):
     if not allowed: ROBOTS_ERRORS[origin] = 'robots.txt disallows this URL'
     return allowed
 
-def fetch(url):
+def fetch(url, content_types=None):
     try:
         if not allowed_url(url): return None, ROBOTS_ERRORS.get(f'{urlparse(url).scheme}://{urlparse(url).netloc}', 'Robots policy unavailable')
         time.sleep(.35)
@@ -107,13 +108,20 @@ def fetch(url):
         res.raise_for_status()
         if len(res.content)>3_000_000: raise ValueError('Page too large')
         typ=res.headers.get('Content-Type','')
-        if typ and not any(t in typ for t in ('text/html','application/xhtml','application/ld+json')):
+        if typ and not any(t in typ for t in (content_types or ('text/html','application/xhtml','application/ld+json'))):
             raise ValueError('Unexpected content type')
         try: text=res.content.decode('utf-8')
         except UnicodeDecodeError: text=res.text
         return text, None
     except (requests.RequestException,ValueError) as e:
         return None, f'{type(e).__name__}: {str(e)[:130]}'
+
+def fetch_json(url):
+    content,error=fetch(url,content_types=('application/json',))
+    if error:return None,error
+    try:return json.loads(content),None
+    except (ValueError,TypeError):return None,'Resposta JSON pública inválida'
+
 
 def strip_text(s):
     return re.sub(r'\s+',' ',s or '').strip()
@@ -157,7 +165,7 @@ def age_band(text):
         m=re.search(p,t)
         if not m:return None
         lo,hi=int(m.group(1))*factors[0],int(m.group(2))*factors[1]
-        return (lo,hi) if 0<=lo<=hi<=144 else None
+        return (lo,hi) if 0<=lo<=hi<=216 else None
     ranged = (match(r'(\d{1,2})\s*(?:meses|m[eê]s|months)\s*(?:aos|a|at[eé]|to|-)\s*(\d{1,2})\s*(?:meses|m[eê]s|months)',(1,1))
         or match(r'(\d{1,2})\s*(?:meses|m[eê]s)\s*(?:aos|a|at[eé]|-)\s*(\d{1,2})\s*(?:anos|years)',(1,12))
         or match(r'(\d{1,2})\s*(?:anos|years)\s*(?:aos|a|at[eé]|to|-)\s*(\d{1,2})\s*(?:anos|years)',(12,12))
@@ -166,7 +174,7 @@ def age_band(text):
 
     if ranged: return ranged
     lower = minimum_age(t)
-    return (lower,144) if lower is not None and lower <= 144 else None
+    return (lower,144) if lower is not None and lower <= 216 else None
 
 
 def minimum_age(text):
@@ -389,6 +397,21 @@ def scan(sources,previous,history,now):
     for src in sources:
         name,url=src['name'],src['url'];print('Checking',name,url,flush=True)
         metadata={key:src[key] for key in ('instagramUrl','monitoringNote','agePolicyUrl') if key in src}
+        if src.get('type')=='allegrow-public':
+            report=collect_allegrow(fetch_json,now,make_event)
+            pages=report.pop('pages')
+            listed_ids=set(report.pop('listedIds',[]))
+            if report['ok']:
+                for page,parsed in pages.items():
+                    refresh_page_evidence(page,parsed)
+                    for event in parsed:upsert(event)
+                if not report['truncated']:
+                    for event in events+auto_add:
+                        if event.get('sourceType')=='allegrow-public' and event.get('allegrowActivityId') not in listed_ids:
+                            event.pop('sessionEvidence',None)
+            found=list(pages)
+            results[name]={**metadata,**report,'url':url,'checkedAt':stamp(),'lastLinks':found,'relevantLinks':len(found),'lastSuccessfulAt':stamp() if report['ok'] else old_index.get(name,{}).get('lastSuccessfulAt'),'contentStatus':'public-feed' if report['ok'] else 'unavailable'}
+            continue
         html,err=get_page(url)
         if err:
             results[name]={**metadata,'url':url,'ok':False,'error':err,'checkedAt':stamp(),'lastLinks':old_index.get(name,{}).get('lastLinks',[]),'lastSuccessfulAt':old_index.get(name,{}).get('lastSuccessfulAt')}
@@ -471,6 +494,10 @@ def scan(sources,previous,history,now):
     # Retain evidence for diagnosis, but never publish unchecked seeds or city-level locations.
     groups=classify(events+auto_add,registry,now)
     old_curated.update(groups)
+    for result in results.values():
+        if result.get('readMode')=='public-json':
+            result['eligibleSessions']=sum(e.get('sourceType')=='allegrow-public' for e in groups['events'])
+            result['pendingSessions']=sum(e.get('sourceType')=='allegrow-public' for e in groups['pendingEvents']+groups['excludedEvents'])
     for group in groups.values():group.sort(key=lambda e:(e['date'],e.get('start') or '99:99'))
     new_items=[];pending_items=[]
     for discovery in old_disc.values():

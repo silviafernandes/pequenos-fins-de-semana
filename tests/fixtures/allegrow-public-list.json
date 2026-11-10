@@ -1,0 +1,110 @@
+[
+  {
+    "id": "b9ec7396-f522-4c29-bc7a-9564e8862144",
+    "title": "GRAFFITI WORKSHOP ⭐️ FULFIL THE DREAM / MARVILA",
+    "age_range": "5y - 12y",
+    "location": "Rua da Fábrica de Material de Guerra 10, Lisbon",
+    "place_id": "lisboa",
+    "schedules": [
+      {
+        "id": "affa2377-5d84-4069-8a67-027565623845",
+        "start_time": "2026-11-14T11:00:00+00:00",
+        "end_time": "2026-11-14T13:00:00+00:00",
+        "spots_left": 10
+      },
+      {
+        "id": "1fbec4fe-39bb-48df-b7cb-f3400017d716",
+        "start_time": "2026-11-14T14:00:00+00:00",
+        "end_time": "2026-11-14T16:00:00+00:00",
+        "spots_left": 10
+      }
+    ],
+    "partner": {
+      "id": "e787f76e-78c8-445c-881a-a9502a220d07",
+      "full_name": "Fulfil The Dream ⭐️"
+    },
+    "price": "45.00",
+    "is_free": false
+  },
+  {
+    "id": "c60f13c2-87f2-4030-af1d-80a2557d9145",
+    "title": "Playdate Mãe Folha",
+    "age_range": "6m - 4y",
+    "location": "Rua de Sernandes 30",
+    "place_id": "vila-nova-de-gaia",
+    "schedules": [
+      {
+        "id": "1a46012a-1a2e-4260-b50b-ffe3932dabec",
+        "start_time": "2026-09-30T09:00:00+00:00",
+        "end_time": "2026-09-30T10:00:00+00:00",
+        "spots_left": 5
+      },
+      {
+        "id": "d8b7a4c6-7a6e-4525-90e1-4e1d96169421",
+        "start_time": "2026-10-21T09:00:00+00:00",
+        "end_time": "2026-10-21T10:00:00+00:00",
+        "spots_left": 5
+      },
+      {
+        "id": "57e59017-fba0-4043-aa88-03c209917818",
+        "start_time": "2026-11-18T10:00:00+00:00",
+        "end_time": "2026-11-18T11:00:00+00:00",
+        "spots_left": 5
+      },
+      {
+        "id": "b756ff2e-80cd-47d2-a3d1-f943b53d4ba1",
+        "start_time": "2026-12-16T10:00:00+00:00",
+        "end_time": "2026-12-16T11:00:00+00:00",
+        "spots_left": 5
+      }
+    ],
+    "partner": {
+      "id": "726f2258-b8c0-4047-a794-cf079c565159",
+      "full_name": "Calmaria Slowliving"
+    },
+    "price": "20.00",
+    "is_free": false
+  },
+  {
+    "id": "6befefbe-830b-4cf4-937d-587678e356c9",
+    "title": "Grandes Pinturas",
+    "age_range": "2y - 7y",
+    "location": "Avenida da Rosa, 30",
+    "place_id": "porto",
+    "schedules": [
+      {
+        "id": "628e92f4-173d-4c49-a8d8-da9af6ab1efc",
+        "start_time": "2026-11-14T11:00:00+00:00",
+        "end_time": "2026-11-14T12:00:00+00:00",
+        "spots_left": 8
+      }
+    ],
+    "partner": {
+      "id": "2269ba42-d4f3-47ff-954d-305633a92d4e",
+      "full_name": "Academia Infância"
+    },
+    "price": "15.00",
+    "is_free": false
+  },
+  {
+    "id": "103628a3-0ca7-430c-8d07-c42160f9ff72",
+    "title": "Encontro Novembro Clube Eco Pólis 🌱",
+    "age_range": "0m",
+    "location": "R. Álvaro de Castelões 330, 4200-039 Porto",
+    "place_id": "porto",
+    "schedules": [
+      {
+        "id": "6ec5137e-9c33-417a-b656-bfed4940ad28",
+        "start_time": "2026-11-22T10:30:00+00:00",
+        "end_time": "2026-11-22T11:45:00+00:00",
+        "spots_left": 20
+      }
+    ],
+    "partner": {
+      "id": "8c49071d-f9d3-4574-b545-22e667fff30c",
+      "full_name": "Clube Eco Pólis"
+    },
+    "price": "0.00",
+    "is_free": true
+  }
+]

@@ -104,7 +104,7 @@ npm run test:browser
 
 O teste de browser utiliza dados fictícios identificados no próprio teste, uma data fixa e um servidor local; não faz reservas nem envia notificações. A fixture de Matosinhos é um excerto do HTML público, com URL e data de recolha no ficheiro.
 
-Continuam por fazer: adaptadores específicos para ALLEGROW e outras fontes, validação da entrega de Telegram com credenciais configuradas e expansão do catálogo de recintos com coordenadas verificadas.
+Continuam por fazer: validação da entrega de Telegram com credenciais configuradas, adaptadores para outras fontes e expansão do catálogo de recintos com coordenadas verificadas.
 
 ## Critério de idade: menores de 3 anos
 
@@ -123,3 +123,16 @@ Incluído nas fontes prioritárias através do [calendário oficial](https://www
 - Cada sessão tem identidade própria, incluindo título, recinto, data e hora. Duas sessões no mesmo dia não são fundidas. Quando uma consulta bem-sucedida já não confirma a sessão, a evidência anterior é retirada. Uma falha de acesso preserva a última evidência explícita até 48 horas; depois, a sessão deixa de aparecer.
 - `events.json` separa `events`, `pendingEvents` e `excludedEvents`. `discoveries.json` separa anúncios elegíveis de `pendingDiscoveries`. Os candidatos são mantidos para diagnóstico e novas consultas, mas só aparecem no painel quando a sessão concreta e a distância estão verificadas. Uma menção etária num agregador não é suficiente.
 - Ao adicionar um novo recinto, registar primeiro as coordenadas do estabelecimento, a proveniência e os aliases exatos. Não aceitar automaticamente o primeiro resultado de uma pesquisa geográfica.
+
+## ALLEGROW: catálogo público de atividades
+
+O adaptador usa apenas os pedidos GET anónimos de atividades que o próprio site público faz: `/v1/public/activities` e `/v1/public/activities/{id}`, no servidor publicado na configuração pública do frontend. Não usa login, área de parceiros/administração, reservas, perfis de utilizadores nem avaliações. O servidor está fixado no adaptador; uma mudança de endereço ou formato produz um erro visível, não um resultado vazio aparentemente bem-sucedido.
+
+- Lê cada horário explícito em `schedules`. Não transforma o campo geral `duration` numa duração de sessão, nem extrapola recorrências. Horas sem fuso horário ficam por verificar.
+- Exige dois limites etários explícitos, por exemplo `6m - 4y`. Valores isolados como `0m` não são interpretados como uma faixa completa. Rejeita mínimos de 36 meses ou mais, dias úteis, sessões passadas e cancelamentos.
+- Consulta no máximo 100 atividades e 12 páginas de detalhe por execução. Erros de detalhe e consultas parciais aparecem no estado da fonte.
+- Mantém o endereço específico da atividade. Não usa a morada da sede do parceiro nem o centro da cidade para calcular distâncias.
+- Uma página de reservas só pode valer como fonte do organizador se o recinto tiver uma ligação `bookingPublishers` revista, com domínio, identificador público do parceiro e endereço exato. Não há uma autorização global para todos os eventos da plataforma. A evidência guarda o parceiro e o pedido público de detalhe.
+- O número `spots_left` não é usado para dizer que as inscrições estão abertas ou que uma vaga está garantida.
+
+Na verificação de 10 de novembro de 2026, o catálogo tinha 12 atividades. As atividades da Calmaria adequadas a bebés eram em dias úteis; algumas idades estavam incompletas. “Grandes Pinturas” tinha uma sessão de sábado para 2–7 anos, mas o recinto exato continuava por verificar. Foi mantida pendente, sem inventar uma distância nem uma vaga.

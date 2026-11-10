@@ -34,7 +34,7 @@ const { chromium } = require('playwright');
     fixture.events.push({...fixture.events.find(e=>e.id==='baby'),id:'unchecked',title:'Sessão sem evidência',sessionEvidence:undefined})
     await page.route('**/data/events.json',route=>route.fulfill({json:fixture}));
     await page.route('**/data/history.json',route=>route.fulfill({json:{observations:[]}}));
-    await page.route('**/data/discoveries.json',route=>route.fulfill({json:{sourceIndex:{Biblioteca:{url:'https://example.org',ok:false,error:'HTTP 403',checkedAt:'2026-11-09T10:00:00Z'}},discoveries:[
+    await page.route('**/data/discoveries.json',route=>route.fulfill({json:{sourceIndex:{Biblioteca:{url:'https://example.org',ok:false,error:'HTTP 403',checkedAt:'2026-11-09T10:00:00Z'},Allegrow:{url:'https://allegrowkids.pt/pt/',ok:true,readMode:'public-json',activitiesChecked:12,eligibleSessions:0,pendingSessions:1}},discoveries:[
       {id:'old-lead',title:'Contamos contigo! A partir dos 3 anos',url:'https://example.org/older',minMonths:36,maxMonths:144,firstSeen:'2026-11-09'},
       {id:'unknown-lead',title:'Hora do conto para famílias',url:'https://example.org/unknown',firstSeen:'2026-11-09'},
       {...fixture.events.find(e=>e.id==='baby'),id:'baby-lead',title:'Música para bebés 0–3 anos',url:'https://example.org/babies',firstSeen:'2026-11-09'}]}}));
@@ -63,6 +63,7 @@ const { chromium } = require('playwright');
     assert.equal(await page.locator('.event-card').count(),1);
     assert.match(await page.locator('.event-card').innerText(),/Abertura passada/);
     assert.match(await page.locator('.source-status-list').innerText(),/Fonte indisponível/);
+    assert.match(await page.locator('.source-status-list').innerText(),/12 atividades consultadas · 0 sessões elegíveis · 1 sessão por verificar/);
     await page.setViewportSize({width:390,height:844});
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
     assert.deepEqual(errors,[]);
