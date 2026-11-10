@@ -25,6 +25,7 @@ import requests
 from bs4 import BeautifulSoup
 from eligibility import mark_session, classify, assess, normalized
 from adapters import organiser_sessions
+from telegram_alerts import send_alerts, report as report_telegram
 from allegrow import collect as collect_allegrow
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -346,15 +347,10 @@ def apply_registration(events, history, page, title, source, forms, dates, check
 
 
 def notify_telegram(lines):
-    token=os.environ.get('TELEGRAM_BOT_TOKEN','')
-    chat=os.environ.get('TELEGRAM_CHAT_ID','')
-    if not token or not chat or not lines:return
-    message='✳ Novidades — Pequenos fins de semana\n\n'+'\n\n'.join(lines[:8])+'\n\nConfirmar sempre a inscrição na origem.'
-    try:
-       r=SESSION.post(f'https://api.telegram.org/bot{token}/sendMessage',json={'chat_id':chat,'text':message[:4000],'disable_web_page_preview':True},timeout=10)
-       r.raise_for_status()
-    except requests.RequestException as e:
-       print('Telegram alert failed:',type(e).__name__,file=sys.stderr)
+    result=send_alerts(lines,session=SESSION)
+    report_telegram(result)
+    return result
+
 
 def scan(sources,previous,history,now):
     old_index=previous.get('sourceIndex',{})

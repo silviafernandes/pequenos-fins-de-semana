@@ -37,7 +37,7 @@ Se quiseres avisos sobre **novos links de formulário** e **novas datas de abert
 1. Cria um bot com `@BotFather` no Telegram e obtém o token.
 2. Abre uma conversa com o bot e envia uma mensagem para ele. Obtém o teu `chat_id` através da API do Telegram ou de uma ferramenta de confiança.
 3. No GitHub, configura os **Actions secrets** `TELEGRAM_BOT_TOKEN` e `TELEGRAM_CHAT_ID` em **Settings → Secrets and variables → Actions**. Nunca os escrevas no código.
-4. Executa manualmente o workflow. Na primeira execução ele cria uma base de comparação; os alertas só são enviados quando encontra alterações novas. Por defeito, não envia toda a lista de anúncios irrelevantes.
+4. Em **Actions → Verificar alertas Telegram → Run workflow**, ativa **send_test** para enviar uma única mensagem identificada como TESTE. O resumo distingue configuração presente, resposta aceite, erro e entrega sem confirmação. Depois executa normalmente o workflow da agenda. Na primeira execução ele cria uma base de comparação; os alertas só são enviados quando encontra alterações novas. Por defeito, não envia toda a lista de anúncios irrelevantes.
 
 O envio de alertas é opcional; sem segredos a app e a recolha continuam a funcionar.
 
@@ -136,3 +136,16 @@ O adaptador usa apenas os pedidos GET anónimos de atividades que o próprio sit
 - O número `spots_left` não é usado para dizer que as inscrições estão abertas ou que uma vaga está garantida.
 
 Na verificação de 10 de novembro de 2026, o catálogo tinha 12 atividades. As atividades da Calmaria adequadas a bebés eram em dias úteis; algumas idades estavam incompletas. “Grandes Pinturas” tinha uma sessão de sábado para 2–7 anos, mas o recinto exato continuava por verificar. Foi mantida pendente, sem inventar uma distância nem uma vaga.
+
+## Verificar a entrega de Telegram
+
+O workflow [`Verificar alertas Telegram`](https://github.com/silviafernandes/pequenos-fins-de-semana/actions/workflows/telegram.yml) verifica os secrets no mesmo ambiente `github-pages` usado pela agenda. Alterações ao script ou a este workflow executam apenas a verificação de configuração; não enviam mensagens. O modo manual **send_test=true** envia uma única mensagem de teste para o destino já configurado.
+
+Os secrets `TELEGRAM_BOT_TOKEN` e `TELEGRAM_CHAT_ID` devem ser definidos nas [definições seguras do repositório](https://github.com/silviafernandes/pequenos-fins-de-semana/settings/secrets/actions), ou no ambiente `github-pages`. Não os escrevas no código, nos issues, nos logs nem no chat. Antes do teste, abre o bot no Telegram e envia `/start`.
+
+- **ready**: os valores estão presentes e têm formato válido; ainda não comprova envio real.
+- **accepted**: Telegram devolveu `ok=true`, um identificador de mensagem e a confirmação do destino configurado. Não equivale a confirmação de leitura no telemóvel.
+- **not-configured / invalid-config / failed**: o resumo explica a configuração em falta ou o tipo de recusa, sem divulgar valores. O workflow de teste termina com erro.
+- **uncertain**: houve timeout, falha de rede, resposta inesperada ou confirmação insuficiente. Não há repetição automática, porque a mensagem pode já ter chegado. Confirma a conversa antes de voltar a testar.
+
+Os alertas normais continuam opcionais. Os erros ficam explícitos nos logs e no resumo da execução, sem impedir a publicação da agenda. Nenhum teste de entrega é enviado em pull requests ou publicações normais de código. Os testes unitários usam respostas simuladas; o teste real exige os secrets configurados e o modo manual de envio.
