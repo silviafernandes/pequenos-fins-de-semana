@@ -1,0 +1,21 @@
+{
+  "id": "6befefbe-830b-4cf4-937d-587678e356c9",
+  "title": "Grandes Pinturas",
+  "age_range": "2y - 7y",
+  "location": "Avenida da Rosa, 30",
+  "place_id": "porto",
+  "schedules": [
+    {
+      "id": "628e92f4-173d-4c49-a8d8-da9af6ab1efc",
+      "start_time": "2026-11-14T11:00:00+00:00",
+      "end_time": "2026-11-14T12:00:00+00:00",
+      "spots_left": 8
+    }
+  ],
+  "partner": {
+    "id": "2269ba42-d4f3-47ff-954d-305633a92d4e",
+    "full_name": "Academia Infância"
+  },
+  "price": "15.00",
+  "is_free": false
+}

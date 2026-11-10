@@ -46,6 +46,14 @@ def mark_session(event,url,now,kind):
     return event
 
 
+def booking_publisher_matches(event,evidence,venue):
+    if evidence.get('kind')!='provider-booking':return False
+    partner=event.get('allegrowPartnerId')
+    address=event.get('locationAddress')
+    if not partner or not address or partner!=evidence.get('partnerId') or normalized(address)!=normalized(evidence.get('address')):return False
+    return any(rule.get('host')==host(evidence.get('sourceUrl')) and rule.get('partnerId')==partner and normalized(rule.get('address'))==normalized(address) for rule in venue.get('bookingPublishers',[]))
+
+
 def assess(event,registry,now):
     venue=set_distance(event,registry)
     reasons=[]
@@ -61,7 +69,7 @@ def assess(event,registry,now):
     evidence=event.get('sessionEvidence',{})
     if not evidence or any(evidence.get(k)!=event.get(k) for k in ('date','start','end','minMonths','maxMonths','venue')):
         reasons.append('Sessão sem evidência específica')
-    elif venue and host(evidence.get('sourceUrl')) not in venue.get('officialHosts',[]):
+    elif venue and host(evidence.get('sourceUrl')) not in venue.get('officialHosts',[]) and not booking_publisher_matches(event,evidence,venue):
         reasons.append('Sessão sem confirmação na fonte original')
     else:
         try:

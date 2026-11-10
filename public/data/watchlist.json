@@ -55,9 +55,10 @@
   },
   {
     "name": "Allegrow Kids",
-    "url": "https://allegrowkids.pt/en",
-    "type": "page",
-    "priority": 2
+    "url": "https://allegrowkids.pt/pt/",
+    "type": "allegrow-public",
+    "priority": 2,
+    "monitoringNote": "Atividades e horários consultados no catálogo público. Só entram na agenda sessões com idade, fim de semana e local verificados."
   },
   {
     "name": "Pequenos Planos",
