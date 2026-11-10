@@ -74,7 +74,7 @@ npm run build
 - **Não é uma plataforma de reservas.** O botão abre o formulário ou o website original. Só o organizador sabe se restam lugares.
 - O motor deteta páginas públicas com `schema.org/Event` e inclui um adaptador para a Florbela Espanca; muitos outros sites precisam de um adaptador próprio. Adicionar extratores específicos para as fontes mais importantes é a evolução prioritária.
 - Algumas fontes só mostram o conteúdo com JavaScript ou bloqueiam pedidos automáticos; elas surgirão com erro no histórico da recolha. Precisam de um adaptador autorizado (API/RSS) ou verificação humana.
-- Distância máxima de 15 km é um critério editorial no MVP: **a geolocalização rigorosa e o tempo de viagem ainda não estão implementados**. Não assumir que todo o concelho de Gaia ou Maia cabe no raio.
+- O limite de 15 km é calculado em linha reta a partir dos CTT 4 Caminhos, com coordenadas verificadas do estabelecimento e de cada recinto. Locais sem coordenadas verificadas ficam pendentes. Não se calculam tempos nem distâncias de condução.
 - Favoritos são locais ao browser e não sincronizam entre dispositivos.
 - Os horários de abertura conhecidos são **observações**. Uma sexta-feira às 10:00 não constitui prova de uma regra semanal.
 - O GitHub Pages estático não contém um backend sempre ativo; os dados são gerados periodicamente pelo workflow e servidos como ficheiros estáticos.
@@ -104,7 +104,7 @@ npm run test:browser
 
 O teste de browser utiliza dados fictícios identificados no próprio teste, uma data fixa e um servidor local; não faz reservas nem envia notificações. A fixture de Matosinhos é um excerto do HTML público, com URL e data de recolha no ficheiro.
 
-Continuam por fazer: adaptadores específicos para Oficina Josefina e ALLEGROW, geocodificação e exclusão rigorosa fora dos 15 km, e validação da entrega de Telegram com credenciais configuradas.
+Continuam por fazer: adaptadores específicos para ALLEGROW e outras fontes, validação da entrega de Telegram com credenciais configuradas e expansão do catálogo de recintos com coordenadas verificadas.
 
 ## Critério de idade: menores de 3 anos
 
@@ -113,3 +113,13 @@ A idade mínima tem de ser **inferior a 36 meses**. “A partir dos 3 anos”, �
 ## Knock-Knock Family Club
 
 Incluído nas fontes prioritárias através do [calendário oficial](https://www.knock-knock.pt/calendario), com ligação para o perfil de Instagram indicado pelo identificador no site oficial. A leitura de Instagram não é automática e pode ser bloqueada. O espaço admite 0–5 anos segundo as regras oficiais, mas isso não confirma a idade de cada workshop. Não se criam sessões sem data, hora e evidência etária específica. Na verificação de 9 de novembro de 2026, o calendário público não tinha ocorrências nas seis semanas seguintes.
+
+## Verificação de sessões e raio de 15 km
+
+- O ponto de origem é a loja CTT da Rua Quatro Caminhos 134, Senhora da Hora, confirmada pela morada oficial dos CTT e pelo ponto do estabelecimento no mapa. O cálculo é Haversine, em **linha reta**, com comparação antes de arredondar. Não representa um percurso de carro.
+- `public/data/venues.json` contém recintos identificados de forma exata, coordenadas, URL de proveniência e data de verificação. Os nomes não são substituídos pelo centro de uma cidade ou de uma rua. Um local desconhecido ou ambíguo aguarda verificação. Coordenadas: © OpenStreetMap contributors (ODbL), e pontos de estabelecimentos consultados no Waze, com ligações específicas em cada registo.
+- Uma sessão precisa de data futura de fim de semana, hora explícita, faixa etária que admita menores de 36 meses, recinto identificado no raio e evidência recente na fonte original. O estado da reserva continua separado: formulário ou data de abertura não provam vagas.
+- Os adaptadores da Oficina Josefina e Casa da Música leem datas e idades dos blocos correspondentes à atividade, sem misturar workshops na mesma página. O PaPI usa os horários e a duração da página da sessão e o ano explícito do programa oficial do festival, que liga essa sessão. Horas de fim não publicadas continuam desconhecidas.
+- Cada sessão tem identidade própria, incluindo título, recinto, data e hora. Duas sessões no mesmo dia não são fundidas. Quando uma consulta bem-sucedida já não confirma a sessão, a evidência anterior é retirada. Uma falha de acesso preserva a última evidência explícita até 48 horas; depois, a sessão deixa de aparecer.
+- `events.json` separa `events`, `pendingEvents` e `excludedEvents`. `discoveries.json` separa anúncios elegíveis de `pendingDiscoveries`. Os candidatos são mantidos para diagnóstico e novas consultas, mas só aparecem no painel quando a sessão concreta e a distância estão verificadas. Uma menção etária num agregador não é suficiente.
+- Ao adicionar um novo recinto, registar primeiro as coordenadas do estabelecimento, a proveniência e os aliases exatos. Não aceitar automaticamente o primeiro resultado de uma pesquisa geográfica.

@@ -22,16 +22,30 @@ const { chromium } = require('playwright');
       {id:'library',title:'Biblioteca com inscrições futuras',date:'2026-11-21',start:'10:00',end:null,minMonths:6,maxMonths:36,category:'Bibliotecas',status:'scheduled',openingAt:'2026-11-13T10:00+00:00',bookingUrl:'https://example.org/form'},
       {id:'past',title:'Abertura passada',date:'2026-11-15',start:'10:00',end:'11:00',minMonths:0,maxMonths:36,category:'Música',status:'scheduled',openingAt:'2026-11-08T10:00+00:00',indoor:true}
     ].map(e=>({...e,venue:'Porto',area:'Porto',sourceUrl:'https://example.org/event',description:'Atividade',price:'Gratuito',ageText:'0–36 meses'})),updatedAt:'2026-11-09T10:00:00Z',lastSuccessfulScan:'2026-11-09T10:00:00Z'};
+    for (const event of fixture.events) {
+      event.distanceKm = 4.2
+      event.distanceWithinRadius = true
+      event.validationStatus = 'verified'
+      event.sessionEvidence = Object.fromEntries(['date','start','end','minMonths','maxMonths','venue'].map(key=>[key,event[key]]))
+      Object.assign(event.sessionEvidence,{sourceUrl:event.sourceUrl,checkedAt:'2026-11-09T10:00:00Z'})
+    }
+    fixture.events.push({...fixture.events.find(e=>e.id==='baby'),id:'far',title:'Atividade em Paredes',distanceKm:27,distanceWithinRadius:false})
+    fixture.events.push({...fixture.events.find(e=>e.id==='baby'),id:'unknown-location',title:'Local por verificar',distanceKm:null,validationStatus:'pending'})
+    fixture.events.push({...fixture.events.find(e=>e.id==='baby'),id:'unchecked',title:'Sessão sem evidência',sessionEvidence:undefined})
     await page.route('**/data/events.json',route=>route.fulfill({json:fixture}));
     await page.route('**/data/history.json',route=>route.fulfill({json:{observations:[]}}));
     await page.route('**/data/discoveries.json',route=>route.fulfill({json:{sourceIndex:{Biblioteca:{url:'https://example.org',ok:false,error:'HTTP 403',checkedAt:'2026-11-09T10:00:00Z'}},discoveries:[
       {id:'old-lead',title:'Contamos contigo! A partir dos 3 anos',url:'https://example.org/older',minMonths:36,maxMonths:144,firstSeen:'2026-11-09'},
       {id:'unknown-lead',title:'Hora do conto para famílias',url:'https://example.org/unknown',firstSeen:'2026-11-09'},
-      {id:'baby-lead',title:'Música para bebés 0–3 anos',url:'https://example.org/babies',minMonths:0,maxMonths:36,firstSeen:'2026-11-09'}]}}));
+      {...fixture.events.find(e=>e.id==='baby'),id:'baby-lead',title:'Música para bebés 0–3 anos',url:'https://example.org/babies',firstSeen:'2026-11-09'}]}}));
     await page.goto('http://127.0.0.1:4174/');
     await page.getByText('Sessão para bebés pequenos',{exact:true}).waitFor();
     assert.equal(await page.locator('.event-card').count(),2);
     assert.equal(await page.locator('.discovery').count(),1);
+    assert.equal(await page.getByText('Atividade em Paredes',{exact:true}).count(),0);
+    assert.equal(await page.getByText('Local por verificar',{exact:true}).count(),0);
+    assert.equal(await page.getByText('Sessão sem evidência',{exact:true}).count(),0);
+    assert.match(await page.locator('.event-card').first().innerText(),/km em linha reta/);
     assert.match(await page.locator('.discovery').innerText(),/Música para bebés/);
     assert.equal(await page.getByText(/Contamos contigo/).count(),0);
     assert.match(await page.locator('.weeks button').nth(1).innerText(),/nov/);
