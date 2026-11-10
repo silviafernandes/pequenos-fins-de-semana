@@ -78,13 +78,13 @@
     },
     "5ba27f3fb2f7424": {
       "page": "https://www.bibliotecasearquivosmatosinhos.pt/evento-44/bebeteca-magica-o-meu-primeiro-paninho",
-      "title": "Bebeteca Mágica — O Meu Primeiro Paninho",
+      "title": "Bebeteca Mágica | O Meu Primeiro Paninho",
       "source": "Bibliotecas de Matosinhos",
       "formUrls": [
         "https://forms.gle/htFeB3xMT6nSwXwDA"
       ],
       "openingDates": [],
-      "lastChecked": "2026-11-10T11:40:55+00:00"
+      "lastChecked": "2026-11-10T12:06:23+00:00"
     },
     "44a43d31422cf6e": {
       "page": "https://www.bibliotecasearquivosmatosinhos.pt/evento-44/bebeteca-magica-yoga-de-encantar-48",
@@ -167,10 +167,10 @@
       "lastChecked": "2026-11-09T22:59:16+00:00"
     }
   },
-  "lastRun": "2026-11-10T11:41:48+00:00",
+  "lastRun": "2026-11-10T12:07:23+00:00",
   "scanStats": {
     "sourcesOk": 14,
     "sourcesFailed": 0,
-    "autoEvents": 5
+    "autoEvents": 1
   }
 }

@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-10T11:41:48+00:00",
-  "lastSuccessfulScan": "2026-11-10T11:41:48+00:00",
+  "updatedAt": "2026-11-10T12:07:23+00:00",
+  "lastSuccessfulScan": "2026-11-10T12:07:23+00:00",
   "origin": "CTT Correios de 4 Caminhos, Senhora da Hora, Matosinhos",
   "windowDays": 42,
   "events": [
@@ -30,7 +30,7 @@
       "confidence": "structured-official",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T11:41:22+00:00",
+      "discoveredAt": "2026-11-10T12:06:48+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -41,9 +41,11 @@
         "maxMonths": 36,
         "venue": "Oficina Josefina",
         "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
-        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "checkedAt": "2026-11-10T12:06:19.835270+00:00",
         "kind": "official-programme"
       },
+      "validationStatus": "verified",
+      "validationReasons": [],
       "distanceKm": 6.3544,
       "distanceWithinRadius": true,
       "venueId": "josefina",
@@ -53,9 +55,7 @@
         "coordinateSourceUrl": "https://www.waze.com/live-map/directions/portugal/porto-district/porto/oficina-josefina?to=place.ChIJgVGHgD5lJA0ReDudBeOFbhU",
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
-      },
-      "validationStatus": "verified",
-      "validationReasons": []
+      }
     },
     {
       "id": "paninho-21",
@@ -83,7 +83,7 @@
       "confidence": "official-listing",
       "evidence": "Data, horário, biblioteca e faixa etária publicados na página oficial; vagas por verificar.",
       "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T11:40:55+00:00",
+      "discoveredAt": "2026-11-10T12:06:23+00:00",
       "sourceType": "matosinhos-official",
       "priority": 48,
       "sessionEvidence": {
@@ -94,9 +94,11 @@
         "maxMonths": 36,
         "venue": "Biblioteca Municipal Florbela Espanca",
         "sourceUrl": "https://www.bibliotecasearquivosmatosinhos.pt/evento-44/bebeteca-magica-o-meu-primeiro-paninho",
-        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "checkedAt": "2026-11-10T12:06:19.835270+00:00",
         "kind": "official-adapter"
       },
+      "validationStatus": "verified",
+      "validationReasons": [],
       "distanceKm": 2.606,
       "distanceWithinRadius": true,
       "venueId": "florbela",
@@ -106,9 +108,7 @@
         "coordinateSourceUrl": "https://www.openstreetmap.org/way/168970786",
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
-      },
-      "validationStatus": "verified",
-      "validationReasons": []
+      }
     },
     {
       "id": "pint-22",
@@ -136,7 +136,7 @@
       "confidence": "structured-official",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T11:41:22+00:00",
+      "discoveredAt": "2026-11-10T12:06:48+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -147,9 +147,11 @@
         "maxMonths": 36,
         "venue": "Oficina Josefina",
         "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
-        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "checkedAt": "2026-11-10T12:06:19.835270+00:00",
         "kind": "official-programme"
       },
+      "validationStatus": "verified",
+      "validationReasons": [],
       "distanceKm": 6.3544,
       "distanceWithinRadius": true,
       "venueId": "josefina",
@@ -159,9 +161,7 @@
         "coordinateSourceUrl": "https://www.waze.com/live-map/directions/portugal/porto-district/porto/oficina-josefina?to=place.ChIJgVGHgD5lJA0ReDudBeOFbhU",
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
-      },
-      "validationStatus": "verified",
-      "validationReasons": []
+      }
     },
     {
       "id": "som-22",
@@ -189,7 +189,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T11:41:30+00:00",
+      "discoveredAt": "2026-11-10T12:07:01+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -200,9 +200,11 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "checkedAt": "2026-11-10T12:06:19.835270+00:00",
         "kind": "official-programme"
       },
+      "validationStatus": "verified",
+      "validationReasons": [],
       "distanceKm": 3.6685,
       "distanceWithinRadius": true,
       "venueId": "casa-musica",
@@ -212,9 +214,7 @@
         "coordinateSourceUrl": "https://www.openstreetmap.org/way/603359226",
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
-      },
-      "validationStatus": "verified",
-      "validationReasons": []
+      }
     },
     {
       "id": "auto-90c9352f121c5",
@@ -242,7 +242,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T11:41:30+00:00",
+      "discoveredAt": "2026-11-10T12:07:01+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -253,9 +253,11 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "checkedAt": "2026-11-10T12:06:19.835270+00:00",
         "kind": "official-programme"
       },
+      "validationStatus": "verified",
+      "validationReasons": [],
       "distanceKm": 3.6685,
       "distanceWithinRadius": true,
       "venueId": "casa-musica",
@@ -265,9 +267,7 @@
         "coordinateSourceUrl": "https://www.openstreetmap.org/way/603359226",
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
-      },
-      "validationStatus": "verified",
-      "validationReasons": []
+      }
     },
     {
       "id": "cer-29",
@@ -295,7 +295,7 @@
       "confidence": "structured-official",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T11:41:22+00:00",
+      "discoveredAt": "2026-11-10T12:06:48+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -306,9 +306,11 @@
         "maxMonths": 36,
         "venue": "Oficina Josefina",
         "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
-        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "checkedAt": "2026-11-10T12:06:19.835270+00:00",
         "kind": "official-programme"
       },
+      "validationStatus": "verified",
+      "validationReasons": [],
       "distanceKm": 6.3544,
       "distanceWithinRadius": true,
       "venueId": "josefina",
@@ -318,9 +320,7 @@
         "coordinateSourceUrl": "https://www.waze.com/live-map/directions/portugal/porto-district/porto/oficina-josefina?to=place.ChIJgVGHgD5lJA0ReDudBeOFbhU",
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
-      },
-      "validationStatus": "verified",
-      "validationReasons": []
+      }
     },
     {
       "id": "som-29",
@@ -348,7 +348,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T11:41:30+00:00",
+      "discoveredAt": "2026-11-10T12:07:01+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -359,9 +359,11 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "checkedAt": "2026-11-10T12:06:19.835270+00:00",
         "kind": "official-programme"
       },
+      "validationStatus": "verified",
+      "validationReasons": [],
       "distanceKm": 3.6685,
       "distanceWithinRadius": true,
       "venueId": "casa-musica",
@@ -371,9 +373,7 @@
         "coordinateSourceUrl": "https://www.openstreetmap.org/way/603359226",
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
-      },
-      "validationStatus": "verified",
-      "validationReasons": []
+      }
     },
     {
       "id": "auto-41c93a41574ab",
@@ -401,7 +401,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T11:41:30+00:00",
+      "discoveredAt": "2026-11-10T12:07:01+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -412,9 +412,11 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "checkedAt": "2026-11-10T12:06:19.835270+00:00",
         "kind": "official-programme"
       },
+      "validationStatus": "verified",
+      "validationReasons": [],
       "distanceKm": 3.6685,
       "distanceWithinRadius": true,
       "venueId": "casa-musica",
@@ -424,9 +426,7 @@
         "coordinateSourceUrl": "https://www.openstreetmap.org/way/603359226",
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
-      },
-      "validationStatus": "verified",
-      "validationReasons": []
+      }
     },
     {
       "id": "luz-06",
@@ -454,7 +454,7 @@
       "confidence": "structured-official",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T11:41:22+00:00",
+      "discoveredAt": "2026-11-10T12:06:48+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -465,9 +465,11 @@
         "maxMonths": 36,
         "venue": "Oficina Josefina",
         "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
-        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "checkedAt": "2026-11-10T12:06:19.835270+00:00",
         "kind": "official-programme"
       },
+      "validationStatus": "verified",
+      "validationReasons": [],
       "distanceKm": 6.3544,
       "distanceWithinRadius": true,
       "venueId": "josefina",
@@ -477,9 +479,7 @@
         "coordinateSourceUrl": "https://www.waze.com/live-map/directions/portugal/porto-district/porto/oficina-josefina?to=place.ChIJgVGHgD5lJA0ReDudBeOFbhU",
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
-      },
-      "validationStatus": "verified",
-      "validationReasons": []
+      }
     },
     {
       "id": "cer-13",
@@ -507,7 +507,7 @@
       "confidence": "structured-official",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T11:41:22+00:00",
+      "discoveredAt": "2026-11-10T12:06:48+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -518,9 +518,11 @@
         "maxMonths": 36,
         "venue": "Oficina Josefina",
         "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
-        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "checkedAt": "2026-11-10T12:06:19.835270+00:00",
         "kind": "official-programme"
       },
+      "validationStatus": "verified",
+      "validationReasons": [],
       "distanceKm": 6.3544,
       "distanceWithinRadius": true,
       "venueId": "josefina",
@@ -530,9 +532,7 @@
         "coordinateSourceUrl": "https://www.waze.com/live-map/directions/portugal/porto-district/porto/oficina-josefina?to=place.ChIJgVGHgD5lJA0ReDudBeOFbhU",
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
-      },
-      "validationStatus": "verified",
-      "validationReasons": []
+      }
     },
     {
       "id": "som-13",
@@ -560,7 +560,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T11:41:30+00:00",
+      "discoveredAt": "2026-11-10T12:07:01+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -571,9 +571,11 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "checkedAt": "2026-11-10T12:06:19.835270+00:00",
         "kind": "official-programme"
       },
+      "validationStatus": "verified",
+      "validationReasons": [],
       "distanceKm": 3.6685,
       "distanceWithinRadius": true,
       "venueId": "casa-musica",
@@ -583,9 +585,7 @@
         "coordinateSourceUrl": "https://www.openstreetmap.org/way/603359226",
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
-      },
-      "validationStatus": "verified",
-      "validationReasons": []
+      }
     },
     {
       "id": "auto-88e361fd2c84b",
@@ -613,7 +613,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T11:41:30+00:00",
+      "discoveredAt": "2026-11-10T12:07:01+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -624,9 +624,11 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "checkedAt": "2026-11-10T12:06:19.835270+00:00",
         "kind": "official-programme"
       },
+      "validationStatus": "verified",
+      "validationReasons": [],
       "distanceKm": 3.6685,
       "distanceWithinRadius": true,
       "venueId": "casa-musica",
@@ -636,9 +638,7 @@
         "coordinateSourceUrl": "https://www.openstreetmap.org/way/603359226",
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
-      },
-      "validationStatus": "verified",
-      "validationReasons": []
+      }
     },
     {
       "id": "papi-19",
@@ -666,7 +666,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T11:41:08+00:00",
+      "discoveredAt": "2026-11-10T12:06:35+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -677,10 +677,12 @@
         "maxMonths": 36,
         "venue": "Biblioteca Municipal Almeida Garrett",
         "sourceUrl": "https://www.bibliotecasdoporto.pt/evento/papi-opus-8-espetaculo/",
-        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "checkedAt": "2026-11-10T12:06:19.835270+00:00",
         "kind": "official-programme",
         "contextSourceUrl": "https://www.bibliotecasdoporto.pt/evento/nano-mini-micro-festival-para-a-infancia-do-porto/"
       },
+      "validationStatus": "verified",
+      "validationReasons": [],
       "distanceKm": 4.8717,
       "distanceWithinRadius": true,
       "venueId": "almeida-garrett",
@@ -690,9 +692,7 @@
         "coordinateSourceUrl": "https://www.openstreetmap.org/way/244393721",
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
-      },
-      "validationStatus": "verified",
-      "validationReasons": []
+      }
     },
     {
       "id": "auto-5ee7152008389",
@@ -720,7 +720,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T11:41:08+00:00",
+      "discoveredAt": "2026-11-10T12:06:35+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -731,10 +731,12 @@
         "maxMonths": 36,
         "venue": "Biblioteca Municipal Almeida Garrett",
         "sourceUrl": "https://www.bibliotecasdoporto.pt/evento/papi-opus-8-espetaculo/",
-        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "checkedAt": "2026-11-10T12:06:19.835270+00:00",
         "kind": "official-programme",
         "contextSourceUrl": "https://www.bibliotecasdoporto.pt/evento/nano-mini-micro-festival-para-a-infancia-do-porto/"
       },
+      "validationStatus": "verified",
+      "validationReasons": [],
       "distanceKm": 4.8717,
       "distanceWithinRadius": true,
       "venueId": "almeida-garrett",
@@ -744,9 +746,7 @@
         "coordinateSourceUrl": "https://www.openstreetmap.org/way/244393721",
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
-      },
-      "validationStatus": "verified",
-      "validationReasons": []
+      }
     },
     {
       "id": "luz-20",
@@ -774,7 +774,7 @@
       "confidence": "structured-official",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T11:41:22+00:00",
+      "discoveredAt": "2026-11-10T12:06:48+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -785,9 +785,11 @@
         "maxMonths": 36,
         "venue": "Oficina Josefina",
         "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
-        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "checkedAt": "2026-11-10T12:06:19.835270+00:00",
         "kind": "official-programme"
       },
+      "validationStatus": "verified",
+      "validationReasons": [],
       "distanceKm": 6.3544,
       "distanceWithinRadius": true,
       "venueId": "josefina",
@@ -797,9 +799,7 @@
         "coordinateSourceUrl": "https://www.waze.com/live-map/directions/portugal/porto-district/porto/oficina-josefina?to=place.ChIJgVGHgD5lJA0ReDudBeOFbhU",
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
-      },
-      "validationStatus": "verified",
-      "validationReasons": []
+      }
     },
     {
       "id": "som-20",
@@ -827,7 +827,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T11:41:30+00:00",
+      "discoveredAt": "2026-11-10T12:07:01+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -838,9 +838,11 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "checkedAt": "2026-11-10T12:06:19.835270+00:00",
         "kind": "official-programme"
       },
+      "validationStatus": "verified",
+      "validationReasons": [],
       "distanceKm": 3.6685,
       "distanceWithinRadius": true,
       "venueId": "casa-musica",
@@ -850,9 +852,7 @@
         "coordinateSourceUrl": "https://www.openstreetmap.org/way/603359226",
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
-      },
-      "validationStatus": "verified",
-      "validationReasons": []
+      }
     },
     {
       "id": "auto-35091c02c63b2",
@@ -880,7 +880,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T11:41:30+00:00",
+      "discoveredAt": "2026-11-10T12:07:01+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -891,9 +891,11 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-10T11:40:52.595646+00:00",
+        "checkedAt": "2026-11-10T12:06:19.835270+00:00",
         "kind": "official-programme"
       },
+      "validationStatus": "verified",
+      "validationReasons": [],
       "distanceKm": 3.6685,
       "distanceWithinRadius": true,
       "venueId": "casa-musica",
@@ -903,12 +905,62 @@
         "coordinateSourceUrl": "https://www.openstreetmap.org/way/603359226",
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
-      },
-      "validationStatus": "verified",
-      "validationReasons": []
+      }
     }
   ],
   "pendingEvents": [
+    {
+      "id": "auto-23baa518334bb",
+      "title": "Grandes Pinturas",
+      "date": "2026-11-14",
+      "start": "11:00",
+      "end": "12:00",
+      "minMonths": 24,
+      "maxMonths": 84,
+      "ageText": "24–84 meses",
+      "price": "15.00 EUR",
+      "venue": "Academia Infância — Avenida da Rosa, 30, Porto",
+      "area": "Porto",
+      "category": "Sensorial",
+      "kind": "Evento publicado",
+      "description": "Oficina criativa de exploração de pinturas em grandes superfícies Atividade publicada para 24 meses a 7 anos.",
+      "bookingUrl": "https://allegrowkids.pt/pt/activities/6befefbe-830b-4cf4-937d-587678e356c9",
+      "sourceUrl": "https://allegrowkids.pt/pt/activities/6befefbe-830b-4cf4-937d-587678e356c9",
+      "sourceName": "Academia Infância · ALLEGROW",
+      "imageUrl": null,
+      "status": "unverified",
+      "openingAt": null,
+      "capacity": null,
+      "indoor": null,
+      "confidence": "structured-listing",
+      "evidence": "Dados estruturados do evento; vagas não confirmadas.",
+      "evidenceDate": "2026-11-10",
+      "discoveredAt": "2026-11-10T12:07:06+00:00",
+      "sourceType": "allegrow-public",
+      "priority": 48,
+      "sessionEvidence": {
+        "date": "2026-11-14",
+        "start": "11:00",
+        "end": "12:00",
+        "minMonths": 24,
+        "maxMonths": 84,
+        "venue": "Academia Infância — Avenida da Rosa, 30, Porto",
+        "sourceUrl": "https://allegrowkids.pt/pt/activities/6befefbe-830b-4cf4-937d-587678e356c9",
+        "checkedAt": "2026-11-10T12:06:19.835270+00:00",
+        "kind": "provider-booking",
+        "partnerId": "2269ba42-d4f3-47ff-954d-305633a92d4e",
+        "address": "Avenida da Rosa, 30",
+        "detailUrl": "https://allegrow-prod-api-4zt6fvccoq-ew.a.run.app/v1/public/activities/6befefbe-830b-4cf4-937d-587678e356c9"
+      },
+      "allegrowActivityId": "6befefbe-830b-4cf4-937d-587678e356c9",
+      "allegrowScheduleId": "628e92f4-173d-4c49-a8d8-da9af6ab1efc",
+      "allegrowPartnerId": "2269ba42-d4f3-47ff-954d-305633a92d4e",
+      "locationAddress": "Avenida da Rosa, 30",
+      "validationStatus": "pending",
+      "validationReasons": [
+        "Local exato por verificar"
+      ]
+    },
     {
       "id": "espaciais-29",
       "title": "Domingos Espaciais",
@@ -938,6 +990,10 @@
       "discoveredAt": "2026-11-09T09:00:00Z",
       "sourceType": "curated",
       "priority": 58,
+      "validationStatus": "pending",
+      "validationReasons": [
+        "Sessão sem evidência específica"
+      ],
       "distanceKm": 3.1497,
       "distanceWithinRadius": true,
       "venueId": "casa-arquitetura",
@@ -947,17 +1003,13 @@
         "coordinateSourceUrl": "https://www.openstreetmap.org/way/954597129",
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
-      },
-      "validationStatus": "pending",
-      "validationReasons": [
-        "Sessão sem evidência específica"
-      ]
+      }
     }
   ],
   "excludedEvents": [],
   "eligibilitySummary": {
     "published": 17,
-    "pending": 1,
+    "pending": 2,
     "outsideRadius": 0
   },
   "radiusKm": 15,
