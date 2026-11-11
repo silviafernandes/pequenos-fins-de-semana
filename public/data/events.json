@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-10T17:01:07+00:00",
-  "lastSuccessfulScan": "2026-11-10T17:01:07+00:00",
+  "updatedAt": "2026-11-11T17:05:21+00:00",
+  "lastSuccessfulScan": "2026-11-11T17:05:21+00:00",
   "origin": "CTT Correios de 4 Caminhos, Senhora da Hora, Matosinhos",
   "windowDays": 42,
   "events": [
@@ -29,8 +29,8 @@
       "indoor": null,
       "confidence": "structured-official",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T17:00:29+00:00",
+      "evidenceDate": "2026-11-11",
+      "discoveredAt": "2026-11-11T17:04:53+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -41,7 +41,7 @@
         "maxMonths": 36,
         "venue": "Oficina Josefina",
         "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
-        "checkedAt": "2026-11-10T17:00:00.769916+00:00",
+        "checkedAt": "2026-11-11T17:04:23.764738+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -82,8 +82,8 @@
       "indoor": null,
       "confidence": "official-listing",
       "evidence": "Data, horário, biblioteca e faixa etária publicados na página oficial; vagas por verificar.",
-      "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T17:00:04+00:00",
+      "evidenceDate": "2026-11-11",
+      "discoveredAt": "2026-11-11T17:04:26+00:00",
       "sourceType": "matosinhos-official",
       "priority": 48,
       "sessionEvidence": {
@@ -94,7 +94,7 @@
         "maxMonths": 36,
         "venue": "Biblioteca Municipal Florbela Espanca",
         "sourceUrl": "https://www.bibliotecasearquivosmatosinhos.pt/evento-44/bebeteca-magica-o-meu-primeiro-paninho",
-        "checkedAt": "2026-11-10T17:00:00.769916+00:00",
+        "checkedAt": "2026-11-11T17:04:23.764738+00:00",
         "kind": "official-adapter"
       },
       "validationStatus": "verified",
@@ -135,8 +135,8 @@
       "indoor": null,
       "confidence": "structured-official",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T17:00:29+00:00",
+      "evidenceDate": "2026-11-11",
+      "discoveredAt": "2026-11-11T17:04:53+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -147,7 +147,7 @@
         "maxMonths": 36,
         "venue": "Oficina Josefina",
         "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
-        "checkedAt": "2026-11-10T17:00:00.769916+00:00",
+        "checkedAt": "2026-11-11T17:04:23.764738+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -188,8 +188,8 @@
       "indoor": null,
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T17:00:42+00:00",
+      "evidenceDate": "2026-11-11",
+      "discoveredAt": "2026-11-11T17:05:02+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -200,7 +200,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-10T17:00:00.769916+00:00",
+        "checkedAt": "2026-11-11T17:04:23.764738+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -241,8 +241,8 @@
       "indoor": null,
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T17:00:42+00:00",
+      "evidenceDate": "2026-11-11",
+      "discoveredAt": "2026-11-11T17:05:02+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -253,7 +253,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-10T17:00:00.769916+00:00",
+        "checkedAt": "2026-11-11T17:04:23.764738+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -294,8 +294,8 @@
       "indoor": null,
       "confidence": "structured-official",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T17:00:29+00:00",
+      "evidenceDate": "2026-11-11",
+      "discoveredAt": "2026-11-11T17:04:53+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -306,7 +306,7 @@
         "maxMonths": 36,
         "venue": "Oficina Josefina",
         "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
-        "checkedAt": "2026-11-10T17:00:00.769916+00:00",
+        "checkedAt": "2026-11-11T17:04:23.764738+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -347,8 +347,8 @@
       "indoor": null,
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T17:00:42+00:00",
+      "evidenceDate": "2026-11-11",
+      "discoveredAt": "2026-11-11T17:05:02+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -359,7 +359,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-10T17:00:00.769916+00:00",
+        "checkedAt": "2026-11-11T17:04:23.764738+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -400,8 +400,8 @@
       "indoor": null,
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T17:00:42+00:00",
+      "evidenceDate": "2026-11-11",
+      "discoveredAt": "2026-11-11T17:05:02+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -412,7 +412,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-10T17:00:00.769916+00:00",
+        "checkedAt": "2026-11-11T17:04:23.764738+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -453,8 +453,8 @@
       "indoor": null,
       "confidence": "structured-official",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T17:00:29+00:00",
+      "evidenceDate": "2026-11-11",
+      "discoveredAt": "2026-11-11T17:04:53+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -465,7 +465,7 @@
         "maxMonths": 36,
         "venue": "Oficina Josefina",
         "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
-        "checkedAt": "2026-11-10T17:00:00.769916+00:00",
+        "checkedAt": "2026-11-11T17:04:23.764738+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -506,8 +506,8 @@
       "indoor": null,
       "confidence": "structured-official",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T17:00:29+00:00",
+      "evidenceDate": "2026-11-11",
+      "discoveredAt": "2026-11-11T17:04:53+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -518,7 +518,7 @@
         "maxMonths": 36,
         "venue": "Oficina Josefina",
         "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
-        "checkedAt": "2026-11-10T17:00:00.769916+00:00",
+        "checkedAt": "2026-11-11T17:04:23.764738+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -559,8 +559,8 @@
       "indoor": null,
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T17:00:42+00:00",
+      "evidenceDate": "2026-11-11",
+      "discoveredAt": "2026-11-11T17:05:02+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -571,7 +571,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-10T17:00:00.769916+00:00",
+        "checkedAt": "2026-11-11T17:04:23.764738+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -612,8 +612,8 @@
       "indoor": null,
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T17:00:42+00:00",
+      "evidenceDate": "2026-11-11",
+      "discoveredAt": "2026-11-11T17:05:02+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -624,7 +624,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-10T17:00:00.769916+00:00",
+        "checkedAt": "2026-11-11T17:04:23.764738+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -665,8 +665,8 @@
       "indoor": null,
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T17:00:17+00:00",
+      "evidenceDate": "2026-11-11",
+      "discoveredAt": "2026-11-11T17:04:40+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -677,7 +677,7 @@
         "maxMonths": 36,
         "venue": "Biblioteca Municipal Almeida Garrett",
         "sourceUrl": "https://www.bibliotecasdoporto.pt/evento/papi-opus-8-espetaculo/",
-        "checkedAt": "2026-11-10T17:00:00.769916+00:00",
+        "checkedAt": "2026-11-11T17:04:23.764738+00:00",
         "kind": "official-programme",
         "contextSourceUrl": "https://www.bibliotecasdoporto.pt/evento/nano-mini-micro-festival-para-a-infancia-do-porto/"
       },
@@ -719,8 +719,8 @@
       "indoor": null,
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T17:00:17+00:00",
+      "evidenceDate": "2026-11-11",
+      "discoveredAt": "2026-11-11T17:04:40+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -731,7 +731,7 @@
         "maxMonths": 36,
         "venue": "Biblioteca Municipal Almeida Garrett",
         "sourceUrl": "https://www.bibliotecasdoporto.pt/evento/papi-opus-8-espetaculo/",
-        "checkedAt": "2026-11-10T17:00:00.769916+00:00",
+        "checkedAt": "2026-11-11T17:04:23.764738+00:00",
         "kind": "official-programme",
         "contextSourceUrl": "https://www.bibliotecasdoporto.pt/evento/nano-mini-micro-festival-para-a-infancia-do-porto/"
       },
@@ -773,8 +773,8 @@
       "indoor": null,
       "confidence": "structured-official",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T17:00:29+00:00",
+      "evidenceDate": "2026-11-11",
+      "discoveredAt": "2026-11-11T17:04:53+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -785,7 +785,7 @@
         "maxMonths": 36,
         "venue": "Oficina Josefina",
         "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
-        "checkedAt": "2026-11-10T17:00:00.769916+00:00",
+        "checkedAt": "2026-11-11T17:04:23.764738+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -826,8 +826,8 @@
       "indoor": null,
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T17:00:43+00:00",
+      "evidenceDate": "2026-11-11",
+      "discoveredAt": "2026-11-11T17:05:02+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -838,7 +838,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-10T17:00:00.769916+00:00",
+        "checkedAt": "2026-11-11T17:04:23.764738+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -879,8 +879,8 @@
       "indoor": null,
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T17:00:43+00:00",
+      "evidenceDate": "2026-11-11",
+      "discoveredAt": "2026-11-11T17:05:02+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -891,7 +891,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-10T17:00:00.769916+00:00",
+        "checkedAt": "2026-11-11T17:04:23.764738+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -934,8 +934,8 @@
       "indoor": null,
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-10",
-      "discoveredAt": "2026-11-10T17:00:47+00:00",
+      "evidenceDate": "2026-11-11",
+      "discoveredAt": "2026-11-11T17:05:06+00:00",
       "sourceType": "allegrow-public",
       "priority": 48,
       "sessionEvidence": {
@@ -946,7 +946,7 @@
         "maxMonths": 84,
         "venue": "Academia Infância — Avenida da Rosa, 30, Porto",
         "sourceUrl": "https://allegrowkids.pt/pt/activities/6befefbe-830b-4cf4-937d-587678e356c9",
-        "checkedAt": "2026-11-10T17:00:00.769916+00:00",
+        "checkedAt": "2026-11-11T17:04:23.764738+00:00",
         "kind": "provider-booking",
         "partnerId": "2269ba42-d4f3-47ff-954d-305633a92d4e",
         "address": "Avenida da Rosa, 30",
