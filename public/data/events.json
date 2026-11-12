@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-12T16:39:09+00:00",
-  "lastSuccessfulScan": "2026-11-12T16:39:09+00:00",
+  "updatedAt": "2026-11-12T17:33:36+00:00",
+  "lastSuccessfulScan": "2026-11-12T17:33:36+00:00",
   "origin": "CTT Correios de 4 Caminhos, Senhora da Hora, Matosinhos",
   "windowDays": 42,
   "events": [
@@ -30,7 +30,7 @@
       "confidence": "official-listing",
       "evidence": "Data, horário, biblioteca e faixa etária publicados na página oficial; vagas por verificar.",
       "evidenceDate": "2026-11-12",
-      "discoveredAt": "2026-11-12T16:38:20+00:00",
+      "discoveredAt": "2026-11-12T17:32:48+00:00",
       "sourceType": "matosinhos-official",
       "priority": 48,
       "sessionEvidence": {
@@ -41,7 +41,7 @@
         "maxMonths": 36,
         "venue": "Biblioteca Municipal Florbela Espanca",
         "sourceUrl": "https://www.bibliotecasearquivosmatosinhos.pt/evento-44/bebeteca-magica-o-meu-primeiro-paninho",
-        "checkedAt": "2026-11-12T16:38:17.805424+00:00",
+        "checkedAt": "2026-11-12T17:32:44.718547+00:00",
         "kind": "official-adapter"
       },
       "validationStatus": "verified",
@@ -83,7 +83,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-12",
-      "discoveredAt": "2026-11-12T16:38:49+00:00",
+      "discoveredAt": "2026-11-12T17:33:15+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -94,7 +94,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-12T16:38:17.805424+00:00",
+        "checkedAt": "2026-11-12T17:32:44.718547+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -136,7 +136,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-12",
-      "discoveredAt": "2026-11-12T16:38:49+00:00",
+      "discoveredAt": "2026-11-12T17:33:15+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -147,7 +147,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-12T16:38:17.805424+00:00",
+        "checkedAt": "2026-11-12T17:32:44.718547+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -189,7 +189,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-12",
-      "discoveredAt": "2026-11-12T16:38:49+00:00",
+      "discoveredAt": "2026-11-12T17:33:15+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -200,7 +200,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-12T16:38:17.805424+00:00",
+        "checkedAt": "2026-11-12T17:32:44.718547+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -242,7 +242,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-12",
-      "discoveredAt": "2026-11-12T16:38:49+00:00",
+      "discoveredAt": "2026-11-12T17:33:15+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -253,7 +253,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-12T16:38:17.805424+00:00",
+        "checkedAt": "2026-11-12T17:32:44.718547+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -295,7 +295,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-12",
-      "discoveredAt": "2026-11-12T16:38:49+00:00",
+      "discoveredAt": "2026-11-12T17:33:15+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -306,7 +306,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-12T16:38:17.805424+00:00",
+        "checkedAt": "2026-11-12T17:32:44.718547+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -348,7 +348,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-12",
-      "discoveredAt": "2026-11-12T16:38:49+00:00",
+      "discoveredAt": "2026-11-12T17:33:15+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -359,7 +359,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-12T16:38:17.805424+00:00",
+        "checkedAt": "2026-11-12T17:32:44.718547+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -401,7 +401,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-12",
-      "discoveredAt": "2026-11-12T16:38:30+00:00",
+      "discoveredAt": "2026-11-12T17:32:58+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -412,7 +412,7 @@
         "maxMonths": 36,
         "venue": "Biblioteca Municipal Almeida Garrett",
         "sourceUrl": "https://www.bibliotecasdoporto.pt/evento/papi-opus-8-espetaculo/",
-        "checkedAt": "2026-11-12T16:38:17.805424+00:00",
+        "checkedAt": "2026-11-12T17:32:44.718547+00:00",
         "kind": "official-programme",
         "contextSourceUrl": "https://www.bibliotecasdoporto.pt/evento/nano-mini-micro-festival-para-a-infancia-do-porto/"
       },
@@ -455,7 +455,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-12",
-      "discoveredAt": "2026-11-12T16:38:30+00:00",
+      "discoveredAt": "2026-11-12T17:32:58+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -466,7 +466,7 @@
         "maxMonths": 36,
         "venue": "Biblioteca Municipal Almeida Garrett",
         "sourceUrl": "https://www.bibliotecasdoporto.pt/evento/papi-opus-8-espetaculo/",
-        "checkedAt": "2026-11-12T16:38:17.805424+00:00",
+        "checkedAt": "2026-11-12T17:32:44.718547+00:00",
         "kind": "official-programme",
         "contextSourceUrl": "https://www.bibliotecasdoporto.pt/evento/nano-mini-micro-festival-para-a-infancia-do-porto/"
       },
@@ -509,7 +509,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-12",
-      "discoveredAt": "2026-11-12T16:38:49+00:00",
+      "discoveredAt": "2026-11-12T17:33:15+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -520,7 +520,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-12T16:38:17.805424+00:00",
+        "checkedAt": "2026-11-12T17:32:44.718547+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -562,7 +562,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-12",
-      "discoveredAt": "2026-11-12T16:38:49+00:00",
+      "discoveredAt": "2026-11-12T17:33:15+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -573,7 +573,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-12T16:38:17.805424+00:00",
+        "checkedAt": "2026-11-12T17:32:44.718547+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -661,7 +661,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-12",
-      "discoveredAt": "2026-11-12T16:38:53+00:00",
+      "discoveredAt": "2026-11-12T17:33:19+00:00",
       "sourceType": "allegrow-public",
       "priority": 48,
       "sessionEvidence": {
@@ -672,7 +672,7 @@
         "maxMonths": 84,
         "venue": "Academia Infância — Avenida da Rosa, 30, Porto",
         "sourceUrl": "https://allegrowkids.pt/pt/activities/6befefbe-830b-4cf4-937d-587678e356c9",
-        "checkedAt": "2026-11-12T16:38:17.805424+00:00",
+        "checkedAt": "2026-11-12T17:32:44.718547+00:00",
         "kind": "provider-booking",
         "partnerId": "2269ba42-d4f3-47ff-954d-305633a92d4e",
         "address": "Avenida da Rosa, 30",
