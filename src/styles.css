@@ -19,3 +19,7 @@ section[id]{scroll-margin-top:25px}button,a,input,select{-webkit-tap-highlight-c
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 
 .logo-mark,.art-pattern span{font-variant-emoji:text}
+
+/* Compact introduction after removing the hero artwork and supporting labels. */
+.hero-inner{min-height:0;display:block}.hero-text{padding:55px 0 48px}.nav nav{margin-left:auto}
+@media(max-width:680px){.hero-text{padding:35px 0 38px}}
