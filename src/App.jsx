@@ -55,9 +55,10 @@ function calendarFile(e){
 }
 function Img({e}){
  const [failed,setFailed]=useState(false)
- const glyph=e.category==='Bibliotecas'?'✳︎':e.category==='Sensorial'?'◕':e.category==='Música'?'♫':'✿'
- return <div className={`art ${e.category==='Bibliotecas'?'art-lib':e.category==='Música'?'art-mus':e.category==='Sensorial'?'art-sen':'art-muse'}`}>
-   {e.imageUrl&&!failed&&isSafeUrl(e.imageUrl)?<img src={e.imageUrl} loading="lazy" alt={`Fotografia da atividade ${e.title}`} onError={()=>setFailed(true)}/>:<div className="art-pattern"><span>{glyph}</span><i></i><b></b></div>}
+ const artKind=e.category==='Bibliotecas'?'stories':e.category==='Música'?'music':e.category==='Sensorial'?'making':'explore'
+ return <div className={`art art-${artKind}`}>
+   {e.imageUrl&&!failed&&isSafeUrl(e.imageUrl)?<img src={e.imageUrl} loading="lazy" alt={`Fotografia da atividade ${e.title}`} onError={()=>setFailed(true)}/>:<img className="category-art" src={`${import.meta.env.BASE_URL}illustrations/${artKind}.svg`} alt=""/>}
+   <span className="art-date"><strong>{cleanDate(e.date).getUTCDate()}</strong><span>{monthDay(e.date).split(' ')[1]}</span></span>
  </div>
 }
 function StatusBadge({e}) { const b=registrationLabel(e);return <span className={`badge badge-${b.tone}`}>{b.label}</span> }
