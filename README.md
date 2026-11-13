@@ -157,3 +157,15 @@ O programa da Josefina passou a usar o cabeçalho `26/27`. O adaptador aceita te
 A recolha consulta até 12 páginas de detalhe por fonte. Reserva até três lugares para páginas novas e visita primeiro as páginas há mais tempo por consultar; quando existem menos páginas conhecidas, usa o restante orçamento para novas páginas. Falhas de consulta também entram na rotação, sem apagar imediatamente evidência ainda recente. Os resultados guardam `candidateLinks`, `detailsChecked`, `detailCheckedAt`, `truncated` e `parsedSessions`: uma fonte acessível não significa que tenha sido consultada por completo ou produzido sessões.
 
 A leitura de JSON-LD percorre listas e objetos aninhados (`ItemList`, `item`, `subEvent` e `@graph`). Encontrar dados estruturados não dispensa a validação de idade, local, distância e sessão na fonte original. Os testes incluem o formato anterior e atual da Josefina, mudança de ano e rotação da descoberta.
+
+## Cartazes oficiais de Matosinhos
+
+Quando uma página de evento não publica horário/idades no HTML, a recolha consulta até duas imagens oficiais por página e até três páginas com cartazes por fonte e execução. Usa as mesmas regras de robots, redirecionamento, tamanho e tipos de conteúdo; não consulta imagens de outros domínios. Tesseract (`por+eng`) gera texto e propostas literais, sem corrigir automaticamente letras como `O` para algarismos como `0`.
+
+**OCR não publica uma sessão por si só.** Os candidatos ficam em `sourceIndex[fonte].posterCandidates` com texto, confiança, propostas e motivo de revisão. O painel de fontes assinala os cartazes que aguardam revisão. Uma leitura falhada ou incerta nunca cria horário, idade ou hora de fim.
+
+`public/data/poster-reviews.json` guarda factos revistos visualmente, associados ao URL da página, URL da imagem e SHA-256 dos bytes consultados. Cada execução volta a obter a imagem: alterações ao cartaz, título ou data invalidam a associação e exigem nova revisão. A sessão continua sujeita à validação normal de idade, distância, data e fonte. Cancelamentos/adiamentos na página impedem a reutilização do cartaz. A imagem de origem fica na evidência da sessão.
+
+O cartaz de **Yoga de Encantar, 14/11/2026, 10:00**, confirma 6–36 meses, Biblioteca Municipal Florbela Espanca, gratuitidade e lotação esgotada. A hora de fim não está publicada e mantém-se desconhecida. Por isso, a sessão é recolhida como **esgotada**, mas não passa o filtro “Antes da sesta”; pode ser vista ao desativá-lo. A data de abertura de inscrições nunca substitui uma indicação explícita de lotação esgotada.
+
+O workflow instala `tesseract-ocr` e `tesseract-ocr-por`. Para recolha local com OCR, instalar também estes pacotes do sistema. Uma revisão de imagem já confirmada pode ser usada sem OCR, desde que os bytes e a página continuem a coincidir.
