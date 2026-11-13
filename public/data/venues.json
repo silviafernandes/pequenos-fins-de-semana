@@ -110,6 +110,29 @@
         "casadaarquitetura.pt"
       ],
       "address": "Casa da Arquitetura, 456, Avenida Menéres, Matosinhos Sul, Matosinhos, Porto, 4450-189, Portugal"
+    },
+    "playlab": {
+      "name": "PlayLab Porto",
+      "latitude": 41.161145,
+      "longitude": -8.615636,
+      "coordinateSourceUrl": "https://sites.google.com/view/playlabporto/contactos",
+      "verifiedAt": "2026-11-13",
+      "precision": "venue",
+      "aliases": [
+        "PlayLab",
+        "PlayLab Porto"
+      ],
+      "officialHosts": [
+        "playlabporto.beehiiv.com",
+        "sites.google.com"
+      ],
+      "officialUrlPrefixes": {
+        "sites.google.com": [
+          "/view/playlabporto/"
+        ]
+      },
+      "address": "Rua de Alves Redol 386, 4050-042 Porto",
+      "addressSourceUrl": "https://sites.google.com/view/playlabporto/contactos"
     }
   }
 }

@@ -33,7 +33,12 @@
     "name": "PlayLab Porto",
     "url": "https://playlabporto.beehiiv.com/",
     "type": "page",
-    "priority": 1
+    "priority": 1,
+    "programmeUrls": [
+      "https://sites.google.com/view/playlabporto/agenda"
+    ],
+    "instagramUrl": "https://www.instagram.com/playlabporto/",
+    "monitoringNote": "Consultamos a agenda oficial, os programas da newsletter e o formulário público de fim de semana. Instagram requer consulta manual. Um formulário com início de sessão obrigatório não confirma datas, idades ou vagas."
   },
   {
     "name": "Guli Family Club",

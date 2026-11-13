@@ -28,6 +28,7 @@ from adapters import organiser_sessions
 from telegram_alerts import send_alerts, report as report_telegram
 from allegrow import collect as collect_allegrow
 from posters import from_posters
+from playlab import programme_links, weekend_form
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'public' / 'data'
@@ -422,6 +423,19 @@ def scan(sources,previous,history,now):
         for hidden in clean_soup.select('[hidden], [aria-hidden="true"], script, style'): hidden.decompose()
         links,_=links_from(str(clean_soup),url)
         relevant=[(u,t) for (u,t) in links if possible_link(u,t) and u!=url]
+        relevant+=programme_links(str(clean_soup),url)
+        # Explicit programme entry points are checked every run, outside keyword matching.
+        entry_errors=[]
+        programme_entries=[]
+        for entry_url in src.get('programmeUrls',[])[:3]:
+            entry_page,entry_error=get_page(entry_url)
+            if entry_error:
+                entry_errors.append({'url':entry_url,'error':entry_error})
+            else:
+                programme_entries.append((entry_url,'Programa oficial'))
+                form=weekend_form(entry_page,entry_url)
+                if form:programme_entries.append((form,'Inscrição ao fim de semana'))
+        relevant+=programme_entries
         # Revisit known events even when they disappear from the homepage.
         known = [(e['sourceUrl'], e['title']) for e in events
                  if e.get('date', '') >= now.date().isoformat()
@@ -438,6 +452,10 @@ def scan(sources,previous,history,now):
         selected_known=known_links[:MAX_LINKS-reserve]
         selected_new=new_links[:MAX_LINKS-len(selected_known)]
         selected=selected_known+selected_new
+        # Programme and registration entry points must not be crowded out by archives.
+        pinned=dict(programme_entries)
+        selected=programme_entries+[(u,t) for u,t in selected if u not in pinned]
+        selected=selected[:MAX_LINKS]
         candidates_count=len(relevant)
         relevant=selected
         prev=set(old_index.get(name,{}).get('lastLinks',[]))
@@ -453,7 +471,7 @@ def scan(sources,previous,history,now):
         refresh_page_evidence(url,root_events)
         for event in root_events:upsert(event)
         # Inspect a few event links for embedded form links and dates. No login/CAPTCHA.
-        detail_errors=[]
+        detail_errors=list(entry_errors)
         poster_reports=[]
         poster_pages=0
         detail_checked=dict(checked_before)
