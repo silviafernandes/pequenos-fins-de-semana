@@ -11,7 +11,7 @@ export default function HeaderCollage(){
   useEffect(()=>{try{sessionStorage.setItem('pfds-header-collage',String(selected))}catch{}},[selected])
   const collage=collages[selected]
   return <div className="hero-collage">
-    <div className="hero-collage-art"><img src={`${import.meta.env.BASE_URL}illustrations/${collage.file}?v=flat-paper-1`} alt="" width="640" height="640" decoding="async"/></div>
+    <div className="hero-collage-art"><img src={`${import.meta.env.BASE_URL}illustrations/${collage.file}?v=${collage.version||'flat-paper-1'}`} alt="" width="640" height="640" decoding="async"/></div>
     <button className="collage-shuffle" type="button" aria-label="Mudar colagem do cabeçalho" onClick={()=>setSelected(current=>nextCollage(current))}><RefreshCw size={14} aria-hidden="true"/> Mudar colagem</button>
     <span className="collage-announcement" role="status" aria-live="polite">Colagem: {collage.name}</span>
   </div>

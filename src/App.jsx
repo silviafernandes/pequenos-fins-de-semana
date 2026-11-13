@@ -8,6 +8,7 @@ import {
 import { eligibleSession } from './eligibility.js'
 import { sessionTiming, napFriendly, napClash, timeLabel } from './timing.js'
 import HeaderCollage from './HeaderCollage.jsx'
+import { activityArtwork } from './activityArtwork.js'
 import initial from './initialData.json'
 import initialHistory from './initialHistory.json'
 import initialDiscoveries from './initialDiscoveries.json'
@@ -55,9 +56,10 @@ function calendarFile(e){
 }
 function Img({e}){
  const [failed,setFailed]=useState(false)
- const artKind=e.category==='Bibliotecas'?'stories':e.category==='Música'?'music':e.category==='Sensorial'?'making':'explore'
+ useEffect(()=>setFailed(false),[e.imageUrl])
+ const artKind=activityArtwork(e)
  return <div className={`art art-${artKind}`}>
-   {e.imageUrl&&!failed&&isSafeUrl(e.imageUrl)?<img src={e.imageUrl} loading="lazy" alt={`Fotografia da atividade ${e.title}`} onError={()=>setFailed(true)}/>:<img className="category-art" src={`${import.meta.env.BASE_URL}illustrations/${artKind}.svg`} alt=""/>}
+   {e.imageUrl&&!failed&&isSafeUrl(e.imageUrl)?<img src={e.imageUrl} loading="lazy" alt={`Imagem publicada de ${e.title}`} onError={()=>setFailed(true)}/>:<img className="category-art" src={`${import.meta.env.BASE_URL}illustrations/activity-${artKind}.webp`} alt=""/>}
    <span className="art-date"><strong>{cleanDate(e.date).getUTCDate()}</strong><span>{monthDay(e.date).split(' ')[1]}</span></span>
  </div>
 }

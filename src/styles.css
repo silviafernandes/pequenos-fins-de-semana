@@ -43,3 +43,7 @@ h1,h2,h3,.brand,.stats strong,.footer-left strong{font-family:Weekend,'Mali',cur
 /* Four original paper collages, changed on request rather than on a timer. */
 .hero-collage{pointer-events:auto;transform:none}.hero-collage-art{aspect-ratio:1;transform:rotate(3deg);pointer-events:none}.hero-collage-art img{width:100%;height:100%;object-fit:contain}.collage-shuffle{display:flex;align-items:center;justify-content:center;gap:7px;min-height:40px;margin:7px auto 0;padding:9px 13px;border:1px solid #18234b66;border-radius:100px;background:transparent;color:#18234b;font-size:11px;font-weight:600}.collage-shuffle:hover{background:#fffdfa55;border-color:#18234b}.collage-announcement{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 @media(max-width:680px){.hero-collage{width:170px;margin-top:15px}.collage-shuffle{font-size:11px;min-height:44px;padding:9px 11px}}
+
+/* Matching paper-and-crayon artwork for the activity themes. */
+.art-art,.art-sensory{background:#f9e4e8}.art-music{background:#d4e8e6}.art-sports,.art-nature{background:#e0e7d4}.art-festival{background:#ffe0d1}.art-stories{background:#e0e6f6}.art img.category-art{object-fit:contain;padding:15px 29px 13px}.art-date{z-index:1}
+@media(max-width:680px){.art img.category-art{padding:15px 25px 13px}}
