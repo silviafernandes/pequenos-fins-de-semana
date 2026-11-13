@@ -18,7 +18,7 @@ const { chromium } = require('playwright');
     await page.clock.install({time:new Date('2026-11-09T12:00:00Z')});
     const fixture = {events:[
       {id:'older',title:'Atividade a partir dos 3 anos',date:'2026-11-14',start:'10:00',end:'11:00',minMonths:36,maxMonths:72,category:'Histórias'},
-      {id:'baby',title:'Sessão para bebés pequenos',date:'2026-11-14',start:'10:00',end:'11:00',minMonths:0,maxMonths:6,category:'Música',indoor:null},
+      {id:'baby',title:'Sessão para bebés pequenos',date:'2026-11-14',start:'10:00',end:'11:00',minMonths:0,maxMonths:6,category:'Música',indoor:null,status:'soldout'},
       {id:'library',title:'Biblioteca com inscrições futuras',date:'2026-11-21',start:'10:00',end:null,minMonths:6,maxMonths:36,category:'Bibliotecas',status:'scheduled',openingAt:'2026-11-13T10:00+00:00',bookingUrl:'https://example.org/form'},
       {id:'past',title:'Abertura passada',date:'2026-11-15',start:'10:00',end:'11:00',minMonths:0,maxMonths:36,category:'Música',status:'scheduled',openingAt:'2026-11-08T10:00+00:00',indoor:true}
     ].map(e=>({...e,venue:'Porto',area:'Porto',sourceUrl:'https://example.org/event',description:'Atividade',price:'Gratuito',ageText:'0–36 meses'})),updatedAt:'2026-11-09T10:00:00Z',lastSuccessfulScan:'2026-11-09T10:00:00Z'};
@@ -41,6 +41,9 @@ const { chromium } = require('playwright');
     await page.goto('http://127.0.0.1:4174/');
     await page.getByText('Sessão para bebés pequenos',{exact:true}).waitFor();
     assert.equal(await page.locator('.event-card').count(),2);
+    const soldout=page.locator('.event-card').filter({hasText:'Sessão para bebés pequenos'});
+    assert.match(await soldout.innerText(),/Esgotado/);
+    assert.equal(await soldout.getByRole('link',{name:'Ver detalhes'}).count(),1);
     assert.equal(await page.locator('.discovery').count(),1);
     assert.equal(await page.getByText('Atividade em Paredes',{exact:true}).count(),0);
     assert.equal(await page.getByText('Local por verificar',{exact:true}).count(),0);

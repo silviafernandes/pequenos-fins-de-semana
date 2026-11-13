@@ -27,6 +27,7 @@ from eligibility import mark_session, classify, assess, normalized
 from adapters import organiser_sessions
 from telegram_alerts import send_alerts, report as report_telegram
 from allegrow import collect as collect_allegrow
+from posters import from_posters
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'public' / 'data'
@@ -94,7 +95,7 @@ def allowed_url(url):
     if not allowed: ROBOTS_ERRORS[origin] = 'robots.txt disallows this URL'
     return allowed
 
-def fetch(url, content_types=None):
+def fetch(url, content_types=None, binary=False):
     try:
         if not allowed_url(url): return None, ROBOTS_ERRORS.get(f'{urlparse(url).scheme}://{urlparse(url).netloc}', 'Robots policy unavailable')
         time.sleep(.35)
@@ -111,6 +112,7 @@ def fetch(url, content_types=None):
         typ=res.headers.get('Content-Type','')
         if typ and not any(t in typ for t in (content_types or ('text/html','application/xhtml','application/ld+json'))):
             raise ValueError('Unexpected content type')
+        if binary:return res.content,None
         try: text=res.content.decode('utf-8')
         except UnicodeDecodeError: text=res.text
         return text, None
@@ -317,6 +319,7 @@ def library_event(html, url, name, now):
     event = make_event(item, url, name, now)
     if event:
         event['sourceType'] = 'matosinhos-official'
+        if 'esgotad' in normalized(title.get_text(' ',strip=True)+' '+text):event['status']='soldout'
         event['confidence'] = 'official-listing'
         event['evidence'] = 'Data, horário, biblioteca e faixa etária publicados na página oficial; vagas por verificar.'
         forms = booking_links(str(detail), url)
@@ -332,7 +335,7 @@ def apply_registration(events, history, page, title, source, forms, dates, check
     if len(matching) != 1: return
     for event in matching:
         if len(forms) == 1: event['bookingUrl'] = forms[0]
-        if len(dates) != 1: continue
+        if len(dates) != 1 or event.get('status')=='soldout': continue
         opening = parse_dt(dates[0])
         if not opening or opening.date() > datetime.fromisoformat(event['date']).date(): continue
         event['openingAt'] = opening.astimezone(PT).isoformat(timespec='minutes')
@@ -359,6 +362,7 @@ def scan(sources,previous,history,now):
     old_curated=load(DATA/'events.json',{});events=[e for e in old_curated.get('events',[])+old_curated.get('pendingEvents',[])+old_curated.get('excludedEvents',[]) if isinstance(e.get('minMonths'),(int,float)) and 0 <= e['minMonths'] < 36 and not excludes_under_three(e.get('ageText','')+' '+e.get('title',''))]
     registry=load(ROOT/'public/data/venues.json',{})
     results={};new_msgs=[];auto_add=[]
+    poster_reviews=load(DATA/'poster-reviews.json',[])
     page_cache={}
     def get_page(url):
         if url not in page_cache: page_cache[url]=fetch(url)
@@ -381,7 +385,7 @@ def scan(sources,previous,history,now):
         match=next((e for e in events+auto_add if canonical(e.get('sourceUrl'))==canonical(event['sourceUrl']) and e.get('date')==event['date'] and e.get('start')==event['start'] and normalized(e.get('title'))==normalized(event['title']) and normalized(e.get('venue'))==normalized(event['venue'])),None)
         if match:
             saved={k:match[k] for k in ('id','openingAt','registrationEvidenceUrl','registrationCheckedAt') if match.get(k) is not None}
-            if match.get('status')=='scheduled' and match.get('openingAt'):saved['status']='scheduled'
+            if match.get('status')=='scheduled' and match.get('openingAt') and event.get('status')!='soldout':saved['status']='scheduled'
             match.update(event);match.update(saved)
         else:auto_add.append(event)
         # A programme page can contain several different activities and times.
@@ -450,6 +454,8 @@ def scan(sources,previous,history,now):
         for event in root_events:upsert(event)
         # Inspect a few event links for embedded form links and dates. No login/CAPTCHA.
         detail_errors=[]
+        poster_reports=[]
+        poster_pages=0
         detail_checked=dict(checked_before)
         parsed_keys={session_key(event) for event in root_events}
         for u,t in relevant:
@@ -476,6 +482,10 @@ def scan(sources,previous,history,now):
                         if dates: evidence_url=forms[0]
             detail_errors.extend(form_errors)
             adapted = library_event(page,u,name,now) if urlparse(u).hostname == 'www.bibliotecasearquivosmatosinhos.pt' else None
+            if not adapted and urlparse(u).hostname=='www.bibliotecasearquivosmatosinhos.pt' and '/evento-' in urlparse(u).path and poster_pages<3:
+                poster_pages+=1
+                adapted,reports=from_posters(page,u,name,now,make_event,lambda image:fetch(image,content_types=('image/jpeg','image/png','image/webp'),binary=True),poster_reviews)
+                poster_reports.extend(reports)
             parsed=[adapted] if adapted else []
             parsed+=adapted_sessions(page,u)
             parsed+=[event for x in extract_json_ld(s) if (event:=make_event(x,u,name,now))]
@@ -500,7 +510,7 @@ def scan(sources,previous,history,now):
                     new_msgs.append(f"Novo link de formulário encontrado — {t} ({name})\n{next(iter(new_forms))}\nAbertura de vagas por confirmar")
                 if prevsignal and set(dates)-set(prevsignal.get('openingDates',[])):
                     new_msgs.append(f"Data de inscrições anunciada — {t}\n{', '.join(dates)}\n{u}")
-        results[name]={**metadata,'url':url,'ok':True,'checkedAt':stamp(),'lastLinks':found,'relevantLinks':len(found),'detailErrors':detail_errors,'detailCheckedAt':{u:detail_checked[u] for u,_ in known_links+new_links if u in detail_checked},'candidateLinks':candidates_count,'detailsChecked':len(relevant),'truncated':candidates_count>len(relevant),'parsedSessions':len(parsed_keys),'lastSuccessfulAt':stamp(),'contentStatus':'sessions-parsed' if parsed_keys else 'links-found' if found else 'no-relevant-links'}
+        results[name]={**metadata,'url':url,'ok':True,'checkedAt':stamp(),'lastLinks':found,'relevantLinks':len(found),'detailErrors':detail_errors,'posterCandidates':poster_reports,'detailCheckedAt':{u:detail_checked[u] for u,_ in known_links+new_links if u in detail_checked},'candidateLinks':candidates_count,'detailsChecked':len(relevant),'truncated':candidates_count>len(relevant),'parsedSessions':len(parsed_keys),'lastSuccessfulAt':stamp(),'contentStatus':'sessions-parsed' if parsed_keys else 'links-found' if found else 'no-relevant-links'}
         time.sleep(.35)
     # Retain evidence for diagnosis, but never publish unchecked seeds or city-level locations.
     groups=classify(events+auto_add,registry,now)
