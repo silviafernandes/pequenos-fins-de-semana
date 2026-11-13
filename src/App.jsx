@@ -6,6 +6,7 @@ import {
   Sparkles, Ticket, X, CircleAlert, CalendarPlus, ImageOff, Star, Sun, Compass
 } from 'lucide-react'
 import { eligibleSession } from './eligibility.js'
+import { sessionTiming, napFriendly, napClash, timeLabel } from './timing.js'
 import initial from './initialData.json'
 import initialHistory from './initialHistory.json'
 import initialDiscoveries from './initialDiscoveries.json'
@@ -31,7 +32,6 @@ function nextSixWeekends(){
   return Array.from({length:6},(_,i)=> datePlusDays(saturday,i*7))
 }
 const shortTime = time => time || 'Hora por confirmar'
-const timeLabel = e => e.start ? `${e.start}${e.end ? `–${e.end}` : ' · fim n/d'}` : 'Hora por confirmar'
 const registrationLabel = e => {
   if (e.status==='scheduled' && e.openingAt && e.openingAt<=nowPTStamp()) return {label:'Abertura já passou · confirmar vagas',tone:'neutral'}
   if (e.status==='scheduled' && e.openingAt) return {label:'Abre em breve',tone:'amber'}
@@ -40,17 +40,16 @@ const registrationLabel = e => {
   if (e.status==='walkin') return {label:'Sem reserva anunciada',tone:'green'}
   return {label:'Vagas por verificar',tone:'neutral'}
 }
-const napFriendly = e => !!e.start && e.start>='09:00' && e.start<='10:30' && !!e.end && e.end<='11:30'
-const napClash = e => !!e.start && !!e.end && e.start<'13:30' && e.end>'11:30'
 const bestCategoryIcon = cat => cat==='Bibliotecas' ? <BookOpen size={16}/> : cat==='Música' ? <Sparkles size={16}/> : cat==='Sensorial' ? <Sun size={16}/> : <Star size={16}/>
 function timeToPT(stamp){ if(!stamp) return null; const [date,time]=stamp.split('T'); return `${date.split('-').reverse().join('/')} · ${time.slice(0,5)}` }
 function openingHeadline(stamp){ if (!stamp) return ''; const [date,time]=stamp.split('T'); return `${weekday(date)} ${monthDay(date)} · ${time.slice(0,5)}` }
 function isSafeUrl(s){try{return ['https:','http:'].includes(new URL(s).protocol)}catch{return false}}
 function eventScore(e){ let s=napFriendly(e)?100:napClash(e)?-30:0; if(e.status==='open')s+=40; if(e.status==='scheduled')s+=35; if(e.category==='Bibliotecas')s+=8; if(e.minMonths<=27 && e.maxMonths>=27)s+=15; return s+(e.priority||0)/5 }
 function calendarFile(e){
-  if (!e.start || !e.end) return
-  const d=e.date.replaceAll('-','');const t=(e.start||'10:00').replace(':','');const end=(e.end||'11:00').replace(':','')
-  const text = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Pequenos Fins de Semana//PT','BEGIN:VEVENT',`UID:${e.id}@pequenos-fins-de-semana`,`DTSTAMP:${new Date().toISOString().replaceAll('-','').replaceAll(':','').replace(/\.\d{3}/,'')}`,`DTSTART;TZID=Europe/Lisbon:${d}T${t}00`,`DTEND;TZID=Europe/Lisbon:${d}T${end}00`,`SUMMARY:${e.title.replaceAll(',','\\,')}`,`LOCATION:${(e.venue||'').replaceAll(',','\\,')}`,`DESCRIPTION:${(e.bookingUrl||e.sourceUrl||'').replaceAll(',','\\,')}`,'END:VEVENT','END:VCALENDAR'].join('\r\n')
+  const timing=sessionTiming(e)
+  if (!timing) return
+  const d=e.date.replaceAll('-','');const t=e.start.replace(':','');const end=timing.end.replace(':','');const endDate=timing.endDate.replaceAll('-','')
+  const text = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Pequenos Fins de Semana//PT','BEGIN:VEVENT',`UID:${e.id}@pequenos-fins-de-semana`,`DTSTAMP:${new Date().toISOString().replaceAll('-','').replaceAll(':','').replace(/\.\d{3}/,'')}`,`DTSTART;TZID=Europe/Lisbon:${d}T${t}00`,`DTEND;TZID=Europe/Lisbon:${endDate}T${end}00`,`SUMMARY:${e.title.replaceAll(',','\\,')}`,`LOCATION:${(e.venue||'').replaceAll(',','\\,')}`,`DESCRIPTION:${timing.estimated?'Fim estimado: duração assumida de 1 hora. ':''}${(e.bookingUrl||e.sourceUrl||'').replaceAll(',','\\,')}`,'END:VEVENT','END:VCALENDAR'].join('\r\n')
   const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'text/calendar;charset=utf-8'}));a.download=`atividade-${e.date}-${e.id}.ics`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),10000)
 }
 function Img({e}){
@@ -76,7 +75,7 @@ function EventCard({e,favorites,onToggle,compact=false}){
      <div className="meta-grid"><span><CalendarDays size={14}/>{weekday(e.date)}, {monthDay(e.date)}</span><span><Clock3 size={14}/><strong>{timeLabel(e)}</strong></span><span><MapPin size={14}/>{e.venue}</span><span><Ticket size={14}/>{e.price}</span></div>
      <div className="detail-line">{Number.isFinite(e.distanceKm)&&<>{e.distanceKm.toLocaleString('pt-PT',{maximumFractionDigits:1})} km em linha reta <span>·</span> </>}{e.ageText} <span>·</span> {e.indoor===true?'Interior':e.indoor===false?'Exterior':'Interior/exterior por confirmar'}{e.evidenceDate?<span> <span>·</span> Fonte de {monthDay(e.evidenceDate)}</span>:null}</div>
      {e.status==='scheduled'&&e.openingAt&&<div className="opening-note"><BellRing size={14}/><span>Inscrições: <strong>{openingHeadline(e.openingAt)}</strong></span></div>}
-     <div className="card-actions"><a className="primary-link" href={url||'#'} target="_blank" rel="noopener noreferrer" aria-disabled={!url}>{e.status==='scheduled'?'Ver formulário':(e.status==='walkin'||e.status==='soldout')?'Ver detalhes':'Ver inscrição'} <ArrowUpRight size={15}/></a><a className="secondary-link" href={e.sourceUrl} target="_blank" rel="noopener noreferrer" title="Abrir fonte oficial">Fonte <ExternalLink size={13}/></a>{e.start&&e.end?<button className="secondary-link" onClick={()=>calendarFile(e)} title="Guardar no calendário"><CalendarPlus size={15}/></button>:null}</div>
+     <div className="card-actions"><a className="primary-link" href={url||'#'} target="_blank" rel="noopener noreferrer" aria-disabled={!url}>{e.status==='scheduled'?'Ver formulário':(e.status==='walkin'||e.status==='soldout')?'Ver detalhes':'Ver inscrição'} <ArrowUpRight size={15}/></a><a className="secondary-link" href={e.sourceUrl} target="_blank" rel="noopener noreferrer" title="Abrir fonte oficial">Fonte <ExternalLink size={13}/></a>{sessionTiming(e)?<button className="secondary-link" onClick={()=>calendarFile(e)} title="Guardar no calendário"><CalendarPlus size={15}/></button>:null}</div>
    </div>
  </article>
 }
@@ -135,11 +134,11 @@ function App(){
  {fetchError&&<div className="fallback-warning"><CircleAlert size={17}/> Sem ligação à atualização. Só mostramos sessões com verificação recente; tenta novamente mais tarde.</div>}
  {data.lastSuccessfulScan===null&&<div className="fallback-warning"><Info size={17}/> Versão inicial: a pesquisa automática começa quando o projeto estiver publicado e o GitHub Actions estiver ativado.</div>}
  <Banner events={allEvents}/>
- <section className="stats"><div><span>Atividades encontradas</span><strong>{allEvents.length.toString().padStart(2,'0')}</strong><small>Nos próximos 6 fins de semana</small></div><div><span>Antes da sesta</span><strong>{nice.toString().padStart(2,'0')}</strong><small>Terminando até às 11:30</small></div><div><span>Bibliotecas</span><strong>{libraries.toString().padStart(2,'0')}</strong><small>Sessões para os mais pequenos</small></div><div><span>Inscrições em destaque</span><strong>{urgent.toString().padStart(2,'0')}</strong><small>Aberturas futuras ou vagas verificadas</small></div></section>
+ <section className="stats"><div><span>Atividades encontradas</span><strong>{allEvents.length.toString().padStart(2,'0')}</strong><small>Nos próximos 6 fins de semana</small></div><div><span>Antes da sesta</span><strong>{nice.toString().padStart(2,'0')}</strong><small>Fim até às 11:30 · inclui estimativas</small></div><div><span>Bibliotecas</span><strong>{libraries.toString().padStart(2,'0')}</strong><small>Sessões para os mais pequenos</small></div><div><span>Inscrições em destaque</span><strong>{urgent.toString().padStart(2,'0')}</strong><small>Aberturas futuras ou vagas verificadas</small></div></section>
  <section id="atividades" className="list-section"><div className="section-heading"><div><h2>O próximo plano<span>.</span></h2></div></div>
  <div className="filters"><label className="search-field"><Search size={19}/><input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Pesquisar atividade, local, oficina…" aria-label="Pesquisar atividades"/></label><label className="select-field"><Filter size={16}/><select value={category} onChange={e=>setCategory(e.target.value)} aria-label="Categoria">{categories.map(cat=><option key={cat}>{cat}</option>)}</select><ChevronDown size={16}/></label><button className={`toggle ${napOnly?'checked':''}`} onClick={()=>setNapOnly(!napOnly)} aria-pressed={napOnly}><Sun size={16}/> Antes da sesta {napOnly?<Check size={15}/>:null}</button><button className={`toggle ${savedOnly?'checked':''}`} onClick={()=>setSavedOnly(!savedOnly)} aria-pressed={savedOnly}><Heart size={16} fill={savedOnly?'currentColor':'none'}/> Guardados</button><button className={`toggle ${indoorOnly?'checked':''}`} onClick={()=>setIndoorOnly(!indoorOnly)} aria-pressed={indoorOnly}><CloudSun size={16}/> Em interior {indoorOnly?<Check size={15}/>:null}</button><button className={`toggle ${openingWeekOnly?'checked':''}`} aria-pressed={openingWeekOnly} onClick={()=>{setOpeningWeekOnly(!openingWeekOnly);setNapOnly(false);setWeek('all');setShowAll(false)}}><BellRing size={16}/> Inscrições a abrir esta semana</button></div>
  {data.eligibilitySummary?.pending>0&&<p className="filter-note">{data.eligibilitySummary.pending} sessões aguardam confirmação de detalhes e não aparecem na agenda.</p>}
- {napOnly&&allEvents.some(e=>e.start&&e.start<='10:30'&&!e.end)&&<p className="filter-note">Há atividades de manhã com hora de fim por confirmar. <button onClick={()=>setNapOnly(false)}>Mostrar também estas atividades</button></p>}
+ {allEvents.some(e=>!e.end)&&<p className="filter-note">Sem hora de fim publicada, estimamos uma duração de 1 hora. Esta estimativa é usada nos filtros e no calendário.</p>}
  <div className="weeks" role="group" aria-label="Filtrar fins de semana"><button className={week==='all'?'selected':''} onClick={()=>setWeek('all')}>Todos</button>{weekends.map(w=><button key={w} className={week===w?'selected':''} onClick={()=>setWeek(w)}>{cleanDate(w).getUTCDate()}–{cleanDate(datePlusDays(w,1)).getUTCDate()} {monthDay(w).split(' ')[1]}</button>)}</div>
  {displayed.length?<div className="event-grid">{displayed.slice(0,showAll?100:12).map(e=><EventCard e={e} key={e.id} favorites={favorites} onToggle={toggleFav}/>)}</div>:<div className="empty-state"><span>✳︎</span><h3>Nada nesta combinação — por enquanto.</h3><p>Experimenta retirar um filtro. Continuaremos atentos a novas inscrições e atividades.</p><button onClick={()=>{setSearch('');setCategory('Todas');setWeek('all');setNapOnly(false);setSavedOnly(false);setIndoorOnly(false);setOpeningWeekOnly(false)}}>Limpar filtros <ArrowRight size={16}/></button></div>}
  {displayed.length>12&&!showAll&&<button className="more" onClick={()=>setShowAll(true)}>Ver mais {displayed.length-12} atividades <ArrowDownRight size={16}/></button>}

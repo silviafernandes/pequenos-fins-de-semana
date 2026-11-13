@@ -166,6 +166,10 @@ Quando uma página de evento não publica horário/idades no HTML, a recolha con
 
 `public/data/poster-reviews.json` guarda factos revistos visualmente, associados ao URL da página, URL da imagem e SHA-256 dos bytes consultados. Cada execução volta a obter a imagem: alterações ao cartaz, título ou data invalidam a associação e exigem nova revisão. A sessão continua sujeita à validação normal de idade, distância, data e fonte. Cancelamentos/adiamentos na página impedem a reutilização do cartaz. A imagem de origem fica na evidência da sessão.
 
-O cartaz de **Yoga de Encantar, 14/11/2026, 10:00**, confirma 6–36 meses, Biblioteca Municipal Florbela Espanca, gratuitidade e lotação esgotada. A hora de fim não está publicada e mantém-se desconhecida. Por isso, a sessão é recolhida como **esgotada**, mas não passa o filtro “Antes da sesta”; pode ser vista ao desativá-lo. A data de abertura de inscrições nunca substitui uma indicação explícita de lotação esgotada.
+O cartaz de **Yoga de Encantar, 14/11/2026, 10:00**, confirma 6–36 meses, Biblioteca Municipal Florbela Espanca, gratuitidade e lotação esgotada. A hora de fim não está publicada e mantém-se desconhecida. A sessão é recolhida como **esgotada**. Quando não é publicada uma hora de fim, a interface assume 1 hora de duração, assinala “fim estimado” e usa essa estimativa nos filtros e no calendário. O registo da fonte mantém a hora de fim desconhecida. A data de abertura de inscrições nunca substitui uma indicação explícita de lotação esgotada.
 
 O workflow instala `tesseract-ocr` e `tesseract-ocr-por`. Para recolha local com OCR, instalar também estes pacotes do sistema. Uma revisão de imagem já confirmada pode ser usada sem OCR, desde que os bytes e a página continuem a coincidir.
+
+## Duração estimada
+
+Por preferência do utilizador, sessões sem hora de fim publicada assumem **1 hora** para apresentação, filtros da sesta, ordenação e exportação de calendário. A interface e a descrição do calendário identificam a estimativa. Um fim publicado tem sempre prioridade. As exportações que atravessam a meia-noite terminam no dia seguinte. A estimativa não altera os dados da fonte nem a evidência verificada.
