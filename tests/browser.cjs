@@ -2,6 +2,15 @@ const assert = require('node:assert/strict');
 const { spawn } = require('node:child_process');
 const { chromium } = require('playwright');
 (async () => {
+  const {activityArtwork,artworkKinds}=await import('../src/activityArtwork.js');
+  for(const [title,category,expected] of [
+    ['Experimentar Pinturas','Sensorial','art'],['Experimentar Cerâmicas','Sensorial','art'],
+    ['Yoga de Encantar','Bibliotecas','sports'],['Som de Lá e de Cá','Bibliotecas','music'],
+    ['Festival para bebés','Outras','festival'],['Hora do conto','Outras','stories'],
+    ['Experimentar Luzes','Outras','sensory'],['Passeio na floresta','Outras','nature'],
+    ['Bebeteca mágica','Bibliotecas','stories']]){
+      assert.equal(activityArtwork({title,category}),expected);
+  }
   const {collages,nextCollage}=await import('../src/collages.js');
   for(let current=-1;current<collages.length;current++){for(const random of [0,.3,.6,.999]){const next=nextCollage(current,()=>random);assert.ok(next>=0&&next<collages.length);assert.notEqual(next,current)}}
   const {sessionTiming,napFriendly,napClash,timeLabel}=await import('../src/timing.js');
@@ -56,6 +65,8 @@ const { chromium } = require('playwright');
     await page.goto('http://127.0.0.1:4174/');
     await page.getByText('Sessão para bebés pequenos',{exact:true}).waitFor();
     assert.equal(await page.locator('.event-card').count(),3);
+    assert.match(await page.locator('.event-card').filter({hasText:'Sessão para bebés pequenos'}).locator('.category-art').getAttribute('src'),/activity-music\.webp/);
+    for(const kind of artworkKinds){assert.equal((await page.request.get('http://127.0.0.1:4174/pequenos-fins-de-semana/illustrations/activity-'+kind+'.webp')).status(),200)}
     const initialCollage=await page.locator('.hero-collage img').getAttribute('src');
     const initialCards=await page.locator('.event-card h3').allTextContents();
     await page.getByRole('button',{name:'Mudar colagem do cabeçalho'}).click();

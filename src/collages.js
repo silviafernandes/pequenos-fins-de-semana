@@ -1,7 +1,7 @@
 export const collages = [
   {id:'bird',name:'Passarinho',file:'header-paper-bird.webp'},
   {id:'city',name:'Casas',file:'header-paper-city.webp'},
-  {id:'butterfly',name:'Borboleta',file:'header-paper-butterfly.webp'},
+  {id:'butterfly',name:'Borboleta',file:'header-paper-butterfly.webp',version:'dot-eyes-1'},
   {id:'music',name:'Música',file:'header-paper-music.webp'},
 ]
 
