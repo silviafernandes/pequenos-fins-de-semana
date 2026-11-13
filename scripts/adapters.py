@@ -15,8 +15,11 @@ def organiser_sessions(html,url,now,make_event,context=None):
     result=[]
     if domain=='oficinajosefina.com' and urlparse(url).path.rstrip('/') in ('/beb%C3%A9s','/bebés'):
         text=unicodedata.normalize('NFKC',soup.get_text(' ',strip=True))
-        year=re.search(r'Oficinas para Bebés\s+(20\d{2})',text)
-        if not year or not re.search(r'(?:Av\.?|Avenida)\s*(?:de\s+)?Camilo,?\s*(?:n[ºo]\.?\s*)?224',text,re.I):return []
+        text=re.sub(r'[\u200b\ufeff]',' ',text)
+        year=re.search(r'Oficinas para Bebés\s+(20\d{2})\b',text)
+        season=re.search(r'Oficinas para Bebés\s+(\d{2})\s*/\s*(\d{2})\b',text)
+        base_year=int(year[1]) if year else (2000+int(season[1]) if season and int(season[2])==int(season[1])+1 else None)
+        if base_year is None or not re.search(r'(?:Av\.?|Avenida)\s*(?:de\s+)?Camilo,?\s*(?:n[ºo]\.?\s*)?224',text,re.I):return []
         pattern=r'(Experimentar (?:Cerâmicas|Pinturas|Luzes))\s+(\d{1,2})m\s+aos\s+(\d{1,2})a\b(.*?)(?=Experimentar (?:Cerâmicas|Pinturas|Luzes)|Oficinas para Famílias|$)'
         for block in re.finditer(pattern,text,re.S):
             title,lo,hi,body=block.groups()
@@ -24,7 +27,11 @@ def organiser_sessions(html,url,now,make_event,context=None):
             for session in dates:
                 d,month,h,m,eh,em=session.groups()
                 try:
-                    start=datetime(int(year[1]),MONTHS[month.lower()],int(d),int(h),int(m or 0))
+                    # Year labels belong to each workshop, not the whole flattened page.
+                    labels=list(re.finditer(r'\b(20\d{2})\b',body[:session.start()]))
+                    session_year=int(labels[-1][1]) if labels else base_year
+                    if season and session_year not in (base_year,base_year+1):continue
+                    start=datetime(session_year,MONTHS[month.lower()],int(d),int(h),int(m or 0))
                     end=start.replace(hour=int(eh),minute=int(em or 0))
                 except ValueError:continue
                 raw={'name':title,'description':f'Oficina sensorial para bebés de {lo} meses a {hi} anos','startDate':start.isoformat(),'endDate':end.isoformat(),'url':url,'location':{'name':'Oficina Josefina','address':'Avenida de Camilo 224, Porto'}}

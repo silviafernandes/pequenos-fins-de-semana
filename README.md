@@ -149,3 +149,11 @@ Os secrets `TELEGRAM_BOT_TOKEN` e `TELEGRAM_CHAT_ID` devem ser definidos nas [de
 - **uncertain**: houve timeout, falha de rede, resposta inesperada ou confirmação insuficiente. Não há repetição automática, porque a mensagem pode já ter chegado. Confirma a conversa antes de voltar a testar.
 
 Os alertas normais continuam opcionais. Os erros ficam explícitos nos logs e no resumo da execução, sem impedir a publicação da agenda. Nenhum teste de entrega é enviado em pull requests ou publicações normais de código. Os testes unitários usam respostas simuladas; o teste real exige os secrets configurados e o modo manual de envio.
+
+## Cobertura da recolha (13 novembro 2026)
+
+O programa da Josefina passou a usar o cabeçalho `26/27`. O adaptador aceita temporadas consecutivas e respeita os anos publicados dentro de cada oficina, incluindo a passagem para janeiro. Não transforma sessões anunciadas para novembro/dezembro de 2027 em sessões de 2026. Mantém a exigência de idade, data, horário e endereço verificados.
+
+A recolha consulta até 12 páginas de detalhe por fonte. Reserva até três lugares para páginas novas e visita primeiro as páginas há mais tempo por consultar; quando existem menos páginas conhecidas, usa o restante orçamento para novas páginas. Falhas de consulta também entram na rotação, sem apagar imediatamente evidência ainda recente. Os resultados guardam `candidateLinks`, `detailsChecked`, `detailCheckedAt`, `truncated` e `parsedSessions`: uma fonte acessível não significa que tenha sido consultada por completo ou produzido sessões.
+
+A leitura de JSON-LD percorre listas e objetos aninhados (`ItemList`, `item`, `subEvent` e `@graph`). Encontrar dados estruturados não dispensa a validação de idade, local, distância e sessão na fonte original. Os testes incluem o formato anterior e atual da Josefina, mudança de ano e rotação da descoberta.

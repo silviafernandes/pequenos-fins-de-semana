@@ -153,7 +153,8 @@ def extract_json_ld(soup):
             x=stack.pop()
             if isinstance(x,list): stack.extend(x)
             if isinstance(x,dict):
-                if '@graph' in x: stack.append(x['@graph'])
+                # Event items also appear inside ItemList, item and subEvent.
+                stack.extend(v for v in x.values() if isinstance(v,(dict,list)))
                 typ=x.get('@type',[])
                 if isinstance(typ,str): typ=[typ]
                 if 'Event' in typ or any(str(y).endswith('Event') for y in typ):found.append(x)
@@ -422,8 +423,19 @@ def scan(sources,previous,history,now):
                  if e.get('date', '') >= now.date().isoformat()
                  and urlparse(e.get('sourceUrl', '')).hostname == urlparse(url).hostname]
         relevant = list(dict(known + relevant).items())
-        relevant.sort(key=lambda pair: (0 if any(pair[0] == k[0] for k in known) else 1, not bool(STRONG.search(pair[1])), '/evento-' not in pair[0], pair[0]))
-        relevant = relevant[:MAX_LINKS]
+        checked_before=old_index.get(name,{}).get('detailCheckedAt',{})
+        known_urls={u for u,_ in known}
+        # Oldest checked first; reserve room for new pages so a full known list
+        # cannot starve discovery forever. Budgets bound every source's crawl.
+        relevant.sort(key=lambda pair: (checked_before.get(pair[0],''), not bool(STRONG.search(pair[1])), pair[0]))
+        known_links=[pair for pair in relevant if pair[0] in known_urls]
+        new_links=[pair for pair in relevant if pair[0] not in known_urls]
+        reserve=min(MAX_DETAILS,len(new_links))
+        selected_known=known_links[:MAX_LINKS-reserve]
+        selected_new=new_links[:MAX_LINKS-len(selected_known)]
+        selected=selected_known+selected_new
+        candidates_count=len(relevant)
+        relevant=selected
         prev=set(old_index.get(name,{}).get('lastLinks',[]))
         first_scan=name not in old_index
         found=[]
@@ -438,9 +450,11 @@ def scan(sources,previous,history,now):
         for event in root_events:upsert(event)
         # Inspect a few event links for embedded form links and dates. No login/CAPTCHA.
         detail_errors=[]
-        detail_limit = MAX_LINKS if urlparse(url).hostname == 'www.bibliotecasearquivosmatosinhos.pt' else MAX_DETAILS
-        for u,t in relevant[:detail_limit]:
+        detail_checked=dict(checked_before)
+        parsed_keys={session_key(event) for event in root_events}
+        for u,t in relevant:
             page,err2=get_page(u)
+            detail_checked[u]=stamp()
             if not page:
                 detail_errors.append({'url':u,'error':err2});continue
             a,s=links_from(page,u)
@@ -465,6 +479,7 @@ def scan(sources,previous,history,now):
             parsed=[adapted] if adapted else []
             parsed+=adapted_sessions(page,u)
             parsed+=[event for x in extract_json_ld(s) if (event:=make_event(x,u,name,now))]
+            parsed_keys.update(session_key(event) for event in parsed)
             refresh_page_evidence(u,parsed)
             for event in parsed:upsert(event)
             age_event=next((e for e in parsed if canonical(e['sourceUrl'])==canonical(u)),None)
@@ -485,7 +500,7 @@ def scan(sources,previous,history,now):
                     new_msgs.append(f"Novo link de formulário encontrado — {t} ({name})\n{next(iter(new_forms))}\nAbertura de vagas por confirmar")
                 if prevsignal and set(dates)-set(prevsignal.get('openingDates',[])):
                     new_msgs.append(f"Data de inscrições anunciada — {t}\n{', '.join(dates)}\n{u}")
-        results[name]={**metadata,'url':url,'ok':True,'checkedAt':stamp(),'lastLinks':found,'relevantLinks':len(found),'detailErrors':detail_errors,'lastSuccessfulAt':stamp(),'contentStatus':'links-found' if found else 'no-relevant-links'}
+        results[name]={**metadata,'url':url,'ok':True,'checkedAt':stamp(),'lastLinks':found,'relevantLinks':len(found),'detailErrors':detail_errors,'detailCheckedAt':{u:detail_checked[u] for u,_ in known_links+new_links if u in detail_checked},'candidateLinks':candidates_count,'detailsChecked':len(relevant),'truncated':candidates_count>len(relevant),'parsedSessions':len(parsed_keys),'lastSuccessfulAt':stamp(),'contentStatus':'sessions-parsed' if parsed_keys else 'links-found' if found else 'no-relevant-links'}
         time.sleep(.35)
     # Retain evidence for diagnosis, but never publish unchecked seeds or city-level locations.
     groups=classify(events+auto_add,registry,now)
