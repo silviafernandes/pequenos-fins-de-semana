@@ -44,7 +44,7 @@ const { chromium } = require('playwright');
       {id:'older',title:'Atividade a partir dos 3 anos',date:'2026-11-14',start:'10:00',end:'11:00',minMonths:36,maxMonths:72,category:'Histórias'},
       {id:'baby',title:'Sessão para bebés pequenos',date:'2026-11-14',start:'10:00',end:'11:00',minMonths:0,maxMonths:6,category:'Música',indoor:null,status:'soldout'},
       {id:'library',title:'Biblioteca com inscrições futuras',date:'2026-11-21',start:'10:00',end:null,minMonths:6,maxMonths:36,category:'Bibliotecas',status:'scheduled',openingAt:'2026-11-13T10:00+00:00',bookingUrl:'https://example.org/form'},
-      {id:'past',title:'Abertura passada',date:'2026-11-15',start:'10:00',end:'11:00',minMonths:0,maxMonths:36,category:'Música',status:'scheduled',openingAt:'2026-11-08T10:00+00:00',indoor:true}
+      {id:'past',title:'Abertura passada',date:'2026-11-15',start:'11:30',end:'12:30',minMonths:0,maxMonths:36,category:'Música',status:'scheduled',openingAt:'2026-11-08T10:00+00:00',indoor:true}
     ].map(e=>({...e,venue:'Porto',area:'Porto',sourceUrl:'https://example.org/event',description:'Atividade',price:'Gratuito',ageText:'0–36 meses'})),updatedAt:'2026-11-09T10:00:00Z',lastSuccessfulScan:'2026-11-09T10:00:00Z'};
     for (const event of fixture.events) {
       event.distanceKm = 4.2
@@ -64,6 +64,13 @@ const { chromium } = require('playwright');
       {...fixture.events.find(e=>e.id==='baby'),id:'baby-lead',title:'Música para bebés 0–3 anos',url:'https://example.org/babies',firstSeen:'2026-11-09'}]}}));
     await page.goto('http://127.0.0.1:4174/');
     await page.getByText('Sessão para bebés pequenos',{exact:true}).waitFor();
+    assert.equal(await page.locator('.event-card').count(),3);
+    assert.equal(await page.locator('.stats').count(),0);
+    assert.equal(await page.locator('.filters button[aria-pressed="true"]').count(),0);
+    assert.equal(await page.getByRole('combobox',{name:'Categoria'}).inputValue(),'Todas');
+    await page.getByRole('button',{name:'Antes da sesta',exact:true}).click();
+    assert.equal(await page.locator('.event-card').count(),2);
+    await page.getByRole('button',{name:'Antes da sesta',exact:true}).click();
     assert.equal(await page.locator('.event-card').count(),3);
     assert.match(await page.locator('.event-card').filter({hasText:'Sessão para bebés pequenos'}).locator('.category-art').getAttribute('src'),/activity-music\.webp/);
     for(const kind of artworkKinds){assert.equal((await page.request.get('http://127.0.0.1:4174/pequenos-fins-de-semana/illustrations/activity-'+kind+'.webp')).status(),200)}

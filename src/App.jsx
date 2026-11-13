@@ -108,7 +108,7 @@ function Footer({lastSuccessfulScan}){return <footer><div className="footer-left
 function App(){
  const [data,setData]=useState(initial), [history,setHistory]=useState(initialHistory), [discoveries,setDiscoveries]=useState(initialDiscoveries), [fetchError,setFetchError]=useState(false)
  const [search,setSearch]=useState(''), [category,setCategory]=useState('Todas'), [week,setWeek]=useState('all')
- const [napOnly,setNapOnly]=useState(true),[savedOnly,setSavedOnly]=useState(false),[showAll,setShowAll]=useState(false),[indoorOnly,setIndoorOnly]=useState(false),[openingWeekOnly,setOpeningWeekOnly]=useState(false)
+ const [napOnly,setNapOnly]=useState(false),[savedOnly,setSavedOnly]=useState(false),[showAll,setShowAll]=useState(false),[indoorOnly,setIndoorOnly]=useState(false),[openingWeekOnly,setOpeningWeekOnly]=useState(false)
  const [favorites,setFavorites]=useState(()=>{try{return JSON.parse(localStorage.getItem('pfds-favorites')||'[]')}catch{return []}})
  useEffect(()=>{let active=true;const load=()=>Promise.all([fetch(DATA_URL,{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('data');return r.json()}),fetch(HISTORY_URL,{cache:'no-store'}).then(r=>r.ok?r.json():initialHistory),fetch(DISCOVERIES_URL,{cache:'no-store'}).then(r=>r.ok?r.json():initialDiscoveries)]).then(([d,h,v])=>{if(active){setData(d);setHistory(h);setDiscoveries(v);setFetchError(false)}}).catch(()=>{if(active)setFetchError(true)});load();const timer=setInterval(load,10*60*1000);return()=>{active=false;clearInterval(timer)}},[])
  const weekends=useMemo(nextSixWeekends,[])
@@ -125,9 +125,6 @@ function App(){
   if(openingWeekOnly&&!openingThisWeek(e))return false
   return true
  }).sort((a,b)=>eventScore(b)-eventScore(a)||a.date.localeCompare(b.date)),[allEvents,search,category,week,napOnly,savedOnly,favorites,indoorOnly,openingWeekOnly])
- const urgent=useMemo(()=>allEvents.filter(e=>e.status==='open'||(e.status==='scheduled'&&e.openingAt>nowPTStamp())).length,[allEvents])
- const nice=allEvents.filter(napFriendly).length
- const libraries=allEvents.filter(e=>e.category==='Bibliotecas').length
  const categories=['Todas',...new Set(allEvents.map(e=>e.category))]
  const toggleFav=id=>setFavorites(old=>{const value=old.includes(id)?old.filter(x=>x!==id):[...old,id];localStorage.setItem('pfds-favorites',JSON.stringify(value));return value})
  const titlePeriod=`${monthDay(weekends[0])} – ${monthDay(datePlusDays(weekends[5],1))}`
@@ -137,7 +134,6 @@ function App(){
  {fetchError&&<div className="fallback-warning"><CircleAlert size={17}/> Sem ligação à atualização. Só mostramos sessões com verificação recente; tenta novamente mais tarde.</div>}
  {data.lastSuccessfulScan===null&&<div className="fallback-warning"><Info size={17}/> Versão inicial: a pesquisa automática começa quando o projeto estiver publicado e o GitHub Actions estiver ativado.</div>}
  <Banner events={allEvents}/>
- <section className="stats"><div><span>Atividades encontradas</span><strong>{allEvents.length.toString().padStart(2,'0')}</strong><small>Nos próximos 6 fins de semana</small></div><div><span>Antes da sesta</span><strong>{nice.toString().padStart(2,'0')}</strong><small>Fim até às 11:30 · inclui estimativas</small></div><div><span>Bibliotecas</span><strong>{libraries.toString().padStart(2,'0')}</strong><small>Sessões para os mais pequenos</small></div><div><span>Inscrições em destaque</span><strong>{urgent.toString().padStart(2,'0')}</strong><small>Aberturas futuras ou vagas verificadas</small></div></section>
  <section id="atividades" className="list-section"><div className="section-heading"><div><h2>O próximo plano<span>.</span></h2></div></div>
  <div className="filters"><label className="search-field"><Search size={19}/><input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Pesquisar atividade, local, oficina…" aria-label="Pesquisar atividades"/></label><label className="select-field"><Filter size={16}/><select value={category} onChange={e=>setCategory(e.target.value)} aria-label="Categoria">{categories.map(cat=><option key={cat}>{cat}</option>)}</select><ChevronDown size={16}/></label><button className={`toggle ${napOnly?'checked':''}`} onClick={()=>setNapOnly(!napOnly)} aria-pressed={napOnly}><Sun size={16}/> Antes da sesta {napOnly?<Check size={15}/>:null}</button><button className={`toggle ${savedOnly?'checked':''}`} onClick={()=>setSavedOnly(!savedOnly)} aria-pressed={savedOnly}><Heart size={16} fill={savedOnly?'currentColor':'none'}/> Guardados</button><button className={`toggle ${indoorOnly?'checked':''}`} onClick={()=>setIndoorOnly(!indoorOnly)} aria-pressed={indoorOnly}><CloudSun size={16}/> Em interior {indoorOnly?<Check size={15}/>:null}</button><button className={`toggle ${openingWeekOnly?'checked':''}`} aria-pressed={openingWeekOnly} onClick={()=>{setOpeningWeekOnly(!openingWeekOnly);setNapOnly(false);setWeek('all');setShowAll(false)}}><BellRing size={16}/> Inscrições a abrir esta semana</button></div>
  {data.eligibilitySummary?.pending>0&&<p className="filter-note">{data.eligibilitySummary.pending} sessões aguardam confirmação de detalhes e não aparecem na agenda.</p>}
