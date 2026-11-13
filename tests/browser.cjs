@@ -68,14 +68,10 @@ const { chromium } = require('playwright');
     assert.match(await page.locator('.event-card').filter({hasText:'Sessão para bebés pequenos'}).locator('.category-art').getAttribute('src'),/activity-music\.webp/);
     for(const kind of artworkKinds){assert.equal((await page.request.get('http://127.0.0.1:4174/pequenos-fins-de-semana/illustrations/activity-'+kind+'.webp')).status(),200)}
     const initialCollage=await page.locator('.hero-collage img').getAttribute('src');
-    const initialCards=await page.locator('.event-card h3').allTextContents();
-    await page.getByRole('button',{name:'Mudar colagem do cabeçalho'}).click();
-    const shuffledCollage=await page.locator('.hero-collage img').getAttribute('src');
-    assert.notEqual(shuffledCollage,initialCollage);
-    assert.deepEqual(await page.locator('.event-card h3').allTextContents(),initialCards);
+    assert.equal(await page.getByRole('button',{name:'Mudar colagem do cabeçalho'}).count(),0);
     await page.reload();
     await page.getByText('Sessão para bebés pequenos',{exact:true}).waitFor();
-    assert.notEqual(await page.locator('.hero-collage img').getAttribute('src'),shuffledCollage);
+    assert.notEqual(await page.locator('.hero-collage img').getAttribute('src'),initialCollage);
     for(const collage of collages){assert.equal((await page.request.get('http://127.0.0.1:4174/pequenos-fins-de-semana/illustrations/'+collage.file)).status(),200)}
     const soldout=page.locator('.event-card').filter({hasText:'Sessão para bebés pequenos'});
     assert.match(await soldout.innerText(),/Esgotado/);
