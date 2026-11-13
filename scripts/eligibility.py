@@ -54,6 +54,14 @@ def booking_publisher_matches(event,evidence,venue):
     return any(rule.get('host')==host(evidence.get('sourceUrl')) and rule.get('partnerId')==partner and normalized(rule.get('address'))==normalized(address) for rule in venue.get('bookingPublishers',[]))
 
 
+def official_source_matches(url,venue):
+    if host(url) not in venue.get('officialHosts',[]):return False
+    prefixes=venue.get('officialUrlPrefixes',{}).get(host(url))
+    if prefixes is None:return True
+    parsed=urlparse(url)
+    return parsed.scheme=='https' and any(parsed.path==prefix.rstrip('/') or parsed.path.startswith(prefix.rstrip('/')+'/') for prefix in prefixes)
+
+
 def assess(event,registry,now):
     venue=set_distance(event,registry)
     reasons=[]
@@ -69,7 +77,7 @@ def assess(event,registry,now):
     evidence=event.get('sessionEvidence',{})
     if not evidence or any(evidence.get(k)!=event.get(k) for k in ('date','start','end','minMonths','maxMonths','venue')):
         reasons.append('Sessão sem evidência específica')
-    elif venue and host(evidence.get('sourceUrl')) not in venue.get('officialHosts',[]) and not booking_publisher_matches(event,evidence,venue):
+    elif venue and not official_source_matches(evidence.get('sourceUrl'),venue) and not booking_publisher_matches(event,evidence,venue):
         reasons.append('Sessão sem confirmação na fonte original')
     else:
         try:
