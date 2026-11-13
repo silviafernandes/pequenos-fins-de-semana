@@ -2,6 +2,8 @@ const assert = require('node:assert/strict');
 const { spawn } = require('node:child_process');
 const { chromium } = require('playwright');
 (async () => {
+  const {collages,nextCollage}=await import('../src/collages.js');
+  for(let current=-1;current<collages.length;current++){for(const random of [0,.3,.6,.999]){const next=nextCollage(current,()=>random);assert.ok(next>=0&&next<collages.length);assert.notEqual(next,current)}}
   const {sessionTiming,napFriendly,napClash,timeLabel}=await import('../src/timing.js');
   const sample={date:'2026-11-14',start:'10:00',end:null};
   assert.deepEqual(sessionTiming(sample),{startMinutes:600,endMinutes:660,end:'11:00',endDate:'2026-11-14',estimated:true});
@@ -54,6 +56,16 @@ const { chromium } = require('playwright');
     await page.goto('http://127.0.0.1:4174/');
     await page.getByText('Sessão para bebés pequenos',{exact:true}).waitFor();
     assert.equal(await page.locator('.event-card').count(),3);
+    const initialCollage=await page.locator('.hero-collage img').getAttribute('src');
+    const initialCards=await page.locator('.event-card h3').allTextContents();
+    await page.getByRole('button',{name:'Mudar colagem do cabeçalho'}).click();
+    const shuffledCollage=await page.locator('.hero-collage img').getAttribute('src');
+    assert.notEqual(shuffledCollage,initialCollage);
+    assert.deepEqual(await page.locator('.event-card h3').allTextContents(),initialCards);
+    await page.reload();
+    await page.getByText('Sessão para bebés pequenos',{exact:true}).waitFor();
+    assert.notEqual(await page.locator('.hero-collage img').getAttribute('src'),shuffledCollage);
+    for(const collage of collages){assert.equal((await page.request.get('http://127.0.0.1:4174/pequenos-fins-de-semana/illustrations/'+collage.file)).status(),200)}
     const soldout=page.locator('.event-card').filter({hasText:'Sessão para bebés pequenos'});
     assert.match(await soldout.innerText(),/Esgotado/);
     assert.equal(await soldout.getByRole('link',{name:'Ver detalhes'}).count(),1);
