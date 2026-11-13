@@ -7,6 +7,7 @@ import {
 } from 'lucide-react'
 import { eligibleSession } from './eligibility.js'
 import { sessionTiming, napFriendly, napClash, timeLabel } from './timing.js'
+import HeaderCollage from './HeaderCollage.jsx'
 import initial from './initialData.json'
 import initialHistory from './initialHistory.json'
 import initialDiscoveries from './initialDiscoveries.json'
@@ -129,7 +130,7 @@ function App(){
  const toggleFav=id=>setFavorites(old=>{const value=old.includes(id)?old.filter(x=>x!==id):[...old,id];localStorage.setItem('pfds-favorites',JSON.stringify(value));return value})
  const titlePeriod=`${monthDay(weekends[0])} – ${monthDay(datePlusDays(weekends[5],1))}`
  return <div className="site-shell"><header><div className="wide nav"><a className="brand" href="#inicio" aria-label="Página inicial"><span className="logo-mark" aria-hidden="true">✳</span><span>pequenos <strong>fins de semana</strong></span></a><nav><a href="#atividades">Atividades</a><a href="#fontes">Inscrições</a></nav></div></header>
- <main id="inicio"><section className="hero"><div className="wide hero-inner"><div className="hero-text"><h1>Planos pequenos.<br/><em>Manhãs grandes.</em></h1><p className="hero-intro">Histórias, música e pequenas descobertas.<br/>O fim de semana começa com tempo para brincar.</p><a className="hero-cta" href="#atividades">Vamos escolher um plano <ArrowDownRight size={19}/></a></div><div className="hero-collage" aria-hidden="true"><img src={`${import.meta.env.BASE_URL}illustrations/header-paper-bird.webp`} alt="" width="640" height="680"/></div></div></section>
+ <main id="inicio"><section className="hero"><div className="wide hero-inner"><div className="hero-text"><h1>Planos pequenos.<br/><em>Manhãs grandes.</em></h1><p className="hero-intro">Histórias, música e pequenas descobertas.<br/>O fim de semana começa com tempo para brincar.</p><a className="hero-cta" href="#atividades">Vamos escolher um plano <ArrowDownRight size={19}/></a></div><HeaderCollage/></div></section>
  <div className="wide content"><div className="update-row"><span className="updated-indicator"><RefreshCw size={14}/> Dados: {data.updatedAt? new Date(data.updatedAt).toLocaleString('pt-PT',{dateStyle:'short',timeStyle:'short',timeZone:'Europe/Lisbon'}):'sem data'}</span><span className="range-indicator">Próximas 6 semanas <strong>{titlePeriod}</strong></span></div>
  {fetchError&&<div className="fallback-warning"><CircleAlert size={17}/> Sem ligação à atualização. Só mostramos sessões com verificação recente; tenta novamente mais tarde.</div>}
  {data.lastSuccessfulScan===null&&<div className="fallback-warning"><Info size={17}/> Versão inicial: a pesquisa automática começa quando o projeto estiver publicado e o GitHub Actions estiver ativado.</div>}
