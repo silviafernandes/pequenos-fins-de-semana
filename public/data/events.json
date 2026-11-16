@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-16T14:52:45+00:00",
-  "lastSuccessfulScan": "2026-11-16T14:52:45+00:00",
+  "updatedAt": "2026-11-16T16:08:44+00:00",
+  "lastSuccessfulScan": "2026-11-16T16:08:44+00:00",
   "origin": "CTT Correios de 4 Caminhos, Senhora da Hora, Matosinhos",
   "windowDays": 42,
   "events": [
@@ -30,7 +30,7 @@
       "confidence": "official-listing",
       "evidence": "Data, horário, biblioteca e faixa etária publicados na página oficial; vagas por verificar.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-16T14:51:24+00:00",
+      "discoveredAt": "2026-11-16T16:07:13+00:00",
       "sourceType": "matosinhos-official",
       "priority": 48,
       "sessionEvidence": {
@@ -41,7 +41,7 @@
         "maxMonths": 36,
         "venue": "Biblioteca Municipal Florbela Espanca",
         "sourceUrl": "https://www.bibliotecasearquivosmatosinhos.pt/evento-44/bebeteca-magica-o-meu-primeiro-paninho",
-        "checkedAt": "2026-11-16T14:51:22.007027+00:00",
+        "checkedAt": "2026-11-16T16:07:10.914982+00:00",
         "kind": "official-adapter"
       },
       "validationStatus": "verified",
@@ -83,7 +83,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-16T14:52:10+00:00",
+      "discoveredAt": "2026-11-16T16:07:53+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -94,7 +94,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-16T14:51:22.007027+00:00",
+        "checkedAt": "2026-11-16T16:07:10.914982+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -136,7 +136,7 @@
       "confidence": "structured-official",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-16T14:51:58+00:00",
+      "discoveredAt": "2026-11-16T16:07:41+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "validationStatus": "verified",
@@ -149,7 +149,7 @@
         "maxMonths": 36,
         "venue": "Oficina Josefina",
         "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
-        "checkedAt": "2026-11-16T14:51:22.007027+00:00",
+        "checkedAt": "2026-11-16T16:07:10.914982+00:00",
         "kind": "official-programme"
       },
       "distanceKm": 6.3544,
@@ -189,7 +189,7 @@
       "confidence": "reviewed-programme",
       "evidence": "Programa do formulário revisto a partir de imagem partilhada. Vagas e alterações posteriores por confirmar.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-16T14:52:45+00:00",
+      "discoveredAt": "2026-11-16T16:08:44+00:00",
       "sourceType": "playlab-programme",
       "priority": 48,
       "sessionEvidence": {
@@ -207,6 +207,8 @@
         "originalChoice": "Música em Família “A Corujinha e a amiga das neves”/ Music for families \"Little owl and her snow friend\", 0-6 anos/years - Dom. 22/11, 10:00 - 10:50",
         "reviewDigest": "1804ff034d6fbd0d76e2c3e95ea2eacf99e108b1f1e4d348ca8b71121add1f11"
       },
+      "validationStatus": "verified",
+      "validationReasons": [],
       "distanceKm": 4.2353,
       "distanceWithinRadius": true,
       "venueId": "playlab",
@@ -216,9 +218,7 @@
         "coordinateSourceUrl": "https://sites.google.com/view/playlabporto/contactos",
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
-      },
-      "validationStatus": "verified",
-      "validationReasons": []
+      }
     },
     {
       "id": "auto-90c9352f121c5",
@@ -246,7 +246,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-16T14:52:10+00:00",
+      "discoveredAt": "2026-11-16T16:07:53+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -257,7 +257,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-16T14:51:22.007027+00:00",
+        "checkedAt": "2026-11-16T16:07:10.914982+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -299,7 +299,7 @@
       "confidence": "reviewed-programme",
       "evidence": "Programa do formulário revisto a partir de imagem partilhada. Vagas e alterações posteriores por confirmar.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-16T14:52:45+00:00",
+      "discoveredAt": "2026-11-16T16:08:44+00:00",
       "sourceType": "playlab-programme",
       "priority": 48,
       "sessionEvidence": {
@@ -317,6 +317,8 @@
         "originalChoice": "Babyoga de Outono/Autumn, 6-18 meses/months - Sáb. 28/11 9:30-10:10",
         "reviewDigest": "55e6f1aaf9f09641b67af62fbeff0a712f963ef8d0a51cd7bbc8ab884dbfb5b4"
       },
+      "validationStatus": "verified",
+      "validationReasons": [],
       "distanceKm": 4.2353,
       "distanceWithinRadius": true,
       "venueId": "playlab",
@@ -326,9 +328,7 @@
         "coordinateSourceUrl": "https://sites.google.com/view/playlabporto/contactos",
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
-      },
-      "validationStatus": "verified",
-      "validationReasons": []
+      }
     },
     {
       "id": "auto-c0943f4301383",
@@ -356,7 +356,7 @@
       "confidence": "reviewed-programme",
       "evidence": "Programa do formulário revisto a partir de imagem partilhada. Vagas e alterações posteriores por confirmar.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-16T14:52:45+00:00",
+      "discoveredAt": "2026-11-16T16:08:44+00:00",
       "sourceType": "playlab-programme",
       "priority": 48,
       "sessionEvidence": {
@@ -374,6 +374,8 @@
         "originalChoice": "Babyoga de Outono/Autumn, 19-36 meses/months - Sáb. 28/11 10:30-11:15",
         "reviewDigest": "384c5575af179cd29bc834998579ca6001e8d3e5c6552bb11f7ca5d478b6d409"
       },
+      "validationStatus": "verified",
+      "validationReasons": [],
       "distanceKm": 4.2353,
       "distanceWithinRadius": true,
       "venueId": "playlab",
@@ -383,9 +385,7 @@
         "coordinateSourceUrl": "https://sites.google.com/view/playlabporto/contactos",
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
-      },
-      "validationStatus": "verified",
-      "validationReasons": []
+      }
     },
     {
       "id": "som-29",
@@ -413,7 +413,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-16T14:52:10+00:00",
+      "discoveredAt": "2026-11-16T16:07:53+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -424,7 +424,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-16T14:51:22.007027+00:00",
+        "checkedAt": "2026-11-16T16:07:10.914982+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -466,7 +466,7 @@
       "confidence": "structured-official",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-16T14:51:58+00:00",
+      "discoveredAt": "2026-11-16T16:07:41+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "validationStatus": "verified",
@@ -479,7 +479,7 @@
         "maxMonths": 36,
         "venue": "Oficina Josefina",
         "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
-        "checkedAt": "2026-11-16T14:51:22.007027+00:00",
+        "checkedAt": "2026-11-16T16:07:10.914982+00:00",
         "kind": "official-programme"
       },
       "distanceKm": 6.3544,
@@ -519,7 +519,7 @@
       "confidence": "reviewed-programme",
       "evidence": "Programa do formulário revisto a partir de imagem partilhada. Vagas e alterações posteriores por confirmar.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-16T14:52:45+00:00",
+      "discoveredAt": "2026-11-16T16:08:44+00:00",
       "sourceType": "playlab-programme",
       "priority": 48,
       "sessionEvidence": {
@@ -537,6 +537,8 @@
         "originalChoice": "Messy Play Pinturas de Outono, 2-6 anos/years - Dom. 29/11, 10:00-11:00",
         "reviewDigest": "8aca7c33f5d9c919f4707ba63437eb0d854b0af34d7ab40987fee051294c1b68"
       },
+      "validationStatus": "verified",
+      "validationReasons": [],
       "distanceKm": 4.2353,
       "distanceWithinRadius": true,
       "venueId": "playlab",
@@ -546,9 +548,7 @@
         "coordinateSourceUrl": "https://sites.google.com/view/playlabporto/contactos",
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
-      },
-      "validationStatus": "verified",
-      "validationReasons": []
+      }
     },
     {
       "id": "auto-41c93a41574ab",
@@ -576,7 +576,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-16T14:52:10+00:00",
+      "discoveredAt": "2026-11-16T16:07:53+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -587,7 +587,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-16T14:51:22.007027+00:00",
+        "checkedAt": "2026-11-16T16:07:10.914982+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -629,7 +629,7 @@
       "confidence": "structured-official",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-16T14:51:58+00:00",
+      "discoveredAt": "2026-11-16T16:07:41+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "validationStatus": "verified",
@@ -642,7 +642,7 @@
         "maxMonths": 36,
         "venue": "Oficina Josefina",
         "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
-        "checkedAt": "2026-11-16T14:51:22.007027+00:00",
+        "checkedAt": "2026-11-16T16:07:10.914982+00:00",
         "kind": "official-programme"
       },
       "distanceKm": 6.3544,
@@ -682,7 +682,7 @@
       "confidence": "reviewed-programme",
       "evidence": "Programa do formulário revisto a partir de imagem partilhada. Vagas e alterações posteriores por confirmar.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-16T14:52:45+00:00",
+      "discoveredAt": "2026-11-16T16:08:44+00:00",
       "sourceType": "playlab-programme",
       "priority": 48,
       "sessionEvidence": {
@@ -700,6 +700,8 @@
         "originalChoice": "Baby Messy Play de Natal, 8-36 meses/months - Dom. 6/12, 10:00-11:00",
         "reviewDigest": "dd5425547741d4993416cc79088a5135078a1837c8ce9a2ad2aec67fc125325c"
       },
+      "validationStatus": "verified",
+      "validationReasons": [],
       "distanceKm": 4.2353,
       "distanceWithinRadius": true,
       "venueId": "playlab",
@@ -709,9 +711,7 @@
         "coordinateSourceUrl": "https://sites.google.com/view/playlabporto/contactos",
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
-      },
-      "validationStatus": "verified",
-      "validationReasons": []
+      }
     },
     {
       "id": "auto-edd329e76c5fe",
@@ -739,7 +739,7 @@
       "confidence": "reviewed-programme",
       "evidence": "Programa do formulário revisto a partir de imagem partilhada. Vagas e alterações posteriores por confirmar.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-16T14:52:45+00:00",
+      "discoveredAt": "2026-11-16T16:08:44+00:00",
       "sourceType": "playlab-programme",
       "priority": 48,
       "sessionEvidence": {
@@ -757,6 +757,8 @@
         "originalChoice": "Baby Lab de Natal/Christmas, 6-18 meses/months - Sáb. 12/12, 10:00 - 10:45",
         "reviewDigest": "a585a49dfa564cd088ace4eb4be757a23420fa52681d64f5b79fbd1a6c0163f4"
       },
+      "validationStatus": "verified",
+      "validationReasons": [],
       "distanceKm": 4.2353,
       "distanceWithinRadius": true,
       "venueId": "playlab",
@@ -766,9 +768,7 @@
         "coordinateSourceUrl": "https://sites.google.com/view/playlabporto/contactos",
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
-      },
-      "validationStatus": "verified",
-      "validationReasons": []
+      }
     },
     {
       "id": "auto-144f4c2bebf37",
@@ -796,7 +796,7 @@
       "confidence": "reviewed-programme",
       "evidence": "Programa do formulário revisto a partir de imagem partilhada. Vagas e alterações posteriores por confirmar.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-16T14:52:45+00:00",
+      "discoveredAt": "2026-11-16T16:08:44+00:00",
       "sourceType": "playlab-programme",
       "priority": 48,
       "sessionEvidence": {
@@ -814,6 +814,8 @@
         "originalChoice": "Hora do conto de Natal / Christmas story time, 2-6 anos/years - Sáb 12/11, 11:00-11:30",
         "reviewDigest": "bbf77217cda2da11c3d1ce826418c0f0c2328dd440f26310b3ff3aba9db1e0d7"
       },
+      "validationStatus": "verified",
+      "validationReasons": [],
       "distanceKm": 4.2353,
       "distanceWithinRadius": true,
       "venueId": "playlab",
@@ -823,9 +825,7 @@
         "coordinateSourceUrl": "https://sites.google.com/view/playlabporto/contactos",
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
-      },
-      "validationStatus": "verified",
-      "validationReasons": []
+      }
     },
     {
       "id": "som-13",
@@ -853,7 +853,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-16T14:52:10+00:00",
+      "discoveredAt": "2026-11-16T16:07:53+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -864,7 +864,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-16T14:51:22.007027+00:00",
+        "checkedAt": "2026-11-16T16:07:10.914982+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -906,7 +906,7 @@
       "confidence": "structured-official",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-16T14:51:58+00:00",
+      "discoveredAt": "2026-11-16T16:07:41+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "validationStatus": "verified",
@@ -919,7 +919,7 @@
         "maxMonths": 36,
         "venue": "Oficina Josefina",
         "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
-        "checkedAt": "2026-11-16T14:51:22.007027+00:00",
+        "checkedAt": "2026-11-16T16:07:10.914982+00:00",
         "kind": "official-programme"
       },
       "distanceKm": 6.3544,
@@ -959,7 +959,7 @@
       "confidence": "reviewed-programme",
       "evidence": "Programa do formulário revisto a partir de imagem partilhada. Vagas e alterações posteriores por confirmar.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-16T14:52:45+00:00",
+      "discoveredAt": "2026-11-16T16:08:44+00:00",
       "sourceType": "playlab-programme",
       "priority": 48,
       "sessionEvidence": {
@@ -977,6 +977,8 @@
         "originalChoice": "Messy Play de Natal, 2-6 anos/years - Dom. 13/12, 10:00-11:00",
         "reviewDigest": "97b42b983054013581b4caeceb27c87f21dcdd1e18a23364ded186f39c9ea6a4"
       },
+      "validationStatus": "verified",
+      "validationReasons": [],
       "distanceKm": 4.2353,
       "distanceWithinRadius": true,
       "venueId": "playlab",
@@ -986,9 +988,7 @@
         "coordinateSourceUrl": "https://sites.google.com/view/playlabporto/contactos",
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
-      },
-      "validationStatus": "verified",
-      "validationReasons": []
+      }
     },
     {
       "id": "auto-88e361fd2c84b",
@@ -1016,7 +1016,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-16T14:52:10+00:00",
+      "discoveredAt": "2026-11-16T16:07:53+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -1027,7 +1027,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-16T14:51:22.007027+00:00",
+        "checkedAt": "2026-11-16T16:07:10.914982+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -1069,7 +1069,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-16T14:51:39+00:00",
+      "discoveredAt": "2026-11-16T16:07:28+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -1080,7 +1080,7 @@
         "maxMonths": 36,
         "venue": "Biblioteca Municipal Almeida Garrett",
         "sourceUrl": "https://www.bibliotecasdoporto.pt/evento/papi-opus-8-espetaculo/",
-        "checkedAt": "2026-11-16T14:51:22.007027+00:00",
+        "checkedAt": "2026-11-16T16:07:10.914982+00:00",
         "kind": "official-programme",
         "contextSourceUrl": "https://www.bibliotecasdoporto.pt/evento/nano-mini-micro-festival-para-a-infancia-do-porto/"
       },
@@ -1123,7 +1123,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-16T14:51:39+00:00",
+      "discoveredAt": "2026-11-16T16:07:28+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -1134,7 +1134,7 @@
         "maxMonths": 36,
         "venue": "Biblioteca Municipal Almeida Garrett",
         "sourceUrl": "https://www.bibliotecasdoporto.pt/evento/papi-opus-8-espetaculo/",
-        "checkedAt": "2026-11-16T14:51:22.007027+00:00",
+        "checkedAt": "2026-11-16T16:07:10.914982+00:00",
         "kind": "official-programme",
         "contextSourceUrl": "https://www.bibliotecasdoporto.pt/evento/nano-mini-micro-festival-para-a-infancia-do-porto/"
       },
@@ -1177,7 +1177,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-16T14:52:10+00:00",
+      "discoveredAt": "2026-11-16T16:07:53+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -1188,7 +1188,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-16T14:51:22.007027+00:00",
+        "checkedAt": "2026-11-16T16:07:10.914982+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -1230,7 +1230,7 @@
       "confidence": "structured-official",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-16T14:51:58+00:00",
+      "discoveredAt": "2026-11-16T16:07:41+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "validationStatus": "verified",
@@ -1243,7 +1243,7 @@
         "maxMonths": 36,
         "venue": "Oficina Josefina",
         "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
-        "checkedAt": "2026-11-16T14:51:22.007027+00:00",
+        "checkedAt": "2026-11-16T16:07:10.914982+00:00",
         "kind": "official-programme"
       },
       "distanceKm": 6.3544,
@@ -1283,7 +1283,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-16T14:52:10+00:00",
+      "discoveredAt": "2026-11-16T16:07:54+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -1294,7 +1294,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-16T14:51:22.007027+00:00",
+        "checkedAt": "2026-11-16T16:07:10.914982+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -1336,7 +1336,7 @@
       "confidence": "structured-official",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-16T14:51:58+00:00",
+      "discoveredAt": "2026-11-16T16:07:41+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -1347,7 +1347,7 @@
         "maxMonths": 36,
         "venue": "Oficina Josefina",
         "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
-        "checkedAt": "2026-11-16T14:51:22.007027+00:00",
+        "checkedAt": "2026-11-16T16:07:10.914982+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -1410,7 +1410,8 @@
       },
       "validationStatus": "pending",
       "validationReasons": [
-        "Fora dos próximos fins de semana"
+        "Fora dos próximos fins de semana",
+        "Evidência da sessão desatualizada"
       ],
       "distanceKm": 2.606,
       "distanceWithinRadius": true,
@@ -1737,5 +1738,76 @@
     "outsideRadius": 0
   },
   "radiusKm": 15,
-  "distanceMethod": "straight-line"
+  "distanceMethod": "straight-line",
+  "outings": [
+    {
+      "id": "outing-sealife",
+      "title": "Visitar o SEA LIFE Porto",
+      "venue": "SEA LIFE Porto",
+      "category": "Natureza",
+      "description": "Aquário para todas as idades. Menores de 16 anos acompanhados por um adulto. Compra de bilhetes sujeita às condições do aquário.",
+      "weekendHours": "Sábados e domingos: 10:00–19:00 · última entrada às 18:15.",
+      "validFrom": "2026-11-16",
+      "validUntil": "2026-12-31",
+      "periodLabel": "Horário habitual de fim de semana",
+      "price": "Bilhetes pagos · preço por confirmar",
+      "bookingUrl": "https://www.visitsealife.com/porto/visitar/bilhetes-e-passes/bilhetes/",
+      "indoor": true,
+      "note": "Escolhe a hora de visita; este horário não é a duração de uma sessão. Confirma exceções no dia da visita.",
+      "validationStatus": "verified",
+      "admission": "all-ages",
+      "sourceUrl": "https://www.visitsealife.com/porto/en/plan-your-visit/before-you-visit/opening-hours/",
+      "evidenceUrls": [
+        "https://www.visitsealife.com/porto/en/plan-your-visit/before-you-visit/opening-hours/",
+        "https://www.visitsealife.com/porto/encontrar/informacoes/ajuda/"
+      ],
+      "checkedAt": "2026-11-16T16:07:10.914982+00:00",
+      "sourceType": "official-outing",
+      "sourceName": "SEA LIFE Porto",
+      "distanceKm": 3.6866,
+      "distanceWithinRadius": true,
+      "venueId": "sea-life",
+      "geo": {
+        "latitude": 41.168694,
+        "longitude": -8.687501,
+        "coordinateSourceUrl": "https://www.openstreetmap.org/way/110801272",
+        "originId": "ctt-4-caminhos",
+        "method": "straight-line"
+      }
+    },
+    {
+      "id": "outing-maia-natal-2026",
+      "title": "Mercadinho de Natal da Maia",
+      "venue": "Praça Dr. José Vieira de Carvalho",
+      "category": "Festival",
+      "description": "Mercado municipal para todas as idades, com artesanato e gastronomia. Acessível a carrinhos de bebé.",
+      "weekendHours": "Sábado: 10:00–24:00 · domingo: 10:00–22:00.",
+      "validFrom": "2026-11-27",
+      "validUntil": "2027-01-03",
+      "periodLabel": "27 nov 2026 – 3 jan 2027",
+      "price": "Entrada gratuita · compras à parte",
+      "bookingUrl": null,
+      "indoor": false,
+      "note": "Artesanato até 24 de dezembro; gastronomia até 3 de janeiro. Dias 25 de dezembro e 1 de janeiro: encerrado. Pista de gelo e carrossel têm regras próprias e não estão incluídos nesta recomendação.",
+      "validationStatus": "verified",
+      "admission": "all-ages",
+      "sourceUrl": "https://visitmaia.pt/public/eventos/mercadinho-de-natal-maia-natal-2026",
+      "evidenceUrls": [
+        "https://visitmaia.pt/public/eventos/mercadinho-de-natal-maia-natal-2026"
+      ],
+      "checkedAt": "2026-11-16T16:07:10.914982+00:00",
+      "sourceType": "official-outing",
+      "sourceName": "Maia · Mercadinho de Natal",
+      "distanceKm": 5.5892,
+      "distanceWithinRadius": true,
+      "venueId": "praca-maia",
+      "geo": {
+        "latitude": 41.233151,
+        "longitude": -8.622461,
+        "coordinateSourceUrl": "https://www.openstreetmap.org/way/401789441",
+        "originId": "ctt-4-caminhos",
+        "method": "straight-line"
+      }
+    }
+  ]
 }
