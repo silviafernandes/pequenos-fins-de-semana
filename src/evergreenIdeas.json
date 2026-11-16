@@ -1,0 +1,35 @@
+[
+  {
+    "id": "parque-cidade",
+    "title": "Pequenas descobertas no Parque da Cidade",
+    "place": "Parque da Cidade · Porto",
+    "description": "Um passeio curto entre árvores e relvados, com tempo para parar e descobrir ao ritmo dos mais pequenos.",
+    "idea": "Procurar folhas de cores diferentes e ouvir os pássaros.",
+    "hours": "Abr–set: 07:00–24:00 · out–mar: 07:00–22:00.",
+    "access": "Passeio em parque público · exterior",
+    "sourceUrl": "https://ambiente.cm-porto.pt/parques-e-jardins/parque-ocidental-da-cidade",
+    "reviewedAt": "2026-11-16"
+  },
+  {
+    "id": "palacio-cristal",
+    "title": "Uma manhã nos Jardins do Palácio de Cristal",
+    "place": "Jardins do Palácio de Cristal · Porto",
+    "description": "Jardins, caminhos e recantos para uma volta tranquila em família, com pausas pelo caminho.",
+    "idea": "Escolher uma árvore favorita e voltar para ver como muda ao longo do ano.",
+    "hours": "Abr–set: 08:00–21:00 · out–mar: 08:00–19:00.",
+    "access": "Passeio em jardim público · exterior",
+    "sourceUrl": "https://ambiente.cm-porto.pt/parques-e-jardins/jardins-do-palacio-de-cristal_3",
+    "reviewedAt": "2026-11-16"
+  },
+  {
+    "id": "passeio-alegre",
+    "title": "Passear devagar no Passeio Alegre",
+    "place": "Jardim do Passeio Alegre · Foz do Douro",
+    "description": "Um jardim junto à foz do rio para uma pequena volta, observar as árvores e fazer uma pausa num banco.",
+    "idea": "Ouvir os sons do jardim e procurar formas nas folhas.",
+    "hours": "Consultar as informações de acesso na página municipal.",
+    "access": "Passeio em jardim público · exterior",
+    "sourceUrl": "https://ambiente.cm-porto.pt/parques-e-jardins/jardim-do-passeio-alegre",
+    "reviewedAt": "2026-11-16"
+  }
+]

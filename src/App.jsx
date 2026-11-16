@@ -10,6 +10,7 @@ import { sessionTiming, napFriendly, napClash, timeLabel } from './timing.js'
 import HeaderCollage from './HeaderCollage.jsx'
 import { activityArtwork } from './activityArtwork.js'
 import initial from './initialData.json'
+import evergreenIdeas from './evergreenIdeas.json'
 import initialHistory from './initialHistory.json'
 import initialDiscoveries from './initialDiscoveries.json'
 
@@ -89,6 +90,9 @@ function Outings({items=[]}){
  <div className={`art art-${activityArtwork(o)}`}><img className="category-art" src={`${import.meta.env.BASE_URL}illustrations/activity-${activityArtwork(o)}.webp`} alt=""/></div>
  <div className="event-body"><div className="event-overline">{o.category} · Passeio</div><h3>{o.title}</h3><p className="event-description">{o.description}</p><div className="meta-grid"><span><CalendarDays size={14}/>{o.periodLabel}</span><span><Clock3 size={14}/>{o.weekendHours}</span><span><MapPin size={14}/>{o.venue}</span><span><Ticket size={14}/>{o.price}</span></div><div className="detail-line">{o.distanceKm.toLocaleString('pt-PT',{maximumFractionDigits:1})} km em linha reta · Todas as idades · {o.indoor?'Interior':'Exterior'}</div><p className="outing-note">{o.note}</p><div className="card-actions">{o.bookingUrl&&isSafeUrl(o.bookingUrl)&&<a className="primary-link" href={o.bookingUrl} target="_blank" rel="noopener noreferrer">Ver bilhetes <ArrowUpRight size={15}/></a>}{isSafeUrl(o.sourceUrl)&&<a className="secondary-link" href={o.sourceUrl} target="_blank" rel="noopener noreferrer">Horários e detalhes <ExternalLink size={13}/></a>}</div></div></article>)}</div></section>
 }
+function EverydayIdeas(){
+ return <section className="evergreen-section" id="ideias" aria-label="Ideias para todo o ano"><div className="section-heading"><div><div className="eyebrow">PARA REPETIR SEMPRE QUE APETECER</div><h2>Há sempre um plano<span>.</span></h2><p>Ideias para todo o ano, sem depender de uma data na agenda. Confirma os horários e as condições de acesso antes de sair.</p></div></div><div className="event-grid">{evergreenIdeas.map(idea=><article className="evergreen-card" key={idea.id}><div className="art art-nature"><img className="category-art" src={`${import.meta.env.BASE_URL}illustrations/activity-nature.webp`} alt=""/></div><div className="event-body"><div className="event-overline">Ao ar livre · Todo o ano</div><h3>{idea.title}</h3><p className="evergreen-description">{idea.description}</p><p className="little-idea"><Sparkles size={17} aria-hidden="true"/><span>{idea.idea}</span></p><div className="meta-grid"><span><MapPin size={14}/>{idea.place}</span><span><Clock3 size={14}/>{idea.hours}</span></div><div className="detail-line">{idea.access}</div><div className="card-actions"><a className="primary-link" href={idea.sourceUrl} target="_blank" rel="noopener noreferrer">Conhecer o lugar <ArrowUpRight size={15}/></a></div></div></article>)}</div></section>
+}
 function Banner({events}){
  const future=events.filter(e=>e.status==='scheduled'&&e.openingAt&&e.openingAt>nowPTStamp()).sort((a,b)=>a.openingAt.localeCompare(b.openingAt))[0]
  if(!future) return null
@@ -97,14 +101,14 @@ function Banner({events}){
 function SourcePanel({history,discoveries}){
  const obs=history.observations||[]
  const stats=history.scanStats
- return <section className="source-panel" id="fontes"><div className="section-heading small"><div><div className="eyebrow">POR DETRÁS DA AGENDA</div><h2>De olho nas inscrições<span>.</span></h2></div></div>
+ return <section className="source-panel"><details className="source-disclosure" id="fontes"><summary className="source-summary"><div className="section-heading small"><div><div className="eyebrow">POR DETRÁS DA AGENDA</div><h2>De olho nas inscrições<span>.</span></h2></div></div><ChevronDown className="source-chevron" aria-hidden="true"/></summary><div className="source-content">
  <div className="source-cols"><div className="source-info"><div className="source-icon"><BookOpen size={21}/></div><h3>Bibliotecas primeiro.</h3><p>Monitorizamos as páginas oficiais e formulários, com prioridade para Matosinhos. As datas de abertura são importantes mesmo que a atividade ainda esteja longe.</p><div className="sources-mini">Matosinhos <span>·</span> Porto <span>·</span> Maia <span>·</span> Gaia</div></div>
  <div className="pattern-panel"><span className="tiny-title">HISTÓRICO DE ABERTURAS</span>
   {obs.length?obs.slice(-4).reverse().map(o=><div className="pattern-row" key={o.id}><div className="pattern-pin"/><div><strong>{o.organiser}</strong><span>{o.openingAt? openingHeadline(o.openingAt):'Data em análise'}</span><small>{o.certainty==='confirmed-by-user'?'Confirmado no formulário':'Evidência recolhida'} · {o.eventId}</small></div></div>):<p>Ainda não há datas suficientes para identificar um padrão.</p>}
   <div className="source-foot"><Info size={14}/> {stats?`Última recolha: ${stats.sourcesOk} fontes acessíveis, ${stats.sourcesFailed} indisponíveis. `:"A recolha automática ainda não começou. "}Uma única sexta-feira não confirma um padrão semanal. As datas são observações, não garantias de um horário habitual.</div>
  </div></div>
  <div className="source-status-list" aria-label="Estado das fontes">{Object.entries(discoveries.sourceIndex||{}).map(([name,source])=><article className="source-status" key={name}><a href={source.url} target="_blank" rel="noopener noreferrer">{name} <ExternalLink size={12}/></a><span>{source.ok?(source.readMode==='family-outings'?'Página oficial consultada':source.readMode==='public-json'?`${source.activitiesChecked} atividades consultadas · ${source.eligibleSessions} ${source.eligibleSessions===1?'sessão elegível':'sessões elegíveis'}`:(source.relevantLinks?'Página acessível':'Sem anúncios extraídos')):'Fonte indisponível'}{source.readMode==='public-json'&&source.pendingSessions>0?` · ${source.pendingSessions} ${source.pendingSessions===1?'sessão':'sessões'} por verificar`:''}{source.readMode==='family-outings'?` · ${source.outingsCount} passeios verificados`:''}{source.truncated?' · consulta parcial':''}{source.detailErrors?.length?` · ${source.detailErrors.length} páginas por verificar`:''}</span><small>{source.lastSuccessfulAt?`Último acesso: ${new Date(source.lastSuccessfulAt).toLocaleString('pt-PT',{dateStyle:'short',timeStyle:'short',timeZone:'Europe/Lisbon'})}`:'Sem acesso bem-sucedido registado'}</small>{source.posterCandidates?.some(p=>p.status==='needs-review')&&<small>{source.posterCandidates.filter(p=>p.status==='needs-review').length} cartaz(es) aguardam revisão dos detalhes.</small>}{source.programmeReviewedAt&&<small>Programa revisto em {new Date(source.programmeReviewedAt).toLocaleDateString('pt-PT')} · {source.reviewedSessions+source.liveSessions} sessões futuras. {source.reviewNeeded?'Formulário por rever; vagas e alterações por confirmar.':'Opções consultadas no formulário público.'}</small>}{source.monitoringNote&&<small>{source.monitoringNote}</small>}{source.instagramUrl&&<a href={source.instagramUrl} target="_blank" rel="noopener noreferrer">Ver Instagram <ExternalLink size={12}/></a>}{source.error&&<small>{source.error}</small>}</article>)}</div>
- </section>
+ </div></details></section>
 }
 function Discoveries({data}) {
  const leads=(data.discoveries||[]).filter(d=>d.title&&d.url&&eligibleSession(d)).slice(0,8)
@@ -135,7 +139,7 @@ function App(){
  const categories=['Todas',...new Set(allEvents.map(e=>e.category))]
  const toggleFav=id=>setFavorites(old=>{const value=old.includes(id)?old.filter(x=>x!==id):[...old,id];localStorage.setItem('pfds-favorites',JSON.stringify(value));return value})
  const titlePeriod=`${monthDay(weekends[0])} – ${monthDay(datePlusDays(weekends[5],1))}`
- return <div className="site-shell"><header><div className="wide nav"><a className="brand" href="#inicio" aria-label="Página inicial"><span className="logo-mark" aria-hidden="true">✳</span><span>pequenos <strong>fins de semana</strong></span></a><nav><a href="#atividades">Atividades</a><a href="#fontes">Inscrições</a></nav></div></header>
+ return <div className="site-shell"><header><div className="wide nav"><a className="brand" href="#inicio" aria-label="Página inicial"><span className="logo-mark" aria-hidden="true">✳</span><span>pequenos <strong>fins de semana</strong></span></a><nav><a href="#atividades">Atividades</a><a href="#ideias">Ideias</a><a href="#fontes" onClick={()=>{const panel=document.getElementById('fontes');if(panel)panel.open=true}}>Inscrições</a></nav></div></header>
  <main id="inicio"><section className="hero"><div className="wide hero-inner"><div className="hero-text"><h1>Planos pequenos.<br/><em>Manhãs grandes.</em></h1><p className="hero-intro">Histórias, música e pequenas descobertas.<br/>O fim de semana começa com tempo para brincar.</p><a className="hero-cta" href="#atividades">Vamos escolher um plano <ArrowDownRight size={19}/></a></div><HeaderCollage/></div></section>
  <div className="wide content"><div className="update-row"><span className="updated-indicator"><RefreshCw size={14}/> Dados: {data.updatedAt? new Date(data.updatedAt).toLocaleString('pt-PT',{dateStyle:'short',timeStyle:'short',timeZone:'Europe/Lisbon'}):'sem data'}</span><span className="range-indicator">Próximas 6 semanas <strong>{titlePeriod}</strong></span></div>
  {fetchError&&<div className="fallback-warning"><CircleAlert size={17}/> Sem ligação à atualização. Só mostramos sessões com verificação recente; tenta novamente mais tarde.</div>}
@@ -150,6 +154,7 @@ function App(){
  {displayed.length>12&&!showAll&&<button className="more" onClick={()=>setShowAll(true)}>Ver mais {displayed.length-12} atividades <ArrowDownRight size={16}/></button>}
  </section>
  <Outings items={data.outings}/>
+ <EverydayIdeas/>
  <div className="midline"><div><CloudSun size={20}/><strong>Plano B para dias de chuva?</strong><span>As bibliotecas, oficinas e museus são boas apostas para manhãs em interior.</span></div><a href="#atividades" onClick={()=>{setSearch('');setCategory('Todas');setWeek('all');setSavedOnly(false);setShowAll(false);setOpeningWeekOnly(false);setIndoorOnly(true)}}>Explorar <ArrowRight size={16}/></a></div>
  <Discoveries data={discoveries}/>
  <SourcePanel history={history} discoveries={discoveries}/>
