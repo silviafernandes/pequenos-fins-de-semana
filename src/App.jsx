@@ -11,6 +11,7 @@ import HeaderCollage from './HeaderCollage.jsx'
 import { activityArtwork } from './activityArtwork.js'
 import initial from './initialData.json'
 import evergreenIdeas from './evergreenIdeas.json'
+import { isNewEvent } from './recency.js'
 import initialHistory from './initialHistory.json'
 import initialDiscoveries from './initialDiscoveries.json'
 
@@ -75,7 +76,7 @@ function EventCard({e,favorites,onToggle,compact=false}){
      <div className="event-overline"><span>{e.category} <span className="dotsep">·</span> {e.area}</span><button className={`heart ${saved?'active':''}`} aria-label={saved?'Remover dos favoritos':'Guardar favorito'} title="Guardar nos favoritos" onClick={()=>onToggle(e.id)}><Heart size={18} fill={saved?'currentColor':'none'}/></button></div>
      <h3>{e.title}</h3>
      <p className="event-description">{e.description}</p>
-     <div className="event-tags"><StatusBadge e={e}/>{napFriendly(e)?<MiniPill kind="mint">✓ Antes da sesta</MiniPill>:napClash(e)?<MiniPill kind="rose">Cruza a sesta</MiniPill>:null}</div>
+     <div className="event-tags">{isNewEvent(e)&&<span className="new-event-badge" title="Adicionado à agenda nos últimos 7 dias"><Sparkles size={13} aria-hidden="true"/>Novo</span>}<StatusBadge e={e}/>{napFriendly(e)?<MiniPill kind="mint">✓ Antes da sesta</MiniPill>:napClash(e)?<MiniPill kind="rose">Cruza a sesta</MiniPill>:null}</div>
      <div className="meta-grid"><span><CalendarDays size={14}/>{weekday(e.date)}, {monthDay(e.date)}</span><span><Clock3 size={14}/><strong>{timeLabel(e)}</strong></span><span><MapPin size={14}/>{e.venue}</span><span><Ticket size={14}/>{e.price}</span></div>
      <div className="detail-line">{Number.isFinite(e.distanceKm)&&<>{e.distanceKm.toLocaleString('pt-PT',{maximumFractionDigits:1})} km em linha reta <span>·</span> </>}{e.ageText} <span>·</span> {e.indoor===true?'Interior':e.indoor===false?'Exterior':'Interior/exterior por confirmar'}{e.evidenceDate?<span> <span>·</span> Fonte de {monthDay(e.evidenceDate)}</span>:null}</div>
      {e.status==='scheduled'&&e.openingAt&&<div className="opening-note"><BellRing size={14}/><span>Inscrições: <strong>{openingHeadline(e.openingAt)}</strong></span></div>}
@@ -109,11 +110,6 @@ function SourcePanel({history,discoveries}){
  </div></div>
  <div className="source-status-list" aria-label="Estado das fontes">{Object.entries(discoveries.sourceIndex||{}).map(([name,source])=><article className="source-status" key={name}><a href={source.url} target="_blank" rel="noopener noreferrer">{name} <ExternalLink size={12}/></a><span>{source.ok?(source.readMode==='family-outings'?'Página oficial consultada':source.readMode==='public-json'?`${source.activitiesChecked} atividades consultadas · ${source.eligibleSessions} ${source.eligibleSessions===1?'sessão elegível':'sessões elegíveis'}`:(source.relevantLinks?'Página acessível':'Sem anúncios extraídos')):'Fonte indisponível'}{source.readMode==='public-json'&&source.pendingSessions>0?` · ${source.pendingSessions} ${source.pendingSessions===1?'sessão':'sessões'} por verificar`:''}{source.readMode==='family-outings'?` · ${source.outingsCount} passeios verificados`:''}{source.truncated?' · consulta parcial':''}{source.detailErrors?.length?` · ${source.detailErrors.length} páginas por verificar`:''}</span><small>{source.lastSuccessfulAt?`Último acesso: ${new Date(source.lastSuccessfulAt).toLocaleString('pt-PT',{dateStyle:'short',timeStyle:'short',timeZone:'Europe/Lisbon'})}`:'Sem acesso bem-sucedido registado'}</small>{source.posterCandidates?.some(p=>p.status==='needs-review')&&<small>{source.posterCandidates.filter(p=>p.status==='needs-review').length} cartaz(es) aguardam revisão dos detalhes.</small>}{source.programmeReviewedAt&&<small>Programa revisto em {new Date(source.programmeReviewedAt).toLocaleDateString('pt-PT')} · {source.reviewedSessions+source.liveSessions} sessões futuras. {source.reviewNeeded?'Formulário por rever; vagas e alterações por confirmar.':'Opções consultadas no formulário público.'}</small>}{source.monitoringNote&&<small>{source.monitoringNote}</small>}{source.instagramUrl&&<a href={source.instagramUrl} target="_blank" rel="noopener noreferrer">Ver Instagram <ExternalLink size={12}/></a>}{source.error&&<small>{source.error}</small>}</article>)}</div>
  </div></details></section>
-}
-function Discoveries({data}) {
- const leads=(data.discoveries||[]).filter(d=>d.title&&d.url&&eligibleSession(d)).slice(0,8)
- if (!leads.length) return null
- return <section className="new-discoveries" id="novidades"><div className="section-heading small"><div><div className="eyebrow">PUBLICADOS RECENTEMENTE NAS FONTES</div><h2>Novos anúncios<span>.</span></h2><p>Sessões com data, hora, idade e local verificados na fonte original, até 15 km. Confirmar sempre as vagas.</p></div></div><div className="discoveries-list">{leads.map(item=><article className="discovery" key={item.id}><div className="tiny-title">{item.source} · SESSÃO VERIFICADA</div><h3>{item.title}</h3><p>{weekday(item.date)}, {monthDay(item.date)} · {timeLabel(item)}<br/>Consultar a fonte original para confirmar a inscrição e as vagas.</p><a href={item.url} target="_blank" rel="noopener noreferrer">Ver anúncio <ArrowUpRight size={14}/></a><div className="discovery-status">Detetado: {new Date(item.firstSeen).toLocaleDateString('pt-PT',{timeZone:'Europe/Lisbon'})}</div></article>)}</div></section>
 }
 function Footer({lastSuccessfulScan}){return <footer><div className="footer-left"><span className="logo-mark" aria-hidden="true">✳</span><div><strong>Pequenos fins de semana</strong><small>Planos pequenos. Manhãs grandes.</small></div></div><div className="footer-right">Dados públicos e fontes oficiais, sempre que possível.<br/>Vagas e horários devem ser confirmados na origem.<br/>Localizações: <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap contributors</a> e <a href="https://www.waze.com/live-map/" target="_blank" rel="noopener noreferrer">Waze</a>. <span>© 2026</span></div></footer>}
 function App(){
@@ -156,7 +152,6 @@ function App(){
  <Outings items={data.outings}/>
  <EverydayIdeas/>
  <div className="midline"><div><CloudSun size={20}/><strong>Plano B para dias de chuva?</strong><span>As bibliotecas, oficinas e museus são boas apostas para manhãs em interior.</span></div><a href="#atividades" onClick={()=>{setSearch('');setCategory('Todas');setWeek('all');setSavedOnly(false);setShowAll(false);setOpeningWeekOnly(false);setIndoorOnly(true)}}>Explorar <ArrowRight size={16}/></a></div>
- <Discoveries data={discoveries}/>
  <SourcePanel history={history} discoveries={discoveries}/>
  </div></main><Footer lastSuccessfulScan={data.lastSuccessfulScan}/></div>
 }

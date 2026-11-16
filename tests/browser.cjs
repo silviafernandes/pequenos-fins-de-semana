@@ -2,6 +2,10 @@ const assert = require('node:assert/strict');
 const { spawn } = require('node:child_process');
 const { chromium } = require('playwright');
 (async () => {
+  const {isNewEvent}=await import('../src/recency.js');
+  const badgeNow=new Date('2026-11-09T12:00:00Z');
+  for(const [addedAt,expected] of [['2026-11-09T12:00:00Z',true],['2026-11-02T12:00:01Z',true],['2026-11-02T12:00:00Z',false],['2026-10-30T12:00:00Z',false],['2026-11-10T12:00:00Z',false],['invalid',false],[undefined,false]])assert.equal(isNewEvent({addedAt},badgeNow),expected);
+  assert.equal(isNewEvent({discoveredAt:badgeNow.toISOString(),checkedAt:badgeNow.toISOString()},badgeNow),false,'Rechecks do not imply recent admission');
   const {activityArtwork,artworkKinds}=await import('../src/activityArtwork.js');
   for(const [title,category,expected] of [
     ['Experimentar Pinturas','Sensorial','art'],['Experimentar Cerâmicas','Sensorial','art'],
@@ -50,8 +54,8 @@ const { chromium } = require('playwright');
     await page.clock.install({time:new Date('2026-11-09T12:00:00Z')});
     const fixture = {events:[
       {id:'older',title:'Atividade a partir dos 3 anos',date:'2026-11-14',start:'10:00',end:'11:00',minMonths:36,maxMonths:72,category:'Histórias'},
-      {id:'baby',title:'Sessão para bebés pequenos',date:'2026-11-14',start:'10:00',end:'11:00',minMonths:0,maxMonths:6,category:'Música',indoor:null,status:'soldout'},
-      {id:'library',title:'Biblioteca com inscrições futuras',date:'2026-11-21',start:'10:00',end:null,minMonths:6,maxMonths:36,category:'Bibliotecas',status:'scheduled',openingAt:'2026-11-13T10:00+00:00',bookingUrl:'https://example.org/form'},
+      {id:'baby',addedAt:'2026-11-08T12:00:00Z',title:'Sessão para bebés pequenos',date:'2026-11-14',start:'10:00',end:'11:00',minMonths:0,maxMonths:6,category:'Música',indoor:null,status:'soldout'},
+      {id:'library',addedAt:'2026-10-30T12:00:00Z',title:'Biblioteca com inscrições futuras',date:'2026-11-21',start:'10:00',end:null,minMonths:6,maxMonths:36,category:'Bibliotecas',status:'scheduled',openingAt:'2026-11-13T10:00+00:00',bookingUrl:'https://example.org/form'},
       {id:'past',title:'Abertura passada',date:'2026-11-15',start:'11:30',end:'12:30',minMonths:0,maxMonths:36,category:'Música',status:'scheduled',openingAt:'2026-11-08T10:00+00:00',indoor:true}
     ].map(e=>({...e,venue:'Porto',area:'Porto',sourceUrl:'https://example.org/event',description:'Atividade',price:'Gratuito',ageText:'0–36 meses'})),updatedAt:'2026-11-09T10:00:00Z',lastSuccessfulScan:'2026-11-09T10:00:00Z'};
     const outing={id:'outing-sea',title:'Visitar o SEA LIFE Porto',venue:'SEA LIFE Porto',category:'Natureza',description:'Visita ao aquário para todas as idades.',weekendHours:'Sábados e domingos: 10:00–19:00.',periodLabel:'Horário habitual de fim de semana',note:'Escolhe a hora de visita.',price:'Preço por confirmar',admission:'all-ages',sourceUrl:'https://www.visitsealife.com/porto/',checkedAt:'2026-11-09T10:00:00Z',validationStatus:'verified',distanceWithinRadius:true,distanceKm:3.7,validFrom:'2026-11-09',validUntil:'2026-12-24'};
@@ -96,12 +100,13 @@ const { chromium } = require('playwright');
     const soldout=page.locator('.event-card').filter({hasText:'Sessão para bebés pequenos'});
     assert.match(await soldout.innerText(),/Esgotado/);
     assert.equal(await soldout.getByRole('link',{name:'Ver detalhes'}).count(),1);
-    assert.equal(await page.locator('.discovery').count(),1);
+    assert.equal(await page.locator('#novidades, .new-discoveries').count(),0);
+    assert.equal(await soldout.locator('.new-event-badge').count(),1);
+    assert.equal(await page.locator('.event-card').filter({hasText:'Biblioteca com inscrições futuras'}).locator('.new-event-badge').count(),0);
     assert.equal(await page.getByText('Atividade em Paredes',{exact:true}).count(),0);
     assert.equal(await page.getByText('Local por verificar',{exact:true}).count(),0);
     assert.equal(await page.getByText('Sessão sem evidência',{exact:true}).count(),0);
     assert.match(await page.locator('.event-card').first().innerText(),/km em linha reta/);
-    assert.match(await page.locator('.discovery').innerText(),/Música para bebés/);
     assert.equal(await page.getByText(/Contamos contigo/).count(),0);
     assert.match(await page.locator('.weeks button').nth(1).innerText(),/nov/);
     assert.match(await page.locator('.event-card').filter({hasText:'Sessão para bebés pequenos'}).innerText(),/Interior\/exterior por confirmar/);
