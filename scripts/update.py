@@ -377,6 +377,18 @@ def scan(sources,previous,history,now):
         return organiser_sessions(page,url,now,make_event,context)
     def session_key(event):
         return (canonical(event.get('sourceUrl')),event.get('date'),event.get('start'),normalized(event.get('title')),normalized(event.get('venue')))
+    # Backfill only from a previously published concrete session. Unknown history
+    # stays unknown rather than presenting an old seed as newly added today.
+    previous_published_keys={session_key(e) for e in events if e.get('validationStatus')=='verified'}
+    for event in events:
+        if 'addedAt' in event or event.get('validationStatus')!='verified':continue
+        timestamps=[]
+        for lead in previous.get('discoveries',[]):
+            candidate=dict(lead,sourceUrl=lead.get('url'))
+            if session_key(candidate)!=session_key(event):continue
+            first=parse_dt(lead.get('firstSeen'))
+            if first and first.tzinfo and first<=now:timestamps.append(first)
+        event['addedAt']=min(timestamps).isoformat() if timestamps else None
     def refresh_page_evidence(url,parsed):
         current={session_key(e) for e in parsed}
         for event in events+auto_add:
@@ -387,7 +399,7 @@ def scan(sources,previous,history,now):
         if not event:return
         match=next((e for e in events+auto_add if canonical(e.get('sourceUrl'))==canonical(event['sourceUrl']) and e.get('date')==event['date'] and e.get('start')==event['start'] and normalized(e.get('title'))==normalized(event['title']) and normalized(e.get('venue'))==normalized(event['venue'])),None)
         if match:
-            saved={k:match[k] for k in ('id','openingAt','registrationEvidenceUrl','registrationCheckedAt') if match.get(k) is not None}
+            saved={k:match[k] for k in ('id','addedAt','openingAt','registrationEvidenceUrl','registrationCheckedAt') if match.get(k) is not None}
             if match.get('status')=='scheduled' and match.get('openingAt') and event.get('status')!='soldout':saved['status']='scheduled'
             match.update(event);match.update(saved)
         else:auto_add.append(event)
@@ -550,6 +562,8 @@ def scan(sources,previous,history,now):
         results.setdefault('PlayLab Porto',{}).update(report)
     # Retain evidence for diagnosis, but never publish unchecked seeds or city-level locations.
     groups=classify(events+auto_add,registry,now)
+    for event in groups['events']:
+        if 'addedAt' not in event and session_key(event) not in previous_published_keys:event['addedAt']=now.isoformat()
     old_curated.update(groups)
     old_curated['outings']=[o for o in outings if eligible_outing(o,registry,now)]
     for result in results.values():
