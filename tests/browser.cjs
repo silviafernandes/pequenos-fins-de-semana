@@ -5,11 +5,19 @@ const { chromium } = require('playwright');
   const {activityArtwork,artworkKinds}=await import('../src/activityArtwork.js');
   for(const [title,category,expected] of [
     ['Experimentar Pinturas','Sensorial','art'],['Experimentar Cerâmicas','Sensorial','art'],
-    ['Yoga de Encantar','Bibliotecas','sports'],['Som de Lá e de Cá','Bibliotecas','music'],
+    ['Babyoga de Outono','Outras','sports'],['Yoga de Encantar','Bibliotecas','sports'],['Som de Lá e de Cá','Bibliotecas','music'],
     ['Festival para bebés','Outras','festival'],['Hora do conto','Outras','stories'],
     ['Experimentar Luzes','Outras','sensory'],['Passeio na floresta','Outras','nature'],
     ['Bebeteca mágica','Bibliotecas','stories']]){
       assert.equal(activityArtwork({title,category}),expected);
+  }
+  const {eligibleSession}=await import('../src/eligibility.js');
+  const playlabData=JSON.parse(require('node:fs').readFileSync('public/data/playlab-programme.json','utf8'));
+  const reviewed={date:'2026-11-22',start:'10:00',end:'10:50',minMonths:0,maxMonths:72,venue:'PlayLab Porto',validationStatus:'verified',distanceWithinRadius:true,distanceKm:4.2};
+  reviewed.sessionEvidence={...reviewed,kind:'reviewed-playlab-programme',sourceUrl:playlabData.sourceUrl,checkedAt:playlabData.reviewedAt,reviewedAt:playlabData.reviewedAt,validUntil:playlabData.validUntil,reviewDigest:'a'.repeat(64)};
+  assert.equal(eligibleSession(reviewed,new Date('2026-11-21T12:00:00Z')),true,'Reviewed programmes remain visible beyond 48 hours');
+  for(const evidence of [{...reviewed.sessionEvidence,validUntil:'2027-12-13'},{...reviewed.sessionEvidence,sourceUrl:'https://example.org'},{...reviewed.sessionEvidence,reviewDigest:'invalid'}]){
+    assert.equal(eligibleSession({...reviewed,sessionEvidence:evidence},new Date('2026-11-21T12:00:00Z')),false);
   }
   const {collages,nextCollage}=await import('../src/collages.js');
   for(let current=-1;current<collages.length;current++){for(const random of [0,.3,.6,.999]){const next=nextCollage(current,()=>random);assert.ok(next>=0&&next<collages.length);assert.notEqual(next,current)}}
@@ -58,7 +66,7 @@ const { chromium } = require('playwright');
     fixture.events.push({...fixture.events.find(e=>e.id==='baby'),id:'unchecked',title:'Sessão sem evidência',sessionEvidence:undefined})
     await page.route('**/data/events.json',route=>route.fulfill({json:fixture}));
     await page.route('**/data/history.json',route=>route.fulfill({json:{observations:[]}}));
-    await page.route('**/data/discoveries.json',route=>route.fulfill({json:{sourceIndex:{Biblioteca:{url:'https://example.org',ok:false,error:'HTTP 403',checkedAt:'2026-11-09T10:00:00Z'},Allegrow:{url:'https://allegrowkids.pt/pt/',ok:true,readMode:'public-json',activitiesChecked:12,eligibleSessions:0,pendingSessions:1}},discoveries:[
+    await page.route('**/data/discoveries.json',route=>route.fulfill({json:{sourceIndex:{PlayLab:{url:'https://sites.google.com/view/playlabporto/agenda',ok:false,programmeReviewedAt:'2026-11-09T12:00:00Z',reviewedSessions:8,liveSessions:0,reviewNeeded:true},Biblioteca:{url:'https://example.org',ok:false,error:'HTTP 403',checkedAt:'2026-11-09T10:00:00Z'},Allegrow:{url:'https://allegrowkids.pt/pt/',ok:true,readMode:'public-json',activitiesChecked:12,eligibleSessions:0,pendingSessions:1}},discoveries:[
       {id:'old-lead',title:'Contamos contigo! A partir dos 3 anos',url:'https://example.org/older',minMonths:36,maxMonths:144,firstSeen:'2026-11-09'},
       {id:'unknown-lead',title:'Hora do conto para famílias',url:'https://example.org/unknown',firstSeen:'2026-11-09'},
       {...fixture.events.find(e=>e.id==='baby'),id:'baby-lead',title:'Música para bebés 0–3 anos',url:'https://example.org/babies',firstSeen:'2026-11-09'}]}}));
@@ -117,6 +125,8 @@ const { chromium } = require('playwright');
     await page.setViewportSize({width:390,height:844});
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
     assert.deepEqual(errors,[]);
+    assert.ok(await page.getByText(/8 sessões futuras/).count());
+    assert.ok(await page.getByText(/Formulário por rever; vagas e alterações por confirmar/).count());
     console.log('Browser checks passed: baby ages, unknown setting, opening filter, reset, favorites, indoor filter, sources, mobile.');
   } finally {
     if(browser) await browser.close();
