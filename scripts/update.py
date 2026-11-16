@@ -28,7 +28,7 @@ from adapters import organiser_sessions
 from telegram_alerts import send_alerts, report as report_telegram
 from allegrow import collect as collect_allegrow
 from posters import from_posters
-from playlab import programme_links, weekend_form
+from playlab import programme_links, weekend_form, collect_programme, WEEKEND_FORM
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'public' / 'data'
@@ -530,6 +530,15 @@ def scan(sources,previous,history,now):
                     new_msgs.append(f"Data de inscrições anunciada — {t}\n{', '.join(dates)}\n{u}")
         results[name]={**metadata,'url':url,'ok':True,'checkedAt':stamp(),'lastLinks':found,'relevantLinks':len(found),'detailErrors':detail_errors,'posterCandidates':poster_reports,'detailCheckedAt':{u:detail_checked[u] for u,_ in known_links+new_links if u in detail_checked},'candidateLinks':candidates_count,'detailsChecked':len(relevant),'truncated':candidates_count>len(relevant),'parsedSessions':len(parsed_keys),'lastSuccessfulAt':stamp(),'contentStatus':'sessions-parsed' if parsed_keys else 'links-found' if found else 'no-relevant-links'}
         time.sleep(.35)
+    # A reviewed, bounded programme remains usable when Google requires sign-in.
+    # Its review date is never replaced with a fictional successful live check.
+    if any(s.get('name')=='PlayLab Porto' for s in sources):
+        programme=load(DATA/'playlab-programme.json',{})
+        form_page,form_error=get_page(WEEKEND_FORM)
+        parsed,report=collect_programme(programme,form_page,form_error,now,make_event)
+        refresh_page_evidence(WEEKEND_FORM,parsed)
+        for event in parsed:upsert(event)
+        results.setdefault('PlayLab Porto',{}).update(report)
     # Retain evidence for diagnosis, but never publish unchecked seeds or city-level locations.
     groups=classify(events+auto_add,registry,now)
     old_curated.update(groups)

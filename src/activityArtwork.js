@@ -1,7 +1,7 @@
 export const artworkKinds=['art','music','sports','festival','stories','sensory','nature']
 const fold=value=>String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase()
 const themes=[
-  ['sports',/\b(?:yoga|natacao|ginastica|desporto|desportos|sports?|danca)\b/],
+  ['sports',/\b(?:yoga|babyoga|natacao|ginastica|desporto|desportos|sports?|danca)\b/],
   ['festival',/\b(?:festival|festivais|feira|carnaval|festa|festas|espetaculo|espetaculos|teatro|circo|events?)\b/],
   ['music',/\b(?:musica|musical|musicais|concerto|concertos|cancoes|som|sons|opera|music)\b/],
   ['art',/\b(?:arte|artes|art|pintura|pinturas|pintar|ceramica|ceramicas|desenho|colagem|azulejo|barro|artesanato|exposicao)\b/],

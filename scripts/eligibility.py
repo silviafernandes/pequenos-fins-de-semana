@@ -63,6 +63,7 @@ def official_source_matches(url,venue):
 
 
 def assess(event,registry,now):
+    from playlab import valid_review
     venue=set_distance(event,registry)
     reasons=[]
     if not venue:reasons.append('Local exato por verificar')
@@ -77,12 +78,14 @@ def assess(event,registry,now):
     evidence=event.get('sessionEvidence',{})
     if not evidence or any(evidence.get(k)!=event.get(k) for k in ('date','start','end','minMonths','maxMonths','venue')):
         reasons.append('Sessão sem evidência específica')
-    elif venue and not official_source_matches(evidence.get('sourceUrl'),venue) and not booking_publisher_matches(event,evidence,venue):
+    elif evidence.get('kind')=='reviewed-playlab-programme' and not valid_review(evidence,now):
+        reasons.append('Programa revisto expirado ou inválido')
+    elif venue and not valid_review(evidence,now) and not official_source_matches(evidence.get('sourceUrl'),venue) and not booking_publisher_matches(event,evidence,venue):
         reasons.append('Sessão sem confirmação na fonte original')
     else:
         try:
             checked=datetime.fromisoformat(evidence['checkedAt'])
-            if checked.tzinfo is None or not timedelta(0)<=now-checked<=timedelta(hours=48):reasons.append('Evidência da sessão desatualizada')
+            if not valid_review(evidence,now) and (checked.tzinfo is None or not timedelta(0)<=now-checked<=timedelta(hours=48)):reasons.append('Evidência da sessão desatualizada')
         except (KeyError,ValueError,TypeError):reasons.append('Verificação da sessão em falta')
     event['validationStatus']='verified' if not reasons else ('excluded' if venue and not event['distanceWithinRadius'] else 'pending')
     event['validationReasons']=reasons

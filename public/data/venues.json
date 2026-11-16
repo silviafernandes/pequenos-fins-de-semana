@@ -124,11 +124,15 @@
       ],
       "officialHosts": [
         "playlabporto.beehiiv.com",
-        "sites.google.com"
+        "sites.google.com",
+        "docs.google.com"
       ],
       "officialUrlPrefixes": {
         "sites.google.com": [
           "/view/playlabporto/"
+        ],
+        "docs.google.com": [
+          "/forms/d/e/1FAIpQLScd4N4mxUFYqP6l6kMYB6LvdyTCm4_Q5LGWyfWp5ekNYFtKSw/viewform"
         ]
       },
       "address": "Rua de Alves Redol 386, 4050-042 Porto",
