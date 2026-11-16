@@ -1,5 +1,20 @@
 [
   {
+    "id": "parque-infantil-covelo",
+    "title": "Brincar no Parque Infantil do Covelo",
+    "place": "Quinta do Covelo · Rua do Bolama, Porto",
+    "description": "Parque infantil num grande espaço verde, com caminhos para passear e apoio de WC públicos e cafetaria no parque.",
+    "idea": "Começar com uma pequena volta e explorar os equipamentos indicados para a idade da criança, com um adulto por perto.",
+    "hours": "Horário municipal publicado: 07:00–20:00. Confirma o acesso à zona infantil antes de sair.",
+    "access": "Parque infantil público · exterior · respeitar as idades indicadas nos equipamentos",
+    "sourceUrl": "https://ambiente.cm-porto.pt/parques-infantis/parque-do-covelo-1",
+    "supportingUrls": [
+      "https://ambiente.cm-porto.pt/parques-e-jardins/parque-do-covelo",
+      "https://pumpkin.pt/eventos/parque-do-covelo/"
+    ],
+    "reviewedAt": "2026-11-16"
+  },
+  {
     "id": "parque-cidade",
     "title": "Pequenas descobertas no Parque da Cidade",
     "place": "Parque da Cidade · Porto",
