@@ -91,5 +91,50 @@
     "instagramUrl": "https://www.instagram.com/knockknockfamilyclub/",
     "monitoringNote": "Calendário oficial integrado. Instagram requer consulta manual; datas e idades de cada sessão têm de ser confirmadas.",
     "agePolicyUrl": "https://www.knock-knock.pt/regrasinfos"
+  },
+  {
+    "name": "SEA LIFE Porto",
+    "url": "https://www.visitsealife.com/porto/",
+    "type": "family-outings",
+    "adapter": "sealife",
+    "priority": 2
+  },
+  {
+    "name": "Maia · Mercadinho de Natal",
+    "url": "https://visitmaia.pt/public/eventos/mercadinho-de-natal-maia-natal-2026",
+    "type": "family-outings",
+    "adapter": "maia-christmas",
+    "priority": 1
+  },
+  {
+    "name": "Matosinhos · Mercado de Natal",
+    "url": "https://www.andarte.pt/",
+    "type": "family-outings",
+    "adapter": "matosinhos-christmas",
+    "priority": 1
+  },
+  {
+    "name": "Zoo da Maia",
+    "url": "https://www.zoodamaia.pt/sobre-o-zoo/horarios/index.html",
+    "type": "family-outings",
+    "adapter": "zoo-maia",
+    "priority": 2
+  },
+  {
+    "name": "Câmara de Matosinhos · Agenda",
+    "url": "https://www.cm-matosinhos.pt/",
+    "type": "page",
+    "priority": 1,
+    "monitoringNote": "Programa municipal e Natal. Cada atividade precisa de data, idade e local confirmados."
+  },
+  {
+    "name": "Porto · Ágora",
+    "url": "https://www.agoraporto.pt/noticias",
+    "type": "page",
+    "priority": 1,
+    "programmeUrls": [
+      "https://www.agoraporto.pt/noticias/a-magia-do-natal-chega-as-ruas-da-cidade-a-28-de-novembro"
+    ],
+    "monitoringNote": "Natal 2026: inauguração a 28 de novembro, às 18:00. Oficinas e espetáculos aguardam programa e idades; não presumimos acesso para bebés."
   }
 ]

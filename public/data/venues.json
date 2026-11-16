@@ -137,6 +137,42 @@
       },
       "address": "Rua de Alves Redol 386, 4050-042 Porto",
       "addressSourceUrl": "https://sites.google.com/view/playlabporto/contactos"
+    },
+    "sea-life": {
+      "name": "SEA LIFE Porto",
+      "latitude": 41.168694,
+      "longitude": -8.687501,
+      "coordinateSourceUrl": "https://www.openstreetmap.org/way/110801272",
+      "verifiedAt": "2026-11-16",
+      "precision": "venue",
+      "aliases": [
+        "SEA LIFE Porto"
+      ],
+      "officialHosts": [
+        "visitsealife.com"
+      ],
+      "officialUrlPrefixes": {
+        "visitsealife.com": [
+          "/porto/"
+        ]
+      },
+      "address": "1ª Rua Particular do Castelo do Queijo, 4100-379 Porto",
+      "addressSourceUrl": "https://www.visitsealife.com/porto/encontrar/antes-de-visitar/localizacao-e-como-chegar/"
+    },
+    "praca-maia": {
+      "name": "Praça Dr. José Vieira de Carvalho",
+      "latitude": 41.233151,
+      "longitude": -8.622461,
+      "coordinateSourceUrl": "https://www.openstreetmap.org/way/401789441",
+      "verifiedAt": "2026-11-16",
+      "precision": "venue",
+      "aliases": [
+        "Praça Dr. José Vieira de Carvalho"
+      ],
+      "officialHosts": [
+        "visitmaia.pt"
+      ],
+      "address": "Praça Doutor José Vieira de Carvalho, Maia"
     }
   }
 }

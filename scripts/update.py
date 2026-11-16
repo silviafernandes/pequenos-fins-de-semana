@@ -28,6 +28,7 @@ from adapters import organiser_sessions
 from telegram_alerts import send_alerts, report as report_telegram
 from allegrow import collect as collect_allegrow
 from posters import from_posters
+from outings import collect as collect_outings, eligible as eligible_outing
 from playlab import programme_links, weekend_form, collect_programme, WEEKEND_FORM
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -41,9 +42,9 @@ MAX_LINKS = 12
 MAX_DETAILS = 3
 LIMIT_DISCOVERIES = 160
 
-KEYWORDS = re.compile(r'\b(?:beb[eéê]s?|bebeteca|primeira.inf[aâ]ncia|crian[cç]as?|infantil|fam[ií]lias?|hist[oó]rias?|contos?|sensorial|music(?:a|al)|musicais|teatro|oficina|workshop|papi|atividades?|eventos?)\b', re.I)
+KEYWORDS = re.compile(r'\b(?:beb[eéê]s?|bebeteca|primeira.inf[aâ]ncia|crian[cç]as?|infantil|fam[ií]lias?|hist[oó]rias?|contos?|sensorial|music(?:a|al)|musicais|teatro|oficina|workshop|papi|atividades?|eventos?|natal|mercados?|feiras?|aquário|zoo)\b', re.I)
 STRONG = re.compile(r'\b(?:bebeteca|beb[eéê]s?|primeira.inf[aâ]ncia|0\s*[-–]\s*3|6\s*[-–]\s*36|12\s*[-–]\s*36|18\s*[-–]\s*36|sensorial|papi|hist[oó]rias?|m[uú]sica\s+para|teatro\s+para)\b', re.I)
-LINK_PATH = re.compile(r'/(?:evento|event|atividade|workshop|oficina|bebes|bebe|baby|programa|agenda|bilhete|inscri)', re.I)
+LINK_PATH = re.compile(r'/(?:evento|event|atividade|workshop|oficina|bebes|bebe|baby|programa|agenda|noticias?|bilhete|inscri)', re.I)
 FORM_HOST = re.compile(r'(?:forms\.gle|docs\.google\.com/forms|forms\.office\.com|eventbrite\.|bol\.pt|ticketline\.|bilheteiraonline\.)', re.I)
 MONTHS = {'janeiro':1,'fevereiro':2,'março':3,'marco':3,'abril':4,'maio':5,'junho':6,'julho':7,'agosto':8,'setembro':9,'outubro':10,'novembro':11,'dezembro':12}
 LOCAL = re.compile(r'matosinhos|porto|maia|gaia|senhora da hora|são mamede|sao mamede|boavista|bonfim|leça|leca',re.I)
@@ -363,6 +364,7 @@ def scan(sources,previous,history,now):
     old_curated=load(DATA/'events.json',{});events=[e for e in old_curated.get('events',[])+old_curated.get('pendingEvents',[])+old_curated.get('excludedEvents',[]) if isinstance(e.get('minMonths'),(int,float)) and 0 <= e['minMonths'] < 36 and not excludes_under_three(e.get('ageText','')+' '+e.get('title',''))]
     registry=load(ROOT/'public/data/venues.json',{})
     results={};new_msgs=[];auto_add=[]
+    outings=list(old_curated.get('outings',[]))
     poster_reviews=load(DATA/'poster-reviews.json',[])
     page_cache={}
     def get_page(url):
@@ -399,6 +401,13 @@ def scan(sources,previous,history,now):
     for src in sources:
         name,url=src['name'],src['url'];print('Checking',name,url,flush=True)
         metadata={key:src[key] for key in ('instagramUrl','monitoringNote','agePolicyUrl') if key in src}
+        if src.get('type')=='family-outings':
+            found,report=collect_outings(src['adapter'],get_page,registry,now)
+            outings=[o for o in outings if o.get('sourceName')!=name]
+            for outing in found:outing['sourceName']=name
+            outings.extend(found)
+            results[name]=report
+            continue
         if src.get('type')=='allegrow-public':
             report=collect_allegrow(fetch_json,now,make_event)
             pages=report.pop('pages')
@@ -542,6 +551,7 @@ def scan(sources,previous,history,now):
     # Retain evidence for diagnosis, but never publish unchecked seeds or city-level locations.
     groups=classify(events+auto_add,registry,now)
     old_curated.update(groups)
+    old_curated['outings']=[o for o in outings if eligible_outing(o,registry,now)]
     for result in results.values():
         if result.get('readMode')=='public-json':
             result['eligibleSessions']=sum(e.get('sourceType')=='allegrow-public' for e in groups['events'])
