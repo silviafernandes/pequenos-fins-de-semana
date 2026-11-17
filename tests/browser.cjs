@@ -58,8 +58,8 @@ const { chromium } = require('playwright');
       {id:'library',addedAt:'2026-10-30T12:00:00Z',title:'Biblioteca com inscrições futuras',date:'2026-11-21',start:'10:00',end:null,minMonths:6,maxMonths:36,category:'Bibliotecas',status:'scheduled',openingAt:'2026-11-13T10:00+00:00',bookingUrl:'https://example.org/form'},
       {id:'past',title:'Abertura passada',date:'2026-11-15',start:'11:30',end:'12:30',minMonths:0,maxMonths:36,category:'Música',status:'scheduled',openingAt:'2026-11-08T10:00+00:00',indoor:true}
     ].map(e=>({...e,venue:'Porto',area:'Porto',sourceUrl:'https://example.org/event',description:'Atividade',price:'Gratuito',ageText:'0–36 meses'})),updatedAt:'2026-11-09T10:00:00Z',lastSuccessfulScan:'2026-11-09T10:00:00Z'};
-    const outing={id:'outing-sea',title:'Visitar o SEA LIFE Porto',venue:'SEA LIFE Porto',category:'Natureza',description:'Visita ao aquário para todas as idades.',weekendHours:'Sábados e domingos: 10:00–19:00.',periodLabel:'Horário habitual de fim de semana',note:'Escolhe a hora de visita.',price:'Preço por confirmar',admission:'all-ages',sourceUrl:'https://www.visitsealife.com/porto/',checkedAt:'2026-11-09T10:00:00Z',validationStatus:'verified',distanceWithinRadius:true,distanceKm:3.7,validFrom:'2026-11-09',validUntil:'2026-12-24'};
-    fixture.outings=[outing,{...outing,id:'outing-market',title:'Mercadinho de Natal da Maia',category:'Festival',price:'Entrada gratuita',validFrom:'2026-11-27',validUntil:'2027-01-03'}, {...outing,id:'far-outing',title:'Passeio distante',distanceKm:25},{...outing,id:'unverified-outing',title:'Passeio sem idade confirmada',admission:'unknown'}];
+    const outing={id:'outing-sealife',title:'Visitar o SEA LIFE Porto',venue:'SEA LIFE Porto',category:'Natureza',description:'Visita ao aquário para todas as idades.',weekendHours:'Sábados e domingos: 10:00–19:00.',periodLabel:'Horário habitual de fim de semana',note:'Escolhe a hora de visita.',price:'Preço por confirmar',admission:'all-ages',sourceUrl:'https://www.visitsealife.com/porto/',checkedAt:'2026-11-09T10:00:00Z',validationStatus:'verified',distanceWithinRadius:true,distanceKm:3.7,validFrom:'2026-11-09',validUntil:'2026-12-24'};
+    fixture.outings=[outing,{...outing,id:'outing-market',title:'Mercadinho de Natal da Maia',venue:'Praça Dr. José Vieira de Carvalho',description:'Mercado para todas as idades.',category:'Festival',price:'Entrada gratuita',validFrom:'2026-11-27',validUntil:'2027-01-03'}, {...outing,id:'far-outing',title:'Passeio distante',distanceKm:25},{...outing,id:'unverified-outing',title:'Passeio sem idade confirmada',admission:'unknown'}];
     assert.equal(eligibleOuting(outing,new Date('2026-11-09T12:00:00Z')),true);
     assert.equal(eligibleOuting(outing,new Date('2026-11-12T12:00:00Z')),false);
     assert.equal(eligibleOuting({...outing,validUntil:'2026-11-13'},new Date('2026-11-09T12:00:00Z')),false,'A weekday-only remaining window has no weekend outing');
@@ -143,12 +143,20 @@ const { chromium } = require('playwright');
     assert.deepEqual(errors,[]);
     assert.ok(await page.getByText(/8 sessões futuras/).count());
     assert.ok(await page.getByText(/Formulário por rever; vagas e alterações por confirmar/).count());
-    assert.equal(await page.locator('.outing-card').count(),2);
+    assert.equal(await page.locator('.outing-card').count(),1);
     assert.equal(await page.locator('.outing-card button').count(),0,'Opening hours are not exportable one-hour calendar sessions');
     assert.ok(await page.getByRole('heading',{name:'Ao vosso ritmo.'}).count());
-    assert.equal(await page.locator('#ideias .evergreen-card').count(),4);
-    assert.match(await page.locator('#ideias .evergreen-card').first().innerText(),/Parque Infantil do Covelo/);
-    assert.equal(await page.locator('#ideias .evergreen-card').first().getByRole('link').getAttribute('href'),'https://ambiente.cm-porto.pt/parques-infantis/parque-do-covelo-1');
+    assert.equal(await page.locator('#ideias .evergreen-card').count(),9);
+    assert.equal(await page.locator('#ideias img').count(),0,'Compact suggestions omit large illustrations');
+    assert.equal(await page.locator('#ideias .evergreen-card').filter({hasText:'SEA LIFE Porto'}).count(),1);
+    assert.equal(await page.locator('#passeios .outing-card').filter({hasText:'SEA LIFE Porto'}).count(),0,'SEA LIFE is not duplicated among seasonal outings');
+    const ideas=JSON.parse(require('node:fs').readFileSync('src/evergreenIdeas.json','utf8'));
+    assert.equal(ideas.filter(i=>i.place.includes('Matosinhos')).length,4);
+    const {wazeUrl}=await import('../src/navigation.js');
+    for(const idea of ideas){const url=new URL(wazeUrl(idea));assert.equal(url.hostname,'www.waze.com');assert.equal(url.searchParams.get('navigate'),'yes');assert.equal(url.searchParams.get('q'),idea.navigationQuery)}
+    assert.equal(await page.locator('#ideias a[href^="https://www.waze.com/ul?"]').count(),9);
+    const firstCard=page.locator('#ideias .evergreen-card').first();
+    assert.ok((await firstCard.boundingBox()).height<230,'Suggestion cards stay compact on mobile');
     assert.equal(await page.locator('#ideias .art-date, #ideias button').count(),0,'Evergreen ideas have no calendar dates or booking controls');
     await summary.press('Enter');
     assert.equal(await disclosure.getAttribute('open'),null);
@@ -157,7 +165,7 @@ const { chromium } = require('playwright');
     await page.clock.setFixedTime(new Date('2027-05-01T12:00:00Z'));
     await page.reload();
     await page.locator('#ideias .evergreen-card').first().waitFor();
-    assert.equal(await page.locator('#ideias .evergreen-card').count(),4,'Year-round ideas survive outside the calendar window');
+    assert.equal(await page.locator('#ideias .evergreen-card').count(),9,'Year-round ideas survive outside the calendar window');
     console.log('Browser checks passed: baby ages, unknown setting, opening filter, reset, favorites, indoor filter, sources, mobile.');
   } finally {
     if(browser) await browser.close();
