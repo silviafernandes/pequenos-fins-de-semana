@@ -1,8 +1,57 @@
 [
   {
+    "id": "quinta-conceicao",
+    "title": "Quinta da Conceição",
+    "place": "Leça da Palmeira · Matosinhos",
+    "shortDescription": "Jardins arborizados para explorar em família.",
+    "navigationQuery": "Quinta da Conceição, Leça da Palmeira, Matosinhos, Portugal",
+    "sourceUrl": "https://www.visitportugal.com/pt-pt/NR/exeres/26B0A12A-0C12-4943-832F-7DC1BA7004DE",
+    "reviewedAt": "2026-11-17"
+  },
+  {
+    "id": "parque-carrical",
+    "title": "Parque do Carriçal",
+    "place": "Senhora da Hora · Matosinhos",
+    "shortDescription": "Caminhos entre árvores e parque infantil.",
+    "navigationQuery": "Parque do Carriçal, Senhora da Hora, Matosinhos, Portugal",
+    "sourceUrl": "https://www.uf-smish.pt/cultura-e-turismo/parque-urbano-do-carrical/",
+    "reviewedAt": "2026-11-17"
+  },
+  {
+    "id": "parque-varas",
+    "title": "Parque das Varas",
+    "place": "Leça do Balio · Matosinhos",
+    "shortDescription": "Espaço verde junto ao Mosteiro de Leça do Balio.",
+    "navigationQuery": "Parque das Varas, Rua do Mosteiro, Leça do Balio, Matosinhos, Portugal",
+    "sourceUrl": "https://arquivomunicipal.cm-matosinhos.pt/Result.aspx?id=130338&type=PCD",
+    "reviewedAt": "2026-11-17"
+  },
+  {
+    "id": "jardim-basilio",
+    "title": "Jardim Basílio Teles",
+    "place": "Centro · Matosinhos",
+    "shortDescription": "Um jardim central para uma pausa e um passeio.",
+    "navigationQuery": "Jardim Basílio Teles, Matosinhos, Portugal",
+    "sourceUrl": "https://iporto.amp.pt/equipamentos/jardim-basalio-teles/",
+    "reviewedAt": "2026-11-17"
+  },
+  {
+    "id": "sea-life",
+    "title": "SEA LIFE Porto",
+    "place": "Castelo do Queijo · Porto",
+    "shortDescription": "Aquário para todas as idades · entrada paga.",
+    "navigationQuery": "SEA LIFE Porto, Primeira Rua Particular do Castelo do Queijo, Porto, Portugal",
+    "sourceUrl": "https://www.visitsealife.com/porto/",
+    "supportingUrls": [
+      "https://www.visitsealife.com/porto/encontrar/informacoes/ajuda/"
+    ],
+    "kind": "aquarium",
+    "reviewedAt": "2026-11-17"
+  },
+  {
     "id": "parque-infantil-covelo",
-    "title": "Brincar no Parque Infantil do Covelo",
-    "place": "Quinta do Covelo · Rua do Bolama, Porto",
+    "title": "Parque Infantil do Covelo",
+    "place": "Paranhos · Porto",
     "description": "Parque infantil num grande espaço verde, com caminhos para passear e apoio de WC públicos e cafetaria no parque.",
     "idea": "Começar com uma pequena volta e explorar os equipamentos indicados para a idade da criança, com um adulto por perto.",
     "hours": "Horário municipal publicado: 07:00–20:00. Confirma o acesso à zona infantil antes de sair.",
@@ -12,39 +61,47 @@
       "https://ambiente.cm-porto.pt/parques-e-jardins/parque-do-covelo",
       "https://pumpkin.pt/eventos/parque-do-covelo/"
     ],
-    "reviewedAt": "2026-11-16"
+    "reviewedAt": "2026-11-16",
+    "shortDescription": "Parque infantil e caminhos para passear.",
+    "navigationQuery": "Quinta do Covelo, Rua do Bolama, Porto, Portugal"
   },
   {
     "id": "parque-cidade",
-    "title": "Pequenas descobertas no Parque da Cidade",
-    "place": "Parque da Cidade · Porto",
+    "title": "Parque da Cidade",
+    "place": "Aldoar · Porto",
     "description": "Um passeio curto entre árvores e relvados, com tempo para parar e descobrir ao ritmo dos mais pequenos.",
     "idea": "Procurar folhas de cores diferentes e ouvir os pássaros.",
     "hours": "Abr–set: 07:00–24:00 · out–mar: 07:00–22:00.",
     "access": "Passeio em parque público · exterior",
     "sourceUrl": "https://ambiente.cm-porto.pt/parques-e-jardins/parque-ocidental-da-cidade",
-    "reviewedAt": "2026-11-16"
+    "reviewedAt": "2026-11-16",
+    "shortDescription": "Relvados, árvores e pequenos passeios.",
+    "navigationQuery": "Parque da Cidade do Porto, Estrada Interior da Circunvalação, Porto, Portugal"
   },
   {
     "id": "palacio-cristal",
-    "title": "Uma manhã nos Jardins do Palácio de Cristal",
-    "place": "Jardins do Palácio de Cristal · Porto",
+    "title": "Jardins do Palácio de Cristal",
+    "place": "Massarelos · Porto",
     "description": "Jardins, caminhos e recantos para uma volta tranquila em família, com pausas pelo caminho.",
     "idea": "Escolher uma árvore favorita e voltar para ver como muda ao longo do ano.",
     "hours": "Abr–set: 08:00–21:00 · out–mar: 08:00–19:00.",
     "access": "Passeio em jardim público · exterior",
     "sourceUrl": "https://ambiente.cm-porto.pt/parques-e-jardins/jardins-do-palacio-de-cristal_3",
-    "reviewedAt": "2026-11-16"
+    "reviewedAt": "2026-11-16",
+    "shortDescription": "Jardins e recantos para uma volta tranquila.",
+    "navigationQuery": "Jardins do Palácio de Cristal, Rua de Dom Manuel II, Porto, Portugal"
   },
   {
     "id": "passeio-alegre",
-    "title": "Passear devagar no Passeio Alegre",
-    "place": "Jardim do Passeio Alegre · Foz do Douro",
+    "title": "Jardim do Passeio Alegre",
+    "place": "Foz do Douro · Porto",
     "description": "Um jardim junto à foz do rio para uma pequena volta, observar as árvores e fazer uma pausa num banco.",
     "idea": "Ouvir os sons do jardim e procurar formas nas folhas.",
     "hours": "Consultar as informações de acesso na página municipal.",
     "access": "Passeio em jardim público · exterior",
     "sourceUrl": "https://ambiente.cm-porto.pt/parques-e-jardins/jardim-do-passeio-alegre",
-    "reviewedAt": "2026-11-16"
+    "reviewedAt": "2026-11-16",
+    "shortDescription": "Um passeio no jardim junto à foz do rio.",
+    "navigationQuery": "Jardim do Passeio Alegre, Porto, Portugal"
   }
 ]
