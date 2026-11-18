@@ -9,7 +9,7 @@ def source_health(source):
     errors=len(source.get('detailErrors',[]))
     if errors:reasons.append(f'{errors} página(s) com erro')
     if source.get('truncated'):reasons.append('Consulta parcial; páginas rodam nas próximas recolhas')
-    if source.get('reviewNeeded'):reasons.append('Necessita de revisão manual')
+    if source.get('reviewNeeded') or source.get('programmeChangePending'):reasons.append('Necessita de revisão manual')
     posters=sum(p.get('status')=='needs-review' for p in source.get('posterCandidates',[]))
     if posters:reasons.append(f'{posters} cartaz(es) por rever')
     if source.get('readMode')=='family-outings':
@@ -21,7 +21,8 @@ def source_health(source):
     else:
         count=source.get('parsedSessions',0)
         reasons.append(f'{count} sessão(ões) extraída(s) nesta recolha')
-    if source.get('reviewNeeded') or posters:status='review-needed'
+    if source.get('reviewNeeded') or source.get('programmeChangePending') or posters:status='review-needed'
+    elif source.get('calendarStatus')=='no-upcoming-sessions':status='no-sessions'
     elif errors or source.get('truncated'):status='partial'
     elif count:status='collected'
     elif source.get('relevantLinks'):status='discovery-only'

@@ -29,7 +29,8 @@ from telegram_alerts import send_alerts, report as report_telegram
 from allegrow import collect as collect_allegrow
 from posters import from_posters
 from outings import collect as collect_outings, eligible as eligible_outing
-from playlab import programme_links, weekend_form, collect_programme, WEEKEND_FORM
+from playlab import programme_links, weekend_form, collect_programme, programme_watch, public_choices, WEEKEND_FORM, AGENDA
+from knockknock import collect as collect_knock, PAGE as KNOCK_PAGE
 from source_health import annotate_sources, health_summary
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -127,6 +128,25 @@ def fetch_json(url):
     if error:return None,error
     try:return json.loads(content),None
     except (ValueError,TypeError):return None,'Resposta JSON pública inválida'
+
+
+def fetch_public_calendar(url):
+    """Read only Google's public subscription export, never calendar HTML/API.
+
+    This machine-readable subscription endpoint is obtained from the organiser's
+    published embed. It is deliberately separate from the HTML crawler and
+    accepts no private feeds, access tokens, accounts, or arbitrary URLs.
+    """
+    p=urlparse(url)
+    if p.scheme!='https' or p.hostname!='calendar.google.com' or p.query or not re.fullmatch(r'/calendar/ical/[A-Za-z0-9_.-]+%40group\.calendar\.google\.com/public/basic\.ics',p.path):
+        return None,'Exportação pública de calendário inválida'
+    try:
+        response=SESSION.get(url,timeout=TIMEOUT,allow_redirects=False)
+        response.raise_for_status()
+        if response.status_code!=200 or len(response.content)>3_000_000 or 'text/calendar' not in response.headers.get('Content-Type',''):
+            return None,'Exportação pública indisponível ou inválida'
+        return response.content.decode('utf-8'),None
+    except (requests.RequestException,UnicodeError):return None,'Não foi possível consultar a exportação pública'
 
 
 def strip_text(s):
@@ -375,6 +395,7 @@ def scan(sources,previous,history,now):
     outings=list(old_curated.get('outings',[]))
     poster_reviews=load(DATA/'poster-reviews.json',[])
     page_cache={}
+    playlab_form_url=WEEKEND_FORM
     def get_page(url):
         if url not in page_cache: page_cache[url]=fetch(url)
         return page_cache[url]
@@ -397,15 +418,18 @@ def scan(sources,previous,history,now):
             first=parse_dt(lead.get('firstSeen'))
             if first and first.tzinfo and first<=now:timestamps.append(first)
         event['addedAt']=min(timestamps).isoformat() if timestamps else None
-    def refresh_page_evidence(url,parsed):
+    def refresh_page_evidence(url,parsed,include_programme=False):
         current={session_key(e) for e in parsed}
         for event in events+auto_add:
+            if event.get('sourceType')=='playlab-programme' and not include_programme:continue
             evidence=event.get('sessionEvidence',{})
             if canonical(evidence.get('sourceUrl'))==canonical(url) and session_key(event) not in current:
                 event.pop('sessionEvidence',None)
     def upsert(event):
         if not event:return
         match=next((e for e in events+auto_add if canonical(e.get('sourceUrl'))==canonical(event['sourceUrl']) and e.get('date')==event['date'] and e.get('start')==event['start'] and normalized(e.get('title'))==normalized(event['title']) and normalized(e.get('venue'))==normalized(event['venue'])),None)
+        if event.get('sourceType')=='knock-public-calendar':
+            match=next((e for e in events+auto_add if e.get('sourceType')=='knock-public-calendar' and e.get('id')==event.get('id')),match)
         if match:
             saved={k:match[k] for k in ('id','addedAt','openingAt','registrationEvidenceUrl','registrationCheckedAt') if match.get(k) is not None}
             if match.get('status')=='scheduled' and match.get('openingAt') and event.get('status')!='soldout':saved['status']='scheduled'
@@ -421,6 +445,14 @@ def scan(sources,previous,history,now):
     for src in sources:
         name,url=src['name'],src['url'];print('Checking',name,url,flush=True)
         metadata={key:src[key] for key in ('instagramUrl','monitoringNote','agePolicyUrl') if key in src}
+        if src.get('type')=='knock-public-calendar':
+            html,error=get_page(url)
+            parsed,report=collect_knock(html,fetch_public_calendar,now,make_event) if html else ([],{'ok':False,'error':error,'readMode':'public-calendar'})
+            if report['ok']:
+                refresh_page_evidence(KNOCK_PAGE,parsed)
+                for event in parsed:upsert(event)
+            results[name]={**metadata,**report,'url':url,'checkedAt':stamp(),'lastSuccessfulAt':stamp() if report['ok'] else old_index.get(name,{}).get('lastSuccessfulAt')}
+            continue
         if src.get('type')=='family-outings':
             found,report=collect_outings(src['adapter'],get_page,registry,now)
             outings=[o for o in outings if o.get('sourceName')!=name]
@@ -463,7 +495,10 @@ def scan(sources,previous,history,now):
             else:
                 programme_entries.append((entry_url,'Programa oficial'))
                 form=weekend_form(entry_page,entry_url)
-                if form:programme_entries.append((form,'Inscrição ao fim de semana'))
+                if name=='PlayLab Porto' and entry_url==AGENDA:playlab_form_url=form
+                if form:
+                    programme_entries.append((form,'Inscrição ao fim de semana'))
+                    if name=='PlayLab Porto':playlab_form_url=form
         relevant+=programme_entries
         # Revisit known events even when they disappear from the homepage.
         known = [(e['sourceUrl'], e['title']) for e in events
@@ -563,10 +598,34 @@ def scan(sources,previous,history,now):
     # Its review date is never replaced with a fictional successful live check.
     if any(s.get('name')=='PlayLab Porto' for s in sources):
         programme=load(DATA/'playlab-programme.json',{})
-        form_page,form_error=get_page(WEEKEND_FORM)
-        parsed,report=collect_programme(programme,form_page,form_error,now,make_event)
-        refresh_page_evidence(WEEKEND_FORM,parsed)
+        form_page,form_error=get_page(playlab_form_url) if playlab_form_url else (None,'Ligação de fim de semana removida da agenda')
+        agenda_page,agenda_error=page_cache.get(AGENDA,(None,None))
+        parsed,report=collect_programme(programme,form_page,form_error,now,make_event,playlab_form_url,agenda_page)
+        previous_watch=history.get('programmeWatch',{}).get('playlab',{})
+        last_choices=previous_watch.get('lastCompleteChoices')
+        last_live=parse_dt(previous_watch.get('lastLiveAt'));reviewed_at=parse_dt(programme.get('reviewedAt'))
+        obsolete_fallback=bool(report.get('reviewedSessions') and last_choices is not None and set(last_choices)!=set(programme.get('choices',[])) and (not reviewed_at or not last_live or last_live>reviewed_at))
+        if obsolete_fallback:
+            parsed=[];report['reviewedSessions']=0;report['reviewNeeded']=True
+        form_replaced=bool(agenda_page and playlab_form_url!=previous_watch.get('snapshot',{}).get('weekendForm',WEEKEND_FORM))
+        authoritative=report.get('formStatus')=='public-options' or (report.get('reviewedSessions',0)>0 and not obsolete_fallback) or playlab_form_url is None or form_replaced
+        if authoritative:
+            refresh_page_evidence(WEEKEND_FORM,parsed,include_programme=True)
+            refresh_page_evidence(AGENDA,parsed,include_programme=True)
         for event in parsed:upsert(event)
+        newsletter_page,_=page_cache.get('https://playlabporto.beehiiv.com/',(None,None))
+        watched,reasons=programme_watch(agenda_page,newsletter_page,playlab_form_url if agenda_page else None,form_page,previous_watch,now,programme.get('reviewedAt'))
+        if report.get('formStatus')=='public-options':
+            watched['pendingReview']=False
+            watched['lastCompleteChoices']=public_choices(form_page)
+            watched['lastLiveAt']=now.isoformat()
+        history.setdefault('programmeWatch',{})['playlab']=watched
+        if reasons:
+            changes=history.setdefault('programmeChanges',[])
+            changes.append({'source':'PlayLab Porto','at':now.isoformat(),'reasons':reasons,'url':AGENDA})
+            history['programmeChanges']=changes[-40:]
+        report.update(programmeChangePending=bool(watched.get('pendingReview')),programmeChangedAt=watched.get('changedAt'),programmeChangeReasons=watched.get('changeReasons',[]),currentFormUrl=playlab_form_url)
+        if watched.get('pendingReview'):report['reviewNeeded']=True
         results.setdefault('PlayLab Porto',{}).update(report)
     # Retain evidence for diagnosis, but never publish unchecked seeds or city-level locations.
     groups=classify(events+auto_add,registry,now)

@@ -173,6 +173,23 @@
         "visitmaia.pt"
       ],
       "address": "Praça Doutor José Vieira de Carvalho, Maia"
+    },
+    "knock-knock": {
+      "name": "Knock-Knock Family Club",
+      "latitude": 41.1435214,
+      "longitude": -8.5964624,
+      "coordinateSourceUrl": "https://maps.app.goo.gl/1Xoj8gzAeEhxqgpG6",
+      "verifiedAt": "2026-11-18",
+      "precision": "venue",
+      "aliases": [
+        "Knock-Knock · Family Club",
+        "Knock-Knock Family Club"
+      ],
+      "officialHosts": [
+        "knock-knock.pt"
+      ],
+      "address": "Rua Duque de Saldanha 186, Bonfim, Porto",
+      "addressSourceUrl": "https://www.knock-knock.pt/contacto"
     }
   }
 }

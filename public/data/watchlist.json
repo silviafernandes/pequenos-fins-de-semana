@@ -39,7 +39,7 @@
       "https://sites.google.com/view/playlabporto/agenda"
     ],
     "instagramUrl": "https://www.instagram.com/playlabporto/",
-    "monitoringNote": "Consultamos a agenda oficial, os programas da newsletter e o formulário público de fim de semana. Instagram requer consulta manual. Um formulário com início de sessão obrigatório não confirma datas, idades ou vagas."
+    "monitoringNote": "Agenda e newsletter verificadas para alterações de imagem, formulário e novos programas. Alterações ficam por rever quando o formulário exige início de sessão; não presumimos datas, idades ou vagas."
   },
   {
     "name": "Guli Family Club",
@@ -87,10 +87,10 @@
   {
     "name": "Knock-Knock Family Club",
     "url": "https://www.knock-knock.pt/calendario",
-    "type": "page",
+    "type": "knock-public-calendar",
     "priority": 1,
     "instagramUrl": "https://www.instagram.com/knockknockfamilyclub/",
-    "monitoringNote": "Calendário oficial integrado. Instagram requer consulta manual; datas e idades de cada sessão têm de ser confirmadas.",
+    "monitoringNote": "Calendário público ligado na página oficial: recorrências, exceções e cancelamentos são consultados em cada recolha. Só publicamos sessões com idade e local explícitos; as regras gerais do clube não substituem esses detalhes.",
     "agePolicyUrl": "https://www.knock-knock.pt/regrasinfos"
   },
   {
