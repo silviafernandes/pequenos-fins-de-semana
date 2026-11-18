@@ -3,14 +3,46 @@
     "id": "quinta-conceicao",
     "title": "Quinta da Conceição",
     "place": "Leça da Palmeira · Matosinhos",
-    "shortDescription": "Jardins arborizados para explorar em família.",
+    "shortDescription": "Jardins arborizados com parque infantil.",
     "navigationQuery": "Quinta da Conceição, Leça da Palmeira, Matosinhos, Portugal",
     "sourceUrl": "https://www.visitportugal.com/pt-pt/NR/exeres/26B0A12A-0C12-4943-832F-7DC1BA7004DE",
-    "reviewedAt": "2026-11-17",
+    "reviewedAt": "2026-11-18",
     "area": "Matosinhos",
     "types": [
-      "park"
-    ]
+      "park",
+      "playground"
+    ],
+    "amenities": {
+      "playground": {
+        "status": "confirmed",
+        "sourceUrl": "https://infosig.cm-matosinhos.pt/server/rest/services/Matosinhos/MapServer/7/query?objectIds=4154&outFields=nomeequip,categoria,situacao,morada&returnGeometry=false&f=pjson",
+        "evidence": "nomeequip=Parque Infantil da Quinta da Conceição; categoria=6 a 12 anos; situacao=Em funcionamento",
+        "reviewedAt": "2026-11-18",
+        "minMonths": 72,
+        "maxMonths": 144,
+        "ageText": "6–12 anos",
+        "ageBasis": "Classificação no registo municipal de equipamentos"
+      },
+      "toilets": {
+        "status": "unknown"
+      },
+      "cafe": {
+        "status": "unknown"
+      },
+      "changingTable": {
+        "status": "unknown"
+      },
+      "strollerAccess": {
+        "status": "unknown"
+      }
+    },
+    "amenityAudit": {
+      "reviewedAt": "2026-11-18",
+      "sourceUrls": [
+        "https://www.visitportugal.com/pt-pt/NR/exeres/26B0A12A-0C12-4943-832F-7DC1BA7004DE",
+        "https://infosig.cm-matosinhos.pt/server/rest/services/Matosinhos/MapServer/7/query?objectIds=4154&outFields=nomeequip,categoria,situacao,morada&returnGeometry=false&f=pjson"
+      ]
+    }
   },
   {
     "id": "parque-carrical",
@@ -19,38 +51,136 @@
     "shortDescription": "Caminhos entre árvores e parque infantil.",
     "navigationQuery": "Parque do Carriçal, Senhora da Hora, Matosinhos, Portugal",
     "sourceUrl": "https://www.uf-smish.pt/cultura-e-turismo/parque-urbano-do-carrical/",
-    "reviewedAt": "2026-11-17",
+    "reviewedAt": "2026-11-18",
     "area": "Matosinhos",
     "types": [
       "park",
       "playground"
-    ]
+    ],
+    "amenities": {
+      "playground": {
+        "status": "confirmed",
+        "sourceUrl": "https://infosig.cm-matosinhos.pt/server/rest/services/Matosinhos/MapServer/7/query?objectIds=4214&outFields=nomeequip,categoria,situacao,morada&returnGeometry=false&f=pjson",
+        "evidence": "nomeequip=Parque Infantil do Carriçal; categoria=3 a 12 anos; situacao=Em funcionamento",
+        "reviewedAt": "2026-11-18",
+        "minMonths": 36,
+        "maxMonths": 144,
+        "ageText": "3–12 anos",
+        "ageBasis": "Classificação no registo municipal de equipamentos"
+      },
+      "toilets": {
+        "status": "unknown"
+      },
+      "cafe": {
+        "status": "confirmed",
+        "sourceUrl": "https://www.uf-smish.pt/cultura-e-turismo/parque-urbano-do-carrical/",
+        "evidence": "Na zona norte do parque, encontra-se a Piscina Municipal da Senhora da Hora e um bar, desfrutando ainda da presença de um parque infantil.",
+        "reviewedAt": "2026-11-18"
+      },
+      "changingTable": {
+        "status": "unknown"
+      },
+      "strollerAccess": {
+        "status": "unknown"
+      }
+    },
+    "amenityAudit": {
+      "reviewedAt": "2026-11-18",
+      "sourceUrls": [
+        "https://www.uf-smish.pt/cultura-e-turismo/parque-urbano-do-carrical/",
+        "https://infosig.cm-matosinhos.pt/server/rest/services/Matosinhos/MapServer/7/query?objectIds=4214&outFields=nomeequip,categoria,situacao,morada&returnGeometry=false&f=pjson"
+      ]
+    }
   },
   {
     "id": "parque-varas",
     "title": "Parque das Varas",
     "place": "Leça do Balio · Matosinhos",
-    "shortDescription": "Espaço verde junto ao Mosteiro de Leça do Balio.",
+    "shortDescription": "Espaço verde e parque infantil junto ao Mosteiro.",
     "navigationQuery": "Parque das Varas, Rua do Mosteiro, Leça do Balio, Matosinhos, Portugal",
     "sourceUrl": "https://arquivomunicipal.cm-matosinhos.pt/Result.aspx?id=130338&type=PCD",
-    "reviewedAt": "2026-11-17",
+    "reviewedAt": "2026-11-18",
     "area": "Matosinhos",
     "types": [
-      "park"
-    ]
+      "park",
+      "playground"
+    ],
+    "amenities": {
+      "playground": {
+        "status": "confirmed",
+        "sourceUrl": "https://infosig.cm-matosinhos.pt/server/rest/services/Matosinhos/MapServer/7/query?objectIds=4136&outFields=nomeequip,categoria,situacao,morada&returnGeometry=false&f=pjson",
+        "evidence": "nomeequip=Parque Infantil Zona de Lazer - Parque das Varas; categoria=3 a 12 anos; situacao=Em funcionamento",
+        "reviewedAt": "2026-11-18",
+        "minMonths": 36,
+        "maxMonths": 144,
+        "ageText": "3–12 anos",
+        "ageBasis": "Classificação no registo municipal de equipamentos"
+      },
+      "toilets": {
+        "status": "unknown"
+      },
+      "cafe": {
+        "status": "unknown"
+      },
+      "changingTable": {
+        "status": "unknown"
+      },
+      "strollerAccess": {
+        "status": "unknown"
+      }
+    },
+    "amenityAudit": {
+      "reviewedAt": "2026-11-18",
+      "sourceUrls": [
+        "https://arquivomunicipal.cm-matosinhos.pt/Result.aspx?id=130338&type=PCD",
+        "https://infosig.cm-matosinhos.pt/server/rest/services/Matosinhos/MapServer/7/query?objectIds=4136&outFields=nomeequip,categoria,situacao,morada&returnGeometry=false&f=pjson"
+      ]
+    }
   },
   {
     "id": "jardim-basilio",
     "title": "Jardim Basílio Teles",
     "place": "Centro · Matosinhos",
-    "shortDescription": "Um jardim central para uma pausa e um passeio.",
+    "shortDescription": "Jardim central com parque infantil.",
     "navigationQuery": "Jardim Basílio Teles, Matosinhos, Portugal",
     "sourceUrl": "https://iporto.amp.pt/equipamentos/jardim-basalio-teles/",
-    "reviewedAt": "2026-11-17",
+    "reviewedAt": "2026-11-18",
     "area": "Matosinhos",
     "types": [
-      "park"
-    ]
+      "park",
+      "playground"
+    ],
+    "amenities": {
+      "playground": {
+        "status": "confirmed",
+        "sourceUrl": "https://infosig.cm-matosinhos.pt/server/rest/services/Matosinhos/MapServer/7/query?objectIds=4171&outFields=nomeequip,categoria,situacao,morada&returnGeometry=false&f=pjson",
+        "evidence": "nomeequip=Parque Infantil Jardim Basílio Teles; categoria=3 a 12 anos; situacao=Em funcionamento",
+        "reviewedAt": "2026-11-18",
+        "minMonths": 36,
+        "maxMonths": 144,
+        "ageText": "3–12 anos",
+        "ageBasis": "Classificação no registo municipal de equipamentos"
+      },
+      "toilets": {
+        "status": "unknown"
+      },
+      "cafe": {
+        "status": "unknown"
+      },
+      "changingTable": {
+        "status": "unknown"
+      },
+      "strollerAccess": {
+        "status": "unknown"
+      }
+    },
+    "amenityAudit": {
+      "reviewedAt": "2026-11-18",
+      "sourceUrls": [
+        "https://iporto.amp.pt/equipamentos/jardim-basalio-teles/",
+        "https://infosig.cm-matosinhos.pt/server/rest/services/Matosinhos/MapServer/7/query?objectIds=4171&outFields=nomeequip,categoria,situacao,morada&returnGeometry=false&f=pjson"
+      ]
+    }
   },
   {
     "id": "sea-life",
@@ -63,11 +193,56 @@
       "https://www.visitsealife.com/porto/encontrar/informacoes/ajuda/"
     ],
     "kind": "aquarium",
-    "reviewedAt": "2026-11-17",
+    "reviewedAt": "2026-11-18",
     "area": "Porto",
     "types": [
-      "aquarium"
-    ]
+      "aquarium",
+      "playground"
+    ],
+    "amenities": {
+      "playground": {
+        "status": "confirmed",
+        "sourceUrl": "https://www.visitsealife.com/porto/encontrar/informacoes/ajuda/",
+        "evidence": "O nosso parque infantil é especificamente projetado para crianças com idade inferior a 9 anos.",
+        "reviewedAt": "2026-11-18",
+        "maxMonthsExclusive": 108,
+        "ageText": "Menores de 9 anos; idade mínima por confirmar",
+        "note": "O acesso ao aquário é pago; as regras dos equipamentos são próprias."
+      },
+      "toilets": {
+        "status": "confirmed",
+        "sourceUrl": "https://www.visitsealife.com/porto/encontrar/informacoes/equipamentos-e-acessibilidade/",
+        "evidence": "Existem casas de banho e fraldário disponíveis no interior do centro.",
+        "reviewedAt": "2026-11-18"
+      },
+      "cafe": {
+        "status": "confirmed",
+        "sourceUrl": "https://www.visitsealife.com/porto/encontrar/informacoes/equipamentos-e-acessibilidade/",
+        "evidence": "O SEA LIFE Porto tem disponível uma cafetaria que serve refeições e bebidas, bem como snacks e bolos.",
+        "reviewedAt": "2026-11-18"
+      },
+      "changingTable": {
+        "status": "confirmed",
+        "sourceUrl": "https://www.visitsealife.com/porto/encontrar/informacoes/equipamentos-e-acessibilidade/",
+        "evidence": "Existem casas de banho e fraldário disponíveis no interior do centro.",
+        "reviewedAt": "2026-11-18"
+      },
+      "strollerAccess": {
+        "status": "confirmed",
+        "sourceUrl": "https://www.visitsealife.com/porto/encontrar/informacoes/equipamentos-e-acessibilidade/",
+        "evidence": "O SEA LIFE Porto está completamente preparado para visitas com carrinhos de bebé. Contudo, não existe um espaço disponível para guardar os carrinhos.",
+        "reviewedAt": "2026-11-18",
+        "note": "Sem espaço de guarda de carrinhos; acompanham a família durante a visita."
+      }
+    },
+    "amenityAudit": {
+      "reviewedAt": "2026-11-18",
+      "sourceUrls": [
+        "https://www.visitsealife.com/porto/",
+        "https://www.visitsealife.com/porto/encontrar/informacoes/ajuda/",
+        "https://www.visitsealife.com/porto/encontrar/informacoes/equipamentos-e-acessibilidade/"
+      ]
+    }
   },
   {
     "id": "parque-infantil-covelo",
@@ -82,14 +257,49 @@
       "https://ambiente.cm-porto.pt/parques-e-jardins/parque-do-covelo",
       "https://pumpkin.pt/eventos/parque-do-covelo/"
     ],
-    "reviewedAt": "2026-11-16",
+    "reviewedAt": "2026-11-18",
     "shortDescription": "Parque infantil e caminhos para passear.",
     "navigationQuery": "Quinta do Covelo, Rua do Bolama, Porto, Portugal",
     "area": "Porto",
     "types": [
       "park",
       "playground"
-    ]
+    ],
+    "amenities": {
+      "playground": {
+        "status": "confirmed",
+        "sourceUrl": "https://ambiente.cm-porto.pt/parques-e-jardins/parque-do-covelo",
+        "evidence": "WC público; Cafetaria; Parque Infantil; pista dirty-jump/BTT e Centro de Educação para a Sustentabilidade (CE.ES).",
+        "reviewedAt": "2026-11-18",
+        "ageText": "Idades dos equipamentos por confirmar"
+      },
+      "toilets": {
+        "status": "confirmed",
+        "sourceUrl": "https://ambiente.cm-porto.pt/parques-e-jardins/parque-do-covelo",
+        "evidence": "WC público; Cafetaria; Parque Infantil; pista dirty-jump/BTT e Centro de Educação para a Sustentabilidade (CE.ES).",
+        "reviewedAt": "2026-11-18"
+      },
+      "cafe": {
+        "status": "confirmed",
+        "sourceUrl": "https://ambiente.cm-porto.pt/parques-e-jardins/parque-do-covelo",
+        "evidence": "WC público; Cafetaria; Parque Infantil; pista dirty-jump/BTT e Centro de Educação para a Sustentabilidade (CE.ES).",
+        "reviewedAt": "2026-11-18"
+      },
+      "changingTable": {
+        "status": "unknown"
+      },
+      "strollerAccess": {
+        "status": "unknown"
+      }
+    },
+    "amenityAudit": {
+      "reviewedAt": "2026-11-18",
+      "sourceUrls": [
+        "https://ambiente.cm-porto.pt/parques-infantis/parque-do-covelo-1",
+        "https://ambiente.cm-porto.pt/parques-e-jardins/parque-do-covelo",
+        "https://pumpkin.pt/eventos/parque-do-covelo/"
+      ]
+    }
   },
   {
     "id": "parque-cidade",
@@ -100,13 +310,42 @@
     "hours": "Abr–set: 07:00–24:00 · out–mar: 07:00–22:00.",
     "access": "Passeio em parque público · exterior",
     "sourceUrl": "https://ambiente.cm-porto.pt/parques-e-jardins/parque-ocidental-da-cidade",
-    "reviewedAt": "2026-11-16",
+    "reviewedAt": "2026-11-18",
     "shortDescription": "Relvados, árvores e pequenos passeios.",
     "navigationQuery": "Parque da Cidade do Porto, Estrada Interior da Circunvalação, Porto, Portugal",
     "area": "Porto",
     "types": [
       "park"
-    ]
+    ],
+    "amenities": {
+      "playground": {
+        "status": "unknown"
+      },
+      "toilets": {
+        "status": "confirmed",
+        "sourceUrl": "https://ambiente.cm-porto.pt/parques-e-jardins/parque-ocidental-da-cidade",
+        "evidence": "Infraestruturas Disponíveis: WC públicos; Cafetaria/Restaurantes; Aparcamento de Bicicleta; Campos desportivos, volei em areia; Ciclovia partilhada e Centro de Educação para aSustentabilidade (CE.ES).",
+        "reviewedAt": "2026-11-18"
+      },
+      "cafe": {
+        "status": "confirmed",
+        "sourceUrl": "https://ambiente.cm-porto.pt/parques-e-jardins/parque-ocidental-da-cidade",
+        "evidence": "Infraestruturas Disponíveis: WC públicos; Cafetaria/Restaurantes; Aparcamento de Bicicleta; Campos desportivos, volei em areia; Ciclovia partilhada e Centro de Educação para aSustentabilidade (CE.ES).",
+        "reviewedAt": "2026-11-18"
+      },
+      "changingTable": {
+        "status": "unknown"
+      },
+      "strollerAccess": {
+        "status": "unknown"
+      }
+    },
+    "amenityAudit": {
+      "reviewedAt": "2026-11-18",
+      "sourceUrls": [
+        "https://ambiente.cm-porto.pt/parques-e-jardins/parque-ocidental-da-cidade"
+      ]
+    }
   },
   {
     "id": "palacio-cristal",
@@ -117,13 +356,47 @@
     "hours": "Abr–set: 08:00–21:00 · out–mar: 08:00–19:00.",
     "access": "Passeio em jardim público · exterior",
     "sourceUrl": "https://ambiente.cm-porto.pt/parques-e-jardins/jardins-do-palacio-de-cristal_3",
-    "reviewedAt": "2026-11-16",
-    "shortDescription": "Jardins e recantos para uma volta tranquila.",
+    "reviewedAt": "2026-11-18",
+    "shortDescription": "Jardins, recantos e parque infantil.",
     "navigationQuery": "Jardins do Palácio de Cristal, Rua de Dom Manuel II, Porto, Portugal",
     "area": "Porto",
     "types": [
-      "park"
-    ]
+      "park",
+      "playground"
+    ],
+    "amenities": {
+      "playground": {
+        "status": "confirmed",
+        "sourceUrl": "https://ambiente.cm-porto.pt/parques-e-jardins/jardins-do-palacio-de-cristal_3",
+        "evidence": "Infraestruturas Disponíveis: WC públicos; Cafetaria/Restaurantes; Parque Infantil; Biblioteca , Centro de Educação para aSustentabilidade (CE.ES) e Museu Romântico. Ver mais...",
+        "reviewedAt": "2026-11-18",
+        "ageText": "Idades dos equipamentos por confirmar"
+      },
+      "toilets": {
+        "status": "confirmed",
+        "sourceUrl": "https://ambiente.cm-porto.pt/parques-e-jardins/jardins-do-palacio-de-cristal_3",
+        "evidence": "Infraestruturas Disponíveis: WC públicos; Cafetaria/Restaurantes; Parque Infantil; Biblioteca , Centro de Educação para aSustentabilidade (CE.ES) e Museu Romântico. Ver mais...",
+        "reviewedAt": "2026-11-18"
+      },
+      "cafe": {
+        "status": "confirmed",
+        "sourceUrl": "https://ambiente.cm-porto.pt/parques-e-jardins/jardins-do-palacio-de-cristal_3",
+        "evidence": "Infraestruturas Disponíveis: WC públicos; Cafetaria/Restaurantes; Parque Infantil; Biblioteca , Centro de Educação para aSustentabilidade (CE.ES) e Museu Romântico. Ver mais...",
+        "reviewedAt": "2026-11-18"
+      },
+      "changingTable": {
+        "status": "unknown"
+      },
+      "strollerAccess": {
+        "status": "unknown"
+      }
+    },
+    "amenityAudit": {
+      "reviewedAt": "2026-11-18",
+      "sourceUrls": [
+        "https://ambiente.cm-porto.pt/parques-e-jardins/jardins-do-palacio-de-cristal_3"
+      ]
+    }
   },
   {
     "id": "passeio-alegre",
@@ -134,26 +407,87 @@
     "hours": "Consultar as informações de acesso na página municipal.",
     "access": "Passeio em jardim público · exterior",
     "sourceUrl": "https://ambiente.cm-porto.pt/parques-e-jardins/jardim-do-passeio-alegre",
-    "reviewedAt": "2026-11-16",
+    "reviewedAt": "2026-11-18",
     "shortDescription": "Um passeio no jardim junto à foz do rio.",
     "navigationQuery": "Jardim do Passeio Alegre, Porto, Portugal",
     "area": "Porto",
     "types": [
       "park"
-    ]
+    ],
+    "amenities": {
+      "playground": {
+        "status": "unknown"
+      },
+      "toilets": {
+        "status": "unknown"
+      },
+      "cafe": {
+        "status": "confirmed",
+        "sourceUrl": "https://ambiente.cm-porto.pt/parques-e-jardins/jardim-do-passeio-alegre",
+        "evidence": "Serviços e Equipamentos: Cafetaria; Mini Golfe; Balneários",
+        "reviewedAt": "2026-11-18"
+      },
+      "changingTable": {
+        "status": "unknown"
+      },
+      "strollerAccess": {
+        "status": "unknown"
+      }
+    },
+    "amenityAudit": {
+      "reviewedAt": "2026-11-18",
+      "sourceUrls": [
+        "https://ambiente.cm-porto.pt/parques-e-jardins/jardim-do-passeio-alegre"
+      ]
+    }
   },
   {
     "id": "parque-sao-mamede",
-    "title": "Parque Urbano de São Mamede",
+    "title": "Parque Público de São Mamede",
     "place": "São Mamede de Infesta · Matosinhos",
     "area": "Matosinhos",
-    "shortDescription": "Uma volta tranquila pelo parque urbano.",
-    "navigationQuery": "Parque Urbano de São Mamede de Infesta, Matosinhos, Portugal",
+    "shortDescription": "Passeio e parque infantil na Rua da Igreja Velha.",
+    "navigationQuery": "Parque Público de São Mamede de Infesta, Rua da Igreja Velha, Matosinhos, Portugal",
     "sourceUrl": "https://www.uf-smish.pt/cultura-e-turismo/parque-urbano-de-sao-mamede-de-infesta/",
     "types": [
-      "park"
+      "park",
+      "playground"
     ],
-    "reviewedAt": "2026-11-18"
+    "reviewedAt": "2026-11-18",
+    "amenities": {
+      "playground": {
+        "status": "confirmed",
+        "sourceUrl": "https://infosig.cm-matosinhos.pt/server/rest/services/Matosinhos/MapServer/7/query?objectIds=4204&outFields=nomeequip,categoria,situacao,morada&returnGeometry=false&f=pjson",
+        "evidence": "nomeequip=Parque Infantil Parque Público S. Mamede N.º 2; categoria=3 a 5 anos; situacao=Em funcionamento",
+        "reviewedAt": "2026-11-18",
+        "minMonths": 36,
+        "maxMonths": 60,
+        "ageText": "3–5 anos",
+        "ageBasis": "Classificação no registo municipal de equipamentos"
+      },
+      "toilets": {
+        "status": "unknown"
+      },
+      "cafe": {
+        "status": "unknown"
+      },
+      "changingTable": {
+        "status": "unknown"
+      },
+      "strollerAccess": {
+        "status": "unknown"
+      }
+    },
+    "amenityAudit": {
+      "reviewedAt": "2026-11-18",
+      "sourceUrls": [
+        "https://www.uf-smish.pt/cultura-e-turismo/parque-urbano-de-sao-mamede-de-infesta/",
+        "https://infosig.cm-matosinhos.pt/server/rest/services/Matosinhos/MapServer/7/query?objectIds=4204&outFields=nomeequip,categoria,situacao,morada&returnGeometry=false&f=pjson"
+      ]
+    },
+    "supportingUrls": [
+      "https://infosig.cm-matosinhos.pt/server/rest/services/Matosinhos/MapServer/6/query?objectIds=11035&outFields=nomeequip,morada&returnGeometry=false&f=pjson"
+    ]
   },
   {
     "id": "quinta-santiago",
@@ -166,33 +500,122 @@
     "types": [
       "park"
     ],
-    "reviewedAt": "2026-11-18"
+    "reviewedAt": "2026-11-18",
+    "amenities": {
+      "playground": {
+        "status": "unknown"
+      },
+      "toilets": {
+        "status": "unknown"
+      },
+      "cafe": {
+        "status": "unknown"
+      },
+      "changingTable": {
+        "status": "unknown"
+      },
+      "strollerAccess": {
+        "status": "unknown"
+      }
+    },
+    "amenityAudit": {
+      "reviewedAt": "2026-11-18",
+      "sourceUrls": [
+        "https://culturaportugal.gov.pt/pt/conhecer/local/_matosinhos/museu-quinta-de-santiago/"
+      ]
+    }
   },
   {
     "id": "parque-sao-roque",
     "title": "Parque de São Roque",
     "place": "Campanhã · Porto",
     "area": "Porto",
-    "shortDescription": "Jardins e caminhos para explorar em família.",
-    "navigationQuery": "Parque de São Roque, Rua de São Roque da Lameira, Porto, Portugal",
+    "shortDescription": "Jardins e parque infantil junto à Travessa das Antas.",
+    "navigationQuery": "Parque Infantil de São Roque, Travessa das Antas, Porto, Portugal",
     "sourceUrl": "https://ambiente.cm-porto.pt/parques-e-jardins/parque-de-s-roque-2",
     "types": [
-      "park"
+      "park",
+      "playground"
     ],
-    "reviewedAt": "2026-11-18"
+    "reviewedAt": "2026-11-18",
+    "amenities": {
+      "playground": {
+        "status": "confirmed",
+        "sourceUrl": "https://ambiente.cm-porto.pt/parques-infantis-desportivos/parque-de-s-roque-3",
+        "evidence": "Parque Infantil e Desportivo de S. Roque; Travessa das Antas",
+        "reviewedAt": "2026-11-18",
+        "ageText": "Idades dos equipamentos por confirmar"
+      },
+      "toilets": {
+        "status": "confirmed",
+        "sourceUrl": "https://ambiente.cm-porto.pt/parques-e-jardins/parque-de-s-roque-2",
+        "evidence": "Infraestruturas Disponíveis: WC público e Centro de Educação Ambiental (CEA)",
+        "reviewedAt": "2026-11-18"
+      },
+      "cafe": {
+        "status": "unknown"
+      },
+      "changingTable": {
+        "status": "unknown"
+      },
+      "strollerAccess": {
+        "status": "unknown"
+      }
+    },
+    "amenityAudit": {
+      "reviewedAt": "2026-11-18",
+      "sourceUrls": [
+        "https://ambiente.cm-porto.pt/parques-e-jardins/parque-de-s-roque-2",
+        "https://ambiente.cm-porto.pt/parques-infantis-desportivos/parque-de-s-roque-3"
+      ]
+    }
   },
   {
     "id": "parque-pasteleira",
     "title": "Parque da Pasteleira",
     "place": "Lordelo do Ouro · Porto",
     "area": "Porto",
-    "shortDescription": "Um espaço verde para passeios e pequenas pausas.",
+    "shortDescription": "Caminhos, parque infantil e WC públicos.",
     "navigationQuery": "Parque da Pasteleira, Rua de Diogo Botelho, Porto, Portugal",
     "sourceUrl": "https://ambiente.cm-porto.pt/parques-e-jardins/parque-da-pasteleira-1",
     "types": [
-      "park"
+      "park",
+      "playground"
     ],
-    "reviewedAt": "2026-11-18"
+    "reviewedAt": "2026-11-18",
+    "amenities": {
+      "playground": {
+        "status": "confirmed",
+        "sourceUrl": "https://ambiente.cm-porto.pt/parques-e-jardins/parque-da-pasteleira-1",
+        "evidence": "Infraestruturas Disponíveis : WC público; Parque Infantil; Cafetaria (encerrada provisoriamente) e Ciclovia partilhada.  Bibliografia : Marques, Paulo Farinha; Fernandes, Claudia; Lameiras, José Miguel, Silva, Sara; Leal, Isabel e Guilherme, Filipa, Morfologia e biodiversidade dos espaços verdes púb",
+        "reviewedAt": "2026-11-18",
+        "ageText": "Idades dos equipamentos por confirmar"
+      },
+      "toilets": {
+        "status": "confirmed",
+        "sourceUrl": "https://ambiente.cm-porto.pt/parques-e-jardins/parque-da-pasteleira-1",
+        "evidence": "Infraestruturas Disponíveis : WC público; Parque Infantil; Cafetaria (encerrada provisoriamente) e Ciclovia partilhada.  Bibliografia : Marques, Paulo Farinha; Fernandes, Claudia; Lameiras, José Miguel, Silva, Sara; Leal, Isabel e Guilherme, Filipa, Morfologia e biodiversidade dos espaços verdes púb",
+        "reviewedAt": "2026-11-18"
+      },
+      "cafe": {
+        "status": "temporarily-closed",
+        "sourceUrl": "https://ambiente.cm-porto.pt/parques-e-jardins/parque-da-pasteleira-1",
+        "evidence": "Cafetaria (encerrada provisoriamente)",
+        "reviewedAt": "2026-11-18"
+      },
+      "changingTable": {
+        "status": "unknown"
+      },
+      "strollerAccess": {
+        "status": "unknown"
+      }
+    },
+    "amenityAudit": {
+      "reviewedAt": "2026-11-18",
+      "sourceUrls": [
+        "https://ambiente.cm-porto.pt/parques-e-jardins/parque-da-pasteleira-1"
+      ]
+    }
   },
   {
     "id": "jardim-botanico",
@@ -208,6 +631,30 @@
     "types": [
       "park"
     ],
-    "reviewedAt": "2026-11-18"
+    "reviewedAt": "2026-11-18",
+    "amenities": {
+      "playground": {
+        "status": "unknown"
+      },
+      "toilets": {
+        "status": "unknown"
+      },
+      "cafe": {
+        "status": "unknown"
+      },
+      "changingTable": {
+        "status": "unknown"
+      },
+      "strollerAccess": {
+        "status": "unknown"
+      }
+    },
+    "amenityAudit": {
+      "reviewedAt": "2026-11-18",
+      "sourceUrls": [
+        "https://mhnc.up.pt/pt/landingpages/detalhe.php?id=3",
+        "https://mhnc.up.pt/pt/gca/index.php?id=142"
+      ]
+    }
   }
 ]

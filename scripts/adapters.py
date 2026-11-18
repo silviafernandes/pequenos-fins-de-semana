@@ -53,9 +53,11 @@ def organiser_sessions(html,url,now,make_event,context=None):
             raw={'name':title.get_text(' ',strip=True),'description':target.get_text(' ',strip=True),'startDate':time['datetime'].replace(' ','T'),'url':url,'location':{'name':f'Casa da Música · {room_name}','address':'Avenida da Boavista 604-610, Porto'}}
             price=soup.select_one('#session-price-info')
             amount=re.search(r'€\s*(\d+(?:[.,]\d+)?)',price.get_text(' ',strip=True)) if price else None
-            if amount:raw['offers']={'price':amount[1].replace(',','.'),'priceCurrency':'EUR'}
+            if amount:raw['offers']={'price':amount[1].replace(',','.'),'priceCurrency':'EUR','url':url}
             event=make_event(raw,url,'Casa da Música',now)
-            if event:result.append(mark_session(event,url,now,'official-programme'))
+            if event:
+                event.update(indoor=True,bookingUrl=url,settingEvidence={'sourceUrl':url,'checkedAt':now.isoformat(),'text':room_name},bookingEvidence={'sourceUrl':url,'checkedAt':now.isoformat(),'kind':'official-purchase-interface'})
+                result.append(mark_session(event,url,now,'official-programme'))
     elif domain=='bibliotecasdoporto.pt' and '/evento/' in urlparse(url).path and context:
         main=soup.select_one('[data-bl-name="Main"]')
         title=main.select_one('[data-bl-name="Display Title"]') if main else None
@@ -75,8 +77,18 @@ def organiser_sessions(html,url,now,make_event,context=None):
             except ValueError:continue
             raw={'name':re.sub(r'\s*[—–-]\s*ESPETÁCULO\s*$','',title.get_text(' ',strip=True),flags=re.I),'description':f'Atividade para bebés dos {ages[1]} aos {ages[2]} meses','startDate':start.isoformat(),'url':url,'location':{'name':'Biblioteca Municipal Almeida Garrett','address':'Jardins do Palácio de Cristal, Porto'}}
             if duration:raw['endDate']=(start+timedelta(minutes=int(duration[1]))).isoformat()
+            free=bool(re.search(r'Entrada\s+gratuita',text,re.I))
+            if free:raw['offers']={'price':0,'priceCurrency':'EUR'}
             event=make_event(raw,url,'Bibliotecas do Porto',now)
             if event:
+                event.update(indoor=True,settingEvidence={'sourceUrl':url,'checkedAt':now.isoformat(),'text':'Auditório da Biblioteca Municipal Almeida Garrett'})
+                if free:
+                    event['price']='Gratuito'
+                    if re.search(r'levantamento de bilhete no balcão',text,re.I):
+                        event['registrationMethod']='in-person-ticket'
+                        event['registrationNote']='Entrada gratuita mediante levantamento de bilhete no balcão de informações da biblioteca; disponibilidade por confirmar.'
+                capacity=re.search(r'Lotação:\s*(\d{1,3})\s*crianças',text,re.I)
+                if capacity:event['capacity']=int(capacity[1])
                 mark_session(event,url,now,'official-programme')
                 event['sessionEvidence']['contextSourceUrl']='https://www.bibliotecasdoporto.pt/evento/nano-mini-micro-festival-para-a-infancia-do-porto/'
                 result.append(event)

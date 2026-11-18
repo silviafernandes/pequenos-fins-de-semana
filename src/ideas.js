@@ -5,12 +5,34 @@ export const ideaTypes = [
   {value:'playground',label:'Com parque infantil'},
   {value:'aquarium',label:'Aquários'},
 ]
+export const amenityDefinitions=[
+  {key:'playground',label:'Parque infantil'},
+  {key:'toilets',label:'WC'},
+  {key:'cafe',label:'Café/bar'},
+  {key:'changingTable',label:'Fraldário'},
+  {key:'strollerAccess',label:'Acesso com carrinho'},
+]
+export function hasAmenity(item,key){return item.amenities?.[key]?.status==='confirmed'}
+export function amenitySummary(item){
+  if(hasAmenity(item,'playground')){
+    const p=item.amenities.playground
+    return `Parque infantil · ${Number.isFinite(p.minMonths)?p.ageText:'idades por confirmar'}`
+  }
+  const known=amenityDefinitions.filter(a=>hasAmenity(item,a.key)).map(a=>a.label)
+  return known.length?known.slice(0,2).join(' · '):'Instalações por confirmar'
+}
+export function amenityLabel(fact){
+  if(!fact||fact.status==='unknown')return 'Por confirmar'
+  if(fact.status==='temporarily-closed')return 'Encerrado provisoriamente na fonte'
+  return fact.ageText||'Confirmado na fonte'
+}
+const amenitySearchText=item=>amenityDefinitions.filter(a=>['confirmed','temporarily-closed'].includes(item.amenities?.[a.key]?.status)).map(a=>`${a.label} ${item.amenities[a.key].ageText||''}`).join(' ')
 const fold = value => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('pt-PT')
 export function filterIdeas(items,{search='',area='all',type='all'}={}) {
   const words=fold(search).trim().split(/\s+/).filter(Boolean)
   return items.filter(item=>(area==='all'||item.area===area)
-    &&(type==='all'||item.types.includes(type))
-    &&words.every(word=>fold(`${item.title} ${item.place} ${item.shortDescription}`).includes(word)))
+    &&(type==='all'||(type==='playground'?hasAmenity(item,'playground'):item.types.includes(type)))
+    &&words.every(word=>fold(`${item.title} ${item.place} ${item.shortDescription} ${amenitySummary(item)} ${amenitySearchText(item)}`).includes(word)))
 }
 export function ideasPage(items,requestedPage,size=IDEAS_PAGE_SIZE) {
   const pages=Math.max(1,Math.ceil(items.length/size))
