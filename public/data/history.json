@@ -84,7 +84,7 @@
         "https://forms.gle/htFeB3xMT6nSwXwDA"
       ],
       "openingDates": [],
-      "lastChecked": "2026-11-18T10:15:41+00:00"
+      "lastChecked": "2026-11-18T11:46:51+00:00"
     },
     "44a43d31422cf6e": {
       "page": "https://www.bibliotecasearquivosmatosinhos.pt/evento-44/bebeteca-magica-yoga-de-encantar-48",
@@ -167,10 +167,10 @@
       "lastChecked": "2026-11-09T22:59:16+00:00"
     }
   },
-  "lastRun": "2026-11-18T10:17:19+00:00",
+  "lastRun": "2026-11-18T11:48:48+00:00",
   "scanStats": {
-    "sourcesOk": 18,
-    "sourcesFailed": 2,
+    "sourcesOk": 20,
+    "sourcesFailed": 0,
     "autoEvents": 0
   }
 }
