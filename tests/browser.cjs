@@ -88,7 +88,7 @@ const { chromium } = require('playwright');
     fixture.events.push({...fixture.events.find(e=>e.id==='baby'),id:'unchecked',title:'Sessão sem evidência',sessionEvidence:undefined})
     await page.route('**/data/events.json',route=>route.fulfill({json:fixture}));
     await page.route('**/data/history.json',route=>route.fulfill({json:{observations:[]}}));
-    await page.route('**/data/discoveries.json',route=>route.fulfill({json:{sourceIndex:{PlayLab:{url:'https://sites.google.com/view/playlabporto/agenda',ok:false,programmeReviewedAt:'2026-11-09T12:00:00Z',reviewedSessions:8,liveSessions:0,reviewNeeded:true},Biblioteca:{url:'https://example.org',ok:false,error:'HTTP 403',checkedAt:'2026-11-09T10:00:00Z'},Allegrow:{url:'https://allegrowkids.pt/pt/',ok:true,readMode:'public-json',activitiesChecked:12,eligibleSessions:0,pendingSessions:1},Links:{url:'https://example.org/agenda',ok:true,relevantLinks:3,parsedSessions:0},Partial:{url:'https://example.org/programme',ok:true,parsedSessions:2,detailErrors:[{error:'404'}]}},discoveries:[
+    await page.route('**/data/discoveries.json',route=>route.fulfill({json:{sourceIndex:{PlayLab:{url:'https://sites.google.com/view/playlabporto/agenda',ok:false,programmeReviewedAt:'2026-11-09T12:00:00Z',reviewedSessions:8,liveSessions:0,reviewNeeded:true,programmeChangePending:true,programmeChangeReasons:['Imagem do programa alterada']},Biblioteca:{url:'https://example.org',ok:false,error:'HTTP 403',checkedAt:'2026-11-09T10:00:00Z'},Allegrow:{url:'https://allegrowkids.pt/pt/',ok:true,readMode:'public-json',activitiesChecked:12,eligibleSessions:0,pendingSessions:1},Links:{url:'https://example.org/agenda',ok:true,relevantLinks:3,parsedSessions:0},Knock:{url:'https://www.knock-knock.pt/calendario',ok:true,readMode:'public-calendar',calendarStatus:'no-upcoming-sessions',parsedSessions:0},Partial:{url:'https://example.org/programme',ok:true,parsedSessions:2,detailErrors:[{error:'404'}]}},discoveries:[
       {id:'old-lead',title:'Contamos contigo! A partir dos 3 anos',url:'https://example.org/older',minMonths:36,maxMonths:144,firstSeen:'2026-11-09'},
       {id:'unknown-lead',title:'Hora do conto para famílias',url:'https://example.org/unknown',firstSeen:'2026-11-09'},
       {...fixture.events.find(e=>e.id==='baby'),id:'baby-lead',title:'Música para bebés 0–3 anos',url:'https://example.org/babies',firstSeen:'2026-11-09'}]}}));
@@ -153,6 +153,8 @@ const { chromium } = require('playwright');
     assert.match(await page.locator('.source-status-list').innerText(),/12 atividades consultadas · 0 sessões elegíveis · 1 sessão por verificar/);
     assert.match(await page.locator('.source-status-list').innerText(),/Links encontrados · sem sessões extraídas/);
     assert.match(await page.locator('.source-status-list').innerText(),/2 sessões extraídas · 1 páginas por verificar/);
+    assert.match(await page.locator('.source-status-list').innerText(),/Calendário consultado · sem sessões futuras/);
+    assert.match(await page.locator('.source-status-list').innerText(),/Programa alterado — por rever: Imagem do programa alterada/);
     await page.setViewportSize({width:390,height:844});
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
     assert.deepEqual(errors,[]);
