@@ -80,6 +80,17 @@ class PosterTests(unittest.TestCase):
         with patch.object(posters.shutil,'which',return_value=None):
             self.assertIn('indisponível',posters.ocr_text(IMAGE)['error'])
 
+    def test_ocr_uses_tsv_output_only_without_mixing_raw_text_and_rows(self):
+        from types import SimpleNamespace
+        rows=b'level\tconf\ttext\n5\t95\tYoga\n5\t90\tbebes\n'
+        with patch.object(posters.shutil,'which',return_value='/usr/bin/tesseract'),patch.object(posters.subprocess,'run',side_effect=[SimpleNamespace(stdout='eng\npor\n'),SimpleNamespace(returncode=0,stdout=rows)]) as run:
+            result=posters.ocr_text(IMAGE)
+        self.assertEqual(result['text'],'Yoga bebes')
+        self.assertEqual(result['confidence'],92.5)
+        command=run.call_args.args[0]
+        self.assertEqual(command[-1],'tsv')
+        self.assertNotIn('tessedit_create_tsv=1',command)
+
     def test_registration_opening_cannot_override_soldout(self):
         event,_=self.parse()
         update.apply_registration([event],{},URL,event['title'],'Biblioteca',[],['2026-11-13T10:00+00:00'],NOW.isoformat())

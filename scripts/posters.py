@@ -22,7 +22,7 @@ def ocr_text(content):
     try:
         langs=subprocess.run(['tesseract','--list-langs'],capture_output=True,text=True,timeout=5).stdout.splitlines()
         language='por+eng' if 'por' in langs and 'eng' in langs else 'eng'
-        run=subprocess.run(['tesseract','stdin','stdout','-l',language,'--psm','11','-c','tessedit_create_tsv=1'],input=content,capture_output=True,timeout=20)
+        run=subprocess.run(['tesseract','stdin','stdout','-l',language,'--psm','11','tsv'],input=content,capture_output=True,timeout=20)
         if run.returncode:return {'text':'','confidence':None,'error':'Não foi possível ler a imagem'}
         rows=list(csv.DictReader(io.StringIO(run.stdout.decode('utf-8')),delimiter='\t'))
         words=[r for r in rows if r.get('text','').strip() and float(r.get('conf',-1))>=0]
