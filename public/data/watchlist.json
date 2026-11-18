@@ -161,5 +161,19 @@
     "type": "page",
     "priority": 2,
     "monitoringNote": "Museu de História Natural e da Ciência, Galeria da Biodiversidade e Jardim Botânico. Verificar idade, local exato e horário de cada atividade; visitas gerais não são sessões."
+  },
+  {
+    "name": "Serralves · Mercado de Natal",
+    "url": "https://www.serralves.pt/atividades-serralves/0512-mercado-de-natal-de-serralves/",
+    "type": "family-outings",
+    "adapter": "serralves-christmas",
+    "priority": 1
+  },
+  {
+    "name": "Mercado Ferreira Borges · Natal",
+    "url": "https://www.agenda-porto.pt/evento/mercado-de-natal-1793352501535/",
+    "type": "family-outings",
+    "adapter": "ferreira-christmas",
+    "priority": 1
   }
 ]

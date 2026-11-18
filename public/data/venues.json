@@ -190,6 +190,45 @@
       ],
       "address": "Rua Duque de Saldanha 186, Bonfim, Porto",
       "addressSourceUrl": "https://www.knock-knock.pt/contacto"
+    },
+    "serralves-park": {
+      "name": "Parque de Serralves",
+      "latitude": 41.1572713,
+      "longitude": -8.6569119,
+      "coordinateSourceUrl": "https://www.openstreetmap.org/way/13621449",
+      "verifiedAt": "2026-11-18",
+      "precision": "venue",
+      "aliases": [
+        "Parque de Serralves"
+      ],
+      "officialHosts": [
+        "serralves.pt"
+      ],
+      "address": "Parque de Serralves, Porto",
+      "addressSourceUrl": "https://www.serralves.pt/atividades-serralves/0512-mercado-de-natal-de-serralves/"
+    },
+    "ferreira-borges": {
+      "name": "Mercado Ferreira Borges",
+      "latitude": 41.141976,
+      "longitude": -8.6149052,
+      "coordinateSourceUrl": "https://www.openstreetmap.org/way/210580232",
+      "verifiedAt": "2026-11-18",
+      "precision": "venue",
+      "aliases": [
+        "Hard Club",
+        "Mercado Ferreira Borges (Hard Club)"
+      ],
+      "officialHosts": [
+        "agenda-porto.pt"
+      ],
+      "officialUrlPrefixes": {
+        "agenda-porto.pt": [
+          "/evento/mercado-de-natal-1793352501535/",
+          "/local/nKeROL8JlrK/"
+        ]
+      },
+      "address": "Mercado Ferreira Borges, Porto",
+      "addressSourceUrl": "https://www.agenda-porto.pt/local/nKeROL8JlrK/"
     }
   }
 }
