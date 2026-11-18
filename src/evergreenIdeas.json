@@ -6,7 +6,11 @@
     "shortDescription": "Jardins arborizados para explorar em família.",
     "navigationQuery": "Quinta da Conceição, Leça da Palmeira, Matosinhos, Portugal",
     "sourceUrl": "https://www.visitportugal.com/pt-pt/NR/exeres/26B0A12A-0C12-4943-832F-7DC1BA7004DE",
-    "reviewedAt": "2026-11-17"
+    "reviewedAt": "2026-11-17",
+    "area": "Matosinhos",
+    "types": [
+      "park"
+    ]
   },
   {
     "id": "parque-carrical",
@@ -15,7 +19,12 @@
     "shortDescription": "Caminhos entre árvores e parque infantil.",
     "navigationQuery": "Parque do Carriçal, Senhora da Hora, Matosinhos, Portugal",
     "sourceUrl": "https://www.uf-smish.pt/cultura-e-turismo/parque-urbano-do-carrical/",
-    "reviewedAt": "2026-11-17"
+    "reviewedAt": "2026-11-17",
+    "area": "Matosinhos",
+    "types": [
+      "park",
+      "playground"
+    ]
   },
   {
     "id": "parque-varas",
@@ -24,7 +33,11 @@
     "shortDescription": "Espaço verde junto ao Mosteiro de Leça do Balio.",
     "navigationQuery": "Parque das Varas, Rua do Mosteiro, Leça do Balio, Matosinhos, Portugal",
     "sourceUrl": "https://arquivomunicipal.cm-matosinhos.pt/Result.aspx?id=130338&type=PCD",
-    "reviewedAt": "2026-11-17"
+    "reviewedAt": "2026-11-17",
+    "area": "Matosinhos",
+    "types": [
+      "park"
+    ]
   },
   {
     "id": "jardim-basilio",
@@ -33,7 +46,11 @@
     "shortDescription": "Um jardim central para uma pausa e um passeio.",
     "navigationQuery": "Jardim Basílio Teles, Matosinhos, Portugal",
     "sourceUrl": "https://iporto.amp.pt/equipamentos/jardim-basalio-teles/",
-    "reviewedAt": "2026-11-17"
+    "reviewedAt": "2026-11-17",
+    "area": "Matosinhos",
+    "types": [
+      "park"
+    ]
   },
   {
     "id": "sea-life",
@@ -46,7 +63,11 @@
       "https://www.visitsealife.com/porto/encontrar/informacoes/ajuda/"
     ],
     "kind": "aquarium",
-    "reviewedAt": "2026-11-17"
+    "reviewedAt": "2026-11-17",
+    "area": "Porto",
+    "types": [
+      "aquarium"
+    ]
   },
   {
     "id": "parque-infantil-covelo",
@@ -63,7 +84,12 @@
     ],
     "reviewedAt": "2026-11-16",
     "shortDescription": "Parque infantil e caminhos para passear.",
-    "navigationQuery": "Quinta do Covelo, Rua do Bolama, Porto, Portugal"
+    "navigationQuery": "Quinta do Covelo, Rua do Bolama, Porto, Portugal",
+    "area": "Porto",
+    "types": [
+      "park",
+      "playground"
+    ]
   },
   {
     "id": "parque-cidade",
@@ -76,7 +102,11 @@
     "sourceUrl": "https://ambiente.cm-porto.pt/parques-e-jardins/parque-ocidental-da-cidade",
     "reviewedAt": "2026-11-16",
     "shortDescription": "Relvados, árvores e pequenos passeios.",
-    "navigationQuery": "Parque da Cidade do Porto, Estrada Interior da Circunvalação, Porto, Portugal"
+    "navigationQuery": "Parque da Cidade do Porto, Estrada Interior da Circunvalação, Porto, Portugal",
+    "area": "Porto",
+    "types": [
+      "park"
+    ]
   },
   {
     "id": "palacio-cristal",
@@ -89,7 +119,11 @@
     "sourceUrl": "https://ambiente.cm-porto.pt/parques-e-jardins/jardins-do-palacio-de-cristal_3",
     "reviewedAt": "2026-11-16",
     "shortDescription": "Jardins e recantos para uma volta tranquila.",
-    "navigationQuery": "Jardins do Palácio de Cristal, Rua de Dom Manuel II, Porto, Portugal"
+    "navigationQuery": "Jardins do Palácio de Cristal, Rua de Dom Manuel II, Porto, Portugal",
+    "area": "Porto",
+    "types": [
+      "park"
+    ]
   },
   {
     "id": "passeio-alegre",
@@ -102,6 +136,78 @@
     "sourceUrl": "https://ambiente.cm-porto.pt/parques-e-jardins/jardim-do-passeio-alegre",
     "reviewedAt": "2026-11-16",
     "shortDescription": "Um passeio no jardim junto à foz do rio.",
-    "navigationQuery": "Jardim do Passeio Alegre, Porto, Portugal"
+    "navigationQuery": "Jardim do Passeio Alegre, Porto, Portugal",
+    "area": "Porto",
+    "types": [
+      "park"
+    ]
+  },
+  {
+    "id": "parque-sao-mamede",
+    "title": "Parque Urbano de São Mamede",
+    "place": "São Mamede de Infesta · Matosinhos",
+    "area": "Matosinhos",
+    "shortDescription": "Uma volta tranquila pelo parque urbano.",
+    "navigationQuery": "Parque Urbano de São Mamede de Infesta, Matosinhos, Portugal",
+    "sourceUrl": "https://www.uf-smish.pt/cultura-e-turismo/parque-urbano-de-sao-mamede-de-infesta/",
+    "types": [
+      "park"
+    ],
+    "reviewedAt": "2026-11-18"
+  },
+  {
+    "id": "quinta-santiago",
+    "title": "Jardins da Quinta de Santiago",
+    "place": "Leça da Palmeira · Matosinhos",
+    "area": "Matosinhos",
+    "shortDescription": "Jardins com esculturas; confirmar acesso e horários.",
+    "navigationQuery": "Museu da Quinta de Santiago, Rua de Vila Franca 134, Leça da Palmeira, Matosinhos, Portugal",
+    "sourceUrl": "https://culturaportugal.gov.pt/pt/conhecer/local/_matosinhos/museu-quinta-de-santiago/",
+    "types": [
+      "park"
+    ],
+    "reviewedAt": "2026-11-18"
+  },
+  {
+    "id": "parque-sao-roque",
+    "title": "Parque de São Roque",
+    "place": "Campanhã · Porto",
+    "area": "Porto",
+    "shortDescription": "Jardins e caminhos para explorar em família.",
+    "navigationQuery": "Parque de São Roque, Rua de São Roque da Lameira, Porto, Portugal",
+    "sourceUrl": "https://ambiente.cm-porto.pt/parques-e-jardins/parque-de-s-roque-2",
+    "types": [
+      "park"
+    ],
+    "reviewedAt": "2026-11-18"
+  },
+  {
+    "id": "parque-pasteleira",
+    "title": "Parque da Pasteleira",
+    "place": "Lordelo do Ouro · Porto",
+    "area": "Porto",
+    "shortDescription": "Um espaço verde para passeios e pequenas pausas.",
+    "navigationQuery": "Parque da Pasteleira, Rua de Diogo Botelho, Porto, Portugal",
+    "sourceUrl": "https://ambiente.cm-porto.pt/parques-e-jardins/parque-da-pasteleira-1",
+    "types": [
+      "park"
+    ],
+    "reviewedAt": "2026-11-18"
+  },
+  {
+    "id": "jardim-botanico",
+    "title": "Jardim Botânico do Porto",
+    "place": "Campo Alegre · Porto",
+    "area": "Porto",
+    "shortDescription": "Jardins e plantas para descobrir devagar.",
+    "navigationQuery": "Jardim Botânico do Porto, Rua do Campo Alegre 1191, Porto, Portugal",
+    "sourceUrl": "https://mhnc.up.pt/pt/landingpages/detalhe.php?id=3",
+    "supportingUrls": [
+      "https://mhnc.up.pt/pt/gca/index.php?id=142"
+    ],
+    "types": [
+      "park"
+    ],
+    "reviewedAt": "2026-11-18"
   }
 ]
