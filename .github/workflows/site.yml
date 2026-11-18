@@ -52,6 +52,8 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ github.event_name != 'push' && secrets.TELEGRAM_BOT_TOKEN || '' }}
           TELEGRAM_CHAT_ID: ${{ github.event_name != 'push' && secrets.TELEGRAM_CHAT_ID || '' }}
         run: python scripts/update.py
+      - name: Auditar integridade da base de dados
+        run: python scripts/audit_database.py
       - name: Guardar as novidades no repositório
         run: |
           git config user.name "pequenos-fds-bot"
