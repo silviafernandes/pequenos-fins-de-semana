@@ -148,15 +148,26 @@ def programme_watch(agenda_html,newsletter_html,form_url,form_html,previous,now,
     snapshot=dict(previous.get('snapshot',{}))
     if agenda_html:
         soup=BeautifulSoup(agenda_html,'html.parser')
-        images=sorted(set(re.sub(r'=w\d+(?:-h\d+)?$', '',img['src']) for img in soup.select('img[src]') if 'sitesv-images' in img['src']))
-        snapshot['agendaImages']=images
+        # Google Sites rotates signed image URLs on ordinary page reads.
+        # Use its published revision and stable image/link structure instead.
+        revisions={n['data-last-updated-at-time'] for n in soup.select('[data-last-updated-at-time]')}
+        if len(revisions)==1:snapshot['agendaRevision']=next(iter(revisions))
+        images=[]
+        for img in soup.select('img[src]'):
+            if img.find_parent(['header','nav']):continue
+            if 'sitesv-images' not in img['src']:continue
+            anchor=img.find_parent('a',href=True)
+            images.append('google-sites-image:'+str(anchor.get('href','') if anchor else '')+':'+str(img.get('alt',img.get('aria-label',''))))
+        snapshot['agendaImages']=sorted(images)
         snapshot['weekendForm']=form_url
     if newsletter_html:snapshot['newsletterIssues']=sorted(u for u,_ in programme_links(newsletter_html,'https://playlabporto.beehiiv.com/'))
     if form_html:
         choices=public_choices(form_html)
         if choices:snapshot['publicChoices']=sorted(choices)
     before=previous.get('snapshot',{});reasons=[]
-    if 'agendaImages' in before and snapshot.get('agendaImages')!=before['agendaImages']:reasons.append('Imagem do programa alterada')
+    legacy_images=any('sitesv-images' in u for u in before.get('agendaImages',[]))
+    if 'agendaImages' in before and not legacy_images and snapshot.get('agendaImages')!=before['agendaImages']:reasons.append('Estrutura de imagens da agenda alterada')
+    if 'agendaRevision' in before and snapshot.get('agendaRevision')!=before['agendaRevision']:reasons.append('Agenda oficial atualizada')
     if 'weekendForm' in before and snapshot.get('weekendForm')!=before['weekendForm']:reasons.append('Formulário de fim de semana alterado ou removido')
     if 'newsletterIssues' in before and set(snapshot.get('newsletterIssues',[]))-set(before['newsletterIssues']):reasons.append('Nova newsletter publicada')
     if 'publicChoices' in before and snapshot.get('publicChoices')!=before['publicChoices']:reasons.append('Opções públicas do formulário alteradas')
