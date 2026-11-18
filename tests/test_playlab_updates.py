@@ -15,7 +15,7 @@ from eligibility import assess
 NOW=datetime(2026,11,18,12,tzinfo=ZoneInfo('Europe/Lisbon'))
 PROGRAMME=json.loads((ROOT/'public/data/playlab-programme.json').read_text())
 NEW='https://docs.google.com/forms/d/e/new_public_programme/viewform'
-AGENDA_HTML=f'<a href="{NEW}">Inscrição - ao fim de semana</a><img src="https://sites.google.com/sitesv-images-rt/poster=w1280">'
+AGENDA_HTML=f'<main data-last-updated-at-time="1234"><a href="{NEW}">Inscrição - ao fim de semana</a><img src="https://sites.google.com/sitesv-images-rt/poster=w1280"></main>'
 LABEL='Baby Lab de Natal, 6-18 meses/months - Sáb. 19/12, 10:00-10:45'
 FORM=f'<h1>Programa de dezembro 2026</h1><div role="checkbox" data-answer-value="{LABEL}"></div>'
 
@@ -62,12 +62,24 @@ class PlayLabUpdatesTests(unittest.TestCase):
         # Width-only Google image changes are not a programme edit.
         same,reasons=programme_watch(AGENDA_HTML.replace('w1280','w1600'),news,NEW,None,first,NOW+timedelta(hours=1))
         self.assertEqual(reasons,[])
-        changed,reasons=programme_watch(AGENDA_HTML.replace('poster=','new-poster='),news+'<a href="/p/dezembro">Dezembro</a>',NEW,None,same,NOW+timedelta(hours=2))
+        changed,reasons=programme_watch(AGENDA_HTML.replace('1234','1235').replace('poster=','new-poster='),news+'<a href="/p/dezembro">Dezembro</a>',NEW,None,same,NOW+timedelta(hours=2))
         self.assertEqual(len(reasons),2);self.assertTrue(changed['pendingReview'])
         again,reasons=programme_watch(None,None,None,None,changed,NOW+timedelta(hours=3))
         self.assertEqual(reasons,[]);self.assertEqual(again['snapshot'],changed['snapshot']);self.assertTrue(again['pendingReview'])
         reviewed,_=programme_watch(None,None,None,None,again,NOW+timedelta(hours=4),(NOW+timedelta(hours=4)).isoformat())
         self.assertFalse(reviewed['pendingReview'])
+
+    def test_google_image_tokens_rotate_without_a_programme_edit_and_legacy_snapshot_migrates(self):
+        first,_=programme_watch(AGENDA_HTML,None,NEW,None,{},NOW)
+        rotated=AGENDA_HTML.replace('poster=w1280','a-completely-new-signed-token=w1600')
+        unchanged,reasons=programme_watch(rotated,None,NEW,None,first,NOW+timedelta(hours=1))
+        self.assertEqual(reasons,[])
+        revised,reasons=programme_watch(rotated.replace('1234','1235'),None,NEW,None,unchanged,NOW+timedelta(hours=2))
+        self.assertEqual(reasons,['Agenda oficial atualizada'])
+        legacy={'snapshot':{'agendaImages':['https://sites.google.com/sitesv-images-rt/old-token=w1280'],'weekendForm':NEW}}
+        migrated,reasons=programme_watch(rotated,None,NEW,None,legacy,NOW)
+        self.assertEqual(reasons,[])
+        self.assertEqual(migrated['snapshot']['agendaRevision'],'1234')
 
     def test_scan_follows_changed_form_and_removal_does_not_reuse_old_review(self):
         source={'name':'PlayLab Porto','url':'https://playlabporto.beehiiv.com/','programmeUrls':[AGENDA]}
