@@ -18,7 +18,7 @@ import unicodedata
 from urllib.robotparser import RobotFileParser
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from urllib.parse import urljoin, urlparse, urldefrag
+from urllib.parse import urljoin, urlparse, urldefrag, unquote
 from zoneinfo import ZoneInfo
 
 import requests
@@ -30,6 +30,7 @@ from allegrow import collect as collect_allegrow
 from posters import from_posters
 from outings import collect as collect_outings, eligible as eligible_outing
 from playlab import programme_links, weekend_form, collect_programme, WEEKEND_FORM
+from source_health import annotate_sources, health_summary
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'public' / 'data'
@@ -42,9 +43,9 @@ MAX_LINKS = 12
 MAX_DETAILS = 3
 LIMIT_DISCOVERIES = 160
 
-KEYWORDS = re.compile(r'\b(?:beb[eéê]s?|bebeteca|primeira.inf[aâ]ncia|crian[cç]as?|infantil|fam[ií]lias?|hist[oó]rias?|contos?|sensorial|music(?:a|al)|musicais|teatro|oficina|workshop|papi|atividades?|eventos?|natal|mercados?|feiras?|aquário|zoo)\b', re.I)
+KEYWORDS = re.compile(r'\b(?:beb[eéê]s?|bebeteca|bibliotecas?|primeira.inf[aâ]ncia|crian[cç]as?|infantil|fam[ií]lias?|hist[oó]rias?|contos?|sensorial|music(?:a|al)|musicais|teatro|oficina|workshop|papi|atividades?|eventos?|natal|mercados?|feiras?|aquário|zoo)\b', re.I)
 STRONG = re.compile(r'\b(?:bebeteca|beb[eéê]s?|primeira.inf[aâ]ncia|0\s*[-–]\s*3|6\s*[-–]\s*36|12\s*[-–]\s*36|18\s*[-–]\s*36|sensorial|papi|hist[oó]rias?|m[uú]sica\s+para|teatro\s+para)\b', re.I)
-LINK_PATH = re.compile(r'/(?:evento|event|atividade|workshop|oficina|bebes|bebe|baby|programa|agenda|noticias?|bilhete|inscri)', re.I)
+LINK_PATH = re.compile(r'/(?:evento|event|atividade|workshop|oficina|bebes|bebe|baby|programa|agenda|noticias?|bilhete|inscri|recurso)', re.I)
 FORM_HOST = re.compile(r'(?:forms\.gle|docs\.google\.com/forms|forms\.office\.com|eventbrite\.|bol\.pt|ticketline\.|bilheteiraonline\.)', re.I)
 MONTHS = {'janeiro':1,'fevereiro':2,'março':3,'marco':3,'abril':4,'maio':5,'junho':6,'julho':7,'agosto':8,'setembro':9,'outubro':10,'novembro':11,'dezembro':12}
 LOCAL = re.compile(r'matosinhos|porto|maia|gaia|senhora da hora|são mamede|sao mamede|boavista|bonfim|leça|leca',re.I)
@@ -133,6 +134,11 @@ def strip_text(s):
 
 def links_from(html, base):
     soup=BeautifulSoup(html,'html.parser')
+    # Porto libraries and Serralves use root-relative document bases even on
+    # nested programme pages. Ignoring this turns real event links into 404s.
+    document_base=soup.find('base',href=True)
+    if document_base:
+        base=canonical(urljoin(base,document_base['href'])) or base
     seen={}
     for a in soup.find_all('a',href=True):
         url=canonical(urljoin(base,a['href']))
@@ -145,7 +151,9 @@ def links_from(html, base):
 def possible_link(url,title):
     if FORM_HOST.search(url) or excludes_under_three(title): return False
     if any(k in url.lower() for k in ('wp-admin','login','privacy','politica-de','newsletter','contactos','/tag/','/category/')):return False
-    return bool((STRONG.search(title) and (LINK_PATH.search(url) or len(title)>18)) or (KEYWORDS.search(title) and LINK_PATH.search(url) and len(title)>12))
+    path_title=unquote(urlparse(url).path).replace('-',' ')
+    return bool((STRONG.search(title) and (LINK_PATH.search(url) or len(title)>18)) or (KEYWORDS.search(title) and LINK_PATH.search(url) and len(title)>12)
+                or (LINK_PATH.search(url) and KEYWORDS.search(path_title)))
 
 def extract_json_ld(soup):
     found=[]
@@ -605,7 +613,8 @@ def scan(sources,previous,history,now):
     if any(x['ok'] for x in results.values()):old_curated['lastSuccessfulScan']=stamp()
     old_curated['updatedAt']=stamp()
     history['lastRun']=stamp()
-    history['scanStats']={'sourcesOk':sum(x['ok'] for x in results.values()),'sourcesFailed':sum(not x['ok'] for x in results.values()),'autoEvents':len(auto_add)}
+    annotate_sources(results)
+    history['scanStats']={'sourcesOk':sum(x['ok'] for x in results.values()),'sourcesFailed':sum(not x['ok'] for x in results.values()),'autoEvents':len(auto_add),'collectionHealth':health_summary(results)}
     new_updates={'updatedAt':stamp(),'sourceIndex':results,'discoveries':new_items,'pendingDiscoveries':pending_items}
     return new_updates,old_curated,history,new_msgs,auto_add
 
@@ -619,6 +628,14 @@ def main():
     save(DATA/'events.json',events)
     save(DATA/'history.json',hist)
     print('Sources OK:',hist['scanStats']['sourcesOk'],'failed:',hist['scanStats']['sourcesFailed'],'events auto-added:',len(added),'new actionable signals:',len(msgs))
+    print('Collection health:',json.dumps(hist['scanStats']['collectionHealth'],ensure_ascii=False))
+    summary=os.environ.get('GITHUB_STEP_SUMMARY')
+    if summary:
+        with Path(summary).open('a',encoding='utf-8') as output:
+            output.write('\n### Cobertura da recolha\n\nAcesso à página não confirma extração de eventos.\n\n| Fonte | Estado | Observações |\n| --- | --- | --- |\n')
+            for name,source in updated['sourceIndex'].items():
+                note='; '.join(source['collectionHealth']['reasons']).replace('|','/').replace('\n',' ')
+                output.write(f"| {name} | {source['collectionHealth']['status']} | {note} |\n")
     if os.environ.get('ALERT_ON_DISCOVERIES','')=='1':notify_telegram(msgs)
     elif any('formulário' in m or 'Data de inscrições' in m for m in msgs):
         notify_telegram([m for m in msgs if 'formulário' in m or 'Data de inscrições' in m])

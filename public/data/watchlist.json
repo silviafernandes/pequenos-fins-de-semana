@@ -13,9 +13,10 @@
   },
   {
     "name": "Biblioteca da Maia",
-    "url": "https://www.cm-maia.pt/",
+    "url": "https://www.cm-maia.pt/institucional/atualidade-e-participacao/agenda/todos-os-eventos",
     "type": "page",
-    "priority": 1
+    "priority": 1,
+    "monitoringNote": "Agenda municipal com links para o programa mensal da biblioteca. PDFs e cartazes sem detalhes estruturados exigem revisão; não são sessões automaticamente confirmadas."
   },
   {
     "name": "Bibliotecas de Gaia",
@@ -136,5 +137,29 @@
       "https://www.agoraporto.pt/noticias/a-magia-do-natal-chega-as-ruas-da-cidade-a-28-de-novembro"
     ],
     "monitoringNote": "Natal 2026: inauguração a 28 de novembro, às 18:00. Oficinas e espetáculos aguardam programa e idades; não presumimos acesso para bebés."
+  },
+  {
+    "name": "Serralves · Agenda",
+    "url": "https://www.serralves.pt/agenda-serralves/",
+    "type": "page",
+    "priority": 1,
+    "monitoringNote": "Descoberta na agenda oficial: oficinas, natureza e mercados. Entrada gratuita para crianças não confirma a idade mínima da atividade; verificar cada sessão."
+  },
+  {
+    "name": "Museu do Porto · Agenda",
+    "url": "https://museudoporto.pt/agenda/",
+    "type": "page",
+    "priority": 2,
+    "monitoringNote": "Descoberta de oficinas e programas educativos na agenda oficial. «Para famílias» não confirma adequação a menores de 3 anos."
+  },
+  {
+    "name": "MHNC-UP · Agenda e famílias",
+    "url": "https://mhnc.up.pt/pt/eventos/index.php",
+    "programmeUrls": [
+      "https://mhnc.up.pt/pt/servico-educativo/familias/"
+    ],
+    "type": "page",
+    "priority": 2,
+    "monitoringNote": "Museu de História Natural e da Ciência, Galeria da Biodiversidade e Jardim Botânico. Verificar idade, local exato e horário de cada atividade; visitas gerais não são sessões."
   }
 ]

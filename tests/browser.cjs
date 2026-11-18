@@ -50,12 +50,13 @@ const { chromium } = require('playwright');
   assert.equal(sessionTiming({...sample,start:'23:30'}).endDate,'2026-11-15');
   assert.equal(sessionTiming({...sample,start:'23:30'}).end,'00:30');
   assert.match(timeLabel(sample),/10:00–11:00 · fim estimado/);
-  const server = spawn('npm',['run','preview','--','--host','127.0.0.1','--port','4174'],{stdio:'ignore'});
+  const port=process.env.BROWSER_TEST_PORT||'4174';
+  const server = spawn(process.execPath,[require('node:path').join(require('node:path').dirname(require.resolve('vite/package.json')),'bin/vite.js'),'preview','--host','127.0.0.1','--port',port,'--strictPort'],{stdio:'ignore'});
   let browser;
   try {
     let ready=false;
     for(let attempt=0;attempt<60;attempt++){
-      try{const response=await fetch('http://127.0.0.1:4174/');if(response.ok){ready=true;break}}catch{}
+      try{const response=await fetch(`http://127.0.0.1:${port}/`);if(response.ok){ready=true;break}}catch{}
       await new Promise(resolve=>setTimeout(resolve,250));
     }
     assert.ok(ready,'Preview server did not start');
@@ -87,11 +88,11 @@ const { chromium } = require('playwright');
     fixture.events.push({...fixture.events.find(e=>e.id==='baby'),id:'unchecked',title:'Sessão sem evidência',sessionEvidence:undefined})
     await page.route('**/data/events.json',route=>route.fulfill({json:fixture}));
     await page.route('**/data/history.json',route=>route.fulfill({json:{observations:[]}}));
-    await page.route('**/data/discoveries.json',route=>route.fulfill({json:{sourceIndex:{PlayLab:{url:'https://sites.google.com/view/playlabporto/agenda',ok:false,programmeReviewedAt:'2026-11-09T12:00:00Z',reviewedSessions:8,liveSessions:0,reviewNeeded:true},Biblioteca:{url:'https://example.org',ok:false,error:'HTTP 403',checkedAt:'2026-11-09T10:00:00Z'},Allegrow:{url:'https://allegrowkids.pt/pt/',ok:true,readMode:'public-json',activitiesChecked:12,eligibleSessions:0,pendingSessions:1}},discoveries:[
+    await page.route('**/data/discoveries.json',route=>route.fulfill({json:{sourceIndex:{PlayLab:{url:'https://sites.google.com/view/playlabporto/agenda',ok:false,programmeReviewedAt:'2026-11-09T12:00:00Z',reviewedSessions:8,liveSessions:0,reviewNeeded:true},Biblioteca:{url:'https://example.org',ok:false,error:'HTTP 403',checkedAt:'2026-11-09T10:00:00Z'},Allegrow:{url:'https://allegrowkids.pt/pt/',ok:true,readMode:'public-json',activitiesChecked:12,eligibleSessions:0,pendingSessions:1},Links:{url:'https://example.org/agenda',ok:true,relevantLinks:3,parsedSessions:0},Partial:{url:'https://example.org/programme',ok:true,parsedSessions:2,detailErrors:[{error:'404'}]}},discoveries:[
       {id:'old-lead',title:'Contamos contigo! A partir dos 3 anos',url:'https://example.org/older',minMonths:36,maxMonths:144,firstSeen:'2026-11-09'},
       {id:'unknown-lead',title:'Hora do conto para famílias',url:'https://example.org/unknown',firstSeen:'2026-11-09'},
       {...fixture.events.find(e=>e.id==='baby'),id:'baby-lead',title:'Música para bebés 0–3 anos',url:'https://example.org/babies',firstSeen:'2026-11-09'}]}}));
-    await page.goto('http://127.0.0.1:4174/');
+    await page.goto(`http://127.0.0.1:${port}/`);
     await page.getByText('Sessão para bebés pequenos',{exact:true}).waitFor();
     assert.equal(await page.locator('.event-card').count(),3);
     assert.equal(await page.locator('.stats').count(),0);
@@ -102,13 +103,13 @@ const { chromium } = require('playwright');
     await page.getByRole('button',{name:'Antes da sesta',exact:true}).click();
     assert.equal(await page.locator('.event-card').count(),3);
     assert.match(await page.locator('.event-card').filter({hasText:'Sessão para bebés pequenos'}).locator('.category-art').getAttribute('src'),/activity-music\.webp/);
-    for(const kind of artworkKinds){assert.equal((await page.request.get('http://127.0.0.1:4174/pequenos-fins-de-semana/illustrations/activity-'+kind+'.webp')).status(),200)}
+    for(const kind of artworkKinds){assert.equal((await page.request.get(`http://127.0.0.1:${port}/pequenos-fins-de-semana/illustrations/activity-${kind}.webp`)).status(),200)}
     const initialCollage=await page.locator('.hero-collage img').getAttribute('src');
     assert.equal(await page.getByRole('button',{name:'Mudar colagem do cabeçalho'}).count(),0);
     await page.reload();
     await page.getByText('Sessão para bebés pequenos',{exact:true}).waitFor();
     assert.notEqual(await page.locator('.hero-collage img').getAttribute('src'),initialCollage);
-    for(const collage of collages){assert.equal((await page.request.get('http://127.0.0.1:4174/pequenos-fins-de-semana/illustrations/'+collage.file)).status(),200)}
+    for(const collage of collages){assert.equal((await page.request.get(`http://127.0.0.1:${port}/pequenos-fins-de-semana/illustrations/${collage.file}`)).status(),200)}
     const soldout=page.locator('.event-card').filter({hasText:'Sessão para bebés pequenos'});
     assert.match(await soldout.innerText(),/Esgotado/);
     assert.equal(await soldout.getByRole('link',{name:'Ver detalhes'}).count(),1);
@@ -150,6 +151,8 @@ const { chromium } = require('playwright');
     assert.equal(await page.locator('.source-status-list').isVisible(),true,'Disclosure works with the keyboard');
     assert.match(await page.locator('.source-status-list').innerText(),/Fonte indisponível/);
     assert.match(await page.locator('.source-status-list').innerText(),/12 atividades consultadas · 0 sessões elegíveis · 1 sessão por verificar/);
+    assert.match(await page.locator('.source-status-list').innerText(),/Links encontrados · sem sessões extraídas/);
+    assert.match(await page.locator('.source-status-list').innerText(),/2 sessões extraídas · 1 páginas por verificar/);
     await page.setViewportSize({width:390,height:844});
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
     assert.deepEqual(errors,[]);
