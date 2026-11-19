@@ -13,13 +13,34 @@ function fold(line) {
   parts.push(current)
   return parts.join('\r\n')
 }
-export function calendarText(event,now=new Date()) {
+function eventRange(event) {
   const timing=sessionTiming(event)
   if(!timing)return null
   const start=lisbonInstant(event.date,event.start)
   // An assumed hour is elapsed time, even across a summer/winter clock change.
   const end=timing.estimated&&start?new Date(+start+3600000):lisbonInstant(timing.endDate,timing.end)
   if(!start||!end||end<=start)return null
+  return {timing,start,end}
+}
+export function googleCalendarUrl(event) {
+  const range=eventRange(event)
+  if(!range)return null
+  const {timing,start,end}=range
+  const details=[
+    event.description,
+    event.ageText?`Idades: ${event.ageText}`:null,
+    event.price?`Preço: ${event.price}`:null,
+    timing.estimated?'Fim estimado: duração assumida de 1 hora.':null,
+    event.bookingUrl?`Inscrição: ${event.bookingUrl}`:null,
+    event.sourceUrl?`Fonte: ${event.sourceUrl}`:null,
+  ].filter(Boolean).join('\n\n')
+  const params=new URLSearchParams({action:'TEMPLATE',text:event.title||'',dates:`${stamp(start)}/${stamp(end)}`,ctz:'Europe/Lisbon',location:event.venue||'',details})
+  return `https://calendar.google.com/calendar/render?${params}`
+}
+export function calendarText(event,now=new Date()) {
+  const range=eventRange(event)
+  if(!range)return null
+  const {timing,start,end}=range
   const description=(timing.estimated?'Fim estimado: duração assumida de 1 hora. ':'')+(event.bookingUrl||event.sourceUrl||'')
   return [
     'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Pequenos Fins de Semana//PT','CALSCALE:GREGORIAN','BEGIN:VEVENT',

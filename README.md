@@ -60,7 +60,7 @@ npm run build
 
 ## Ficheiros principais
 
-- `src/App.jsx` e `src/styles.css` — dashboard responsivo em português, filtros, favoritos locais e exportação `.ics` dos eventos com horas conhecidas.
+- `src/App.jsx` e `src/styles.css` — dashboard responsivo em português, filtros, favoritos locais e criação de eventos no Google Calendar a partir das atividades.
 - `public/data/events.json` — eventos com informação suficiente para serem apresentados no calendário.
 - `public/data/discoveries.json` — anúncios e links novos que exigem validação, incluindo erros por fonte.
 - `public/data/history.json` — observações de inscrições e padrões, sem confundir hipóteses com regras.
@@ -173,3 +173,7 @@ O workflow instala `tesseract-ocr` e `tesseract-ocr-por`. Para recolha local com
 ## Duração estimada
 
 Por preferência do utilizador, sessões sem hora de fim publicada assumem **1 hora** para apresentação, filtros da sesta, ordenação e exportação de calendário. A interface e a descrição do calendário identificam a estimativa. Um fim publicado tem sempre prioridade. As exportações que atravessam a meia-noite terminam no dia seguinte. A estimativa não altera os dados da fonte nem a evidência verificada.
+
+### Adicionar ao Google Calendar
+
+O ícone de calendário de cada atividade abre um novo separador do Google Calendar com título, data, horário, local, descrição e ligações de inscrição/fonte preenchidos. Basta rever os detalhes e carregar em **Guardar** na conta Google. Sem hora de fim publicada, mantém-se a estimativa de uma hora, identificada na descrição.
