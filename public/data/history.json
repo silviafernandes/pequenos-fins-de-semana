@@ -84,7 +84,7 @@
         "https://forms.gle/htFeB3xMT6nSwXwDA"
       ],
       "openingDates": [],
-      "lastChecked": "2026-11-19T10:25:38+00:00"
+      "lastChecked": "2026-11-19T11:37:33+00:00"
     },
     "44a43d31422cf6e": {
       "page": "https://www.bibliotecasearquivosmatosinhos.pt/evento-44/bebeteca-magica-yoga-de-encantar-48",
@@ -167,17 +167,18 @@
       "lastChecked": "2026-11-09T22:59:16+00:00"
     }
   },
-  "lastRun": "2026-11-19T10:28:25+00:00",
+  "lastRun": "2026-11-19T11:40:05+00:00",
   "scanStats": {
-    "sourcesOk": 25,
-    "sourcesFailed": 0,
+    "sourcesOk": 24,
+    "sourcesFailed": 1,
     "autoEvents": 0,
     "collectionHealth": {
       "review-needed": 5,
       "partial": 6,
-      "discovery-only": 7,
+      "unavailable": 1,
       "collected": 5,
-      "no-sessions": 2
+      "no-sessions": 2,
+      "discovery-only": 6
     }
   },
   "programmeWatch": {
@@ -197,7 +198,31 @@
         ],
         "agendaRevision": "1793359484204"
       },
-      "checkedAt": "2026-11-19T10:25:35.350683+00:00"
+      "checkedAt": "2026-11-19T11:37:30.640772+00:00"
     }
-  }
+  },
+  "collectionInputs": {
+    ".github/workflows/site.yml": "dcdcf856b8dd7d6a1eee261374d46ebe63b6e630269aa974eb304d1136662318",
+    "public/data/playlab-programme.json": "128f6c9cba8cc2eb6333cebb9c358fb3d8481ebaf08fd10094bcc2cd0b5c2451",
+    "public/data/poster-reviews.json": "836f53a245808b08bf48168ea4a35c385e830ec216667e0eae1b2e4297a767ed",
+    "public/data/venues.json": "59f03d675d86e77b7b24e97eeed361a05d6e65375a4bac5321186b041e1306fd",
+    "public/data/watchlist.json": "5a277b9b170eb559c1408a98d8d7a8775fb4905cfafaafedf79d671c46a6f66c",
+    "requirements.txt": "a186b6d970850f6dec145b1f1f4c8dd8bcecf76d25ee41399f4e0dbb9f2caac5",
+    "scripts/adapters.py": "250873023b29a4f7fd884df9815683f2c7bf7de0f551738f2063f083617849c5",
+    "scripts/allegrow.py": "22881bb6ef52464d219155efd39e33eb55095c3abac65e6bd1b80327bdf8c874",
+    "scripts/audit_database.py": "61b3c005c46c30d94e3d91340427549a9e165d11dc68abea520da3af05a371c4",
+    "scripts/deployment_changes.py": "4b29e3516cb3cccd5ea3f1a0f4c579a737cecc05e02c0717fb05b2615e6f48c7",
+    "scripts/eligibility.py": "6a3f7a169ba9199a2d79bec83992f7262b8e124bebe45180d529c13ea47faf64",
+    "scripts/knockknock.py": "60c6333296882895029a00704c522c89756ec5b2b0ff5ccd04653be472b1e363",
+    "scripts/outings.py": "9db34c853a22c49a391874b26c7f883ef76ab468aa4a1bbe93b75d4343e7a77a",
+    "scripts/playlab.py": "62130480a95b869b4bef5910c224102b7e0043ea225e8917dcc5d4d578753367",
+    "scripts/posters.py": "e9991607ff0270dd6da61ab8aba91fbfa71bba45d94dfc89edb0ab9d3e134da7",
+    "scripts/seed.py": "8d7e57d9f7f1c13b597085c392425f9da200228f709cd73f0e056f5cae0a6528",
+    "scripts/source_health.py": "052d3ab7d9d18950616c9c8afb51c585c590cf86b32295f5b447f5b3c91e2097",
+    "scripts/telegram_alerts.py": "ab22e638b6edf8e8854271a351df9294a6bccfcc7d2b0b5f05816f4214d0cbda",
+    "scripts/update.py": "51e511d2634ce50bf6f61adeb75032a920b114e9ed4b2674b5464b9e06102c9c"
+  },
+  "collectionEventsDigest": "6810a7b329a5d0bf26ae1fa6696ed0f87318264f6ec4f05f7e6053d5cdd0bf8d",
+  "collectionDiscoveriesDigest": "13b8627c0a9327f585d0c23ae3daea12c5f693210fc404a73aee9658ff7a1228",
+  "collectionHistoryDigest": "83c3efee8098057021a7111f3acc28e72ab0b9567466bc099e62866b7d65de9c"
 }
