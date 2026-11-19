@@ -166,7 +166,6 @@ function App(){
  </section>
  <Outings items={data.outings}/>
  <EverydayIdeas/>
- <div className="midline"><div><CloudSun size={20}/><strong>Plano B para dias de chuva?</strong><span>As bibliotecas, oficinas e museus são boas apostas para manhãs em interior.</span></div><a href="#atividades" onClick={()=>{setSearch('');setCategory('Todas');setWeek('all');setSavedOnly(false);setShowAll(false);setOpeningWeekOnly(false);setIndoorOnly(true)}}>Explorar <ArrowRight size={16}/></a></div>
  <SourcePanel history={history} discoveries={discoveries}/>
  </div></main><Footer lastSuccessfulScan={data.lastSuccessfulScan}/></div>
 }
