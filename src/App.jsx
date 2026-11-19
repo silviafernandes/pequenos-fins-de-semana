@@ -3,9 +3,9 @@ import {
   ArrowDownRight, ArrowRight, ArrowUpRight, BellRing, BookOpen, CalendarDays, Check, ChevronDown, Clock3, CloudSun, ExternalLink, Filter, Heart, Info, MapPin, RefreshCw, Search, Sparkles, Ticket, X, CircleAlert, CalendarPlus, Sun
 } from 'lucide-react'
 import { eligibleSession, eligibleOuting } from './eligibility.js'
-import { sessionTiming, napFriendly, napClash, timeLabel } from './timing.js'
+import { napFriendly, napClash, timeLabel } from './timing.js'
 import { todayPT, datePlusDays, nextSixWeekends, openingInstant, openingThisWeek, lisbonDateTime } from './dates.js'
-import { calendarText } from './calendar.js'
+import { googleCalendarUrl } from './calendar.js'
 import { loadFavorites, persistFavorites } from './favorites.js'
 import { refreshFeeds } from './feeds.js'
 import { normalizeSearch } from './search.js'
@@ -39,11 +39,6 @@ const registrationLabel = (e,now) => {
 function openingHeadline(stamp){ const instant=openingInstant(stamp);if(!instant)return '';const {date,time}=lisbonDateTime(instant);return `${weekday(date)} ${monthDay(date)} · ${time}` }
 function isSafeUrl(s){try{return ['https:','http:'].includes(new URL(s).protocol)}catch{return false}}
 function eventScore(e){ let s=napFriendly(e)?100:napClash(e)?-30:0; if(e.status==='open')s+=40; if(e.status==='scheduled')s+=35; if(e.category==='Bibliotecas')s+=8; if(e.minMonths<=27 && e.maxMonths>=27)s+=15; return s+(e.priority||0)/5 }
-function calendarFile(e){
-  const text=calendarText(e)
-  if(!text)return
-  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'text/calendar;charset=utf-8'}));a.download=`atividade-${e.date}-${e.id}.ics`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),10000)
-}
 function Img({e}){
  const [failed,setFailed]=useState(false)
  useEffect(()=>setFailed(false),[e.imageUrl])
@@ -57,6 +52,7 @@ function StatusBadge({e,now}) { const b=registrationLabel(e,now);return <span cl
 function MiniPill({children,kind='plain'}){return <span className={`mini mini-${kind}`}>{children}</span>}
 function EventCard({e,favorites,onToggle,now,compact=false}){
  const saved=favorites.includes(e.id)
+ const calendarUrl=googleCalendarUrl(e)
  const url=isSafeUrl(e.bookingUrl)?e.bookingUrl:(isSafeUrl(e.sourceUrl)?e.sourceUrl:null)
  return <article className={`event-card ${compact?'compact':''}`}>
    <Img e={e}/>
@@ -69,7 +65,7 @@ function EventCard({e,favorites,onToggle,now,compact=false}){
      <div className="detail-line">{Number.isFinite(e.distanceKm)&&<>{e.distanceKm.toLocaleString('pt-PT',{maximumFractionDigits:1})} km em linha reta <span>·</span> </>}{e.ageText} <span>·</span> {e.indoor===true?'Interior':e.indoor===false?'Exterior':'Interior/exterior por confirmar'}{e.evidenceDate?<span> <span>·</span> Fonte de {monthDay(e.evidenceDate)}</span>:null}</div>
      {e.registrationNote&&<p className="registration-note">{e.registrationNote}</p>}
      {e.status==='scheduled'&&e.openingAt&&<div className="opening-note"><BellRing size={14}/><span>Inscrições: <strong>{openingHeadline(e.openingAt)}</strong></span></div>}
-     <div className="card-actions"><a className="primary-link" href={url||'#'} target="_blank" rel="noopener noreferrer" aria-disabled={!url}>{e.status==='scheduled'?'Ver formulário':(e.registrationMethod==='in-person-ticket'||e.status==='walkin'||e.status==='soldout')?'Ver detalhes':'Ver inscrição'} <ArrowUpRight size={15}/></a><a className="secondary-link" href={e.sourceUrl} target="_blank" rel="noopener noreferrer" title="Abrir fonte oficial">Fonte <ExternalLink size={13}/></a>{sessionTiming(e)?<button className="secondary-link" onClick={()=>calendarFile(e)} title="Guardar no calendário"><CalendarPlus size={15}/></button>:null}</div>
+     <div className="card-actions"><a className="primary-link" href={url||'#'} target="_blank" rel="noopener noreferrer" aria-disabled={!url}>{e.status==='scheduled'?'Ver formulário':(e.registrationMethod==='in-person-ticket'||e.status==='walkin'||e.status==='soldout')?'Ver detalhes':'Ver inscrição'} <ArrowUpRight size={15}/></a><a className="secondary-link" href={e.sourceUrl} target="_blank" rel="noopener noreferrer" title="Abrir fonte oficial">Fonte <ExternalLink size={13}/></a>{calendarUrl&&<a className="secondary-link" href={calendarUrl} target="_blank" rel="noopener noreferrer" title="Adicionar ao Google Calendar" aria-label={`Adicionar ao Google Calendar: ${e.title}`}><CalendarPlus size={15}/></a>}</div>
    </div>
  </article>
 }

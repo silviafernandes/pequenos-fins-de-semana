@@ -3,7 +3,7 @@ import assert from 'node:assert/strict'
 import {nextSixWeekends,todayPT,lisbonInstant,openingInstant,openingThisWeek} from '../src/dates.js'
 import {loadFavorites,persistFavorites} from '../src/favorites.js'
 import {refreshFeeds} from '../src/feeds.js'
-import {calendarText} from '../src/calendar.js'
+import {calendarText,googleCalendarUrl} from '../src/calendar.js'
 import {sessionTiming} from '../src/timing.js'
 import {underThree} from '../src/age.js'
 import {eligibleSession} from '../src/eligibility.js'
@@ -93,4 +93,29 @@ test('activity and place searches share Portuguese accent folding',async()=>{
   const {normalizeSearch}=await import('../src/search.js')
   assert.ok(normalizeSearch('Música para bebés em São Mamede').includes(normalizeSearch('musica')))
   assert.ok(normalizeSearch('São Mamede').includes(normalizeSearch('sao mamede')))
+})
+
+
+test('Google Calendar draft preserves event details, Unicode, Lisbon time and estimated duration',()=>{
+  const e=Object.freeze({...sample,date:'2026-07-04',description:'Brincar & descobrir',ageText:'6–36 meses',price:'15 €',bookingUrl:'https://example.org/form?x=1&y=2'})
+  const url=new URL(googleCalendarUrl(e))
+  assert.equal(url.origin,'https://calendar.google.com')
+  assert.equal(url.pathname,'/calendar/render')
+  assert.equal(url.searchParams.get('action'),'TEMPLATE')
+  assert.equal(url.searchParams.get('text'),e.title)
+  assert.equal(url.searchParams.get('location'),e.venue)
+  assert.equal(url.searchParams.get('ctz'),'Europe/Lisbon')
+  assert.equal(url.searchParams.get('dates'),'20260704T090000Z/20260704T100000Z')
+  const details=url.searchParams.get('details')
+  for(const part of [e.description,e.ageText,e.price,e.bookingUrl,e.sourceUrl,'duração assumida de 1 hora'])assert.ok(details.includes(part))
+  assert.equal(e.end,null)
+})
+
+test('Google Calendar uses the published end and rejects invalid event times',()=>{
+  const url=new URL(googleCalendarUrl({...sample,end:'10:45'}))
+  assert.equal(url.searchParams.get('dates'),'20261121T100000Z/20261121T104500Z')
+  assert.ok(!url.searchParams.get('details').includes('Fim estimado'))
+  assert.equal(googleCalendarUrl({...sample,date:'2026-02-31'}),null)
+  assert.equal(googleCalendarUrl({...sample,start:null}),null)
+  assert.equal(new URL(googleCalendarUrl({...sample,date:'2026-03-29',start:'00:30'})).searchParams.get('dates'),'20260329T003000Z/20260329T013000Z')
 })
