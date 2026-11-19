@@ -1,12 +1,14 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import {
-  ArrowDownRight, ArrowRight, ArrowUpRight, BellRing, Bookmark, BookOpen,
-  CalendarDays, Check, CheckCircle2, ChevronDown, Clock3, CloudSun,
-  ExternalLink, Filter, Heart, Info, MapPin, Menu, RefreshCw, Search,
-  Sparkles, Ticket, X, CircleAlert, CalendarPlus, ImageOff, Star, Sun, Compass
+  ArrowDownRight, ArrowRight, ArrowUpRight, BellRing, BookOpen, CalendarDays, Check, ChevronDown, Clock3, CloudSun, ExternalLink, Filter, Heart, Info, MapPin, RefreshCw, Search, Sparkles, Ticket, X, CircleAlert, CalendarPlus, Sun
 } from 'lucide-react'
 import { eligibleSession, eligibleOuting } from './eligibility.js'
 import { sessionTiming, napFriendly, napClash, timeLabel } from './timing.js'
+import { todayPT, datePlusDays, nextSixWeekends, openingInstant, openingThisWeek, lisbonDateTime } from './dates.js'
+import { calendarText } from './calendar.js'
+import { loadFavorites, persistFavorites } from './favorites.js'
+import { refreshFeeds } from './feeds.js'
+import { normalizeSearch } from './search.js'
 import HeaderCollage from './HeaderCollage.jsx'
 import { activityArtwork } from './activityArtwork.js'
 import initial from './initialData.json'
@@ -20,42 +22,26 @@ import initialDiscoveries from './initialDiscoveries.json'
 const DATA_URL = `${import.meta.env.BASE_URL}data/events.json`
 const HISTORY_URL = `${import.meta.env.BASE_URL}data/history.json`
 const DISCOVERIES_URL = `${import.meta.env.BASE_URL}data/discoveries.json`
-const nowPTStamp = () => new Intl.DateTimeFormat('sv-SE', {timeZone:'Europe/Lisbon', year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date()).replace(' ','T')
-const fmt = new Intl.DateTimeFormat('pt-PT', {day:'numeric', month:'short', timeZone:'Europe/Lisbon'})
 const weekdays = new Intl.DateTimeFormat('pt-PT', {weekday:'long', timeZone:'Europe/Lisbon'})
-const nowPT = () => new Intl.DateTimeFormat('en-CA', {timeZone:'Europe/Lisbon', year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date())
 const cleanDate = d => new Date(`${d}T12:00:00Z`)
 const weekday = d => weekdays.format(cleanDate(d))
 const monthDay = d => `${cleanDate(d).getUTCDate()} ${['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'][cleanDate(d).getUTCMonth()]}`
-const openingThisWeek = e => {const now=new Date(); const start=new Date(`${nowPT()}T12:00:00Z`); const days=7-((start.getUTCDay()+6)%7); const limit=datePlusDays(nowPT(),days); return e.status==='scheduled' && !!e.openingAt && new Date(e.openingAt.length===16?`${e.openingAt}${lisbonOffset(e.openingAt)}`:e.openingAt)>now && e.openingAt.slice(0,10)<limit}
-const lisbonOffset = stamp => {const d=new Date(`${stamp.slice(0,10)}T12:00:00Z`); const h=new Intl.DateTimeFormat('en-GB',{hour:'2-digit',hourCycle:'h23',timeZone:'Europe/Lisbon'}).format(d); return h==='13'?'+01:00':'+00:00'}
 const weekStart = d => { const x=cleanDate(d); x.setUTCDate(x.getUTCDate()-((x.getUTCDay()+1)%7)); return x.toISOString().slice(0,10) }
-const datePlusDays = (d,n) => { const x=cleanDate(d); x.setUTCDate(x.getUTCDate()+n); return x.toISOString().slice(0,10) }
-const pad = s => String(s).padStart(2,'0')
-function nextSixWeekends(){
-  const today=nowPT(), current=cleanDate(today), day=current.getUTCDay(), delta=(6-day+7)%7
-  const saturday=datePlusDays(today,day===0?-1:delta)
-  return Array.from({length:6},(_,i)=> datePlusDays(saturday,i*7))
-}
-const shortTime = time => time || 'Hora por confirmar'
-const registrationLabel = e => {
-  if (e.status==='scheduled' && e.openingAt && e.openingAt<=nowPTStamp()) return {label:'Abertura já passou · confirmar vagas',tone:'neutral'}
-  if (e.status==='scheduled' && e.openingAt) return {label:'Abre em breve',tone:'amber'}
+const registrationLabel = (e,now) => {
+  const opening=openingInstant(e.openingAt)
+  if (e.status==='scheduled' && opening && opening<=now) return {label:'Abertura já passou · confirmar vagas',tone:'neutral'}
+  if (e.status==='scheduled' && opening) return {label:'Abre em breve',tone:'amber'}
   if (e.status==='open') return {label:'Inscrições abertas (fonte verificada)',tone:'green'}
   if (e.status==='soldout') return {label:'Esgotado',tone:'red'}
   if (e.status==='walkin') return {label:'Sem reserva anunciada',tone:'green'}
   return {label:'Vagas por verificar',tone:'neutral'}
 }
-const bestCategoryIcon = cat => cat==='Bibliotecas' ? <BookOpen size={16}/> : cat==='Música' ? <Sparkles size={16}/> : cat==='Sensorial' ? <Sun size={16}/> : <Star size={16}/>
-function timeToPT(stamp){ if(!stamp) return null; const [date,time]=stamp.split('T'); return `${date.split('-').reverse().join('/')} · ${time.slice(0,5)}` }
-function openingHeadline(stamp){ if (!stamp) return ''; const [date,time]=stamp.split('T'); return `${weekday(date)} ${monthDay(date)} · ${time.slice(0,5)}` }
+function openingHeadline(stamp){ const instant=openingInstant(stamp);if(!instant)return '';const {date,time}=lisbonDateTime(instant);return `${weekday(date)} ${monthDay(date)} · ${time}` }
 function isSafeUrl(s){try{return ['https:','http:'].includes(new URL(s).protocol)}catch{return false}}
 function eventScore(e){ let s=napFriendly(e)?100:napClash(e)?-30:0; if(e.status==='open')s+=40; if(e.status==='scheduled')s+=35; if(e.category==='Bibliotecas')s+=8; if(e.minMonths<=27 && e.maxMonths>=27)s+=15; return s+(e.priority||0)/5 }
 function calendarFile(e){
-  const timing=sessionTiming(e)
-  if (!timing) return
-  const d=e.date.replaceAll('-','');const t=e.start.replace(':','');const end=timing.end.replace(':','');const endDate=timing.endDate.replaceAll('-','')
-  const text = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Pequenos Fins de Semana//PT','BEGIN:VEVENT',`UID:${e.id}@pequenos-fins-de-semana`,`DTSTAMP:${new Date().toISOString().replaceAll('-','').replaceAll(':','').replace(/\.\d{3}/,'')}`,`DTSTART;TZID=Europe/Lisbon:${d}T${t}00`,`DTEND;TZID=Europe/Lisbon:${endDate}T${end}00`,`SUMMARY:${e.title.replaceAll(',','\\,')}`,`LOCATION:${(e.venue||'').replaceAll(',','\\,')}`,`DESCRIPTION:${timing.estimated?'Fim estimado: duração assumida de 1 hora. ':''}${(e.bookingUrl||e.sourceUrl||'').replaceAll(',','\\,')}`,'END:VEVENT','END:VCALENDAR'].join('\r\n')
+  const text=calendarText(e)
+  if(!text)return
   const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'text/calendar;charset=utf-8'}));a.download=`atividade-${e.date}-${e.id}.ics`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),10000)
 }
 function Img({e}){
@@ -67,9 +53,9 @@ function Img({e}){
    <span className="art-date"><strong>{cleanDate(e.date).getUTCDate()}</strong><span>{monthDay(e.date).split(' ')[1]}</span></span>
  </div>
 }
-function StatusBadge({e}) { const b=registrationLabel(e);return <span className={`badge badge-${b.tone}`}>{b.label}</span> }
+function StatusBadge({e,now}) { const b=registrationLabel(e,now);return <span className={`badge badge-${b.tone}`}>{b.label}</span> }
 function MiniPill({children,kind='plain'}){return <span className={`mini mini-${kind}`}>{children}</span>}
-function EventCard({e,favorites,onToggle,compact=false}){
+function EventCard({e,favorites,onToggle,now,compact=false}){
  const saved=favorites.includes(e.id)
  const url=isSafeUrl(e.bookingUrl)?e.bookingUrl:(isSafeUrl(e.sourceUrl)?e.sourceUrl:null)
  return <article className={`event-card ${compact?'compact':''}`}>
@@ -78,7 +64,7 @@ function EventCard({e,favorites,onToggle,compact=false}){
      <div className="event-overline"><span>{e.category} <span className="dotsep">·</span> {e.area}</span><button className={`heart ${saved?'active':''}`} aria-label={saved?'Remover dos favoritos':'Guardar favorito'} title="Guardar nos favoritos" onClick={()=>onToggle(e.id)}><Heart size={18} fill={saved?'currentColor':'none'}/></button></div>
      <h3>{e.title}</h3>
      <p className="event-description">{e.description}</p>
-     <div className="event-tags">{isNewEvent(e)&&<span className="new-event-badge" title="Adicionado à agenda nos últimos 7 dias"><Sparkles size={13} aria-hidden="true"/>Novo</span>}<StatusBadge e={e}/>{napFriendly(e)?<MiniPill kind="mint">✓ Antes da sesta</MiniPill>:napClash(e)?<MiniPill kind="rose">Cruza a sesta</MiniPill>:null}</div>
+     <div className="event-tags">{isNewEvent(e,now)&&<span className="new-event-badge" title="Adicionado à agenda nos últimos 7 dias"><Sparkles size={13} aria-hidden="true"/>Novo</span>}<StatusBadge e={e} now={now}/>{napFriendly(e)?<MiniPill kind="mint">✓ Antes da sesta</MiniPill>:napClash(e)?<MiniPill kind="rose">Cruza a sesta</MiniPill>:null}</div>
      <div className="meta-grid"><span><CalendarDays size={14}/>{weekday(e.date)}, {monthDay(e.date)}</span><span><Clock3 size={14}/><strong>{timeLabel(e)}</strong></span><span><MapPin size={14}/>{e.venue}</span><span><Ticket size={14}/>{e.price}</span></div>
      <div className="detail-line">{Number.isFinite(e.distanceKm)&&<>{e.distanceKm.toLocaleString('pt-PT',{maximumFractionDigits:1})} km em linha reta <span>·</span> </>}{e.ageText} <span>·</span> {e.indoor===true?'Interior':e.indoor===false?'Exterior':'Interior/exterior por confirmar'}{e.evidenceDate?<span> <span>·</span> Fonte de {monthDay(e.evidenceDate)}</span>:null}</div>
      {e.registrationNote&&<p className="registration-note">{e.registrationNote}</p>}
@@ -87,8 +73,8 @@ function EventCard({e,favorites,onToggle,compact=false}){
    </div>
  </article>
 }
-function Outings({items=[]}){
- const outings=items.filter(o=>o.id!=='outing-sealife'&&eligibleOuting(o))
+function Outings({items=[],now}){
+ const outings=items.filter(o=>o.id!=='outing-sealife'&&eligibleOuting(o,now))
  if(!outings.length)return null
  return <section className="outings-section" id="passeios" aria-label="Passeios em família"><div className="section-heading"><div><h2>Ao vosso ritmo<span>.</span></h2><p>Passeios para todas as idades. Escolhe a hora de chegada dentro do horário de abertura.</p></div></div><div className="event-grid">{outings.map(o=><article className="outing-card" key={o.id}>
  <div className={`art art-${activityArtwork(o)}`}><img className="category-art" src={`${import.meta.env.BASE_URL}illustrations/activity-${activityArtwork(o)}.webp`} alt=""/></div>
@@ -109,8 +95,8 @@ function EverydayIdeas(){
  {results.pages>1&&<nav className="ideas-pagination" aria-label="Páginas de sugestões"><button disabled={results.page===1} onClick={()=>goToPage(results.page-1)}>Anterior</button><div>{Array.from({length:results.pages},(_,i)=><button key={i} aria-label={`Página ${i+1} de sugestões`} aria-current={results.page===i+1?'page':undefined} onClick={()=>goToPage(i+1)}>{i+1}</button>)}</div><button disabled={results.page===results.pages} onClick={()=>goToPage(results.page+1)}>Seguinte</button></nav>}
  <p className="evergreen-footnote">Confirma horários e condições de acesso na página de informações. «Com parque infantil» confirma a existência do espaço, não a adequação a menores de 3 anos. As idades indicadas referem-se aos equipamentos. «Por confirmar» não significa que a instalação não exista.</p></section>
 }
-function Banner({events}){
- const future=events.filter(e=>e.status==='scheduled'&&e.openingAt&&e.openingAt>nowPTStamp()).sort((a,b)=>a.openingAt.localeCompare(b.openingAt))[0]
+function Banner({events,now}){
+ const future=events.filter(e=>e.status==='scheduled'&&e.openingAt&&openingInstant(e.openingAt)>now&&isSafeUrl(e.bookingUrl)).sort((a,b)=>openingInstant(a.openingAt)-openingInstant(b.openingAt))[0]
  if(!future) return null
  return <div className="opening-banner"><div className="banner-icon"><BellRing size={22}/></div><div className="banner-copy"><span className="tiny-title">ATENÇÃO ÀS INSCRIÇÕES</span><h2>{future.title}</h2><p>Abrem <strong>{openingHeadline(future.openingAt)}</strong> · {future.venue}</p></div><a href={future.bookingUrl} target="_blank" rel="noopener noreferrer" className="banner-action">Formulário <ArrowUpRight size={17}/></a></div>
 }
@@ -131,40 +117,59 @@ function App(){
  const [data,setData]=useState(initial), [history,setHistory]=useState(initialHistory), [discoveries,setDiscoveries]=useState(initialDiscoveries), [fetchError,setFetchError]=useState(false)
  const [search,setSearch]=useState(''), [category,setCategory]=useState('Todas'), [week,setWeek]=useState('all')
  const [napOnly,setNapOnly]=useState(false),[savedOnly,setSavedOnly]=useState(false),[showAll,setShowAll]=useState(false),[indoorOnly,setIndoorOnly]=useState(false),[openingWeekOnly,setOpeningWeekOnly]=useState(false)
- const [favorites,setFavorites]=useState(()=>{try{return JSON.parse(localStorage.getItem('pfds-favorites')||'[]')}catch{return []}})
- useEffect(()=>{let active=true;const load=()=>Promise.all([fetch(DATA_URL,{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('data');return r.json()}),fetch(HISTORY_URL,{cache:'no-store'}).then(r=>r.ok?r.json():initialHistory),fetch(DISCOVERIES_URL,{cache:'no-store'}).then(r=>r.ok?r.json():initialDiscoveries)]).then(([d,h,v])=>{if(active){setData(d);setHistory(h);setDiscoveries(v);setFetchError(false)}}).catch(()=>{if(active)setFetchError(true)});load();const timer=setInterval(load,10*60*1000);return()=>{active=false;clearInterval(timer)}},[])
- const weekends=useMemo(nextSixWeekends,[])
- const today=nowPT(), end=datePlusDays(weekends[5],1)
- const allEvents=useMemo(()=>data.events.filter(e=>e.date>=today&&e.date<=end&&eligibleSession(e)),[data.events,today,end])
+ const [favorites,setFavorites]=useState(loadFavorites)
+ const [now,setNow]=useState(()=>new Date())
+ useEffect(()=>{const tick=()=>setNow(new Date());const visible=()=>{if(document.visibilityState==='visible')tick()};const timer=setInterval(tick,60000);document.addEventListener('visibilitychange',visible);return()=>{clearInterval(timer);document.removeEventListener('visibilitychange',visible)}},[])
+ useEffect(()=>{
+  let active=true,controller=null
+  const load=async()=>{
+    if(controller)return
+    const request=new AbortController();controller=request
+    const timeout=setTimeout(()=>request.abort(),15000)
+    const apply=setter=>value=>{if(active){setNow(new Date());setter(value)}}
+    try{
+      const complete=await refreshFeeds({data:DATA_URL,history:HISTORY_URL,discoveries:DISCOVERIES_URL},{data:apply(setData),history:apply(setHistory),discoveries:apply(setDiscoveries)},{signal:request.signal})
+      if(active)setFetchError(!complete)
+    }finally{clearTimeout(timeout);controller=null}
+  }
+  const visible=()=>{if(document.visibilityState==='visible')load()}
+  load();const timer=setInterval(load,10*60*1000);document.addEventListener('visibilitychange',visible)
+  return()=>{active=false;clearInterval(timer);controller?.abort();document.removeEventListener('visibilitychange',visible)}
+ },[])
+ const today=todayPT(now)
+ const weekends=useMemo(()=>nextSixWeekends(now),[today])
+ useEffect(()=>{if(week!=='all'&&!weekends.includes(week))setWeek('all')},[week,weekends])
+ const end=datePlusDays(weekends[5],1)
+ const allEvents=useMemo(()=>data.events.filter(e=>e.date>=today&&e.date<=end&&eligibleSession(e,now)),[data.events,today,end,now])
  const displayed=useMemo(()=>allEvents.filter(e=>{
-  const text=[e.title,e.venue,e.area,e.description,e.kind].join(' ').toLocaleLowerCase('pt-PT')
-  if(search&&!text.includes(search.toLocaleLowerCase('pt-PT')))return false
+  const text=normalizeSearch([e.title,e.venue,e.area,e.description,e.kind,e.category].join(' '))
+  if(search&&!text.includes(normalizeSearch(search)))return false
   if(category!=='Todas'&&e.category!==category)return false
   if(week!=='all'&&weekStart(e.date)!==week)return false
   if(napOnly&&!napFriendly(e))return false
   if(savedOnly&&!favorites.includes(e.id))return false
   if(indoorOnly&&e.indoor!==true)return false
-  if(openingWeekOnly&&!openingThisWeek(e))return false
+  if(openingWeekOnly&&!openingThisWeek(e,now))return false
   return true
- }).sort((a,b)=>eventScore(b)-eventScore(a)||a.date.localeCompare(b.date)),[allEvents,search,category,week,napOnly,savedOnly,favorites,indoorOnly,openingWeekOnly])
+ }).sort((a,b)=>eventScore(b)-eventScore(a)||a.date.localeCompare(b.date)),[allEvents,search,category,week,napOnly,savedOnly,favorites,indoorOnly,openingWeekOnly,now])
  const categories=['Todas',...new Set(allEvents.map(e=>e.category))]
- const toggleFav=id=>setFavorites(old=>{const value=old.includes(id)?old.filter(x=>x!==id):[...old,id];localStorage.setItem('pfds-favorites',JSON.stringify(value));return value})
+ const toggleFav=id=>setFavorites(old=>{const value=old.includes(id)?old.filter(x=>x!==id):[...old,id];persistFavorites(value);return value})
  const titlePeriod=`${monthDay(weekends[0])} – ${monthDay(datePlusDays(weekends[5],1))}`
  return <div className="site-shell"><header><div className="wide nav"><a className="brand" href="#inicio" aria-label="Página inicial"><span className="logo-mark" aria-hidden="true">✳</span><span>pequenos <strong>fins de semana</strong></span></a><nav><a href="#atividades">Atividades</a><a href="#ideias">Ideias</a><a href="#fontes" onClick={()=>{const panel=document.getElementById('fontes');if(panel)panel.open=true}}>Inscrições</a></nav></div></header>
  <main id="inicio"><section className="hero"><div className="wide hero-inner"><div className="hero-text"><h1>Planos pequenos.<br/><em>Manhãs grandes.</em></h1><p className="hero-intro">Histórias, música e pequenas descobertas.<br/>O fim de semana começa com tempo para brincar.</p><a className="hero-cta" href="#atividades">Vamos escolher um plano <ArrowDownRight size={19}/></a></div><HeaderCollage/></div></section>
  <div className="wide content"><div className="update-row"><span className="updated-indicator"><RefreshCw size={14}/> Dados: {data.updatedAt? new Date(data.updatedAt).toLocaleString('pt-PT',{dateStyle:'short',timeStyle:'short',timeZone:'Europe/Lisbon'}):'sem data'}</span><span className="range-indicator">Próximas 6 semanas <strong>{titlePeriod}</strong></span></div>
- {fetchError&&<div className="fallback-warning"><CircleAlert size={17}/> Sem ligação à atualização. Só mostramos sessões com verificação recente; tenta novamente mais tarde.</div>}
+ {fetchError&&<div className="fallback-warning"><CircleAlert size={17}/> Não foi possível atualizar todos os dados. Mostramos apenas sessões com verificação recente; tenta novamente mais tarde.</div>}
  {data.lastSuccessfulScan===null&&<div className="fallback-warning"><Info size={17}/> Versão inicial: a pesquisa automática começa quando o projeto estiver publicado e o GitHub Actions estiver ativado.</div>}
- <Banner events={allEvents}/>
+ <Banner events={allEvents} now={now}/>
  <section id="atividades" className="list-section"><div className="section-heading"><div><h2>O próximo plano<span>.</span></h2></div></div>
  <div className="filters"><label className="search-field"><Search size={19}/><input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Pesquisar atividade, local, oficina…" aria-label="Pesquisar atividades"/></label><label className="select-field"><Filter size={16}/><select value={category} onChange={e=>setCategory(e.target.value)} aria-label="Categoria">{categories.map(cat=><option key={cat}>{cat}</option>)}</select><ChevronDown size={16}/></label><button className={`toggle ${napOnly?'checked':''}`} onClick={()=>setNapOnly(!napOnly)} aria-pressed={napOnly}><Sun size={16}/> Antes da sesta {napOnly?<Check size={15}/>:null}</button><button className={`toggle ${savedOnly?'checked':''}`} onClick={()=>setSavedOnly(!savedOnly)} aria-pressed={savedOnly}><Heart size={16} fill={savedOnly?'currentColor':'none'}/> Guardados</button><button className={`toggle ${indoorOnly?'checked':''}`} onClick={()=>setIndoorOnly(!indoorOnly)} aria-pressed={indoorOnly}><CloudSun size={16}/> Em interior {indoorOnly?<Check size={15}/>:null}</button><button className={`toggle ${openingWeekOnly?'checked':''}`} aria-pressed={openingWeekOnly} onClick={()=>{setOpeningWeekOnly(!openingWeekOnly);setNapOnly(false);setWeek('all');setShowAll(false)}}><BellRing size={16}/> Inscrições a abrir esta semana</button></div>
  {data.eligibilitySummary?.pending>0&&<p className="filter-note">{data.eligibilitySummary.pending} sessões aguardam confirmação de detalhes e não aparecem na agenda.</p>}
  {allEvents.some(e=>!e.end)&&<p className="filter-note">Sem hora de fim publicada, estimamos uma duração de 1 hora. Esta estimativa é usada nos filtros e no calendário.</p>}
  <div className="weeks" role="group" aria-label="Filtrar fins de semana"><button className={week==='all'?'selected':''} onClick={()=>setWeek('all')}>Todos</button>{weekends.map(w=><button key={w} className={week===w?'selected':''} onClick={()=>setWeek(w)}>{cleanDate(w).getUTCDate()}–{cleanDate(datePlusDays(w,1)).getUTCDate()} {monthDay(w).split(' ')[1]}</button>)}</div>
- {displayed.length?<div className="event-grid">{displayed.slice(0,showAll?100:12).map(e=><EventCard e={e} key={e.id} favorites={favorites} onToggle={toggleFav}/>)}</div>:<div className="empty-state"><span>✳︎</span><h3>Nada nesta combinação — por enquanto.</h3><p>Experimenta retirar um filtro. Continuaremos atentos a novas inscrições e atividades.</p><button onClick={()=>{setSearch('');setCategory('Todas');setWeek('all');setNapOnly(false);setSavedOnly(false);setIndoorOnly(false);setOpeningWeekOnly(false)}}>Limpar filtros <ArrowRight size={16}/></button></div>}
+ {displayed.length?<div className="event-grid">{displayed.slice(0,showAll?100:12).map(e=><EventCard e={e} key={e.id} favorites={favorites} onToggle={toggleFav} now={now}/>)}</div>:<div className="empty-state"><span>✳︎</span><h3>Nada nesta combinação — por enquanto.</h3><p>Experimenta retirar um filtro. Continuaremos atentos a novas inscrições e atividades.</p><button onClick={()=>{setSearch('');setCategory('Todas');setWeek('all');setNapOnly(false);setSavedOnly(false);setIndoorOnly(false);setOpeningWeekOnly(false)}}>Limpar filtros <ArrowRight size={16}/></button></div>}
  {displayed.length>12&&!showAll&&<button className="more" onClick={()=>setShowAll(true)}>Ver mais {displayed.length-12} atividades <ArrowDownRight size={16}/></button>}
  </section>
- <Outings items={data.outings}/>
+ <Outings items={data.outings} now={now}/>
  <EverydayIdeas/>
  <SourcePanel history={history} discoveries={discoveries}/>
  </div></main><Footer lastSuccessfulScan={data.lastSuccessfulScan}/></div>

@@ -7,7 +7,8 @@
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
     "preview": "vite preview",
-    "test:browser": "node tests/browser.cjs"
+    "test:browser": "node tests/browser.cjs",
+    "test:unit": "node --test tests/frontend.test.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.468.0",

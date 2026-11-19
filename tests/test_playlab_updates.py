@@ -89,6 +89,8 @@ class PlayLabUpdatesTests(unittest.TestCase):
             with patch.object(update,'DATA',data),patch.object(update,'fetch',side_effect=fetch),patch.object(update.time,'sleep'):
                 first,events,h,*_=update.scan([source],{},{},NOW)
             self.assertEqual([e['date'] for e in events['events']],['2026-12-19'])
+            self.assertEqual(first['sourceIndex']['PlayLab Porto']['parsedSessions'],1)
+            self.assertEqual(first['sourceIndex']['PlayLab Porto']['collectionHealth']['status'],'collected')
             (data/'events.json').write_text(json.dumps(events))
             # Live form becomes inaccessible: a superseded manual programme must not return.
             def blocked(url):return (None,'HTTP 401') if url==NEW else fetch(url)

@@ -1,3 +1,4 @@
+import { normalizeSearch as fold } from './search.js'
 export const IDEAS_PAGE_SIZE = 6
 export const ideaTypes = [
   {value:'all',label:'Todos os tipos'},
@@ -27,7 +28,7 @@ export function amenityLabel(fact){
   return fact.ageText||'Confirmado na fonte'
 }
 const amenitySearchText=item=>amenityDefinitions.filter(a=>['confirmed','temporarily-closed'].includes(item.amenities?.[a.key]?.status)).map(a=>`${a.label} ${item.amenities[a.key].ageText||''}`).join(' ')
-const fold = value => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('pt-PT')
+
 export function filterIdeas(items,{search='',area='all',type='all'}={}) {
   const words=fold(search).trim().split(/\s+/).filter(Boolean)
   return items.filter(item=>(area==='all'||item.area===area)
