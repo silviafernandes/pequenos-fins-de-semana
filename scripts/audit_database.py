@@ -5,6 +5,7 @@ import json
 from collections import Counter
 from pathlib import Path
 from urllib.parse import urlparse
+from eligibility import valid_age_range
 
 ROOT=Path(__file__).resolve().parents[1]
 AMENITIES=('playground','toilets','cafe','changingTable','strollerAccess')
@@ -38,7 +39,7 @@ def audit(places,events,venues):
         sessions.add(key)
         for field in ('id','title','date','start','sourceUrl','venue','sessionEvidence'):
             if not event.get(field):errors.append(f"{event.get('id')}: published session missing {field}")
-        if not isinstance(event.get('minMonths'),(int,float)) or not 0<=event['minMonths']<36:errors.append(f"{event.get('id')}: ineligible published age")
+        if not valid_age_range(event.get('minMonths'),event.get('maxMonths')):errors.append(f"{event.get('id')}: ineligible published age")
     if duplicates:errors.append(f'Duplicate published sessions: {duplicates}')
     missing={field:sum(e.get(field) is None or e.get(field) in ('','Por confirmar') for e in published) for field in ('end','indoor','price','bookingUrl')}
     return {'places':{'total':len(places),'reviewed':sum(bool(p.get('amenityAudit')) for p in places),'amenities':{k:dict(v) for k,v in counts.items()}},'events':{'published':len(published),'pending':len(events.get('pendingEvents',[])),'excluded':len(events.get('excludedEvents',[])),'duplicateSessions':duplicates,'unknownFields':missing},'outings':len(events.get('outings',[])),'venues':len(venues.get('venues',{})),'errors':errors}

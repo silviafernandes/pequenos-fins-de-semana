@@ -1,6 +1,7 @@
 // Admission must include children younger than 36 months. A 36-month minimum is excluded.
 export function underThree(item) {
   if (!Number.isFinite(item.minMonths) || item.minMonths < 0 || item.minMonths >= 36) return false
+  if (!Number.isFinite(item.maxMonths) || item.maxMonths < item.minMonths) return false
   const text = `${item.title || ''} ${item.ageText || ''}`.normalize('NFKC').toLowerCase()
   const rules = [
     /\bm\/(\d{1,2})\b/g,

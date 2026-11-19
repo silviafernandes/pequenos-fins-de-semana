@@ -32,6 +32,7 @@ from outings import collect as collect_outings, eligible as eligible_outing
 from playlab import programme_links, weekend_form, collect_programme, programme_watch, public_choices, WEEKEND_FORM, AGENDA
 from knockknock import collect as collect_knock, PAGE as KNOCK_PAGE
 from source_health import annotate_sources, health_summary
+from deployment_changes import record_collection
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'public' / 'data'
@@ -63,7 +64,7 @@ def load(path, default):
     except (OSError, ValueError): return default
 
 def save(path, obj):
-    path.write_text(json.dumps(obj,ensure_ascii=False,indent=2,sort_keys=False)+'\n',encoding='utf-8')
+    path.write_text(json.dumps(obj,ensure_ascii=False,indent=2,sort_keys=False,allow_nan=False)+'\n',encoding='utf-8')
 
 def canonical(url):
     url, _ = urldefrag(str(url).strip())
@@ -626,6 +627,7 @@ def scan(sources,previous,history,now):
             history['programmeChanges']=changes[-40:]
         report.update(programmeChangePending=bool(watched.get('pendingReview')),programmeChangedAt=watched.get('changedAt'),programmeChangeReasons=watched.get('changeReasons',[]),currentFormUrl=playlab_form_url)
         if watched.get('pendingReview'):report['reviewNeeded']=True
+        report['parsedSessions']=max(results.get('PlayLab Porto',{}).get('parsedSessions',0),report.get('liveSessions',0))
         results.setdefault('PlayLab Porto',{}).update(report)
     # Retain evidence for diagnosis, but never publish unchecked seeds or city-level locations.
     groups=classify(events+auto_add,registry,now)
@@ -675,6 +677,7 @@ def scan(sources,previous,history,now):
     annotate_sources(results)
     history['scanStats']={'sourcesOk':sum(x['ok'] for x in results.values()),'sourcesFailed':sum(not x['ok'] for x in results.values()),'autoEvents':len(auto_add),'collectionHealth':health_summary(results)}
     new_updates={'updatedAt':stamp(),'sourceIndex':results,'discoveries':new_items,'pendingDiscoveries':pending_items}
+    record_collection(ROOT,old_curated,new_updates,history)
     return new_updates,old_curated,history,new_msgs,auto_add
 
 def main():

@@ -10,6 +10,11 @@ def normalized(value):
     return ' '.join(re.sub(r'[^a-z0-9]+',' ',unicodedata.normalize('NFKD',value or '').encode('ascii','ignore').decode().lower()).split())
 
 
+def valid_age_range(lo,hi):
+    return (all(type(v) in (int,float) and math.isfinite(v) for v in (lo,hi))
+            and 0<=lo<36 and hi>=lo)
+
+
 def host(url):
     return (urlparse(url or '').hostname or '').removeprefix('www.')
 
@@ -74,7 +79,7 @@ def assess(event,registry,now):
     except (KeyError,ValueError,TypeError):reasons.append('Data por verificar')
     if not re.fullmatch(r'(?:[01]\d|2[0-3]):[0-5]\d',event.get('start') or ''):reasons.append('Hora por verificar')
     lo,hi=event.get('minMonths'),event.get('maxMonths')
-    if not isinstance(lo,(int,float)) or not isinstance(hi,(int,float)) or not 0<=lo<36 or hi<lo:reasons.append('Idade inadequada ou por verificar')
+    if not valid_age_range(lo,hi):reasons.append('Idade inadequada ou por verificar')
     evidence=event.get('sessionEvidence',{})
     if not evidence or any(evidence.get(k)!=event.get(k) for k in ('date','start','end','minMonths','maxMonths','venue')):
         reasons.append('Sessão sem evidência específica')

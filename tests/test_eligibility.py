@@ -67,6 +67,12 @@ class GeographyTests(unittest.TestCase):
             event=example();event.update(changes)
             self.assertEqual(assess(event,REGISTRY,NOW)['validationStatus'],'pending')
 
+    def test_unknown_nonfinite_or_boolean_age_bounds_never_publish(self):
+        for field,value in [('minMonths',True),('maxMonths',None),('maxMonths',float('nan')),('maxMonths',float('inf')),('maxMonths',False)]:
+            event=example();event[field]=value
+            mark_session(event,event['sourceUrl'],NOW,'official-programme')
+            self.assertEqual(assess(event,REGISTRY,NOW)['validationStatus'],'pending')
+
 class OfficialProgrammeTests(unittest.TestCase):
     def test_josefina_dates_and_ages_are_per_workshop(self):
         html=(ROOT/'tests/fixtures/josefina-programme.html').read_text()
