@@ -4,6 +4,7 @@ export const ideaTypes = [
   {value:'all',label:'Todos os tipos'},
   {value:'park',label:'Parques e jardins'},
   {value:'playground',label:'Com parque infantil'},
+  {value:'indoor-play',label:'Brincar no interior'},
   {value:'aquarium',label:'Aquários'},
 ]
 export const amenityDefinitions=[
@@ -17,7 +18,8 @@ export function hasAmenity(item,key){return item.amenities?.[key]?.status==='con
 export function amenitySummary(item){
   if(hasAmenity(item,'playground')){
     const p=item.amenities.playground
-    return `Parque infantil · ${Number.isFinite(p.minMonths)?p.ageText:'idades por confirmar'}`
+    const label=item.types.includes('indoor-play')?'Parque interior':'Parque infantil'
+    return `${label} · ${Number.isFinite(p.minMonths)?p.ageText:'idades por confirmar'}`
   }
   const known=amenityDefinitions.filter(a=>hasAmenity(item,a.key)).map(a=>a.label)
   return known.length?known.slice(0,2).join(' · '):'Instalações por confirmar'

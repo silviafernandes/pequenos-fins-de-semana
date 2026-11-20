@@ -20,8 +20,8 @@ class PlaceEvidenceTests(unittest.TestCase):
     def test_all_places_reviewed_and_evidence_matches_tags(self):
         report=audit(self.places,{'events':[]},{})
         self.assertEqual(report['errors'],[])
-        self.assertEqual(report['places']['reviewed'],14)
-        self.assertEqual(report['places']['amenities']['playground']['confirmed'],10)
+        self.assertEqual(report['places']['reviewed'],17)
+        self.assertEqual(report['places']['amenities']['playground']['confirmed'],13)
         for id in ['jardim-basilio','quinta-conceicao','parque-varas','parque-sao-mamede']:
             self.assertIn('playground',self.by[id]['types'])
             self.assertGreaterEqual(self.by[id]['amenities']['playground']['minMonths'],36)
