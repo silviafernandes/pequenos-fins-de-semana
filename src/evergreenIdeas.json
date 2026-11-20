@@ -183,6 +183,60 @@
     }
   },
   {
+    "id": "guli-family-club",
+    "title": "Guli Family Club",
+    "place": "Ramalde · Porto",
+    "area": "Porto",
+    "shortDescription": "Softplay com zona 0–2 anos e café. Reserva recomendada ao fim de semana.",
+    "navigationQuery": "Guli Family Club, Rua Engenheiro Ezequiel de Campos 328, Porto, Portugal",
+    "sourceUrl": "https://www.guli.pt/servicos/",
+    "supportingUrls": [
+      "https://www.guli.pt/sobre-nos/",
+      "https://www.guli.pt/regras-gerais/"
+    ],
+    "kind": "indoor-play",
+    "types": [
+      "indoor-play",
+      "playground"
+    ],
+    "reviewedAt": "2026-11-20",
+    "amenities": {
+      "playground": {
+        "status": "confirmed",
+        "sourceUrl": "https://www.guli.pt/sobre-nos/",
+        "evidence": "A página do espaço descreve uma zona de bebés dos 0 aos 2 anos e Pequenos Exploradores dos 2 aos 5 anos.",
+        "reviewedAt": "2026-11-20",
+        "minMonths": 0,
+        "maxMonths": 60,
+        "ageText": "Zona bebé 0–2 anos · exploradores 2–5 anos",
+        "note": "Entrada paga. No drop-in, a criança está sempre acompanhada por um adulto. Meias obrigatórias. Reserva recomendada ao fim de semana e feriados."
+      },
+      "toilets": {
+        "status": "unknown"
+      },
+      "cafe": {
+        "status": "confirmed",
+        "sourceUrl": "https://www.guli.pt/sobre-nos/",
+        "evidence": "A página do espaço identifica uma cafetaria para pais e cuidadores.",
+        "reviewedAt": "2026-11-20"
+      },
+      "changingTable": {
+        "status": "unknown"
+      },
+      "strollerAccess": {
+        "status": "unknown"
+      }
+    },
+    "amenityAudit": {
+      "reviewedAt": "2026-11-20",
+      "sourceUrls": [
+        "https://www.guli.pt/servicos/",
+        "https://www.guli.pt/sobre-nos/",
+        "https://www.guli.pt/regras-gerais/"
+      ]
+    }
+  },
+  {
     "id": "sea-life",
     "title": "SEA LIFE Porto",
     "place": "Castelo do Queijo · Porto",
@@ -241,6 +295,101 @@
         "https://www.visitsealife.com/porto/",
         "https://www.visitsealife.com/porto/encontrar/informacoes/ajuda/",
         "https://www.visitsealife.com/porto/encontrar/informacoes/equipamentos-e-acessibilidade/"
+      ]
+    }
+  },
+  {
+    "id": "kidszone-matosinhos",
+    "title": "KidsZone Matosinhos",
+    "place": "Perafita · Matosinhos",
+    "area": "Matosinhos",
+    "shortDescription": "Baby Zones para menores de 2 anos. Bilhete próprio e adulto acompanhante.",
+    "navigationQuery": "KidsZone Matosinhos, Rua Abade Mondego 289, Perafita, Matosinhos, Portugal",
+    "sourceUrl": "https://kidszone.jumpyard.pt/",
+    "supportingUrls": [],
+    "kind": "indoor-play",
+    "types": [
+      "indoor-play",
+      "playground"
+    ],
+    "reviewedAt": "2026-11-20",
+    "amenities": {
+      "playground": {
+        "status": "confirmed",
+        "sourceUrl": "https://kidszone.jumpyard.pt/",
+        "evidence": "O site apresenta o softplay para os 0–12 anos e restringe os menores de 2 anos às Baby Zones, com bilhete FunTime Baby.",
+        "reviewedAt": "2026-11-20",
+        "minMonths": 0,
+        "maxMonths": 144,
+        "ageText": "0–12 anos · menores de 2 só nas Baby Zones",
+        "note": "Entrada paga, com um adulto incluído por bilhete. Adulto responsável deve permanecer no espaço; meias obrigatórias para crianças e adultos. A entrada faz-se pelo estacionamento da JumpYard. Consulta as sessões e horários especiais antes de sair."
+      },
+      "toilets": {
+        "status": "unknown"
+      },
+      "cafe": {
+        "status": "unknown"
+      },
+      "changingTable": {
+        "status": "unknown"
+      },
+      "strollerAccess": {
+        "status": "unknown"
+      }
+    },
+    "amenityAudit": {
+      "reviewedAt": "2026-11-20",
+      "sourceUrls": [
+        "https://kidszone.jumpyard.pt/"
+      ]
+    }
+  },
+  {
+    "id": "camelot-park",
+    "title": "Camelot Park",
+    "place": "Centro · Matosinhos",
+    "area": "Matosinhos",
+    "shortDescription": "Baby Park dos 2 aos 4 anos. Reserva por telefone; adultos ficam na cafetaria.",
+    "navigationQuery": "Camelot Park, Avenida Menéres 868, Matosinhos, Portugal",
+    "sourceUrl": "https://camelotpark.pt/",
+    "supportingUrls": [],
+    "kind": "indoor-play",
+    "types": [
+      "indoor-play",
+      "playground"
+    ],
+    "reviewedAt": "2026-11-20",
+    "amenities": {
+      "playground": {
+        "status": "confirmed",
+        "sourceUrl": "https://camelotpark.pt/",
+        "evidence": "O site identifica o Baby Park dos 2 aos 4 anos e exige reserva prévia por telefone para entradas individuais.",
+        "reviewedAt": "2026-11-20",
+        "minMonths": 24,
+        "maxMonths": 48,
+        "ageText": "Baby Park · 2–4 anos",
+        "note": "A partir dos 2 anos. As zonas de brincadeira são exclusivas das crianças, com monitoras; os adultos aguardam na cafetaria. Entrada paga: confirmar preço e reservar por telefone (22 937 0945), sujeito à lotação. Meias antiderrapantes obrigatórias."
+      },
+      "toilets": {
+        "status": "unknown"
+      },
+      "cafe": {
+        "status": "confirmed",
+        "sourceUrl": "https://camelotpark.pt/",
+        "evidence": "O site confirma a cafetaria para os adultos aguardarem enquanto as crianças brincam.",
+        "reviewedAt": "2026-11-20"
+      },
+      "changingTable": {
+        "status": "unknown"
+      },
+      "strollerAccess": {
+        "status": "unknown"
+      }
+    },
+    "amenityAudit": {
+      "reviewedAt": "2026-11-20",
+      "sourceUrls": [
+        "https://camelotpark.pt/"
       ]
     }
   },
