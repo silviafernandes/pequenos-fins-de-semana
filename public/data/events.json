@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-20T18:49:19+00:00",
-  "lastSuccessfulScan": "2026-11-20T18:49:19+00:00",
+  "updatedAt": "2026-11-21T16:47:54+00:00",
+  "lastSuccessfulScan": "2026-11-21T16:47:54+00:00",
   "origin": "CTT Correios de 4 Caminhos, Senhora da Hora, Matosinhos",
   "windowDays": 42,
   "events": [
@@ -29,8 +29,8 @@
       "indoor": null,
       "confidence": "official-listing",
       "evidence": "Data, horário, biblioteca e faixa etária publicados na página oficial; vagas por verificar.",
-      "evidenceDate": "2026-11-20",
-      "discoveredAt": "2026-11-20T18:47:03+00:00",
+      "evidenceDate": "2026-11-21",
+      "discoveredAt": "2026-11-21T16:44:52+00:00",
       "sourceType": "matosinhos-official",
       "priority": 48,
       "sessionEvidence": {
@@ -41,7 +41,7 @@
         "maxMonths": 36,
         "venue": "Biblioteca Municipal Florbela Espanca",
         "sourceUrl": "https://www.bibliotecasearquivosmatosinhos.pt/evento-44/bebeteca-magica-o-meu-primeiro-paninho",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "kind": "official-adapter"
       },
       "validationStatus": "verified",
@@ -83,8 +83,8 @@
       "indoor": true,
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-20",
-      "discoveredAt": "2026-11-20T18:47:50+00:00",
+      "evidenceDate": "2026-11-21",
+      "discoveredAt": "2026-11-21T16:46:08+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -95,7 +95,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -103,12 +103,12 @@
       "addedAt": "2026-11-10T11:41:30+00:00",
       "settingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "text": "Sala Ensaio 2"
       },
       "bookingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "kind": "official-purchase-interface"
       },
       "distanceKm": 3.6685,
@@ -127,7 +127,7 @@
       "title": "Experimentar Pinturas",
       "date": "2026-11-22",
       "start": "10:00",
-      "end": "11:00",
+      "end": "10:50",
       "minMonths": 9,
       "maxMonths": 36,
       "ageText": "9–36 meses",
@@ -147,8 +147,8 @@
       "indoor": null,
       "confidence": "structured-official",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-20",
-      "discoveredAt": "2026-11-20T18:47:37+00:00",
+      "evidenceDate": "2026-11-21",
+      "discoveredAt": "2026-11-21T16:45:51+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "validationStatus": "verified",
@@ -156,12 +156,12 @@
       "sessionEvidence": {
         "date": "2026-11-22",
         "start": "10:00",
-        "end": "11:00",
+        "end": "10:50",
         "minMonths": 9,
         "maxMonths": 36,
         "venue": "Oficina Josefina",
         "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "kind": "official-programme"
       },
       "addedAt": "2026-11-10T11:41:22+00:00",
@@ -202,7 +202,7 @@
       "confidence": "reviewed-programme",
       "evidence": "Programa do formulário revisto a partir de imagem partilhada. Vagas e alterações posteriores por confirmar.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-20T18:49:19+00:00",
+      "discoveredAt": "2026-11-21T16:47:54+00:00",
       "sourceType": "playlab-programme",
       "priority": 48,
       "sessionEvidence": {
@@ -259,8 +259,8 @@
       "indoor": true,
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-20",
-      "discoveredAt": "2026-11-20T18:47:50+00:00",
+      "evidenceDate": "2026-11-21",
+      "discoveredAt": "2026-11-21T16:46:08+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -271,7 +271,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -279,12 +279,12 @@
       "addedAt": "2026-11-10T11:41:30+00:00",
       "settingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "text": "Sala Ensaio 2"
       },
       "bookingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "kind": "official-purchase-interface"
       },
       "distanceKm": 3.6685,
@@ -324,7 +324,7 @@
       "confidence": "reviewed-programme",
       "evidence": "Programa do formulário revisto a partir de imagem partilhada. Vagas e alterações posteriores por confirmar.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-20T18:49:19+00:00",
+      "discoveredAt": "2026-11-21T16:47:54+00:00",
       "sourceType": "playlab-programme",
       "priority": 48,
       "sessionEvidence": {
@@ -382,7 +382,7 @@
       "confidence": "reviewed-programme",
       "evidence": "Programa do formulário revisto a partir de imagem partilhada. Vagas e alterações posteriores por confirmar.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-20T18:49:19+00:00",
+      "discoveredAt": "2026-11-21T16:47:54+00:00",
       "sourceType": "playlab-programme",
       "priority": 48,
       "sessionEvidence": {
@@ -439,8 +439,8 @@
       "indoor": true,
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-20",
-      "discoveredAt": "2026-11-20T18:47:50+00:00",
+      "evidenceDate": "2026-11-21",
+      "discoveredAt": "2026-11-21T16:46:08+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -451,7 +451,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -459,12 +459,12 @@
       "addedAt": "2026-11-10T11:41:30+00:00",
       "settingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "text": "Sala Ensaio 2"
       },
       "bookingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "kind": "official-purchase-interface"
       },
       "distanceKm": 3.6685,
@@ -503,8 +503,8 @@
       "indoor": null,
       "confidence": "structured-official",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-20",
-      "discoveredAt": "2026-11-20T18:47:37+00:00",
+      "evidenceDate": "2026-11-21",
+      "discoveredAt": "2026-11-21T16:45:51+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "validationStatus": "verified",
@@ -517,7 +517,7 @@
         "maxMonths": 36,
         "venue": "Oficina Josefina",
         "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "kind": "official-programme"
       },
       "addedAt": "2026-11-10T11:41:22+00:00",
@@ -558,7 +558,7 @@
       "confidence": "reviewed-programme",
       "evidence": "Programa do formulário revisto a partir de imagem partilhada. Vagas e alterações posteriores por confirmar.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-20T18:49:19+00:00",
+      "discoveredAt": "2026-11-21T16:47:54+00:00",
       "sourceType": "playlab-programme",
       "priority": 48,
       "sessionEvidence": {
@@ -615,8 +615,8 @@
       "indoor": true,
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-20",
-      "discoveredAt": "2026-11-20T18:47:50+00:00",
+      "evidenceDate": "2026-11-21",
+      "discoveredAt": "2026-11-21T16:46:08+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -627,7 +627,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -635,12 +635,12 @@
       "addedAt": "2026-11-10T11:41:30+00:00",
       "settingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "text": "Sala Ensaio 2"
       },
       "bookingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "kind": "official-purchase-interface"
       },
       "distanceKm": 3.6685,
@@ -679,8 +679,8 @@
       "indoor": null,
       "confidence": "structured-official",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-20",
-      "discoveredAt": "2026-11-20T18:47:37+00:00",
+      "evidenceDate": "2026-11-21",
+      "discoveredAt": "2026-11-21T16:45:51+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "validationStatus": "verified",
@@ -693,7 +693,7 @@
         "maxMonths": 36,
         "venue": "Oficina Josefina",
         "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "kind": "official-programme"
       },
       "addedAt": "2026-11-10T11:41:22+00:00",
@@ -734,7 +734,7 @@
       "confidence": "reviewed-programme",
       "evidence": "Programa do formulário revisto a partir de imagem partilhada. Vagas e alterações posteriores por confirmar.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-20T18:49:19+00:00",
+      "discoveredAt": "2026-11-21T16:47:54+00:00",
       "sourceType": "playlab-programme",
       "priority": 48,
       "sessionEvidence": {
@@ -792,7 +792,7 @@
       "confidence": "reviewed-programme",
       "evidence": "Programa do formulário revisto a partir de imagem partilhada. Vagas e alterações posteriores por confirmar.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-20T18:49:19+00:00",
+      "discoveredAt": "2026-11-21T16:47:54+00:00",
       "sourceType": "playlab-programme",
       "priority": 48,
       "sessionEvidence": {
@@ -850,7 +850,7 @@
       "confidence": "reviewed-programme",
       "evidence": "Programa do formulário revisto a partir de imagem partilhada. Vagas e alterações posteriores por confirmar.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-20T18:49:19+00:00",
+      "discoveredAt": "2026-11-21T16:47:54+00:00",
       "sourceType": "playlab-programme",
       "priority": 48,
       "sessionEvidence": {
@@ -907,8 +907,8 @@
       "indoor": true,
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-20",
-      "discoveredAt": "2026-11-20T18:47:50+00:00",
+      "evidenceDate": "2026-11-21",
+      "discoveredAt": "2026-11-21T16:46:08+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -919,7 +919,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -927,12 +927,12 @@
       "addedAt": "2026-11-10T11:41:30+00:00",
       "settingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "text": "Sala Ensaio 2"
       },
       "bookingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "kind": "official-purchase-interface"
       },
       "distanceKm": 3.6685,
@@ -942,60 +942,6 @@
         "latitude": 41.1589025,
         "longitude": -8.6307748,
         "coordinateSourceUrl": "https://www.openstreetmap.org/way/603359226",
-        "originId": "ctt-4-caminhos",
-        "method": "straight-line"
-      }
-    },
-    {
-      "id": "cer-13",
-      "title": "Experimentar Cerâmicas",
-      "date": "2026-12-13",
-      "start": "10:00",
-      "end": "11:00",
-      "minMonths": 12,
-      "maxMonths": 36,
-      "ageText": "12–36 meses",
-      "price": "22 EUR",
-      "venue": "Oficina Josefina",
-      "area": "Porto",
-      "category": "Sensorial",
-      "kind": "Evento publicado",
-      "description": "Oficina sensorial para bebés de 12 meses a 3 anos",
-      "bookingUrl": null,
-      "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
-      "sourceName": "Oficina Josefina",
-      "imageUrl": null,
-      "status": "unverified",
-      "openingAt": null,
-      "capacity": null,
-      "indoor": null,
-      "confidence": "structured-official",
-      "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-20",
-      "discoveredAt": "2026-11-20T18:47:37+00:00",
-      "sourceType": "auto-jsonld",
-      "priority": 48,
-      "validationStatus": "verified",
-      "validationReasons": [],
-      "sessionEvidence": {
-        "date": "2026-12-13",
-        "start": "10:00",
-        "end": "11:00",
-        "minMonths": 12,
-        "maxMonths": 36,
-        "venue": "Oficina Josefina",
-        "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
-        "kind": "official-programme"
-      },
-      "addedAt": "2026-11-10T11:41:22+00:00",
-      "distanceKm": 6.3544,
-      "distanceWithinRadius": true,
-      "venueId": "josefina",
-      "geo": {
-        "latitude": 41.1487172,
-        "longitude": -8.596391,
-        "coordinateSourceUrl": "https://www.waze.com/live-map/directions/portugal/porto-district/porto/oficina-josefina?to=place.ChIJgVGHgD5lJA0ReDudBeOFbhU",
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
       }
@@ -1026,7 +972,7 @@
       "confidence": "reviewed-programme",
       "evidence": "Programa do formulário revisto a partir de imagem partilhada. Vagas e alterações posteriores por confirmar.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-20T18:49:19+00:00",
+      "discoveredAt": "2026-11-21T16:47:54+00:00",
       "sourceType": "playlab-programme",
       "priority": 48,
       "sessionEvidence": {
@@ -1083,8 +1029,8 @@
       "indoor": true,
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-20",
-      "discoveredAt": "2026-11-20T18:47:50+00:00",
+      "evidenceDate": "2026-11-21",
+      "discoveredAt": "2026-11-21T16:46:08+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -1095,7 +1041,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -1103,12 +1049,12 @@
       "addedAt": "2026-11-10T11:41:30+00:00",
       "settingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "text": "Sala Ensaio 2"
       },
       "bookingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "kind": "official-purchase-interface"
       },
       "distanceKm": 3.6685,
@@ -1147,8 +1093,8 @@
       "indoor": true,
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-20",
-      "discoveredAt": "2026-11-20T18:47:19+00:00",
+      "evidenceDate": "2026-11-21",
+      "discoveredAt": "2026-11-21T16:45:14+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -1159,7 +1105,7 @@
         "maxMonths": 36,
         "venue": "Biblioteca Municipal Almeida Garrett",
         "sourceUrl": "https://www.bibliotecasdoporto.pt/evento/papi-opus-8-espetaculo/",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "kind": "official-programme",
         "contextSourceUrl": "https://www.bibliotecasdoporto.pt/evento/nano-mini-micro-festival-para-a-infancia-do-porto/"
       },
@@ -1168,7 +1114,7 @@
       "addedAt": "2026-11-10T11:41:08+00:00",
       "settingEvidence": {
         "sourceUrl": "https://www.bibliotecasdoporto.pt/evento/papi-opus-8-espetaculo/",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "text": "Auditório da Biblioteca Municipal Almeida Garrett"
       },
       "registrationMethod": "in-person-ticket",
@@ -1209,8 +1155,8 @@
       "indoor": true,
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-20",
-      "discoveredAt": "2026-11-20T18:47:19+00:00",
+      "evidenceDate": "2026-11-21",
+      "discoveredAt": "2026-11-21T16:45:14+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -1221,7 +1167,7 @@
         "maxMonths": 36,
         "venue": "Biblioteca Municipal Almeida Garrett",
         "sourceUrl": "https://www.bibliotecasdoporto.pt/evento/papi-opus-8-espetaculo/",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "kind": "official-programme",
         "contextSourceUrl": "https://www.bibliotecasdoporto.pt/evento/nano-mini-micro-festival-para-a-infancia-do-porto/"
       },
@@ -1230,7 +1176,7 @@
       "addedAt": "2026-11-10T11:41:08+00:00",
       "settingEvidence": {
         "sourceUrl": "https://www.bibliotecasdoporto.pt/evento/papi-opus-8-espetaculo/",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "text": "Auditório da Biblioteca Municipal Almeida Garrett"
       },
       "registrationMethod": "in-person-ticket",
@@ -1271,8 +1217,8 @@
       "indoor": true,
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-20",
-      "discoveredAt": "2026-11-20T18:47:50+00:00",
+      "evidenceDate": "2026-11-21",
+      "discoveredAt": "2026-11-21T16:46:08+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -1283,7 +1229,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -1291,12 +1237,12 @@
       "addedAt": "2026-11-10T11:41:30+00:00",
       "settingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "text": "Sala Ensaio 2"
       },
       "bookingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "kind": "official-purchase-interface"
       },
       "distanceKm": 3.6685,
@@ -1335,8 +1281,8 @@
       "indoor": null,
       "confidence": "structured-official",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-20",
-      "discoveredAt": "2026-11-20T18:47:37+00:00",
+      "evidenceDate": "2026-11-21",
+      "discoveredAt": "2026-11-21T16:45:51+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "validationStatus": "verified",
@@ -1349,7 +1295,7 @@
         "maxMonths": 36,
         "venue": "Oficina Josefina",
         "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "kind": "official-programme"
       },
       "addedAt": "2026-11-10T11:41:22+00:00",
@@ -1389,8 +1335,8 @@
       "indoor": true,
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-20",
-      "discoveredAt": "2026-11-20T18:47:50+00:00",
+      "evidenceDate": "2026-11-21",
+      "discoveredAt": "2026-11-21T16:46:08+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -1401,7 +1347,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -1409,12 +1355,12 @@
       "addedAt": "2026-11-10T11:41:30+00:00",
       "settingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "text": "Sala Ensaio 2"
       },
       "bookingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "kind": "official-purchase-interface"
       },
       "distanceKm": 3.6685,
@@ -1429,11 +1375,11 @@
       }
     },
     {
-      "id": "auto-c1f0e0f8fd59e",
+      "id": "auto-b6219fbc73d22",
       "title": "Experimentar Cerâmicas",
-      "date": "2026-12-27",
+      "date": "2027-01-03",
       "start": "10:00",
-      "end": "10:45",
+      "end": "10:50",
       "minMonths": 12,
       "maxMonths": 36,
       "ageText": "12–36 meses",
@@ -1453,24 +1399,21 @@
       "indoor": null,
       "confidence": "structured-official",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
-      "evidenceDate": "2026-11-20",
-      "discoveredAt": "2026-11-20T18:47:37+00:00",
+      "evidenceDate": "2026-11-21",
+      "discoveredAt": "2026-11-21T16:45:51+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
-        "date": "2026-12-27",
+        "date": "2027-01-03",
         "start": "10:00",
-        "end": "10:45",
+        "end": "10:50",
         "minMonths": 12,
         "maxMonths": 36,
         "venue": "Oficina Josefina",
         "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
-        "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+        "checkedAt": "2026-11-21T16:44:48.713064+00:00",
         "kind": "official-programme"
       },
-      "validationStatus": "verified",
-      "validationReasons": [],
-      "addedAt": "2026-11-13T16:58:00+00:00",
       "distanceKm": 6.3544,
       "distanceWithinRadius": true,
       "venueId": "josefina",
@@ -1480,7 +1423,10 @@
         "coordinateSourceUrl": "https://www.waze.com/live-map/directions/portugal/porto-district/porto/oficina-josefina?to=place.ChIJgVGHgD5lJA0ReDudBeOFbhU",
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
-      }
+      },
+      "validationStatus": "verified",
+      "validationReasons": [],
+      "addedAt": "2026-11-21T16:44:48.713064+00:00"
     }
   ],
   "pendingEvents": [
@@ -1806,6 +1752,51 @@
       }
     },
     {
+      "id": "cer-13",
+      "title": "Experimentar Cerâmicas",
+      "date": "2026-12-13",
+      "start": "10:00",
+      "end": "11:00",
+      "minMonths": 12,
+      "maxMonths": 36,
+      "ageText": "12–36 meses",
+      "price": "22 EUR",
+      "venue": "Oficina Josefina",
+      "area": "Porto",
+      "category": "Sensorial",
+      "kind": "Evento publicado",
+      "description": "Oficina sensorial para bebés de 12 meses a 3 anos",
+      "bookingUrl": null,
+      "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
+      "sourceName": "Oficina Josefina",
+      "imageUrl": null,
+      "status": "unverified",
+      "openingAt": null,
+      "capacity": null,
+      "indoor": null,
+      "confidence": "structured-official",
+      "evidence": "Dados estruturados do evento; vagas não confirmadas.",
+      "evidenceDate": "2026-11-20",
+      "discoveredAt": "2026-11-20T18:47:37+00:00",
+      "sourceType": "auto-jsonld",
+      "priority": 48,
+      "validationStatus": "pending",
+      "validationReasons": [
+        "Sessão sem evidência específica"
+      ],
+      "addedAt": "2026-11-10T11:41:22+00:00",
+      "distanceKm": 6.3544,
+      "distanceWithinRadius": true,
+      "venueId": "josefina",
+      "geo": {
+        "latitude": 41.1487172,
+        "longitude": -8.596391,
+        "coordinateSourceUrl": "https://www.waze.com/live-map/directions/portugal/porto-district/porto/oficina-josefina?to=place.ChIJgVGHgD5lJA0ReDudBeOFbhU",
+        "originId": "ctt-4-caminhos",
+        "method": "straight-line"
+      }
+    },
+    {
       "id": "auto-93218da775be3",
       "title": "Experimentar Luzes",
       "date": "2026-12-19",
@@ -1848,12 +1839,57 @@
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
       }
+    },
+    {
+      "id": "auto-c1f0e0f8fd59e",
+      "title": "Experimentar Cerâmicas",
+      "date": "2026-12-27",
+      "start": "10:00",
+      "end": "10:45",
+      "minMonths": 12,
+      "maxMonths": 36,
+      "ageText": "12–36 meses",
+      "price": "22 EUR",
+      "venue": "Oficina Josefina",
+      "area": "Porto",
+      "category": "Sensorial",
+      "kind": "Evento publicado",
+      "description": "Oficina sensorial para bebés de 12 meses a 3 anos",
+      "bookingUrl": null,
+      "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
+      "sourceName": "Oficina Josefina",
+      "imageUrl": null,
+      "status": "unverified",
+      "openingAt": null,
+      "capacity": null,
+      "indoor": null,
+      "confidence": "structured-official",
+      "evidence": "Dados estruturados do evento; vagas não confirmadas.",
+      "evidenceDate": "2026-11-20",
+      "discoveredAt": "2026-11-20T18:47:37+00:00",
+      "sourceType": "auto-jsonld",
+      "priority": 48,
+      "validationStatus": "pending",
+      "validationReasons": [
+        "Sessão sem evidência específica"
+      ],
+      "addedAt": "2026-11-13T16:58:00+00:00",
+      "distanceKm": 6.3544,
+      "distanceWithinRadius": true,
+      "venueId": "josefina",
+      "geo": {
+        "latitude": 41.1487172,
+        "longitude": -8.596391,
+        "coordinateSourceUrl": "https://www.waze.com/live-map/directions/portugal/porto-district/porto/oficina-josefina?to=place.ChIJgVGHgD5lJA0ReDudBeOFbhU",
+        "originId": "ctt-4-caminhos",
+        "method": "straight-line"
+      }
     }
   ],
   "excludedEvents": [],
   "eligibilitySummary": {
-    "published": 25,
-    "pending": 8,
+    "published": 24,
+    "pending": 10,
     "outsideRadius": 0
   },
   "radiusKm": 15,
@@ -1866,8 +1902,8 @@
       "category": "Natureza",
       "description": "Aquário para todas as idades. Menores de 16 anos acompanhados por um adulto. Compra de bilhetes sujeita às condições do aquário.",
       "weekendHours": "Sábados e domingos: 10:00–19:00 · última entrada às 18:15.",
-      "validFrom": "2026-11-20",
-      "validUntil": "2027-01-04",
+      "validFrom": "2026-11-21",
+      "validUntil": "2027-01-05",
       "periodLabel": "Horário habitual de fim de semana",
       "price": "Bilhetes pagos · preço por confirmar",
       "bookingUrl": "https://www.visitsealife.com/porto/visitar/bilhetes-e-passes/bilhetes/",
@@ -1880,7 +1916,7 @@
         "https://www.visitsealife.com/porto/en/plan-your-visit/before-you-visit/opening-hours/",
         "https://www.visitsealife.com/porto/encontrar/informacoes/ajuda/"
       ],
-      "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+      "checkedAt": "2026-11-21T16:44:48.713064+00:00",
       "sourceType": "official-outing",
       "sourceName": "SEA LIFE Porto",
       "distanceKm": 3.6866,
@@ -1914,7 +1950,7 @@
       "evidenceUrls": [
         "https://visitmaia.pt/public/eventos/mercadinho-de-natal-maia-natal-2026"
       ],
-      "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+      "checkedAt": "2026-11-21T16:44:48.713064+00:00",
       "sourceType": "official-outing",
       "sourceName": "Maia · Mercadinho de Natal",
       "distanceKm": 5.5892,
@@ -1948,7 +1984,7 @@
       "evidenceUrls": [
         "https://www.serralves.pt/atividades-serralves/0512-mercado-de-natal-de-serralves/"
       ],
-      "checkedAt": "2026-11-20T18:47:01.414826+00:00",
+      "checkedAt": "2026-11-21T16:44:48.713064+00:00",
       "sourceType": "official-outing",
       "sourceName": "Serralves · Mercado de Natal",
       "distanceKm": 3.4372,

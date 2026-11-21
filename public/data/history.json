@@ -84,7 +84,7 @@
         "https://forms.gle/htFeB3xMT6nSwXwDA"
       ],
       "openingDates": [],
-      "lastChecked": "2026-11-20T18:47:03+00:00"
+      "lastChecked": "2026-11-21T16:44:52+00:00"
     },
     "44a43d31422cf6e": {
       "page": "https://www.bibliotecasearquivosmatosinhos.pt/evento-44/bebeteca-magica-yoga-de-encantar-48",
@@ -167,18 +167,17 @@
       "lastChecked": "2026-11-09T22:59:16+00:00"
     }
   },
-  "lastRun": "2026-11-20T18:49:19+00:00",
+  "lastRun": "2026-11-21T16:47:54+00:00",
   "scanStats": {
-    "sourcesOk": 24,
-    "sourcesFailed": 1,
-    "autoEvents": 0,
+    "sourcesOk": 25,
+    "sourcesFailed": 0,
+    "autoEvents": 1,
     "collectionHealth": {
       "review-needed": 5,
       "partial": 6,
-      "unavailable": 1,
+      "discovery-only": 7,
       "collected": 5,
-      "no-sessions": 2,
-      "discovery-only": 6
+      "no-sessions": 2
     }
   },
   "programmeWatch": {
@@ -198,7 +197,7 @@
         ],
         "agendaRevision": "1793359484204"
       },
-      "checkedAt": "2026-11-20T18:47:01.414826+00:00"
+      "checkedAt": "2026-11-21T16:44:48.713064+00:00"
     }
   },
   "collectionInputs": {
@@ -222,7 +221,7 @@
     "scripts/telegram_alerts.py": "ab22e638b6edf8e8854271a351df9294a6bccfcc7d2b0b5f05816f4214d0cbda",
     "scripts/update.py": "51e511d2634ce50bf6f61adeb75032a920b114e9ed4b2674b5464b9e06102c9c"
   },
-  "collectionEventsDigest": "e35140b1dfdd9d82f4abd9600461f41206f8f5469af5d73f18e05a9d52c88f3a",
-  "collectionDiscoveriesDigest": "c0ca515f8c66a565df42ba779fa039280eae16db044d66bb479961d950a2df73",
-  "collectionHistoryDigest": "2bbcb33fe0b98801b80e8e9b8974ec86d258e2e29b309d18c2a8ebf3c15e5a08"
+  "collectionEventsDigest": "ee3fe32aa8f5f068bf7d5ec75ca80f135a6824f6d8b932f315320bbe493602d0",
+  "collectionDiscoveriesDigest": "6721708d4396121066912d3025d7c5ffb05c6c6cb8039a036ea18e22c55cc736",
+  "collectionHistoryDigest": "5551701eadd0afb1db8bc126fed48a9d91960af19564197137d2eb474e471341"
 }
