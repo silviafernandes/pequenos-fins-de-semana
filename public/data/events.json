@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-22T09:27:36+00:00",
-  "lastSuccessfulScan": "2026-11-22T09:27:36+00:00",
+  "updatedAt": "2026-11-22T13:26:26+00:00",
+  "lastSuccessfulScan": "2026-11-22T13:26:26+00:00",
   "origin": "CTT Correios de 4 Caminhos, Senhora da Hora, Matosinhos",
   "windowDays": 42,
   "events": [
@@ -30,7 +30,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-22",
-      "discoveredAt": "2026-11-22T09:25:43+00:00",
+      "discoveredAt": "2026-11-22T13:23:56+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -41,7 +41,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -49,12 +49,12 @@
       "addedAt": "2026-11-10T11:41:30+00:00",
       "settingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "text": "Sala Ensaio 2"
       },
       "bookingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "kind": "official-purchase-interface"
       },
       "distanceKm": 3.6685,
@@ -94,7 +94,7 @@
       "confidence": "structured-official",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-22",
-      "discoveredAt": "2026-11-22T09:25:27+00:00",
+      "discoveredAt": "2026-11-22T13:23:42+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "validationStatus": "verified",
@@ -107,7 +107,7 @@
         "maxMonths": 36,
         "venue": "Oficina Josefina",
         "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "kind": "official-programme"
       },
       "addedAt": "2026-11-10T11:41:22+00:00",
@@ -148,7 +148,7 @@
       "confidence": "reviewed-programme",
       "evidence": "Programa do formulário revisto a partir de imagem partilhada. Vagas e alterações posteriores por confirmar.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-22T09:27:36+00:00",
+      "discoveredAt": "2026-11-22T13:26:26+00:00",
       "sourceType": "playlab-programme",
       "priority": 48,
       "sessionEvidence": {
@@ -181,6 +181,70 @@
       }
     },
     {
+      "id": "auto-3084555cdb7f7",
+      "title": "Som de Lá e de Cá",
+      "date": "2026-11-22",
+      "start": "10:00",
+      "end": null,
+      "minMonths": 3,
+      "maxMonths": 72,
+      "ageText": "3–72 meses",
+      "price": "12.5 EUR",
+      "venue": "Casa da Música · Sala Ensaio 2",
+      "area": "Boavista",
+      "category": "Música",
+      "kind": "Evento publicado",
+      "description": "Famílias (recomendado a crianças dos 3 meses aos 6 anos)",
+      "bookingUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+      "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+      "sourceName": "Casa da Música",
+      "imageUrl": null,
+      "status": "unverified",
+      "openingAt": null,
+      "capacity": null,
+      "indoor": true,
+      "confidence": "structured-listing",
+      "evidence": "Dados estruturados do evento; vagas não confirmadas.",
+      "evidenceDate": "2026-11-22",
+      "discoveredAt": "2026-11-22T13:25:59+00:00",
+      "sourceType": "auto-jsonld",
+      "priority": 48,
+      "sessionEvidence": {
+        "date": "2026-11-22",
+        "start": "10:00",
+        "end": null,
+        "minMonths": 3,
+        "maxMonths": 72,
+        "venue": "Casa da Música · Sala Ensaio 2",
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
+        "kind": "official-programme"
+      },
+      "settingEvidence": {
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
+        "text": "Sala Ensaio 2"
+      },
+      "bookingEvidence": {
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
+        "kind": "official-purchase-interface"
+      },
+      "distanceKm": 3.6685,
+      "distanceWithinRadius": true,
+      "venueId": "casa-musica",
+      "geo": {
+        "latitude": 41.1589025,
+        "longitude": -8.6307748,
+        "coordinateSourceUrl": "https://www.openstreetmap.org/way/603359226",
+        "originId": "ctt-4-caminhos",
+        "method": "straight-line"
+      },
+      "validationStatus": "verified",
+      "validationReasons": [],
+      "addedAt": "2026-11-22T13:22:51.193324+00:00"
+    },
+    {
       "id": "auto-90c9352f121c5",
       "title": "Som de Lá e de Cá",
       "date": "2026-11-22",
@@ -206,7 +270,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-22",
-      "discoveredAt": "2026-11-22T09:25:43+00:00",
+      "discoveredAt": "2026-11-22T13:23:56+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -217,7 +281,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -225,12 +289,12 @@
       "addedAt": "2026-11-10T11:41:30+00:00",
       "settingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "text": "Sala Ensaio 2"
       },
       "bookingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "kind": "official-purchase-interface"
       },
       "distanceKm": 3.6685,
@@ -243,6 +307,70 @@
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
       }
+    },
+    {
+      "id": "auto-ec316a2d04c88",
+      "title": "Som de Lá e de Cá",
+      "date": "2026-11-22",
+      "start": "11:30",
+      "end": null,
+      "minMonths": 3,
+      "maxMonths": 72,
+      "ageText": "3–72 meses",
+      "price": "12.5 EUR",
+      "venue": "Casa da Música · Sala Ensaio 2",
+      "area": "Boavista",
+      "category": "Música",
+      "kind": "Evento publicado",
+      "description": "Famílias (recomendado a crianças dos 3 meses aos 6 anos)",
+      "bookingUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+      "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+      "sourceName": "Casa da Música",
+      "imageUrl": null,
+      "status": "unverified",
+      "openingAt": null,
+      "capacity": null,
+      "indoor": true,
+      "confidence": "structured-listing",
+      "evidence": "Dados estruturados do evento; vagas não confirmadas.",
+      "evidenceDate": "2026-11-22",
+      "discoveredAt": "2026-11-22T13:25:59+00:00",
+      "sourceType": "auto-jsonld",
+      "priority": 48,
+      "sessionEvidence": {
+        "date": "2026-11-22",
+        "start": "11:30",
+        "end": null,
+        "minMonths": 3,
+        "maxMonths": 72,
+        "venue": "Casa da Música · Sala Ensaio 2",
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
+        "kind": "official-programme"
+      },
+      "settingEvidence": {
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
+        "text": "Sala Ensaio 2"
+      },
+      "bookingEvidence": {
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
+        "kind": "official-purchase-interface"
+      },
+      "distanceKm": 3.6685,
+      "distanceWithinRadius": true,
+      "venueId": "casa-musica",
+      "geo": {
+        "latitude": 41.1589025,
+        "longitude": -8.6307748,
+        "coordinateSourceUrl": "https://www.openstreetmap.org/way/603359226",
+        "originId": "ctt-4-caminhos",
+        "method": "straight-line"
+      },
+      "validationStatus": "verified",
+      "validationReasons": [],
+      "addedAt": "2026-11-22T13:22:51.193324+00:00"
     },
     {
       "id": "auto-4f39818ed592d",
@@ -270,7 +398,7 @@
       "confidence": "reviewed-programme",
       "evidence": "Programa do formulário revisto a partir de imagem partilhada. Vagas e alterações posteriores por confirmar.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-22T09:27:36+00:00",
+      "discoveredAt": "2026-11-22T13:26:26+00:00",
       "sourceType": "playlab-programme",
       "priority": 48,
       "sessionEvidence": {
@@ -328,7 +456,7 @@
       "confidence": "reviewed-programme",
       "evidence": "Programa do formulário revisto a partir de imagem partilhada. Vagas e alterações posteriores por confirmar.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-22T09:27:36+00:00",
+      "discoveredAt": "2026-11-22T13:26:26+00:00",
       "sourceType": "playlab-programme",
       "priority": 48,
       "sessionEvidence": {
@@ -386,7 +514,7 @@
       "confidence": "structured-listing",
       "evidence": "Programa oficial revisto visualmente; PDF novamente consultado e idêntico.",
       "evidenceDate": "2026-11-22",
-      "discoveredAt": "2026-11-22T09:25:13+00:00",
+      "discoveredAt": "2026-11-22T13:23:28+00:00",
       "sourceType": "maia-reviewed-programme",
       "priority": 48,
       "sessionEvidence": {
@@ -397,13 +525,16 @@
         "maxMonths": 72,
         "venue": "Café Concerto do Fórum da Maia",
         "sourceUrl": "https://www.cm-maia.pt/viver/cultura/noticias-e-eventos/evento-12/7-edicao-contamina-festival-de-contos-da-maia",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "kind": "reviewed-official-programme",
         "documentUrl": "https://www.cm-maia.pt/cmmaia/uploads/writer_file/document/15214/programa_detalhado_2026__1_.pdf",
         "documentSha256": "36b1495e65a022f394d063696a37d12ad94f61b254a2ce2042966810c2dade4a",
         "reviewedAt": "2026-11-22T09:16:51+00:00"
       },
       "registrationNote": "Condições de entrada e vagas por confirmar com a biblioteca. O formulário divulgado pelo festival destina-se às oficinas.",
+      "validationStatus": "verified",
+      "validationReasons": [],
+      "addedAt": "2026-11-22T09:24:41.868641+00:00",
       "distanceKm": 5.6408,
       "distanceWithinRadius": true,
       "venueId": "forum-maia",
@@ -413,10 +544,7 @@
         "coordinateSourceUrl": "https://www.visitmaia.pt/public/produtos-turisticos/forum-da-maia",
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
-      },
-      "validationStatus": "verified",
-      "validationReasons": [],
-      "addedAt": "2026-11-22T09:24:41.868641+00:00"
+      }
     },
     {
       "id": "som-29",
@@ -444,7 +572,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-22",
-      "discoveredAt": "2026-11-22T09:25:43+00:00",
+      "discoveredAt": "2026-11-22T13:23:56+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -455,7 +583,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -463,12 +591,12 @@
       "addedAt": "2026-11-10T11:41:30+00:00",
       "settingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "text": "Sala Ensaio 2"
       },
       "bookingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "kind": "official-purchase-interface"
       },
       "distanceKm": 3.6685,
@@ -508,7 +636,7 @@
       "confidence": "structured-official",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-22",
-      "discoveredAt": "2026-11-22T09:25:27+00:00",
+      "discoveredAt": "2026-11-22T13:23:42+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "validationStatus": "verified",
@@ -521,7 +649,7 @@
         "maxMonths": 36,
         "venue": "Oficina Josefina",
         "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "kind": "official-programme"
       },
       "addedAt": "2026-11-10T11:41:22+00:00",
@@ -562,7 +690,7 @@
       "confidence": "reviewed-programme",
       "evidence": "Programa do formulário revisto a partir de imagem partilhada. Vagas e alterações posteriores por confirmar.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-22T09:27:36+00:00",
+      "discoveredAt": "2026-11-22T13:26:26+00:00",
       "sourceType": "playlab-programme",
       "priority": 48,
       "sessionEvidence": {
@@ -595,6 +723,70 @@
       }
     },
     {
+      "id": "auto-01b38ace3e140",
+      "title": "Som de Lá e de Cá",
+      "date": "2026-11-29",
+      "start": "10:00",
+      "end": null,
+      "minMonths": 3,
+      "maxMonths": 72,
+      "ageText": "3–72 meses",
+      "price": "12.5 EUR",
+      "venue": "Casa da Música · Sala Ensaio 2",
+      "area": "Boavista",
+      "category": "Música",
+      "kind": "Evento publicado",
+      "description": "Famílias (recomendado a crianças dos 3 meses aos 6 anos)",
+      "bookingUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+      "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+      "sourceName": "Casa da Música",
+      "imageUrl": null,
+      "status": "unverified",
+      "openingAt": null,
+      "capacity": null,
+      "indoor": true,
+      "confidence": "structured-listing",
+      "evidence": "Dados estruturados do evento; vagas não confirmadas.",
+      "evidenceDate": "2026-11-22",
+      "discoveredAt": "2026-11-22T13:25:59+00:00",
+      "sourceType": "auto-jsonld",
+      "priority": 48,
+      "sessionEvidence": {
+        "date": "2026-11-29",
+        "start": "10:00",
+        "end": null,
+        "minMonths": 3,
+        "maxMonths": 72,
+        "venue": "Casa da Música · Sala Ensaio 2",
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
+        "kind": "official-programme"
+      },
+      "settingEvidence": {
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
+        "text": "Sala Ensaio 2"
+      },
+      "bookingEvidence": {
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
+        "kind": "official-purchase-interface"
+      },
+      "distanceKm": 3.6685,
+      "distanceWithinRadius": true,
+      "venueId": "casa-musica",
+      "geo": {
+        "latitude": 41.1589025,
+        "longitude": -8.6307748,
+        "coordinateSourceUrl": "https://www.openstreetmap.org/way/603359226",
+        "originId": "ctt-4-caminhos",
+        "method": "straight-line"
+      },
+      "validationStatus": "verified",
+      "validationReasons": [],
+      "addedAt": "2026-11-22T13:22:51.193324+00:00"
+    },
+    {
       "id": "auto-41c93a41574ab",
       "title": "Som de Lá e de Cá",
       "date": "2026-11-29",
@@ -620,7 +812,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-22",
-      "discoveredAt": "2026-11-22T09:25:43+00:00",
+      "discoveredAt": "2026-11-22T13:23:56+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -631,7 +823,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -639,12 +831,12 @@
       "addedAt": "2026-11-10T11:41:30+00:00",
       "settingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "text": "Sala Ensaio 2"
       },
       "bookingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "kind": "official-purchase-interface"
       },
       "distanceKm": 3.6685,
@@ -657,6 +849,70 @@
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
       }
+    },
+    {
+      "id": "auto-d570e79606ce6",
+      "title": "Som de Lá e de Cá",
+      "date": "2026-11-29",
+      "start": "11:30",
+      "end": null,
+      "minMonths": 3,
+      "maxMonths": 72,
+      "ageText": "3–72 meses",
+      "price": "12.5 EUR",
+      "venue": "Casa da Música · Sala Ensaio 2",
+      "area": "Boavista",
+      "category": "Música",
+      "kind": "Evento publicado",
+      "description": "Famílias (recomendado a crianças dos 3 meses aos 6 anos)",
+      "bookingUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+      "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+      "sourceName": "Casa da Música",
+      "imageUrl": null,
+      "status": "unverified",
+      "openingAt": null,
+      "capacity": null,
+      "indoor": true,
+      "confidence": "structured-listing",
+      "evidence": "Dados estruturados do evento; vagas não confirmadas.",
+      "evidenceDate": "2026-11-22",
+      "discoveredAt": "2026-11-22T13:25:59+00:00",
+      "sourceType": "auto-jsonld",
+      "priority": 48,
+      "sessionEvidence": {
+        "date": "2026-11-29",
+        "start": "11:30",
+        "end": null,
+        "minMonths": 3,
+        "maxMonths": 72,
+        "venue": "Casa da Música · Sala Ensaio 2",
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
+        "kind": "official-programme"
+      },
+      "settingEvidence": {
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
+        "text": "Sala Ensaio 2"
+      },
+      "bookingEvidence": {
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
+        "kind": "official-purchase-interface"
+      },
+      "distanceKm": 3.6685,
+      "distanceWithinRadius": true,
+      "venueId": "casa-musica",
+      "geo": {
+        "latitude": 41.1589025,
+        "longitude": -8.6307748,
+        "coordinateSourceUrl": "https://www.openstreetmap.org/way/603359226",
+        "originId": "ctt-4-caminhos",
+        "method": "straight-line"
+      },
+      "validationStatus": "verified",
+      "validationReasons": [],
+      "addedAt": "2026-11-22T13:22:51.193324+00:00"
     },
     {
       "id": "luz-06",
@@ -684,7 +940,7 @@
       "confidence": "structured-official",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-22",
-      "discoveredAt": "2026-11-22T09:25:27+00:00",
+      "discoveredAt": "2026-11-22T13:23:42+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "validationStatus": "verified",
@@ -697,7 +953,7 @@
         "maxMonths": 36,
         "venue": "Oficina Josefina",
         "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "kind": "official-programme"
       },
       "addedAt": "2026-11-10T11:41:22+00:00",
@@ -738,7 +994,7 @@
       "confidence": "reviewed-programme",
       "evidence": "Programa do formulário revisto a partir de imagem partilhada. Vagas e alterações posteriores por confirmar.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-22T09:27:36+00:00",
+      "discoveredAt": "2026-11-22T13:26:26+00:00",
       "sourceType": "playlab-programme",
       "priority": 48,
       "sessionEvidence": {
@@ -771,6 +1027,62 @@
       }
     },
     {
+      "id": "auto-2ddc4d4b6e01b",
+      "title": "Parada de Natal – Maia Natal 2026",
+      "date": "2026-12-06",
+      "start": "17:30",
+      "end": "18:30",
+      "minMonths": 0,
+      "maxMonths": 216,
+      "ageText": "Todas as idades",
+      "price": "Gratuito",
+      "venue": "Praça Dr. José Vieira de Carvalho",
+      "area": "Maia",
+      "category": "Festival",
+      "kind": "Evento publicado",
+      "description": "* Para todas as idades e acessos para pessoas com mobilidade condicionada e carrinhos de bebé.",
+      "bookingUrl": null,
+      "sourceUrl": "https://visitmaia.pt/public/eventos/parada-de-natal-maia-natal-2026",
+      "sourceName": "Maia · Visit Maia",
+      "imageUrl": null,
+      "status": "unverified",
+      "openingAt": null,
+      "capacity": null,
+      "indoor": null,
+      "confidence": "structured-listing",
+      "evidence": "Dia, hora e local no calendário publicado pelo Visit Maia; admissão verificada nas informações do próprio evento. Vagas por confirmar.",
+      "evidenceDate": "2026-11-22",
+      "discoveredAt": "2026-11-22T13:26:25+00:00",
+      "sourceType": "visitmaia-calendar",
+      "priority": 48,
+      "sessionEvidence": {
+        "date": "2026-12-06",
+        "start": "17:30",
+        "end": "18:30",
+        "minMonths": 0,
+        "maxMonths": 216,
+        "venue": "Praça Dr. José Vieira de Carvalho",
+        "sourceUrl": "https://visitmaia.pt/public/eventos/parada-de-natal-maia-natal-2026",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
+        "kind": "official-published-calendar",
+        "admission": "all-ages",
+        "ageText": "* Para todas as idades e acessos para pessoas com mobilidade condicionada e carrinhos de bebé."
+      },
+      "distanceKm": 5.5892,
+      "distanceWithinRadius": true,
+      "venueId": "praca-maia",
+      "geo": {
+        "latitude": 41.233151,
+        "longitude": -8.622461,
+        "coordinateSourceUrl": "https://www.openstreetmap.org/way/401789441",
+        "originId": "ctt-4-caminhos",
+        "method": "straight-line"
+      },
+      "validationStatus": "verified",
+      "validationReasons": [],
+      "addedAt": "2026-11-22T13:22:51.193324+00:00"
+    },
+    {
       "id": "auto-edd329e76c5fe",
       "title": "Baby Lab de Natal/Christmas",
       "date": "2026-12-12",
@@ -796,7 +1108,7 @@
       "confidence": "reviewed-programme",
       "evidence": "Programa do formulário revisto a partir de imagem partilhada. Vagas e alterações posteriores por confirmar.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-22T09:27:36+00:00",
+      "discoveredAt": "2026-11-22T13:26:26+00:00",
       "sourceType": "playlab-programme",
       "priority": 48,
       "sessionEvidence": {
@@ -854,7 +1166,7 @@
       "confidence": "reviewed-programme",
       "evidence": "Programa do formulário revisto a partir de imagem partilhada. Vagas e alterações posteriores por confirmar.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-22T09:27:36+00:00",
+      "discoveredAt": "2026-11-22T13:26:26+00:00",
       "sourceType": "playlab-programme",
       "priority": 48,
       "sessionEvidence": {
@@ -912,7 +1224,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-22",
-      "discoveredAt": "2026-11-22T09:25:43+00:00",
+      "discoveredAt": "2026-11-22T13:23:56+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -923,7 +1235,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -931,12 +1243,12 @@
       "addedAt": "2026-11-10T11:41:30+00:00",
       "settingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "text": "Sala Ensaio 2"
       },
       "bookingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "kind": "official-purchase-interface"
       },
       "distanceKm": 3.6685,
@@ -976,7 +1288,7 @@
       "confidence": "reviewed-programme",
       "evidence": "Programa do formulário revisto a partir de imagem partilhada. Vagas e alterações posteriores por confirmar.",
       "evidenceDate": "2026-11-16",
-      "discoveredAt": "2026-11-22T09:27:36+00:00",
+      "discoveredAt": "2026-11-22T13:26:26+00:00",
       "sourceType": "playlab-programme",
       "priority": 48,
       "sessionEvidence": {
@@ -1009,6 +1321,70 @@
       }
     },
     {
+      "id": "auto-af40d7661235f",
+      "title": "Som de Lá e de Cá",
+      "date": "2026-12-13",
+      "start": "10:00",
+      "end": null,
+      "minMonths": 3,
+      "maxMonths": 72,
+      "ageText": "3–72 meses",
+      "price": "12.5 EUR",
+      "venue": "Casa da Música · Sala Ensaio 2",
+      "area": "Boavista",
+      "category": "Música",
+      "kind": "Evento publicado",
+      "description": "Famílias (recomendado a crianças dos 3 meses aos 6 anos)",
+      "bookingUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+      "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+      "sourceName": "Casa da Música",
+      "imageUrl": null,
+      "status": "unverified",
+      "openingAt": null,
+      "capacity": null,
+      "indoor": true,
+      "confidence": "structured-listing",
+      "evidence": "Dados estruturados do evento; vagas não confirmadas.",
+      "evidenceDate": "2026-11-22",
+      "discoveredAt": "2026-11-22T13:25:59+00:00",
+      "sourceType": "auto-jsonld",
+      "priority": 48,
+      "sessionEvidence": {
+        "date": "2026-12-13",
+        "start": "10:00",
+        "end": null,
+        "minMonths": 3,
+        "maxMonths": 72,
+        "venue": "Casa da Música · Sala Ensaio 2",
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
+        "kind": "official-programme"
+      },
+      "settingEvidence": {
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
+        "text": "Sala Ensaio 2"
+      },
+      "bookingEvidence": {
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
+        "kind": "official-purchase-interface"
+      },
+      "distanceKm": 3.6685,
+      "distanceWithinRadius": true,
+      "venueId": "casa-musica",
+      "geo": {
+        "latitude": 41.1589025,
+        "longitude": -8.6307748,
+        "coordinateSourceUrl": "https://www.openstreetmap.org/way/603359226",
+        "originId": "ctt-4-caminhos",
+        "method": "straight-line"
+      },
+      "validationStatus": "verified",
+      "validationReasons": [],
+      "addedAt": "2026-11-22T13:22:51.193324+00:00"
+    },
+    {
       "id": "auto-88e361fd2c84b",
       "title": "Som de Lá e de Cá",
       "date": "2026-12-13",
@@ -1034,7 +1410,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-22",
-      "discoveredAt": "2026-11-22T09:25:43+00:00",
+      "discoveredAt": "2026-11-22T13:23:56+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -1045,7 +1421,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -1053,12 +1429,12 @@
       "addedAt": "2026-11-10T11:41:30+00:00",
       "settingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "text": "Sala Ensaio 2"
       },
       "bookingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "kind": "official-purchase-interface"
       },
       "distanceKm": 3.6685,
@@ -1071,6 +1447,70 @@
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
       }
+    },
+    {
+      "id": "auto-18c4a14e7b0b2",
+      "title": "Som de Lá e de Cá",
+      "date": "2026-12-13",
+      "start": "11:30",
+      "end": null,
+      "minMonths": 3,
+      "maxMonths": 72,
+      "ageText": "3–72 meses",
+      "price": "12.5 EUR",
+      "venue": "Casa da Música · Sala Ensaio 2",
+      "area": "Boavista",
+      "category": "Música",
+      "kind": "Evento publicado",
+      "description": "Famílias (recomendado a crianças dos 3 meses aos 6 anos)",
+      "bookingUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+      "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+      "sourceName": "Casa da Música",
+      "imageUrl": null,
+      "status": "unverified",
+      "openingAt": null,
+      "capacity": null,
+      "indoor": true,
+      "confidence": "structured-listing",
+      "evidence": "Dados estruturados do evento; vagas não confirmadas.",
+      "evidenceDate": "2026-11-22",
+      "discoveredAt": "2026-11-22T13:25:59+00:00",
+      "sourceType": "auto-jsonld",
+      "priority": 48,
+      "sessionEvidence": {
+        "date": "2026-12-13",
+        "start": "11:30",
+        "end": null,
+        "minMonths": 3,
+        "maxMonths": 72,
+        "venue": "Casa da Música · Sala Ensaio 2",
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
+        "kind": "official-programme"
+      },
+      "settingEvidence": {
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
+        "text": "Sala Ensaio 2"
+      },
+      "bookingEvidence": {
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
+        "kind": "official-purchase-interface"
+      },
+      "distanceKm": 3.6685,
+      "distanceWithinRadius": true,
+      "venueId": "casa-musica",
+      "geo": {
+        "latitude": 41.1589025,
+        "longitude": -8.6307748,
+        "coordinateSourceUrl": "https://www.openstreetmap.org/way/603359226",
+        "originId": "ctt-4-caminhos",
+        "method": "straight-line"
+      },
+      "validationStatus": "verified",
+      "validationReasons": [],
+      "addedAt": "2026-11-22T13:22:51.193324+00:00"
     },
     {
       "id": "papi-19",
@@ -1098,7 +1538,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-22",
-      "discoveredAt": "2026-11-22T09:25:01+00:00",
+      "discoveredAt": "2026-11-22T13:23:17+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -1109,7 +1549,7 @@
         "maxMonths": 36,
         "venue": "Biblioteca Municipal Almeida Garrett",
         "sourceUrl": "https://www.bibliotecasdoporto.pt/evento/papi-opus-8-espetaculo/",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "kind": "official-programme",
         "contextSourceUrl": "https://www.bibliotecasdoporto.pt/evento/nano-mini-micro-festival-para-a-infancia-do-porto/"
       },
@@ -1118,7 +1558,7 @@
       "addedAt": "2026-11-10T11:41:08+00:00",
       "settingEvidence": {
         "sourceUrl": "https://www.bibliotecasdoporto.pt/evento/papi-opus-8-espetaculo/",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "text": "Auditório da Biblioteca Municipal Almeida Garrett"
       },
       "registrationMethod": "in-person-ticket",
@@ -1160,7 +1600,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-22",
-      "discoveredAt": "2026-11-22T09:25:01+00:00",
+      "discoveredAt": "2026-11-22T13:23:17+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -1171,7 +1611,7 @@
         "maxMonths": 36,
         "venue": "Biblioteca Municipal Almeida Garrett",
         "sourceUrl": "https://www.bibliotecasdoporto.pt/evento/papi-opus-8-espetaculo/",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "kind": "official-programme",
         "contextSourceUrl": "https://www.bibliotecasdoporto.pt/evento/nano-mini-micro-festival-para-a-infancia-do-porto/"
       },
@@ -1180,7 +1620,7 @@
       "addedAt": "2026-11-10T11:41:08+00:00",
       "settingEvidence": {
         "sourceUrl": "https://www.bibliotecasdoporto.pt/evento/papi-opus-8-espetaculo/",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "text": "Auditório da Biblioteca Municipal Almeida Garrett"
       },
       "registrationMethod": "in-person-ticket",
@@ -1222,7 +1662,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-22",
-      "discoveredAt": "2026-11-22T09:25:43+00:00",
+      "discoveredAt": "2026-11-22T13:23:56+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -1233,7 +1673,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -1241,12 +1681,12 @@
       "addedAt": "2026-11-10T11:41:30+00:00",
       "settingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "text": "Sala Ensaio 2"
       },
       "bookingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "kind": "official-purchase-interface"
       },
       "distanceKm": 3.6685,
@@ -1286,7 +1726,7 @@
       "confidence": "structured-official",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-22",
-      "discoveredAt": "2026-11-22T09:25:27+00:00",
+      "discoveredAt": "2026-11-22T13:23:42+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "validationStatus": "verified",
@@ -1299,7 +1739,7 @@
         "maxMonths": 36,
         "venue": "Oficina Josefina",
         "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "kind": "official-programme"
       },
       "addedAt": "2026-11-10T11:41:22+00:00",
@@ -1313,6 +1753,70 @@
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
       }
+    },
+    {
+      "id": "auto-d86f4ee861bca",
+      "title": "Som de Lá e de Cá",
+      "date": "2026-12-20",
+      "start": "10:00",
+      "end": null,
+      "minMonths": 3,
+      "maxMonths": 72,
+      "ageText": "3–72 meses",
+      "price": "12.5 EUR",
+      "venue": "Casa da Música · Sala Ensaio 2",
+      "area": "Boavista",
+      "category": "Música",
+      "kind": "Evento publicado",
+      "description": "Famílias (recomendado a crianças dos 3 meses aos 6 anos)",
+      "bookingUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+      "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+      "sourceName": "Casa da Música",
+      "imageUrl": null,
+      "status": "unverified",
+      "openingAt": null,
+      "capacity": null,
+      "indoor": true,
+      "confidence": "structured-listing",
+      "evidence": "Dados estruturados do evento; vagas não confirmadas.",
+      "evidenceDate": "2026-11-22",
+      "discoveredAt": "2026-11-22T13:25:59+00:00",
+      "sourceType": "auto-jsonld",
+      "priority": 48,
+      "sessionEvidence": {
+        "date": "2026-12-20",
+        "start": "10:00",
+        "end": null,
+        "minMonths": 3,
+        "maxMonths": 72,
+        "venue": "Casa da Música · Sala Ensaio 2",
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
+        "kind": "official-programme"
+      },
+      "settingEvidence": {
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
+        "text": "Sala Ensaio 2"
+      },
+      "bookingEvidence": {
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
+        "kind": "official-purchase-interface"
+      },
+      "distanceKm": 3.6685,
+      "distanceWithinRadius": true,
+      "venueId": "casa-musica",
+      "geo": {
+        "latitude": 41.1589025,
+        "longitude": -8.6307748,
+        "coordinateSourceUrl": "https://www.openstreetmap.org/way/603359226",
+        "originId": "ctt-4-caminhos",
+        "method": "straight-line"
+      },
+      "validationStatus": "verified",
+      "validationReasons": [],
+      "addedAt": "2026-11-22T13:22:51.193324+00:00"
     },
     {
       "id": "auto-35091c02c63b2",
@@ -1340,7 +1844,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-22",
-      "discoveredAt": "2026-11-22T09:25:43+00:00",
+      "discoveredAt": "2026-11-22T13:23:56+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -1351,7 +1855,7 @@
         "maxMonths": 72,
         "venue": "Casa da Música · Sala Ensaio 2",
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -1359,12 +1863,12 @@
       "addedAt": "2026-11-10T11:41:30+00:00",
       "settingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "text": "Sala Ensaio 2"
       },
       "bookingEvidence": {
         "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "kind": "official-purchase-interface"
       },
       "distanceKm": 3.6685,
@@ -1377,6 +1881,70 @@
         "originId": "ctt-4-caminhos",
         "method": "straight-line"
       }
+    },
+    {
+      "id": "auto-213bd7c397d4f",
+      "title": "Som de Lá e de Cá",
+      "date": "2026-12-20",
+      "start": "11:30",
+      "end": null,
+      "minMonths": 3,
+      "maxMonths": 72,
+      "ageText": "3–72 meses",
+      "price": "12.5 EUR",
+      "venue": "Casa da Música · Sala Ensaio 2",
+      "area": "Boavista",
+      "category": "Música",
+      "kind": "Evento publicado",
+      "description": "Famílias (recomendado a crianças dos 3 meses aos 6 anos)",
+      "bookingUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+      "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+      "sourceName": "Casa da Música",
+      "imageUrl": null,
+      "status": "unverified",
+      "openingAt": null,
+      "capacity": null,
+      "indoor": true,
+      "confidence": "structured-listing",
+      "evidence": "Dados estruturados do evento; vagas não confirmadas.",
+      "evidenceDate": "2026-11-22",
+      "discoveredAt": "2026-11-22T13:25:59+00:00",
+      "sourceType": "auto-jsonld",
+      "priority": 48,
+      "sessionEvidence": {
+        "date": "2026-12-20",
+        "start": "11:30",
+        "end": null,
+        "minMonths": 3,
+        "maxMonths": 72,
+        "venue": "Casa da Música · Sala Ensaio 2",
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
+        "kind": "official-programme"
+      },
+      "settingEvidence": {
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
+        "text": "Sala Ensaio 2"
+      },
+      "bookingEvidence": {
+        "sourceUrl": "https://casadamusica.com/event/som-de-ca-e-de-la/?selected_session=55806",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
+        "kind": "official-purchase-interface"
+      },
+      "distanceKm": 3.6685,
+      "distanceWithinRadius": true,
+      "venueId": "casa-musica",
+      "geo": {
+        "latitude": 41.1589025,
+        "longitude": -8.6307748,
+        "coordinateSourceUrl": "https://www.openstreetmap.org/way/603359226",
+        "originId": "ctt-4-caminhos",
+        "method": "straight-line"
+      },
+      "validationStatus": "verified",
+      "validationReasons": [],
+      "addedAt": "2026-11-22T13:22:51.193324+00:00"
     },
     {
       "id": "auto-b6219fbc73d22",
@@ -1404,7 +1972,7 @@
       "confidence": "structured-official",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-22",
-      "discoveredAt": "2026-11-22T09:25:27+00:00",
+      "discoveredAt": "2026-11-22T13:23:42+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -1415,7 +1983,7 @@
         "maxMonths": 36,
         "venue": "Oficina Josefina",
         "sourceUrl": "https://www.oficinajosefina.com/beb%C3%A9s",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "kind": "official-programme"
       },
       "validationStatus": "verified",
@@ -1705,7 +2273,7 @@
       "confidence": "structured-listing",
       "evidence": "Dados estruturados do evento; vagas não confirmadas.",
       "evidenceDate": "2026-11-22",
-      "discoveredAt": "2026-11-22T09:26:18+00:00",
+      "discoveredAt": "2026-11-22T13:24:25+00:00",
       "sourceType": "auto-jsonld",
       "priority": 48,
       "sessionEvidence": {
@@ -1716,7 +2284,7 @@
         "maxMonths": 144,
         "venue": "Rua Duque de Saldanha 416 Porto",
         "sourceUrl": "https://www.viralagenda.com/pt/events/1878380/ceramica-em-familia-family-ceramics",
-        "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+        "checkedAt": "2026-11-22T13:22:51.193324+00:00",
         "kind": "structured-event"
       },
       "validationStatus": "pending",
@@ -1993,7 +2561,7 @@
   ],
   "excludedEvents": [],
   "eligibilitySummary": {
-    "published": 24,
+    "published": 33,
     "pending": 12,
     "outsideRadius": 0
   },
@@ -2021,7 +2589,7 @@
         "https://www.visitsealife.com/porto/en/plan-your-visit/before-you-visit/opening-hours/",
         "https://www.visitsealife.com/porto/encontrar/informacoes/ajuda/"
       ],
-      "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+      "checkedAt": "2026-11-22T13:22:51.193324+00:00",
       "sourceType": "official-outing",
       "sourceName": "SEA LIFE Porto",
       "distanceKm": 3.6866,
@@ -2055,7 +2623,7 @@
       "evidenceUrls": [
         "https://visitmaia.pt/public/eventos/mercadinho-de-natal-maia-natal-2026"
       ],
-      "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+      "checkedAt": "2026-11-22T13:22:51.193324+00:00",
       "sourceType": "official-outing",
       "sourceName": "Maia · Mercadinho de Natal",
       "distanceKm": 5.5892,
@@ -2089,7 +2657,7 @@
       "evidenceUrls": [
         "https://www.serralves.pt/atividades-serralves/0512-mercado-de-natal-de-serralves/"
       ],
-      "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+      "checkedAt": "2026-11-22T13:22:51.193324+00:00",
       "sourceType": "official-outing",
       "sourceName": "Serralves · Mercado de Natal",
       "distanceKm": 3.4372,

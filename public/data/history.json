@@ -167,17 +167,17 @@
       "lastChecked": "2026-11-09T22:59:16+00:00"
     }
   },
-  "lastRun": "2026-11-22T09:27:36+00:00",
+  "lastRun": "2026-11-22T13:26:26+00:00",
   "scanStats": {
-    "sourcesOk": 25,
+    "sourcesOk": 29,
     "sourcesFailed": 0,
-    "autoEvents": 2,
+    "autoEvents": 9,
     "collectionHealth": {
       "review-needed": 6,
-      "partial": 6,
-      "collected": 6,
-      "no-sessions": 2,
-      "discovery-only": 5
+      "partial": 8,
+      "discovery-only": 6,
+      "collected": 7,
+      "no-sessions": 2
     }
   },
   "programmeWatch": {
@@ -197,7 +197,7 @@
         ],
         "agendaRevision": "1793359484204"
       },
-      "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+      "checkedAt": "2026-11-22T13:22:51.193324+00:00",
       "changedAt": "2026-11-22T09:24:41.868641+00:00",
       "changeReasons": [
         "Nova newsletter publicada"
@@ -211,7 +211,7 @@
     "public/data/playlab-programme.json": "128f6c9cba8cc2eb6333cebb9c358fb3d8481ebaf08fd10094bcc2cd0b5c2451",
     "public/data/poster-reviews.json": "836f53a245808b08bf48168ea4a35c385e830ec216667e0eae1b2e4297a767ed",
     "public/data/venues.json": "91d25c4f9fba1de6f4771eca659f4487ebd15eb61f15779e89eeb9967d639dcb",
-    "public/data/watchlist.json": "0d3be23063aad2268052b91f3b3dce2e716df6f0cff2f39ab5a4d5a6549e490b",
+    "public/data/watchlist.json": "d2aa213a7ecfbb32e05f7d77789d317b3c4cd3fe23b4e127f947056a17c77041",
     "requirements.txt": "a186b6d970850f6dec145b1f1f4c8dd8bcecf76d25ee41399f4e0dbb9f2caac5",
     "scripts/adapters.py": "250873023b29a4f7fd884df9815683f2c7bf7de0f551738f2063f083617849c5",
     "scripts/allegrow.py": "22881bb6ef52464d219155efd39e33eb55095c3abac65e6bd1b80327bdf8c874",
@@ -219,17 +219,18 @@
     "scripts/deployment_changes.py": "e31ad4f08b3b6e08ae93dba0b15b79089e8c8f68b41d3ff2b8dbc2f9317716fe",
     "scripts/eligibility.py": "6a3f7a169ba9199a2d79bec83992f7262b8e124bebe45180d529c13ea47faf64",
     "scripts/knockknock.py": "60c6333296882895029a00704c522c89756ec5b2b0ff5ccd04653be472b1e363",
-    "scripts/maia.py": "37543274947e6f9fb218d29ebd19f5120fc3ebb3cda18707b6aabf11d36f5d1d",
+    "scripts/maia.py": "48bb113776cbd9afaf0d9d6b0ccfc6506a162b0b9880accde0a567c291b0767d",
+    "scripts/official_agendas.py": "05d09269829a9735be53cfc005ffea2d31b39105bad49b4c106ed58f4c59975b",
     "scripts/outings.py": "9db34c853a22c49a391874b26c7f883ef76ab468aa4a1bbe93b75d4343e7a77a",
     "scripts/playlab.py": "62130480a95b869b4bef5910c224102b7e0043ea225e8917dcc5d4d578753367",
     "scripts/posters.py": "e9991607ff0270dd6da61ab8aba91fbfa71bba45d94dfc89edb0ab9d3e134da7",
     "scripts/seed.py": "8d7e57d9f7f1c13b597085c392425f9da200228f709cd73f0e056f5cae0a6528",
     "scripts/source_health.py": "052d3ab7d9d18950616c9c8afb51c585c590cf86b32295f5b447f5b3c91e2097",
     "scripts/telegram_alerts.py": "ab22e638b6edf8e8854271a351df9294a6bccfcc7d2b0b5f05816f4214d0cbda",
-    "scripts/update.py": "e0a2c615d9e17d2fc7496e0a911b4116a35c411f679d25a24d3ec5105e0d12aa"
+    "scripts/update.py": "7ab45076ca8f59553556f4727fbc0e0317fc55838343a500950008041b88f4a2"
   },
-  "collectionEventsDigest": "17d97b10dbf9955660abe3c6a6f239120194a8f0c544cf87a66eaf8e927ea375",
-  "collectionDiscoveriesDigest": "97669c600b4683cb4321a68bbcd3704056a1a6977faddb085c90f6bceff7d1ad",
+  "collectionEventsDigest": "8d266de440763216006baf9914d7b0c09ee3297d48bb4c156851c2ad0286f381",
+  "collectionDiscoveriesDigest": "af1cce7654efb596f0e13c2e9146f6d77243ecb6afd6e4e2a3024f91a18fa4cf",
   "programmeChanges": [
     {
       "source": "PlayLab Porto",
@@ -240,5 +241,5 @@
       "url": "https://sites.google.com/view/playlabporto/agenda"
     }
   ],
-  "collectionHistoryDigest": "d03ce34cfa35b6972a25922ebe10d79dce3aba001596c23ff450f1bd8b0ab933"
+  "collectionHistoryDigest": "fd897f7602a9715a06dbf475b073102b72bff979289627a82d47f571eef430fc"
 }
