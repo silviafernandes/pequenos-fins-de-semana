@@ -32,6 +32,7 @@ from outings import collect as collect_outings, eligible as eligible_outing
 from playlab import programme_links, weekend_form, collect_programme, programme_watch, public_choices, WEEKEND_FORM, AGENDA
 from knockknock import collect as collect_knock, PAGE as KNOCK_PAGE
 from maia import collect as collect_maia
+from official_agendas import agenda_links, provider_links, visitmaia_sessions
 from source_health import annotate_sources, health_summary
 from deployment_changes import record_collection
 
@@ -405,7 +406,7 @@ def scan(sources,previous,history,now):
         context=None
         if urlparse(url).hostname=='www.bibliotecasdoporto.pt' and '/evento/' in urlparse(url).path:
             context,_=get_page('https://www.bibliotecasdoporto.pt/evento/nano-mini-micro-festival-para-a-infancia-do-porto/')
-        return organiser_sessions(page,url,now,make_event,context)
+        return organiser_sessions(page,url,now,make_event,context)+visitmaia_sessions(page,url,now,make_event)
     def session_key(event):
         return (canonical(event.get('sourceUrl')),event.get('date'),event.get('start'),normalized(event.get('title')),normalized(event.get('venue')))
     # Backfill only from a previously published concrete session. Unknown history
@@ -420,10 +421,11 @@ def scan(sources,previous,history,now):
             first=parse_dt(lead.get('firstSeen'))
             if first and first.tzinfo and first<=now:timestamps.append(first)
         event['addedAt']=min(timestamps).isoformat() if timestamps else None
-    def refresh_page_evidence(url,parsed,include_programme=False):
+    def refresh_page_evidence(url,parsed,include_programme=False,include_maia=False):
         current={session_key(e) for e in parsed}
         for event in events+auto_add:
             if event.get('sourceType')=='playlab-programme' and not include_programme:continue
+            if event.get('sourceType') in ('maia-reviewed-programme','maia-monthly-programme') and not include_maia:continue
             evidence=event.get('sessionEvidence',{})
             if canonical(evidence.get('sourceUrl'))==canonical(url) and session_key(event) not in current:
                 event.pop('sessionEvidence',None)
@@ -450,7 +452,7 @@ def scan(sources,previous,history,now):
         if src.get('type')=='maia-programmes':
             pages,report=collect_maia(src,get_page,lambda doc:fetch(doc,content_types=('application/pdf',),binary=True),load(DATA/'maia-programmes.json',{}),now,make_event)
             for page,parsed in pages.items():
-                refresh_page_evidence(page,parsed)
+                refresh_page_evidence(page,parsed,include_maia=True)
                 for event in parsed:upsert(event)
             results[name]={**metadata,**report,'url':url,'checkedAt':stamp(),'lastSuccessfulAt':stamp() if report['ok'] else old_index.get(name,{}).get('lastSuccessfulAt')}
             continue
@@ -493,6 +495,8 @@ def scan(sources,previous,history,now):
         for hidden in clean_soup.select('[hidden], [aria-hidden="true"], script, style'): hidden.decompose()
         links,_=links_from(str(clean_soup),url)
         relevant=[(u,t) for (u,t) in links if possible_link(u,t) and u!=url]
+        if src.get('type')=='city-agenda':
+            relevant=[(u,t) for u,t in agenda_links(str(clean_soup),url,now) if not excludes_under_three(t)]
         relevant+=programme_links(str(clean_soup),url)
         # Explicit programme entry points are checked every run, outside keyword matching.
         entry_errors=[]
@@ -549,6 +553,8 @@ def scan(sources,previous,history,now):
         poster_pages=0
         detail_checked=dict(checked_before)
         parsed_keys={session_key(event) for event in root_events}
+        providers_checked=0
+        providers_seen=set()
         for u,t in relevant:
             page,err2=get_page(u)
             detail_checked[u]=stamp()
@@ -583,6 +589,20 @@ def scan(sources,previous,history,now):
             parsed_keys.update(session_key(event) for event in parsed)
             refresh_page_evidence(u,parsed)
             for event in parsed:upsert(event)
+            if src.get('type')=='city-agenda' and providers_checked<MAX_DETAILS:
+                for provider_url in provider_links(page,u):
+                    if provider_url in providers_seen:continue
+                    providers_seen.add(provider_url)
+                    providers_checked+=1
+                    provider_page,provider_error=get_page(provider_url)
+                    if provider_error or not provider_page:
+                        detail_errors.append({'url':provider_url,'error':provider_error or 'Página vazia'});continue
+                    provider_soup=BeautifulSoup(provider_page,'html.parser')
+                    provider_events=adapted_sessions(provider_page,provider_url)
+                    provider_events+=[event for raw in extract_json_ld(provider_soup) if (event:=make_event(raw,provider_url,name,now))]
+                    refresh_page_evidence(provider_url,provider_events)
+                    parsed_keys.update(session_key(event) for event in provider_events)
+                    for event in provider_events:upsert(event)
             age_event=next((e for e in parsed if canonical(e['sourceUrl'])==canonical(u)),None)
             discovery_id=hashlib.sha256(u.encode()).hexdigest()[:15]
             if age_event and discovery_id in old_disc:

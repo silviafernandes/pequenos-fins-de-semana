@@ -37,10 +37,11 @@ def period(soup):
 def listing_expired(link,today):
     block=link.find_parent(class_='linl_block')
     if not block:return False
-    months=block.select('.dates .mes_curto');years=block.select('.dates .ano');days=block.select('.dates .dia')
+    months=block.select('.dates .mes_curto, .dates .mes');years=block.select('.dates .ano');days=block.select('.dates .dia')
     if not months or not years or not days:return False
     try:
-        month=MONTHS.index(normalized(months[-1].get_text())[:3])+1
+        label=normalized(months[-1].get_text())
+        month=int(label) if label.isdigit() else MONTHS.index(label[:3])+1
         year=int(years[-1].get_text().strip().lstrip("'’"))
         if year<100:year+=2000
         return date(year,month,int(days[-1].get_text()))<today
