@@ -229,6 +229,48 @@
       },
       "address": "Mercado Ferreira Borges, Porto",
       "addressSourceUrl": "https://www.agenda-porto.pt/local/nKeROL8JlrK/"
+    },
+    "forum-maia": {
+      "name": "Fórum da Maia",
+      "latitude": 41.233823,
+      "longitude": -8.622901,
+      "coordinateSourceUrl": "https://www.visitmaia.pt/public/produtos-turisticos/forum-da-maia",
+      "verifiedAt": "2026-11-22",
+      "precision": "venue",
+      "aliases": [
+        "Fórum da Maia",
+        "Café Concerto do Fórum da Maia",
+        "Grande Auditório do Fórum da Maia",
+        "Pequeno Auditório do Fórum da Maia"
+      ],
+      "officialHosts": [
+        "cm-maia.pt",
+        "visitmaia.pt"
+      ],
+      "address": "Rua Engenheiro Duarte Pacheco 131, 4470-174 Maia",
+      "addressSourceUrl": "https://www.visitmaia.pt/public/produtos-turisticos/forum-da-maia",
+      "coordinateNote": "Coordenadas do ponto Fórum da Maia no mapa Google incorporado na ficha oficial Visit Maia; as salas pertencem a este equipamento."
+    },
+    "biblioteca-maia": {
+      "name": "Biblioteca Municipal da Maia",
+      "latitude": 41.234501,
+      "longitude": -8.623152,
+      "coordinateSourceUrl": "https://www.visitmaia.pt/public/produtos-turisticos/biblioteca-municipal-dr-jose-vieira-de-carvalho",
+      "verifiedAt": "2026-11-22",
+      "precision": "venue",
+      "aliases": [
+        "Biblioteca Municipal da Maia",
+        "Biblioteca Municipal Doutor José Vieira de Carvalho",
+        "Biblioteca Municipal da Maia · Sala do Conto",
+        "Biblioteca Municipal da Maia · Sala de Conferências"
+      ],
+      "officialHosts": [
+        "cm-maia.pt",
+        "visitmaia.pt"
+      ],
+      "address": "Rua Engenheiro Duarte Pacheco 131, 4470-174 Maia",
+      "addressSourceUrl": "https://www.visitmaia.pt/public/produtos-turisticos/biblioteca-municipal-dr-jose-vieira-de-carvalho",
+      "coordinateNote": "Ponto da biblioteca no mapa Google incorporado na ficha oficial Visit Maia. A biblioteca fica no edifício do Fórum da Maia."
     }
   }
 }

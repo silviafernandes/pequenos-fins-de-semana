@@ -18,7 +18,7 @@ def digest(value):
 
 def collection_inputs(root):
     files=set(root.glob('scripts/**/*.py'))
-    files.update(root/name for name in ('requirements.txt','.github/workflows/site.yml','public/data/watchlist.json','public/data/venues.json','public/data/playlab-programme.json','public/data/poster-reviews.json'))
+    files.update(root/name for name in ('requirements.txt','.github/workflows/site.yml','public/data/watchlist.json','public/data/venues.json','public/data/playlab-programme.json','public/data/poster-reviews.json','public/data/maia-programmes.json'))
     return {str(file.relative_to(root)):hashlib.sha256(file.read_bytes()).hexdigest() if file.is_file() else 'missing' for file in sorted(files)}
 
 
