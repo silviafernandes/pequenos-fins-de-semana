@@ -167,17 +167,17 @@
       "lastChecked": "2026-11-09T22:59:16+00:00"
     }
   },
-  "lastRun": "2026-11-21T16:47:54+00:00",
+  "lastRun": "2026-11-22T09:27:36+00:00",
   "scanStats": {
     "sourcesOk": 25,
     "sourcesFailed": 0,
-    "autoEvents": 1,
+    "autoEvents": 2,
     "collectionHealth": {
-      "review-needed": 5,
+      "review-needed": 6,
       "partial": 6,
-      "discovery-only": 7,
-      "collected": 5,
-      "no-sessions": 2
+      "collected": 6,
+      "no-sessions": 2,
+      "discovery-only": 5
     }
   },
   "programmeWatch": {
@@ -189,39 +189,56 @@
         "weekendForm": "https://docs.google.com/forms/d/e/1FAIpQLScd4N4mxUFYqP6l6kMYB6LvdyTCm4_Q5LGWyfWp5ekNYFtKSw/viewform",
         "newsletterIssues": [
           "https://playlabporto.beehiiv.com/p/em-agosto-no-playlab",
-          "https://playlabporto.beehiiv.com/p/julho-no-playlab",
           "https://playlabporto.beehiiv.com/p/no-proximo-sabado-no-playlab",
+          "https://playlabporto.beehiiv.com/p/novembro-no-playlab",
           "https://playlabporto.beehiiv.com/p/segundaquinzenadeagosto",
           "https://playlabporto.beehiiv.com/p/setembro-no-playlab-e-o-nosso-segundo-aniversario",
           "https://playlabporto.beehiiv.com/p/setembro-no-playlab-novas-experiencias-e-uma-celebracao-muito-especial-1"
         ],
         "agendaRevision": "1793359484204"
       },
-      "checkedAt": "2026-11-21T16:44:48.713064+00:00"
+      "checkedAt": "2026-11-22T09:24:41.868641+00:00",
+      "changedAt": "2026-11-22T09:24:41.868641+00:00",
+      "changeReasons": [
+        "Nova newsletter publicada"
+      ],
+      "pendingReview": true
     }
   },
   "collectionInputs": {
     ".github/workflows/site.yml": "dcdcf856b8dd7d6a1eee261374d46ebe63b6e630269aa974eb304d1136662318",
+    "public/data/maia-programmes.json": "1df15e2427c276c0f63975e38c36b29882a2a7f1496aae18e359e836ae90598c",
     "public/data/playlab-programme.json": "128f6c9cba8cc2eb6333cebb9c358fb3d8481ebaf08fd10094bcc2cd0b5c2451",
     "public/data/poster-reviews.json": "836f53a245808b08bf48168ea4a35c385e830ec216667e0eae1b2e4297a767ed",
-    "public/data/venues.json": "59f03d675d86e77b7b24e97eeed361a05d6e65375a4bac5321186b041e1306fd",
-    "public/data/watchlist.json": "5a277b9b170eb559c1408a98d8d7a8775fb4905cfafaafedf79d671c46a6f66c",
+    "public/data/venues.json": "91d25c4f9fba1de6f4771eca659f4487ebd15eb61f15779e89eeb9967d639dcb",
+    "public/data/watchlist.json": "0d3be23063aad2268052b91f3b3dce2e716df6f0cff2f39ab5a4d5a6549e490b",
     "requirements.txt": "a186b6d970850f6dec145b1f1f4c8dd8bcecf76d25ee41399f4e0dbb9f2caac5",
     "scripts/adapters.py": "250873023b29a4f7fd884df9815683f2c7bf7de0f551738f2063f083617849c5",
     "scripts/allegrow.py": "22881bb6ef52464d219155efd39e33eb55095c3abac65e6bd1b80327bdf8c874",
     "scripts/audit_database.py": "61b3c005c46c30d94e3d91340427549a9e165d11dc68abea520da3af05a371c4",
-    "scripts/deployment_changes.py": "4b29e3516cb3cccd5ea3f1a0f4c579a737cecc05e02c0717fb05b2615e6f48c7",
+    "scripts/deployment_changes.py": "e31ad4f08b3b6e08ae93dba0b15b79089e8c8f68b41d3ff2b8dbc2f9317716fe",
     "scripts/eligibility.py": "6a3f7a169ba9199a2d79bec83992f7262b8e124bebe45180d529c13ea47faf64",
     "scripts/knockknock.py": "60c6333296882895029a00704c522c89756ec5b2b0ff5ccd04653be472b1e363",
+    "scripts/maia.py": "37543274947e6f9fb218d29ebd19f5120fc3ebb3cda18707b6aabf11d36f5d1d",
     "scripts/outings.py": "9db34c853a22c49a391874b26c7f883ef76ab468aa4a1bbe93b75d4343e7a77a",
     "scripts/playlab.py": "62130480a95b869b4bef5910c224102b7e0043ea225e8917dcc5d4d578753367",
     "scripts/posters.py": "e9991607ff0270dd6da61ab8aba91fbfa71bba45d94dfc89edb0ab9d3e134da7",
     "scripts/seed.py": "8d7e57d9f7f1c13b597085c392425f9da200228f709cd73f0e056f5cae0a6528",
     "scripts/source_health.py": "052d3ab7d9d18950616c9c8afb51c585c590cf86b32295f5b447f5b3c91e2097",
     "scripts/telegram_alerts.py": "ab22e638b6edf8e8854271a351df9294a6bccfcc7d2b0b5f05816f4214d0cbda",
-    "scripts/update.py": "51e511d2634ce50bf6f61adeb75032a920b114e9ed4b2674b5464b9e06102c9c"
+    "scripts/update.py": "e0a2c615d9e17d2fc7496e0a911b4116a35c411f679d25a24d3ec5105e0d12aa"
   },
-  "collectionEventsDigest": "ee3fe32aa8f5f068bf7d5ec75ca80f135a6824f6d8b932f315320bbe493602d0",
-  "collectionDiscoveriesDigest": "6721708d4396121066912d3025d7c5ffb05c6c6cb8039a036ea18e22c55cc736",
-  "collectionHistoryDigest": "5551701eadd0afb1db8bc126fed48a9d91960af19564197137d2eb474e471341"
+  "collectionEventsDigest": "17d97b10dbf9955660abe3c6a6f239120194a8f0c544cf87a66eaf8e927ea375",
+  "collectionDiscoveriesDigest": "97669c600b4683cb4321a68bbcd3704056a1a6977faddb085c90f6bceff7d1ad",
+  "programmeChanges": [
+    {
+      "source": "PlayLab Porto",
+      "at": "2026-11-22T09:24:41.868641+00:00",
+      "reasons": [
+        "Nova newsletter publicada"
+      ],
+      "url": "https://sites.google.com/view/playlabporto/agenda"
+    }
+  ],
+  "collectionHistoryDigest": "d03ce34cfa35b6972a25922ebe10d79dce3aba001596c23ff450f1bd8b0ab933"
 }
