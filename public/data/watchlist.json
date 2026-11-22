@@ -127,10 +127,10 @@
   },
   {
     "name": "Câmara de Matosinhos · Agenda",
-    "url": "https://www.cm-matosinhos.pt/",
-    "type": "page",
+    "url": "https://www.cm-matosinhos.pt/municipio/agenda",
+    "type": "city-agenda",
     "priority": 1,
-    "monitoringNote": "Programa municipal e Natal. Cada atividade precisa de data, idade e local confirmados."
+    "monitoringNote": "Agenda municipal de eventos; evita a página inicial e menus de categorias. Datas antigas são ignoradas quando publicadas na listagem. Idade, horário e recinto continuam a exigir confirmação por sessão."
   },
   {
     "name": "Porto · Ágora",
@@ -179,5 +179,33 @@
     "type": "family-outings",
     "adapter": "ferreira-christmas",
     "priority": 1
+  },
+  {
+    "name": "Porto · Agenda Famílias",
+    "url": "https://www.agenda-porto.pt/seccao/familias/",
+    "type": "city-agenda",
+    "priority": 1,
+    "monitoringNote": "Secção Famílias da Agenda Porto. As etiquetas familiares não confirmam admissão de bebés. Ligações «Mais info» para bibliotecas, Casa da Música e Museu do Porto são seguidas até à fonte original, dentro do limite de cada recolha."
+  },
+  {
+    "name": "Matosinhos · Cultura",
+    "url": "https://www.culturamatosinhos.pt/eventos-9",
+    "type": "city-agenda",
+    "priority": 1,
+    "monitoringNote": "Programação de cultura municipal: teatro, museus, oficinas e bibliotecas. Os links são pistas; só se publicam sessões com idade, data, hora e local exatos verificados."
+  },
+  {
+    "name": "Maia · Agenda Cultural",
+    "url": "https://www.cm-maia.pt/viver/cultura/noticias-e-eventos",
+    "type": "city-agenda",
+    "priority": 1,
+    "monitoringNote": "Agenda cultural municipal além da biblioteca: Fórum, espetáculos, oficinas e festivais. A revisão específica de programas PDF da biblioteca é preservada."
+  },
+  {
+    "name": "Maia · Visit Maia",
+    "url": "https://visitmaia.pt/public/eventos",
+    "type": "city-agenda",
+    "priority": 1,
+    "monitoringNote": "Agenda oficial de turismo: festas, mercados e programas sazonais. Calendários publicados com hora, local e admissão explícita são lidos; «Famílias» sem idade não basta. Calendários de vários dias não são convertidos em sessões."
   }
 ]

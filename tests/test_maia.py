@@ -140,5 +140,16 @@ class MaiaTests(unittest.TestCase):
                 self.assertEqual(len(changed['pendingEvents']),1)
                 self.assertNotIn('sessionEvidence',changed['pendingEvents'][0])
 
+    def test_wider_city_discovery_cannot_invalidate_a_pdf_checked_by_the_library_adapter(self):
+        city='https://www.cm-maia.pt/viver/cultura/noticias-e-eventos'
+        self.pages[city]=self.index
+        with tempfile.TemporaryDirectory() as folder:
+            data=Path(folder);(data/'maia-programmes.json').write_text(json.dumps(self.programme))
+            def fetch(url,**kwargs):return (PAYLOAD,None) if url==self.document else self.get(url)
+            with patch.object(update,'DATA',data),patch.object(update,'fetch',side_effect=fetch),patch.object(update.time,'sleep'):
+                _,events,_,_,_=update.scan([self.source,{'name':'Maia · Agenda Cultural','url':city,'type':'city-agenda'}],{}, {},NOW)
+        self.assertEqual(len(events['events']),1)
+        self.assertEqual(events['events'][0]['sourceType'],'maia-reviewed-programme')
+
 
 if __name__=='__main__':unittest.main()
