@@ -1,0 +1,40 @@
+{
+  "programmes": [
+    {
+      "pageUrl": "https://www.cm-maia.pt/viver/cultura/noticias-e-eventos/evento-12/7-edicao-contamina-festival-de-contos-da-maia",
+      "documentUrl": "https://www.cm-maia.pt/cmmaia/uploads/writer_file/document/15214/programa_detalhado_2026__1_.pdf",
+      "sha256": "36b1495e65a022f394d063696a37d12ad94f61b254a2ce2042966810c2dade4a",
+      "reviewedAt": "2026-11-22T09:16:51+00:00",
+      "pageTitle": "7ª edição Contamina - Festival de Contos da Maia",
+      "dateRange": [
+        "2026-11-27",
+        "2026-11-29"
+      ],
+      "sessions": [
+        {
+          "title": "Joaninha voa, voa — MUSA (Contamina)",
+          "date": "2026-11-28",
+          "start": "11:30",
+          "end": null,
+          "ageText": "Dos 0 aos 6 anos com as famílias",
+          "venue": "Café Concerto do Fórum da Maia",
+          "category": "Música",
+          "description": "Espetáculo musical e sensorial para bebés e crianças, com voz, piano e flauta. Integrado no Contamina — Festival de Contos da Maia.",
+          "registrationNote": "Condições de entrada e vagas por confirmar com a biblioteca. O formulário divulgado pelo festival destina-se às oficinas."
+        }
+      ]
+    }
+  ],
+  "leads": [
+    {
+      "title": "Uma História (de Natal) Cantata",
+      "reportedDayMonth": "06/12",
+      "start": "16:00",
+      "venue": "Auditório do Fórum da Maia",
+      "sourceProfileUrl": "https://www.instagram.com/bibliotecamaia/",
+      "observedAt": "2026-11-22",
+      "status": "needs-review",
+      "reason": "Cartaz partilhado pela utilizadora: confirmar o ano, a idade de admissão e a ligação da publicação antes de criar uma sessão."
+    }
+  ]
+}

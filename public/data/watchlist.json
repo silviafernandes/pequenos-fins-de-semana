@@ -13,10 +13,14 @@
   },
   {
     "name": "Biblioteca da Maia",
-    "url": "https://www.cm-maia.pt/institucional/atualidade-e-participacao/agenda/todos-os-eventos",
-    "type": "page",
+    "url": "https://www.cm-maia.pt/viver/cultura/equipamentos-culturais/biblioteca/noticias-eventos",
+    "type": "maia-programmes",
     "priority": 1,
-    "monitoringNote": "Agenda municipal com links para o programa mensal da biblioteca. PDFs e cartazes sem detalhes estruturados exigem revisão; não são sessões automaticamente confirmadas."
+    "monitoringNote": "Programa mensal da biblioteca e páginas de eventos verificadas diretamente. PDFs ligados são novamente consultados; alterações de imagem ou documento pedem revisão. Só entram sessões com idade explícita inferior a 3 anos; «Famílias» e «Geral» não bastam.",
+    "programmeUrls": [
+      "https://www.cm-maia.pt/viver/cultura/noticias-e-eventos/evento-12/7-edicao-contamina-festival-de-contos-da-maia"
+    ],
+    "instagramUrl": "https://www.instagram.com/bibliotecamaia/"
   },
   {
     "name": "Bibliotecas de Gaia",

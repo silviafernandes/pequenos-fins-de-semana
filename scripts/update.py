@@ -31,6 +31,7 @@ from posters import from_posters
 from outings import collect as collect_outings, eligible as eligible_outing
 from playlab import programme_links, weekend_form, collect_programme, programme_watch, public_choices, WEEKEND_FORM, AGENDA
 from knockknock import collect as collect_knock, PAGE as KNOCK_PAGE
+from maia import collect as collect_maia
 from source_health import annotate_sources, health_summary
 from deployment_changes import record_collection
 
@@ -446,6 +447,13 @@ def scan(sources,previous,history,now):
     for src in sources:
         name,url=src['name'],src['url'];print('Checking',name,url,flush=True)
         metadata={key:src[key] for key in ('instagramUrl','monitoringNote','agePolicyUrl') if key in src}
+        if src.get('type')=='maia-programmes':
+            pages,report=collect_maia(src,get_page,lambda doc:fetch(doc,content_types=('application/pdf',),binary=True),load(DATA/'maia-programmes.json',{}),now,make_event)
+            for page,parsed in pages.items():
+                refresh_page_evidence(page,parsed)
+                for event in parsed:upsert(event)
+            results[name]={**metadata,**report,'url':url,'checkedAt':stamp(),'lastSuccessfulAt':stamp() if report['ok'] else old_index.get(name,{}).get('lastSuccessfulAt')}
+            continue
         if src.get('type')=='knock-public-calendar':
             html,error=get_page(url)
             parsed,report=collect_knock(html,fetch_public_calendar,now,make_event) if html else ([],{'ok':False,'error':error,'readMode':'public-calendar'})
