@@ -167,11 +167,11 @@
       "lastChecked": "2026-11-09T22:59:16+00:00"
     }
   },
-  "lastRun": "2026-11-25T19:15:57+00:00",
+  "lastRun": "2026-11-26T19:01:43+00:00",
   "scanStats": {
     "sourcesOk": 28,
     "sourcesFailed": 1,
-    "autoEvents": 0,
+    "autoEvents": 1,
     "collectionHealth": {
       "review-needed": 6,
       "partial": 8,
@@ -198,7 +198,7 @@
         ],
         "agendaRevision": "1793359484204"
       },
-      "checkedAt": "2026-11-25T19:12:19.702366+00:00",
+      "checkedAt": "2026-11-26T18:58:09.689417+00:00",
       "changedAt": "2026-11-22T09:24:41.868641+00:00",
       "changeReasons": [
         "Nova newsletter publicada"
@@ -230,8 +230,8 @@
     "scripts/telegram_alerts.py": "ab22e638b6edf8e8854271a351df9294a6bccfcc7d2b0b5f05816f4214d0cbda",
     "scripts/update.py": "7ab45076ca8f59553556f4727fbc0e0317fc55838343a500950008041b88f4a2"
   },
-  "collectionEventsDigest": "9e6be1f3340d0d4208a3890e0e4a7d770ab687597902a38bcc11a01182dd552d",
-  "collectionDiscoveriesDigest": "dbdb9ceb14e2d82638b5f0a3416dfedbbb0a8b7ae7330117fe935b6542ac70c1",
+  "collectionEventsDigest": "c0b2a21bd102614aa66d9f38a3657b9f21782a7a67f4c49e8654697331edcf4f",
+  "collectionDiscoveriesDigest": "125be22d837cb10c5ec1ef16e1ac4bf6185509bafc386a8e9f9a8e6c837ce503",
   "programmeChanges": [
     {
       "source": "PlayLab Porto",
@@ -242,5 +242,5 @@
       "url": "https://sites.google.com/view/playlabporto/agenda"
     }
   ],
-  "collectionHistoryDigest": "9b2463a68ca2e88ed795a4b4373ce420520d50755bf4aa43c4e9966220acf990"
+  "collectionHistoryDigest": "d4d9b7e587b3b5fb30623cba522ace55633d72150608748a1c336e2547b609df"
 }
